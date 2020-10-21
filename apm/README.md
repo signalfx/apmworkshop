@@ -4,8 +4,10 @@
 
 Audience: Intermediate and advanced developers, devops, and SREs who have already set up their Splunk SignalFx account and have tried out integrations and dashboards. Skill level should include troubleshooting a Linux and Kubernetes environment.
 
+The term "SignalFx" refers to the Splunk Observability services.
+
 Requirements:   
-1. Splunk SignalFx Account
+1. Splunk Observability Account
 2. Debian (i.e. Ubuntu) Linux environment with minimum 16G RAM and 8G disk should be ready to try all examples.  
 RedHat and other mainstream Linux distributions can be used by translating shell commands from Debian.
 3. Kubernetes cluster set up in advance. 
@@ -20,7 +22,7 @@ I.e. to change your REALM to `us1` change `api.YOURREALMHERE.signalfx.com` to `a
 
 ### Summary Of Steps
 
-1. Review basic [Splunk SignalFx Quick Start for Infrastructure](https://docs.signalfx.com/en/latest/getting-started/quick-start.html)  
+1. Review basic [Splunk Observability Quick Start for Infrastructure](https://docs.signalfx.com/en/latest/getting-started/quick-start.html)  
 2. Install SignalFx SmartAgent on a host and configure it for APM
 3. Instrument your app for APM
 4. Exercise app so it send spans to Splunk SignalFx
