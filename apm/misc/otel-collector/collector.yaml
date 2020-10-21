@@ -1,0 +1,72 @@
+extensions:
+  health_check:
+  zpages:
+    endpoint: 0.0.0.0:55679
+
+receivers:
+
+  # This section is used to collect OpenTelemetry metrics
+  # Even if just a SignalFx µAPM customer, these metrics are included
+
+  # Recommended way to receive trace data from the Smart Agent
+  sapm:
+    endpoint: 0.0.0.0:7276
+
+  #Only required for SignalFx Infrastructure Monitoring customers
+  signalfx:
+    endpoint: 0.0.0.0:9943
+
+  # Optional receivers
+  #jaeger:
+  #  protocols:
+  #    thrift_http:
+  #      endpoint: 0.0.0.0:14268
+  #    thrift_tchannel:
+  #      endpoint: 0.0.0.0:14267
+  #zipkin:
+  #  endpoint: 0.0.0.0:9411
+
+processors:
+
+  batch:
+
+  # Optional: If you have multiple environments
+  attributes/copyfromexistingkey:
+    actions:
+    - key: environment
+      from_attribute: YOURTAGHERE
+      action: upsert
+  attributes/newenvironment:
+    actions:
+    - key: environment
+      value: "YOURENVHERE"
+      action: insert
+
+  queued_retry:
+
+exporters:
+
+  # Traces
+  sapm:
+    access_token: YOURTOKENHERE 
+    endpoint: "https://ingest.YOURREALMHERE.signalfx.com/v2/trace"
+
+  # Metrics
+  signalfx:
+    access_token: "YOURTOKENHERE"
+    realm: "YOURREALMHERE"
+
+service:
+
+  pipelines:
+
+    traces:
+      receivers: [sapm]
+      processors: [batch, attributes/copyfromexistingkey, attributes/newenvironment, queued_retry]
+      exporters: [sapm]
+
+    metrics:
+      receivers: [signalfx]
+      exporters: [signalfx]
+
+  extensions: [health_check, zpages]

@@ -1,0 +1,48 @@
+---
+# *Required* The access token for the org that you wish to send metrics to.
+signalFxAccessToken: {"#from": "/etc/signalfx/token"}
+ingestUrl: {"#from": "/etc/signalfx/ingest_url", default: "https://ingest.signalfx.com"}
+apiUrl: {"#from": "/etc/signalfx/api_url", default: "https://api.signalfx.com"}
+cluster: {"#from": "/etc/signalfx/cluster", optional: true}
+
+intervalSeconds: 10
+
+logging:
+# Valid values are 'debug', 'info', 'warning', and 'error'
+  level: info
+
+# observers are what discover running services in the environment
+observers:
+  - type: host
+
+monitors:
+  - {"#from": "/etc/signalfx/monitors/*.yaml", flatten: true, optional: true}
+  - type: host-metadata
+  - type: processlist
+  - type: cpu
+  - type: filesystems
+  - type: disk-io
+  - type: net-io
+  - type: load
+  - type: memory
+  - type: vmem
+  - type: signalfx-forwarder
+    listenAddress: 127.0.0.1:9080
+    extraSpanTags:
+      environment: YOURENVIRONMENTHERE
+
+# Replace localhost below with IP address of OpenTelemetry Collector
+traceEndpointUrl: "http://localhost:7276/v2/trace"
+eventEndpointUrl: "https://ingest.YOURREALMHERE.signalfx.com/v2/trace"
+ingestUrl: "http://localhost:9943"
+
+collectd:
+  disableCollectd: true
+  configDir: /tmp/collectd
+
+writer:
+  logTraceSpans: true
+  traceExportFormat: sapm
+
+# Use this easily identify the host in SignalFx
+hostname: YOURHOSTNAMEHERE

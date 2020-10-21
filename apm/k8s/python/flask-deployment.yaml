@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-server
+spec:
+  selector:
+    matchLabels:
+      name: flask-server
+  template:
+    metadata:
+      labels:
+        name: flask-server
+    spec:
+      containers:
+        - name: flask-server
+          image: 'docker.io/stevelsplunk/sfx-python:latest'
+          ports:
+            - name: http
+              containerPort: 5000
+          env:
+            - name: SIGNALFX_SERVICE_NAME
+              value: Python-Flask-Server
+            - name: MY_NODE_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: spec.nodeName
+            - name: SIGNALFX_ENDPOINT_URL
+              value: http://$(MY_NODE_NAME):9080/v1/trace
+          command:
+            - /bin/sh
+          args:
+            - run-server.sh
+          imagePullPolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-server
+spec:
+  selector:
+    name: flask-server
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 5000
