@@ -8,9 +8,9 @@ The single task spins up two ECS Fargate containers:
 #2 Trace-Generator - generates traces using Python Requests doing GET requests to https://api.github.com
 
 ### SETUP
-The agent is a standard deployment of a SignalFx Fargate container as documented here: [example-fargate-task.json](./example-fargate-task.json)
+The agent is a standard deployment of a Fargate container as documented here: [Splunk Infra Fargate Deployment](https://github.com/signalfx/signalfx-agent/tree/master/deployments/fargate)
 
-The agent.yaml file is based on the [Fargate Example agent.yaml](https://raw.githubusercontent.com/slernersplunk/splunkobservability/master/apm/agent/fargate/agent.yaml)
+The Splunk Infraagent.yaml file is based on this [Fargate Example agent.yaml](https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/agent/fargate/agent.yaml)
 
 It has been configured for APM with instructions here:
 https://docs.signalfx.com/en/latest/apm/apm-getting-started/apm-smart-agent.html
