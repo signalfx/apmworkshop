@@ -1,10 +1,10 @@
-# SignalFx APM Trace Generator Demo For AWS ECS Fargate
+# Splunk APM Trace Generator Demo For AWS ECS Fargate
 
-This repo demonstrates a reference implemenation for a single AWS ECS Fargate task example of Splunk SignalFx APM.
+This repo demonstrates a reference implemenation for a single AWS ECS Fargate task example of Splunk APM.
 
 The single task spins up two ECS Fargate containers:
 
-#1 SignalFx-Agent - sidecar to observe ECS and relay traces to SignalFx   
+#1 Splk-Agent - sidecar to observe ECS and relay traces to SignalFx   
 #2 Trace-Generator - generates traces using Python Requests doing GET requests to https://api.github.com
 
 ### SETUP
@@ -12,15 +12,16 @@ The agent is a standard deployment of a SignalFx Fargate container as documented
 
 The agent.yaml file is based on the [Fargate Example agent.yaml](https://raw.githubusercontent.com/slernersplunk/splunkobservability/master/apm/agent/fargate/agent.yaml)
 
-However it has been configured for APM with instructions here:
+It has been configured for APM with instructions here:
 https://docs.signalfx.com/en/latest/apm/apm-getting-started/apm-smart-agent.html
 
-The result is this file here- to use this you must change the REALM of the trace endpoint url (or set it as an environment variable) in the [tgsfx.json](./tgsfx.json) task definition: [Fargate Example agent.yaml](https://raw.githubusercontent.com/slernersplunk/splunkobservability/master/apm/agent/fargate/agent.yaml)
+The result is this file here- to use this you must change the REALM of the trace endpoint url (or set it as an environment variable) in the `.json` task definition: [Fargate Example agent.yaml](https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/agent/fargate/agent.yaml)
 
 To deploy this example, you must have a Fargate ECS environment ready to go with VPC, task roles for logs, etc..
 
 Everything to test this example follows the ECS tutorial documentation here:
 https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_AWSCLI_Fargate.html
+
 Pay critical attention to setting up VPC in advance:
 https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html
 
@@ -32,19 +33,22 @@ Once all of the above is done:
 ### STEP 1
 Deploy with the following commands- change the variables in caps to suit your environment:
 ```
+aws ecs create-cluster --cluster-name test-cluster  
 aws ecs register-task-definition --cli-input-json file://trace-generator.json
 ```
 ### STEP 2
-Create the service based on the task just registered:    
-
-`aws ecs create-service --cluster test-cluster --service-name splk-demo --task-definition splk-demo:1 \`    
-`--desired-count 1 --launch-type "FARGATE" \`    
-`--network-configuration "awsvpcConfiguration={subnets=[subnet-YOURSUBNETIHERE],securityGroups=[sg-YOURSECURITYGROUPIDHERE],assignPublicIp=ENABLED}"`    
+Create the service based on the task just registered.
 
 Note that the task definition will increment each time you try it- from 1 to 2 etc... 
 To check which version is current use:
 
 `aws ecs list-task-definitions`
+
+To create the service:  
+
+`aws ecs create-service --cluster test-cluster --service-name splk-demo --task-definition splk-demo:1 \`    
+`--desired-count 1 --launch-type "FARGATE" \`    
+`--network-configuration "awsvpcConfiguration={subnets=[subnet-YOURSUBNETIHERE],securityGroups=[sg-YOURSECURITYGROUPIDHERE],assignPublicIp=ENABLED}"`    
 
 ### STEP 3
 
