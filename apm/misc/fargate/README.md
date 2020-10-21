@@ -54,7 +54,7 @@ Click "Troubleshoot" in your APM console, make sure you are in the `trace-genera
 
 See below left of furthest left screen for this link.
 
-Two frameworks are being used by the trace generator to get URLs: Python Requests.
+The framework used to generate requests is Python Requests.
 
 The screenshot below shows what the traces will look like.
 
