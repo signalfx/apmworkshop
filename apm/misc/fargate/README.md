@@ -32,12 +32,12 @@ Once all of the above is done:
 ### STEP 1
 Deploy with the following commands- change the variables in caps to suit your environment:
 ```
-aws ecs register-task-definition --cli-input-json file://tgsfx.json
+aws ecs register-task-definition --cli-input-json file://trace-generator.json
 ```
 ### STEP 2
 Create the service based on the task just registered:    
 
-`aws ecs create-service --cluster test-cluster --service-name signalfx-demo --task-definition signalfx-demo:1 \`    
+`aws ecs create-service --cluster test-cluster --service-name splk-demo --task-definition splk-demo:1 \`    
 `--desired-count 1 --launch-type "FARGATE" \`    
 `--network-configuration "awsvpcConfiguration={subnets=[subnet-YOURSUBNETIHERE],securityGroups=[sg-YOURSECURITYGROUPIDHERE],assignPublicIp=ENABLED}"`    
 
@@ -54,7 +54,7 @@ Click "Troubleshoot" in your APM console, make sure you are in the `trace-genera
 
 See below left of furthest left screen for this link.
 
-Two frameworks are being used by the trace generator to get URLs: OKHTTP and Apache.
+Two frameworks are being used by the trace generator to get URLs: Python Requests.
 
 The screenshot below shows what the traces will look like.
 
@@ -64,7 +64,7 @@ The screenshot below shows what the traces will look like.
 
 The key to this working is that the trace generator container is sending its traces to ```localhost``` which is network addresss shared with the agent container. The agent running in the agent container sees these traces and has been configured to send them to SignalFx.
 
-The trace generator is using the automatic instrumentation for tracing from SignalFx and uses the OkHTTP and Apache http request libraries to request a neutral external website (set up in the Java code) once per second, 1000 times.
+The trace generator is using the automatic instrumentation for tracing from SignalFx and uses the OkHTTP and Apache http request libraries to request a neutral external website (set up in the Java code) once and then wait a random time between one and two seconds.
 
 ### Extras
 
