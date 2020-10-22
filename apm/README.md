@@ -12,7 +12,7 @@ Requirements:
 RedHat and other mainstream Linux distributions can be used by translating shell commands from Debian.
 3. Kubernetes cluster set up in advance. 
 
-Hints on setting up a minimal Ubunbtu VM and Kubernetes cluster on a local machine are included in the [Appendix](./4-Appendix.md).
+Hints on setting up a minimal Ubunbtu VM and Kubernetes cluster on a local machine are included in the [Appendix](./workshop-steps/4-Appendix.md).
 
 ### Document Conventions
 
