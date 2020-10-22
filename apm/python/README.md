@@ -1,4 +1,4 @@
-### This lab requires starting from the main [APM Instrumentation Workshop](https://github.com/slernersplunk/splunkobservability/blob/master/apm/README.md)
+### This lab requires starting from the main [APM Instrumentation Workshop](../3-workshop-labs.md)
 
 #### Step #1 Install SignalFx tracing library and boostrap instrumentation. Make sure you have Python3 installed in advance of these steps.
 
