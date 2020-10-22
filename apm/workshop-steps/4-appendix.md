@@ -1,7 +1,16 @@
 
-#### Appendix A: Kubernetes Cluster Setup Hints
+#### Appendix A: Spin up Ubuntu VM on Mac or Windows  
 
 [Multipass](http://multipass.run) deploys and runs Ubuntu virtual machines easily on Mac and Windows.  
+
+Workshop examples have been tested on this configuration:
+
+`multipass launch -n primary -d 8G -m 4G`
+
+Make sure to always run `sudo apt-get -y update` before executing any step in the workshop.
+
+#### Appendix B: Kubernetes Cluster Setup Hints
+
 k3s is a lightweight Kubernetes deployment from Rancher: https://k3s.io/  
 
 To k3s install on Linux:  
@@ -26,7 +35,7 @@ The Kubernetes lab has also been tested on:
 * Workshop will NOT work on: Macbook Pro Docker Desktop Kubernetes
 
 
-#### Appendix B: use tmux instead of separate terminal windows/tabs  
+#### Appendix C: use tmux instead of separate terminal windows/tabs  
 
 `tmux` is recommended to split your terminal into several panes so that you can run an application in each pane without having to containerize applications- and you can keep a separate pane open for checking status of spans, the host, etc.
 
@@ -38,7 +47,3 @@ Tmux works by using `ctrl-b` as a command key followed by:
 `"` make a new horizontal pane
 `%` make a new vertical pane
 Arrow keys: move between panes.
-
-Using tmux looks as follows:
-
-![tmux image](./tmux.png)
