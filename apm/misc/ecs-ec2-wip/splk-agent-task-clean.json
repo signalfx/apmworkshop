@@ -1,0 +1,96 @@
+{
+    "containerDefinitions": [
+        {
+            "entryPoint": [
+                "bash",
+                "-c"
+            ],
+	    "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "ecs",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "splk-agent"
+                }
+            },
+            "command": [
+                "curl --fail $CONFIG_URL > /etc/signalfx/agent.yaml && exec /bin/signalfx-agent"
+            ],
+            "cpu": 0,
+            "environment": [
+                {
+                    "name": "ACCESS_TOKEN",
+                    "value": ""
+                },
+                {
+                    "name": "INGEST_URL",
+                    "value": "https://ingest.us1.signalfx.com"
+                },
+                {
+                    "name": "API_URL",
+                    "value": "https://api.us1.signalfx.com"
+                },
+                {
+                    "name": "TRACE_ENDPOINT_URL",
+                    "value": "https://ingest.us1.signalfx.com/v2/trace"
+                },
+                {
+                    "name": "CONFIG_URL",
+                    "value": "https://raw.githubusercontent.com/signalfx/signalfx-agent/v5.5.4/deployments/ecs/agent.yaml"
+                }
+            ],
+            "mountPoints": [
+                {
+                    "readOnly": true,
+                    "containerPath": "/hostfs",
+                    "sourceVolume": "hostfs"
+                },
+                {
+                    "readOnly": true,
+                    "containerPath": "/var/run/docker.sock",
+                    "sourceVolume": "docker-socket"
+                },
+                {
+                    "readOnly": true,
+                    "containerPath": "/etc/passwd",
+                    "sourceVolume": "etc-passwd"
+                }
+            ],
+            "volumesFrom": [],
+            "image": "quay.io/signalfx/signalfx-agent:5.5.4",
+            "essential": true,
+            "dockerLabels": {
+                "app": "splk-agent"
+            },
+            "name": "splk-agent"
+        }
+    ],
+    "memory": "200",
+    "family": "splk-agent",
+    "taskRoleArn": "arn:aws:iam::668132022375:role/ECS-task-full-access",
+    "executionRoleArn": "arn:aws:iam::668132022375:role/ECS-task-full-access",
+    "requiresCompatibilities": [
+        "EC2"
+    ],
+    "networkMode": "host",
+    "volumes": [
+        {
+            "name": "hostfs",
+            "host": {
+                "sourcePath": "/"
+            }
+        },
+        {
+            "name": "docker-socket",
+            "host": {
+                "sourcePath": "/var/run/docker.sock"
+            }
+	},
+        {
+            "name": "etc-passwd",
+            "host": {
+                "sourcePath": "/etc/passwd"
+            }
+        }
+    ]
+}
