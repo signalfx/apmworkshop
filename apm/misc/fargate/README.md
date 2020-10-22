@@ -62,7 +62,7 @@ The framework used to generate requests is Python Requests.
 
 The screenshot below shows what the traces will look like.
 
-![Screenshot](apm-screen.png)
+![Screenshot](apm-screen.png)  
 
 ### How it works
 
