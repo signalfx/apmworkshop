@@ -41,3 +41,7 @@ Step 2: [Install SmartAgent and Configure for APM](./2-smartagent.md)
 Step 3: [Complete APM Workshop Labs](./3-workshop-labs.md)  
 
 Appendix: [Installing k3s and Using tmux](./4-appendix.md)
+
+Other Example:
+
+[AWS ECS Fargate](./misc/fargate)
