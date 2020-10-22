@@ -1,4 +1,4 @@
-### This lab requires starting from the main [APM Instrumentation Workshop](../README.md)
+### This lab requires starting from the main [APM Instrumentation Workshop](../3-workshop-labs.md)
 
 Requirements:  
 `java 8 JDK` (`sudo apt install -y openjdk-8-jdk`)  
