@@ -15,6 +15,10 @@ How to find token:
 
 Linux operating system- examples use Ubuntu. RedHat and other Linux distributions will work the same- simply change the Debian style commands to fit your distribution.
 
+[Multipass](multipass.run) runs on Mac and Windows machines that support virtualization and will quickly launch an Ubuntu virtual machine.  
+All examples in this workshop have been tested with the following multipass VM:  
+`multipass launch -n primary -d 8G -m 4G`
+
 Software present on Linux in advance of workshop:  
 `curl`  
 `git`  
