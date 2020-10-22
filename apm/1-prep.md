@@ -2,7 +2,7 @@
 
 #### Prep Step 1: Log in to your SignalFx account to identify token/realm  
 
-Check your [Splunk Signalfx Account](https://login.signalfx.com) (your welcome email has this link) and identify your TOKEN and REALM- these are available in the profile menu (the one on top right with a person icon) in your SignalFx account.
+Check your [Splunk Signalfx Account](https://login.signalfx.com) (your welcome email has this link) and identify your TOKEN and REALM- these are available in the profile menu (the one on top right with a person icon) in your Splunk SignalFx account.
 
 How to find realm:  
 <img src="../../assets/org.png" width="360" />  
@@ -23,7 +23,7 @@ java 8 jdk (`sudo apt install -y openjdk-8-jdk`)
 maven (`sudo apt-get -y install maven`)  
 `tmux` (optional)  
 
-#### Prep Step 3: Review KEY SPLUNK SIGNALFX APM CONCEPTS
+#### Prep Step 3: Review KEY SPLUNK APM CONCEPTS
 1. There are two moving parts to APM:    
    **One: Application Spans:** Open standards APM spans emitted by your applications. We offer auto-instrumentation (no code changes) for most languages but you can use any framework/library that emits zipkin, OpenTracing, or [OpenTelemetry](https://opentelemtry.io). The optional [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector) can covert between trace formats, process, sample etc.  
    **Two: Instructructure metrics:** Metrics are emitted by an infrastructure agent called [SignalFx SmartAgent](https://docs.signalfx.com/en/latest/integrations/agent/agent-install-methods.html) observing the application's host or container cluster. The infrastructure agent is lightweight, open source, real-time, and designed for microservices, containers, and cloud.   
