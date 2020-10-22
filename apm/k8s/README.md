@@ -68,7 +68,7 @@ Deploy the flask-server:
 The APM Dashboard will show the instrumented Python-Requests Client posting to the Flask Server.  
 Make sure you select the ENVIRONMENT to monitor on the selector next to `Troubleshooting` i.e. in image below you can see `sfx-workshop` is selected.
 
-<img src="../../../assets/k8s.png" width="360" />  
+<img src="../../../assets/vlcsnap-0007.png" width="360" />  
 
 #### K8S Step 5: Study the `deployment.yaml` files
 
