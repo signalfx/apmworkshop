@@ -43,3 +43,5 @@ The resulting stanza is:
 A premade reference for `/etc/signalfx/agent.yaml` is here: https://raw.githubusercontent.com/slernersplunk/splunkobservability/master/apm/agent/agent.yaml  
 
 After updating your host with the supplied `agent.yaml` you can restart with `sudo service signalfx-agent restart`
+
+[Return to workshop for next step](./README.md)
