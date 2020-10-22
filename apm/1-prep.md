@@ -35,4 +35,4 @@ maven (`sudo apt-get -y install maven`)
 `SIGNALFX_SERVICE_NAME` sets the name of your application in the APM interface  
 The workshop contains scripts to set these.
 
-[Return to workshop for next step](../README.md)
+[Return to workshop for next step](./README.md)
