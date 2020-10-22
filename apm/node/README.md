@@ -1,4 +1,4 @@
-### This lab requires starting from the main [APM Instrumentation Workshop](https://github.com/slernersplunk/splunkobservability/blob/master/apm/README.md)
+### This lab requires starting from the main [APM Instrumentation Workshop](../README.md)
 
 #### Step #1 Open new terminal to your Linux instance (or open new pane in tmux)  
 
