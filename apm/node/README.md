@@ -60,9 +60,7 @@ A new service takes about 90 seconds to register for the first time, and then al
 Additionally span IDs will print in the terminal where flask-server.py is running.
 You can use `ctrl-c` to stop the requests and server any time.
 
-After following the Step 2 Java activity, the APM service map looks as follows:
-
-<img src="../../../assets/node.png" width="800" /> 
+You should now see a Node requests service alongside the Python and Java ones.  
 
 #### Step #6 Where is the auto-instrumentation?
 
