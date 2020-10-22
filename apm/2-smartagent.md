@@ -9,9 +9,9 @@ Click on the Integrations Tab in your SignalFx account and follow instructions f
 
 Or use the menus in the Splunk SignalFx web portal:  
 
-<img src="../../assets/smartagent-find.png" width="360" /> 
+<img src="../../assets/smartagent.png" width="360" /> 
 
-<img src="../../assets/smartagent-install.png" width="360" />  
+<img src="../../assets/smartagentscript.png" width="360" />  
 
 Once you deploy the SmartAgent on a host, you will see the host appear within seconds in the Infrastructure Tab in SignalFx.  
 Check this and then move on to next step.
