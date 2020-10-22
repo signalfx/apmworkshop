@@ -8,7 +8,7 @@ How to find realm:
 <img src="../../assets/org.png" width="360" />  
 
 How to find token:  
-<img src="../../assets/tokens.png" width="360" />  
+<img src="../../assets/token.png" width="360" />  
 
 
 #### Prep Step 2: Ensure you are using the following environment for this workshop  
