@@ -1,10 +1,10 @@
-# Splunk APM Trace Generator Demo For AWS ECS Fargate
+# Splunk APM Trace Generator Demo For AWS ECS EC2
 
-This repo demonstrates a reference implemenation for a single AWS ECS Fargate task example of Splunk APM.
+This repo demonstrates a reference implemenation for a single AWS ECS EC2 task example of Splunk APM.
 
-The single task spins up two ECS Fargate containers:
+The single task spins up two ECS containers on EC2:
 
-#1 Splk-Agent - sidecar to observe ECS and relay traces to SignalFx   
+#1 signalfx-agent - sidecar to observe ECS and relay traces to SignalFx   
 #2 Trace-Generator - generates traces using Python Requests doing GET requests to https://api.github.com
 
 ### SETUP
@@ -34,7 +34,7 @@ Once all of the above is done:
 Deploy with the following commands- change the variables in caps to suit your environment:
 ```
 aws ecs create-cluster --cluster-name test-cluster  
-aws ecs register-task-definition --cli-input-json file://trace-generator.json
+aws ecs register-task-definition --cli-input-json file://signalfx-agent-task.json
 ```
 ### STEP 2
 Create the service based on the task just registered.
