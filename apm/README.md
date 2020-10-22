@@ -2,7 +2,7 @@
 
 ### Audience And Requirements
 
-Audience: Intermediate and advanced developers, devops, and SREs who have already set up their Splunk SignalFx account and have tried out integrations and dashboards. Skill level should include troubleshooting a Linux and Kubernetes environment.
+Audience: Intermediate and advanced developers, devops, and SREs who have already set up their Splunk Observability (formerly SignalFx) account and have tried out integrations and dashboards. Skill level should include troubleshooting a Linux and Kubernetes environment.
 
 The term "SignalFx" refers to the Splunk Observability services.
 
@@ -11,11 +11,12 @@ Requirements:
 2. Debian (i.e. Ubuntu) Linux environment with minimum 16G RAM and 8G disk should be ready to try all examples.  
 RedHat and other mainstream Linux distributions can be used by translating shell commands from Debian.
 3. Kubernetes cluster set up in advance. 
-Hints on setting up a minimal Ubunbtu VM and Kubernetes cluster on a local machine are included in the Appendix.
+
+Hints on setting up a minimal Ubunbtu VM and Kubernetes cluster on a local machine are included in the [Appendix](./4-Appendix.md).
 
 ### Document Conventions
 
-Variables from your SignalFx account are displayed like this: YOURVARIABLEHERE.   
+Variables from your Splunk Observability (SignalFx) account are displayed like this: YOURVARIABLEHERE.   
 I.e. to change your REALM to `us1` change `api.YOURREALMHERE.signalfx.com` to `api.us1.signalfx.com`  
 
 :play_or_pause_button: **VIDEO:** will proceed a link to the associated section's video to download (downloading is recommended)
@@ -27,7 +28,7 @@ I.e. to change your REALM to `us1` change `api.YOURREALMHERE.signalfx.com` to `a
 3. Instrument your app for APM
 4. Exercise app so it send spans to Splunk SignalFx
 5. Use the Splunk SignalFx APM platform for visualization, troubleshooting, alerts, and automation
-6. Study the code examples- they use frameworks that the auto-instrumentation picks up. The K8S deployment examples show how to build clusters with APM.
+6. Study the code examples- they use frameworks that the auto-instrumentation picks up. The K8S deployment examples show how to build clusters with APM.  
    Make sure to watch :play_or_pause_button: **video** demos where indicated.
 
 ***
