@@ -34,7 +34,7 @@ Once all of the above is done:
 Deploy with the following commands- change the variables in caps to suit your environment:
 ```
 aws ecs create-cluster --cluster-name test-cluster  
-aws ecs register-task-definition --cli-input-json file://signalfx-agent-task.json
+aws ecs register-task-definition --cli-input-json file://splk-agent-task.json
 ```
 ### STEP 2
 Create the service based on the task just registered.
@@ -46,9 +46,13 @@ To check which version is current use:
 
 To create the service:  
 
-`aws ecs create-service --cluster test-cluster --service-name splk-demo --task-definition splk-demo:1 \`    
-`--desired-count 1 --launch-type "FARGATE" \`    
-`--network-configuration "awsvpcConfiguration={subnets=[subnet-YOURSUBNETIHERE],securityGroups=[sg-YOURSECURITYGROUPIDHERE],assignPublicIp=ENABLED}"`    
+```
+aws ecs create-service \
+--cluster test-cluster \
+--service-name splk-agent \
+--scheduling-strategy DAEMON \
+--task-definition splk-agent:1
+```
 
 ### STEP 3
 
