@@ -34,3 +34,5 @@ maven (`sudo apt-get -y install maven`)
 `SIGNALFX_ENDPOINT_URL` tells your application where to send spans  
 `SIGNALFX_SERVICE_NAME` sets the name of your application in the APM interface  
 The workshop contains scripts to set these.
+
+[Return to workshop for next step](../README.md)
