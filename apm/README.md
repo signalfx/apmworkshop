@@ -35,13 +35,13 @@ I.e. to change your REALM to `us1` change `api.YOURREALMHERE.signalfx.com` to `a
 
 ### Workshop
 
-Step 1: [Prepare Your Environment and Review Key Concepts](./1-prep.md)  
+Step 1: [Prepare Your Environment and Review Key Concepts](./workshop-steps/1-prep.md)  
 
-Step 2: [Install SmartAgent and Configure for APM](./2-smartagent.md)  
+Step 2: [Install SmartAgent and Configure for APM](./workshop-steps/2-smartagent.md)  
 
-Step 3: [Complete APM Workshop Labs](./3-workshop-labs.md)  
+Step 3: [Complete APM Workshop Labs](./workshop-steps/3-workshop-labs.md)  
 
-Appendix: [Installing k3s and Using tmux](./4-appendix.md)
+Appendix: [Installing k3s and Using tmux](./workshop-steps/4-appendix.md)
 
 Other APM Examples:
 
