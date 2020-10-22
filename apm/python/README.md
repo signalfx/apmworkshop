@@ -98,8 +98,6 @@ In the trace view you can click on spans to see more info and their tags, and so
 
 Splunk's autoinstrumentation for python is here: https://github.com/signalfx/signalfx-python-tracing
 
-You can now go to the next step of [APM Instrumentation Workshop](../.)
-
 #### Step #7 Leave the Flask server running
 
 You'll need need this process for the next client examples in the workshop.  
