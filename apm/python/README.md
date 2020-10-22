@@ -73,23 +73,24 @@ Try out the uAPM, troubleshooting, and trace views as shown below.
 
 Service map of this python demo  
 
-<img src="../../../assets/python1.png" width="800" /> 
+<img src="../../../assets/vlcsnap-00001.png" width="800" /> 
 
 Service dashboard shows application metrics and host correlation (keep scrolling down this dashboard to see more)
 
-<img src="../../../assets/python2.png" width="800" /> 
+<img src="../../../assets/vlcsnap-00002.png" width="800" />  
+<img src="../../../assets/vlcsnap-00003.png" width="800" />  
 
 Click on Troubleshooting to see the map with latency, errors, etc  
 
-<img src="../../../assets/python3.png" width="800" /> 
+<img src="../../../assets/vlcsnap-00005.png" width="800" /> 
 
 Click on the Requests and Errors box on right, directly onto the purple Requests graph and you'll be able to see traces- select a trace to see spans
 
-<img src="../../../assets/python4.png" width="800" /> 
+<img src="../../../assets/vlcsnap-0004.png" width="800" /> 
 
 In the trace view you can click on spans to see more info and their tags, and sort spans by using Span Performance
 
-<img src="../../../assets/python5.png" width="800" /> 
+<img src="../../../assets/vlcsnap-0006.png" width="800" /> 
 
 #### Step #6 Where is the auto-instrumentation?
 
