@@ -1,4 +1,4 @@
-## Splunk Observability APM Instrumentation Workshops And Examples
+## Splunk Observability APM Instrumentation Workshops w/ Code Samples
 
 All examples are designed to be used in conjunction with official documentation: https://docs.signalfx.com
 
