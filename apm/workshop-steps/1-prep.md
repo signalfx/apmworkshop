@@ -5,10 +5,10 @@
 Check your [Splunk Signalfx Account](https://login.signalfx.com) (your welcome email has this link) and identify your TOKEN and REALM- these are available in the profile menu (the one on top right with a person icon) in your Splunk SignalFx account.
 
 How to find realm:  
-<img src="../../assets/org.png" width="360" />  
+<img src="../../../assets/org.png" width="360" />  
 
 How to find token:  
-<img src="../../assets/token.png" width="360" />  
+<img src="../../../assets/token.png" width="360" />  
 
 
 #### Prep Step 2: Ensure you are using the following environment for this workshop  
@@ -35,4 +35,4 @@ maven (`sudo apt-get -y install maven`)
 `SIGNALFX_SERVICE_NAME` sets the name of your application in the APM interface  
 The workshop contains scripts to set these.
 
-[Return to workshop for next step](./README.md)
+[Return to workshop for next step](../README.md)
