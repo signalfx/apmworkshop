@@ -42,6 +42,6 @@ Step 3: [Complete APM Workshop Labs](./3-workshop-labs.md)
 
 Appendix: [Installing k3s and Using tmux](./4-appendix.md)
 
-Other Example:
+Other APM Examples:
 
 [AWS ECS Fargate](./misc/fargate)
