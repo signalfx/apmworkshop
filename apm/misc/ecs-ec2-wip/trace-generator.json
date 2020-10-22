@@ -13,8 +13,8 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "ecs",
-                    "awslogs-region": "us-east-1",
+                    "awslogs-group": "YOURLOGGROUPHEREi.e.:ecs",
+                    "awslogs-region": "YOURREGIONHEREi.e.:us-east-1",
                     "awslogs-stream-prefix": "splk-agent"
                 }
             },
@@ -24,18 +24,18 @@
             "environment": [
                 {
                     "name": "ACCESS_TOKEN",
-                    "value": "iggr1oMNzzoIbvsfjGq90Q"
+                    "value": "YOURTOKENHERE"
                 },
                 {
                     "name": "INGEST_URL",
-                    "value": "https://ingest.us1.signalfx.com"
+                    "value": "https://ingest.YOURREALMHERE.signalfx.com"
                 },
                 {
                     "name": "API_URL",
-                    "value": "https://api.us1.signalfx.com"
+                    "value": "https://api.YOURREALMHERE.signalfx.com"
                 },
 		{   "name": "SIGNALFX_ENDPOINT_URL",
-		    "value": "https://ingest.us1.signalfx.com/v2/trace"
+		    "value": "https://ingest.YOURREALMHERE.signalfx.com/v2/trace"
 		},
                 {
                     "name": "CONFIG_URL",
@@ -57,8 +57,8 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "ecs",
-                    "awslogs-region": "us-east-1",
+                    "awslogs-group": "YOURLOGGROUPHEREi.e.:ecs",
+                    "awslogs-region": "YOURREGIONHEREi.e.us-east-1",
                     "awslogs-stream-prefix": "autogen"
                 }
             },
@@ -81,7 +81,7 @@
             }
 	}
     ],
-    "executionRoleArn": "arn:aws:iam::668132022375:role/ECS-task-full-access",
+    "executionRoleArn": "YOURROLEHEREi.e.:arn:aws:iam::668132022375:role/ECS-task-full-access",
     "cpu": "256",
     "memory": "512",
     "requiresCompatibilities": [
