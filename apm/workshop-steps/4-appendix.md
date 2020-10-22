@@ -41,4 +41,4 @@ Arrow keys: move between panes.
 
 Using tmux looks as follows:
 
-![tmux image](../../assets/tmux.png)
+![tmux image](../../../assets/tmux.png)
