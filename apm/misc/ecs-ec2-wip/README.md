@@ -54,6 +54,10 @@ https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.htm
 And log environment tutorial here:
 https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_cloudwatch_logs.html
 
+Cleanup:  
+`aws ecs delete-service --cluster test-cluster --service splk-agent --force`  
+`ecs-cli down --cluster test-cluster --region YOURREGIONHERE`  
+
 
 ### Extras
 
