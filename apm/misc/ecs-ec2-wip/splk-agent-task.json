@@ -8,8 +8,8 @@
 	    "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "ecs",
-                    "awslogs-region": "us-east-1",
+                    "awslogs-group": "YOURVALUEHEREi.e.:ecs",
+                    "awslogs-region": "YOURVALUEHEREi.e.:us-east-1",
                     "awslogs-stream-prefix": "splk-agent"
                 }
             },
@@ -20,19 +20,19 @@
             "environment": [
                 {
                     "name": "ACCESS_TOKEN",
-                    "value": ""
+                    "value": "YOURVALUEHERE"
                 },
                 {
                     "name": "INGEST_URL",
-                    "value": "https://ingest.us1.signalfx.com"
+                    "value": "YOURVALUEHEREi.e.:https://ingest.us1.signalfx.com"
                 },
                 {
                     "name": "API_URL",
-                    "value": "https://api.us1.signalfx.com"
+                    "value": "YOURVALUEHEREi.e.:https://api.us1.signalfx.com"
                 },
                 {
                     "name": "TRACE_ENDPOINT_URL",
-                    "value": "https://ingest.us1.signalfx.com/v2/trace"
+                    "value": "YOURVALUEHEREi.e.:https://ingest.us1.signalfx.com/v2/trace"
                 },
                 {
                     "name": "CONFIG_URL",
@@ -67,8 +67,8 @@
     ],
     "memory": "200",
     "family": "splk-agent",
-    "taskRoleArn": "arn:aws:iam::668132022375:role/ECS-task-full-access",
-    "executionRoleArn": "arn:aws:iam::668132022375:role/ECS-task-full-access",
+    "taskRoleArn": "YOURVALUEHEREi.e.:arn:aws:iam::668132022375:role/ECS-task-full-access",
+    "executionRoleArn": "YOURVALUEHEREi.e.:arn:aws:iam::668132022375:role/ECS-task-full-access",
     "requiresCompatibilities": [
         "EC2"
     ],
