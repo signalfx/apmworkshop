@@ -10,7 +10,7 @@
 #### Monitor   
     
 `aws ecs list-task-definitions`   
-`aws ecs list-clusters`
+`aws ecs list-clusters`  
 `aws ecs list-services --cluster YOURCLUSTERNAMEHERE`   
 `aws ecs describe-services --cluster YOURCLUSTERNAMEHERE --services YOURSERVICENAMEHERE`   
 
