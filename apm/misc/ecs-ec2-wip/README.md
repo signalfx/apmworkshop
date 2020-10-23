@@ -49,7 +49,7 @@ Check processes:
 
 At this point you should see your Splunk SignalFx ECS Container:
 
-(../../../assets/ecs-metrics.png)
+<img src="../../../../assets/ecs-metrics.png" /> 
 
 Pay critical attention to setting up VPC in advance:
 https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html
