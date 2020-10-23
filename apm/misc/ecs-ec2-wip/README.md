@@ -25,6 +25,7 @@ Deploy ECS EC2 VM:
 
 Register your ECS EC2 Task:
 
+This file has values that need to be changed for your configuration i.e. AWS ARNs and Splunk SignalFx realms/token etc:  
 `aws ecs register-task-definition --cli-input-json file://splk-agent-task.json`
 
 Note that the task definition will increment each time you try it- from 1 to 2 etc... 
@@ -45,6 +46,10 @@ aws ecs create-service \
 Check processes:
 
 `ecs-cli ps --cluster-config test-cluster --ecs-profile ecs-ec2-profile`
+
+At this point you should see your Splunk SignalFx ECS Container:
+
+(../../../assets/ecs-metrics.png)
 
 Pay critical attention to setting up VPC in advance:
 https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html
