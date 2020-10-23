@@ -16,20 +16,18 @@ To set up a SignalFx SmartAgent in ECS:
 Configure ECS Cluster:  
 `ecs-cli configure --cluster test-cluster --default-launch-type EC2 --config-name test-cluster --region us-east-1`
 
-Configure ECS CLI Profile:
+Configure ECS CLI Profile:  
 `ecs-cli configure profile --access-key YOURAWSKEYHERE --secret-key YOURAWSSECRETKEYHERE --profile-name ecs-ec2-profile`
 
-Deploy ECS EC2 VM:
-
+Deploy ECS EC2 VM:  
 `ecs-cli up --keypair YOURAWSEC2KEYPAIRNAMEHERE --capability-iam --size 2 --instance-type t2.medium --cluster-config test-cluster --ecs-profile ecs-ec2-profile`
 
 Register your ECS EC2 Task:
 
-This file has values that need to be changed for your configuration i.e. AWS ARNs and Splunk SignalFx realms/token etc:  
+This file has values that need to be changed for your configuration i.e. AWS ARNs and Splunk SignalFx realms/token etc:    
 `aws ecs register-task-definition --cli-input-json file://splk-agent-task.json`
 
-Note that the task definition will increment each time you try it- from 1 to 2 etc... 
-To check which version is current use:
+Note that the task definition will increment each time you try it- from 1 to 2 etc. To check which version is current use:  
 
 `aws ecs list-task-definitions`
 
