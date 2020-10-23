@@ -19,3 +19,4 @@
 `aws ecs deregister-task-definition --task-definition FAMILYNAMEHERE:VERSIONHERE`   
 `aws ecs delete-service --cluster YOURCLUSTERNAMEHERE --service YOURSERVICENAMEHERE --force`   
 `aws ecs delete-cluster --cluster YOURCLUSTERNAMEHERE`
+`ecs-cli down --cluster YOURCLUSTERNAMEHERE --region YOURREGIONHERE`
