@@ -49,7 +49,7 @@ Check processes:
 
 At this point you should see your Splunk SignalFx ECS Container:
 
-<img src="../../../../assets/ecs-metrics.png" /> 
+<img src="../../../../assets/ecs-metrics.png" width="360" /> 
 
 Pay critical attention to setting up VPC in advance:
 https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html
@@ -57,18 +57,6 @@ https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.htm
 And log environment tutorial here:
 https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_cloudwatch_logs.html
 
-
-#### Note that this demo does not generate RED metrics- only traces! 
-
-Click "Troubleshoot" in your APM console, make sure you are in the `trace-generator environment` by clicking on the pulldown menu next to "Troubleshoot", and click "Show Traces" from lower left of screen to see traces. 
-
-See below left of furthest left screen for this link.
-
-The framework used to generate requests is Python Requests.
-
-The screenshot below shows what the traces will look like.
-
-![Screenshot](apm-screen.png)  
 
 ### Extras
 
