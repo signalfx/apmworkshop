@@ -48,13 +48,15 @@ ecs-cli up \
 
 Register your ECS EC2 Task:
 
-This file has values that need to be changed for your configuration i.e. AWS ARNs and Splunk SignalFx realms/token etc:    
+Before registering the agent and trace generator tasks, view them and change appropriate values i.e. AWS ARNs and Splunk SignalFx realms/token etc:    
 `aws ecs register-task-definition --cli-input-json file://splk-agent-task.json`
+
+`aws ecs register-task-definition --cli-input-json file://trace-generator-ecs.json`
 
 Note that the task definition will increment each time you try it- from 1 to 2 etc. To check which version is current use:  
 `aws ecs list-task-definitions`
 
-Deploy task to cluster:
+Deploy agent task to cluster:
 
 ```
 aws ecs create-service \
