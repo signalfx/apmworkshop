@@ -4,8 +4,8 @@ This repo demonstrates a reference implemenation for a single AWS ECS EC2 task e
 
 The single task spins up two ECS containers on EC2:
 
-#1 signalfx-agent - sidecar to observe ECS and relay traces to SignalFx   
-#2 Trace-Generator - generates traces using Python Requests doing GET requests to https://api.github.com
+#1 splk-agent - sidecar to observe ECS and relay traces to Splunk SignalFx   
+#2 trace-generator - generates traces using Python Requests doing GET requests to https://api.github.com
 
 ### SETUP
 
@@ -43,7 +43,7 @@ ecs-cli up \
 --instance-type t2.medium \
 --cluster-config test-cluster \
 --ecs-profile ecs-ec2-profile \
---securitygroup sg-3989348d93 \
+--port 22, 9080
 ```
 
 Register your ECS EC2 Task:
