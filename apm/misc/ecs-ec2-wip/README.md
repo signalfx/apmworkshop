@@ -15,14 +15,35 @@ The single task spins up two ECS containers on EC2:
 
 To set up a SignalFx SmartAgent in ECS:
 
+(Values are example values- adjust them for your environment)  
+
 Configure ECS Cluster:  
-`ecs-cli configure --cluster test-cluster --default-launch-type EC2 --config-name test-cluster --region us-east-1`
+```
+ecs-cli configure \
+--cluster test-cluster \
+--default-launch-type EC2 \
+--config-name test-cluster \
+--region us-east-1
+```
 
 Configure ECS CLI Profile:  
-`ecs-cli configure profile --access-key YOURAWSKEYHERE --secret-key YOURAWSSECRETKEYHERE --profile-name ecs-ec2-profile`
+```
+ecs-cli \
+configure profile \
+--access-key YOURAWSKEYHERE \
+--secret-key YOURAWSSECRETKEYHERE \
+--profile-name ecs-ec2-profile
+```
 
 Deploy ECS EC2 VM:  
-`ecs-cli up --keypair YOURAWSEC2KEYPAIRNAMEHERE --capability-iam --size 2 --instance-type t2.medium --cluster-config test-cluster --ecs-profile ecs-ec2-profile`
+```
+ecs-cli up \
+--keypair YOURAWSEC2KEYPAIRNAMEHERE \
+--capability-iam --size 2 \
+--instance-type t2.medium \
+--cluster-config test-cluster \
+--ecs-profile ecs-ec2-profile
+```
 
 Register your ECS EC2 Task:
 
