@@ -42,7 +42,8 @@ ecs-cli up \
 --capability-iam --size 2 \
 --instance-type t2.medium \
 --cluster-config test-cluster \
---ecs-profile ecs-ec2-profile
+--ecs-profile ecs-ec2-profile \
+--securitygroup sg-3989348d93 \
 ```
 
 Register your ECS EC2 Task:
