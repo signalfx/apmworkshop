@@ -9,6 +9,8 @@ The single task spins up two ECS containers on EC2:
 
 ### SETUP
 
+#### Example of stock SignalFx Agent Setup in AWS ECS EC2 (Not APM Ready)
+
 [AWS ECS CLI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI.html) must be installed for these examples.
 
 To set up a SignalFx SmartAgent in ECS:
@@ -56,7 +58,9 @@ https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_cloudwatch_log
 
 Cleanup:  
 `aws ecs delete-service --cluster test-cluster --service splk-agent --force`  
-`ecs-cli down --cluster test-cluster --region YOURREGIONHERE`  
+`ecs-cli down --cluster test-cluster --region YOURREGIONHERE` 
+
+#### Example of APM Ready SignalFx Agent Setup in AWS ECS EC2 
 
 
 ### Extras
