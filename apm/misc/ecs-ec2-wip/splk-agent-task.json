@@ -67,8 +67,6 @@
     ],
     "memory": "200",
     "family": "splk-agent",
-    "taskRoleArn": "YOURVALUEHEREi.e.:arn:aws:iam::668132022375:role/ECS-task-full-access",
-    "executionRoleArn": "YOURVALUEHEREi.e.:arn:aws:iam::668132022375:role/ECS-task-full-access",
     "requiresCompatibilities": [
         "EC2"
     ],
