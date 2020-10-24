@@ -43,7 +43,7 @@ ecs-cli up \
 --instance-type t2.medium \
 --cluster-config test-cluster \
 --ecs-profile ecs-ec2-profile \
---port 22, 9080
+--port 9080
 ```
 
 Register your ECS EC2 Task:
