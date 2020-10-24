@@ -46,7 +46,7 @@ ecs-cli up \
 --port 9080
 ```
 
-Register your ECS EC2 Task:
+Register your ECS EC2 tasks:
 
 Before registering the agent and trace generator tasks, view them and change appropriate values i.e. AWS ARNs and Splunk SignalFx realms/token etc:    
 `aws ecs register-task-definition --cli-input-json file://splk-agent-task.json`
@@ -83,6 +83,10 @@ Check processes:
 At this point you should see your Splunk SignalFx ECS Container:
 
 <img src="../../../../assets/ecs-metrics.png" width="360" /> 
+
+And your trace-generator generating traces:
+
+<img src="../../../../assets/ecs-trace-generator.png" width="360" /> 
 
 Pay critical attention to setting up VPC in advance:
 https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html
