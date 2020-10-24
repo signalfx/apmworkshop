@@ -66,6 +66,16 @@ aws ecs create-service \
 --scheduling-strategy DAEMON
 ```
 
+Deploy trace generator task to cluster:
+
+```
+aws ecs create-service \
+--cluster test-cluster \
+--task-definition trace-generator:1 \
+--service-name trace-generator \
+--scheduling-strategy DAEMON
+```
+
 Check processes:
 
 `ecs-cli ps --cluster-config test-cluster --ecs-profile ecs-ec2-profile`
