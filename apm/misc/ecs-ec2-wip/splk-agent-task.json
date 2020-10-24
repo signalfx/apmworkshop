@@ -56,7 +56,6 @@
                     "sourceVolume": "etc-passwd"
                 }
             ],
-            "volumesFrom": [],
             "image": "quay.io/signalfx/signalfx-agent:5.5.4",
             "essential": true,
             "dockerLabels": {
