@@ -98,9 +98,6 @@ Cleanup:
 `aws ecs delete-service --cluster test-cluster --service splk-agent --force`  
 `ecs-cli down --cluster test-cluster --region YOURREGIONHERE` 
 
-#### Example of APM Ready SignalFx Agent Setup in AWS ECS EC2 
-
-
 ### Extras
 
 The [commands.md](./commands.md) file offers helpful commands for ECS Fargate management for the AWS CLI.
