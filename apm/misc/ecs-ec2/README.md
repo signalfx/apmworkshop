@@ -13,9 +13,13 @@ The single task spins up two ECS containers on EC2:
 
 [AWS ECS CLI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI.html) must be installed for these examples.
 
-To set up a SignalFx SmartAgent in ECS:
+Pay critical attention to setting up:  
+VPC: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html  
+Log Environment: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_cloudwatch_logs.html  
 
-(Values are example values- adjust them for your environment)  
+To set up a SignalFx SmartAgent container in ECS:
+
+(Adjust values to match your environment)  
 
 Configure ECS Cluster:  
 ```
@@ -23,7 +27,7 @@ ecs-cli configure \
 --cluster test-cluster \
 --default-launch-type EC2 \
 --config-name test-cluster \
---region us-east-1
+--region YOURREGIONHEREi.e.us-east-1
 ```
 
 Configure ECS CLI Profile:  
@@ -88,15 +92,9 @@ And your trace-generator generating traces:
 
 <img src="../../../../assets/ecs-trace-generator.png" width="360" /> 
 
-Pay critical attention to setting up VPC in advance:
-https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html
-
-And log environment tutorial here:
-https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_cloudwatch_logs.html
-
 Cleanup:  
 `aws ecs delete-service --cluster test-cluster --service splk-agent --force`  
-`ecs-cli down --cluster test-cluster --region YOURREGIONHERE` 
+`ecs-cli down --cluster test-cluster --region YOURREGIONHEREi.e.us-east-1` 
 
 ### Extras
 
