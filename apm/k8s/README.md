@@ -1,7 +1,7 @@
 ## K8S Prep
 
 You must have a ready Kubernetes cluster for this example.  
-Hints on setting up a minimal cluster and local VM can be found in the [Appendix](../4-appendix.md).  
+Hints on setting up a minimal cluster and local VM can be found in the [Appendix](../workshop-steps/4-appendix.md).  
 
 [Helm](helm.sh) must be installed.
 
