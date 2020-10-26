@@ -56,6 +56,10 @@ For K8S, use ```helm``` to reconfigure the agent pod with the enclosed `agent.ya
 
 `helm upgrade --reuse-values -f ./agent.yaml signalfx-agent signalfx/signalfx-agent`
 
+to verify these values have been added:  
+
+`helm get values signalfx-agent`
+
 #### K8S Step 3: Deploy the containerized instrumented Python examples 
 
 Deploy the flask-server:
