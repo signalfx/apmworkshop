@@ -9,7 +9,6 @@ sudo apt install -y python3-pip
 python3 -m pip install signalfx_tracing flask
 export PATH="$HOME/.local/bin:$PATH"
 sfx-py-trace-bootstrap
-git clone https://github.com/slernersplunk/splunkobservability
 ```
 
 #### Step #2 Set up environment and run Python Flask server using auto-instrumentation
