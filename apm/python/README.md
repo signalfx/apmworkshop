@@ -14,7 +14,7 @@ sfx-py-trace-bootstrap
 #### Step #2 Set up environment and run Python Flask server using auto-instrumentation
 
 ```
-cd ~/splunkobservability/apm/python  
+cd ./apmworkshop/apm/python
 source setup-server.sh  
 sfx-py-trace flask-server.py  
 ```
@@ -26,7 +26,7 @@ You will see the server startup text when this is run.
 Open a new terminal window to your Linux instance, set up environment variables, and run the `python-requests.py` client to sent POST requests to the Flask server (or use `tmux` and run in separate pane)
 
 ```
-cd ~/splunkobservability/apm/python
+cd ./apmworkshop/apm/python
 source setup-client.sh  
 sfx-py-trace python-requests.py
 ```
