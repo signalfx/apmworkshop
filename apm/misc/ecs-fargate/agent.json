@@ -1,5 +1,5 @@
 {
-    "family": "splk-demo",
+    "family": "splk-fargate-agent",
     "networkMode": "awsvpc",
 
     "containerDefinitions": [
@@ -13,8 +13,8 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "YOURLOGGROUPHEREi.e.:ecs",
-                    "awslogs-region": "YOURREGIONHEREi.e.:us-east-1",
+                    "awslogs-group": "ecs",
+                    "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "splk-agent"
                 }
             },
@@ -46,3 +46,11 @@
                 "app": "splk-agent"
             }
         }
+    ],
+    "executionRoleArn": "YOURROLEHEREi.e.:arn:aws:iam::668132022375:role/ECS-task-full-access",
+    "cpu": "256",
+    "memory": "512",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ]
+}
