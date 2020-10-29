@@ -39,7 +39,7 @@
 		},
                 {
                     "name": "CONFIG_URL",
-                    "value": "https://raw.githubusercontent.com/slernersplunk/splunkobservability/master/apm/agent/fargate/agent.yaml"
+                    "value": "https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/agent/fargate/agent.yaml"
                 }
             ],
             "dockerLabels": {
