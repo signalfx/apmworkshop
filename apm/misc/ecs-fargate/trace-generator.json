@@ -5,7 +5,7 @@
     "containerDefinitions": [
         {
             "name": "splk-agent",
-            "image": "quay.io/signalfx/signalfx-agent:5.4.4",
+            "image": "quay.io/signalfx/signalfx-agent:5.5.5",
             "entryPoint": [
                 "bash",
                 "-c"
@@ -39,7 +39,7 @@
 		},
                 {
                     "name": "CONFIG_URL",
-                    "value": "https://raw.githubusercontent.com/slernersplunk/splunkobservability/master/apm/agent/fargate/agent.yaml"
+                    "value": "https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/agent/fargate/agent.yaml"
                 }
             ],
             "dockerLabels": {
