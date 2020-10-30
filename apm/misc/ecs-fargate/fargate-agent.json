@@ -1,5 +1,5 @@
 {
-    "family": "splk-demo",
+    "family": "splk-fargate-agent",
     "networkMode": "awsvpc",
 
     "containerDefinitions": [
@@ -13,8 +13,8 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "YOURLOGGROUPHEREi.e.:ecs",
-                    "awslogs-region": "YOURREGIONHEREi.e.:us-east-1",
+                    "awslogs-group": "ecs",
+                    "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "splk-agent"
                 }
             },
@@ -45,41 +45,7 @@
             "dockerLabels": {
                 "app": "splk-agent"
             }
-        },
-        {
-            "name": "python-trace-generator",
-            "image": "stevelsplunk/sfx-python:latest",
-            "entryPoint": [
-                "bash",
-                "-c"
-            ],
-            "portMappings": [],
-            "logConfiguration": {
-                "logDriver": "awslogs",
-                "options": {
-                    "awslogs-group": "YOURLOGGROUPHEREi.e.:ecs",
-                    "awslogs-region": "YOURREGIONHEREi.e.us-east-1",
-                    "awslogs-stream-prefix": "autogen"
-                }
-            },
-	    "workingDirectory": "/home/code",
-            "command": [
-                "sh run-autogen.sh"
-            ],
-            "environment": [
-                {
-                    "name": "SIGNALFX_SERVICE_NAME",
-                    "value": "python-trace-generator"
-                },
-                {
-                    "name": "SIGNALFX_ENDPOINT_URL",
-                    "value": "http://localhost:9080/v1/trace"
-                }
-            ],
-            "dockerLabels": {
-                "app": "python-trace-generator"
-            }
-	}
+        }
     ],
     "executionRoleArn": "YOURROLEHEREi.e.:arn:aws:iam::668132022375:role/ECS-task-full-access",
     "cpu": "256",

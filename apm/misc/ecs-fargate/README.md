@@ -68,7 +68,9 @@ The screenshot below shows what the traces will look like.
 
 The key to this working is that the trace generator container is sending its traces to ```localhost``` which is network addresss shared with the agent container. The agent running in the agent container sees these traces and has been configured to send them to SignalFx.
 
-The trace generator is using the automatic instrumentation for tracing from SignalFx and uses the OkHTTP and Apache http request libraries to request a neutral external website (set up in the Java code) once and then wait a random time between one and two seconds.
+The trace generator is using the automatic instrumentation for tracing from SignalFx and uses the Python Request libraries to request a neutral external website (set up in the Java code) once and then wait a random time between one and two seconds.
+
+If you just want to run the SmartAgent, you can use the `fargate-agent.json` example.
 
 ### Extras
 

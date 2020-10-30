@@ -27,6 +27,8 @@ java 8 jdk (`sudo apt install -y openjdk-8-jdk`)
 maven (`sudo apt-get -y install maven`)  
 `tmux` (optional)  
 
+Clone this repo: `git clone https://github.com/signalfx/apmworkshop/`
+
 #### Prep Step 3: Review KEY SPLUNK APM CONCEPTS
 1. There are two moving parts to APM:    
    **One: Application Spans:** Open standards APM spans emitted by your applications. We offer auto-instrumentation (no code changes) for most languages but you can use any framework/library that emits zipkin, OpenTracing, or [OpenTelemetry](https://opentelemtry.io). The optional [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector) can covert between trace formats, process, sample etc.  

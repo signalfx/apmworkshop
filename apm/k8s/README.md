@@ -1,7 +1,7 @@
 ## K8S Prep
 
 You must have a ready Kubernetes cluster for this example.  
-Hints on setting up a minimal cluster and local VM can be found in the [Appendix](../4-appendix.md).  
+Hints on setting up a minimal cluster and local VM can be found in the [Appendix](../workshop-steps/4-appendix.md).  
 
 [Helm](helm.sh) must be installed.
 
@@ -55,6 +55,10 @@ If you are NOT doing this workshop as part of a group, you can leave `agent.yaml
 For K8S, use ```helm``` to reconfigure the agent pod with the enclosed `agent.yaml` additions to the `monitor` stanza:
 
 `helm upgrade --reuse-values -f ./agent.yaml signalfx-agent signalfx/signalfx-agent`
+
+to verify these values have been added:  
+
+`helm get values signalfx-agent`
 
 #### K8S Step 3: Deploy the containerized instrumented Python examples 
 
