@@ -12,6 +12,8 @@ Set `kubectl` context:
 
 #### K8S Step 1: set up the SignalFx SmartAgent as a sidecar pod  
 
+K8S or K3S must be installed before helm is installed.  
+
 ```
 helm repo add signalfx https://dl.signalfx.com/helm-repo
 ```
