@@ -54,8 +54,10 @@ monitors:
      environment: "sfx-workshop-YOURINITIALSHERE"
 ```
 
-If you are NOT doing this workshop as part of a group, you can leave `agent.yaml` as is.
+If you are NOT doing this workshop# as part of a group:  
+You can leave `agent.yaml` as is and follow helm instructions below.
 
+To update your SignalFx agent helm repo with APM values:  
 For K8S, use ```helm``` to reconfigure the agent pod with the enclosed `agent.yaml` additions to the `monitor` stanza:
 
 `helm upgrade --reuse-values -f ./agent.yaml signalfx-agent signalfx/signalfx-agent`
