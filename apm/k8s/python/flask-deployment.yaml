@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-server
+  name: k8s-flask-server
 spec:
   selector:
     matchLabels:
-      name: flask-server
+      name: k8s-flask-server
   template:
     metadata:
       labels:
-        name: flask-server
+        name: k8s-flask-server
     spec:
       containers:
-        - name: flask-server
+        - name: k8s-flask-server
           image: 'docker.io/stevelsplunk/sfx-python:latest'
           ports:
             - name: http
               containerPort: 5000
           env:
             - name: SIGNALFX_SERVICE_NAME
-              value: Python-Flask-Server
+              value: k8s-python-flask-server
             - name: MY_NODE_NAME
               valueFrom:
                 fieldRef:
@@ -40,7 +40,7 @@ metadata:
   name: flask-server
 spec:
   selector:
-    name: flask-server
+    name: k8s-flask-server
   ports:
   - protocol: TCP
     port: 5000
