@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: k8s-flask-server
+  name: flask-server
 spec:
   selector:
     matchLabels:
-      name: k8s-flask-server
+      name: flask-server
   template:
     metadata:
       labels:
-        name: k8s-flask-server
+        name: flask-server
     spec:
       containers:
-        - name: k8s-flask-server
+        - name: flask-server
           image: 'docker.io/stevelsplunk/sfx-python:latest'
           ports:
             - name: http
@@ -40,7 +40,7 @@ metadata:
   name: flask-server
 spec:
   selector:
-    name: k8s-flask-server
+    name: flask-server
   ports:
   - protocol: TCP
     port: 5000
