@@ -14,6 +14,8 @@ Set `kubectl` context:
 
 K8S or K3S must be installed before helm is installed.  
 
+To install helm: ```sudo snap install helm --classic```
+
 ```
 helm repo add signalfx https://dl.signalfx.com/helm-repo
 ```
