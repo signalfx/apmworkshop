@@ -21,7 +21,10 @@ export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 ```
 
 Every time you re-enter a shell you'll need to:   
-`export KUBECONFIG=/etc/rancher/k3s/k3s.yaml`
+```
+export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
+```
 
 The stock configuration of k3s and this workshop's k8s examples have been tested on the following configurations:  
 
