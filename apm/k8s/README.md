@@ -42,8 +42,13 @@ Check this and then move on to next step.
 #### K8S Step 2: SmartAgent Update For Kubernetes     
 
 If you are doing this workshop as part of a group:  
+Step #1.  
 /apm/k8s/python (this directory) has an `agent.yaml` file with a default `environment` value.
 Add a unique identifier to the `environment` name i.e. your initials `sfx-workshop-YOURINITIALSHERE`
+
+Step #2. 
+
+Change the `traceEndpointUrl` by editing your realm i.e. set it to `traceEndpointUrl: "https://ingest.us1.signalfx.com/v2/trace"`
 For a group workshop The resulting stanza is:
 
 ```
@@ -52,10 +57,13 @@ monitors:
     listenAddress: 0.0.0.0:9080
     defaultSpanTags:
      environment: "sfx-workshop-YOURINITIALSHERE"
+     
+traceEndpointUrl: "https://ingest.YOURREALMHERE.signalfx.com/v2/trace"
 ```
 
 If you are NOT doing this workshop# as part of a group:  
-You can leave `agent.yaml` as is and follow helm instructions below.
+
+Change the `traceEndpointUrl` by editing your realm i.e. set it to `traceEndpointUrl: "https://ingest.us1.signalfx.com/v2/trace"`
 
 To update your SignalFx agent helm repo with APM values:  
 For K8S, use ```helm``` to reconfigure the agent pod with the enclosed `agent.yaml` additions to the `monitor` stanza:
