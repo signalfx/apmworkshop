@@ -5,7 +5,7 @@
 
 Workshop examples have been tested on this configuration:
 
-`multipass launch -n primary -d 12G -m 6G`
+`multipass launch -n primary -d 16G -m 6G`
 
 Make sure to always run `sudo apt-get -y update` before executing any step in the workshop.
 
