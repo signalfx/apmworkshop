@@ -58,7 +58,7 @@ RELEASEVERSIONHERE: Use the current SignalFx SmartAgent version in the Helm scri
 
 `aws ecs register-task-definition --cli-input-json file://splk-agent-task.json`
 
-Make sure to change the REALM and then:
+Make sure to change the AWS REGION and then:
 
 `aws ecs register-task-definition --cli-input-json file://trace-generator-ecs.json`
 
