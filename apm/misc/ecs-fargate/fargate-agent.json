@@ -1,11 +1,11 @@
 {
-    "family": "splk-fargate-agent",
+    "family": "splk-agent-fargate",
     "networkMode": "awsvpc",
 
     "containerDefinitions": [
         {
-            "name": "splk-agent",
-            "image": "quay.io/signalfx/signalfx-agent:5.5.5",
+            "name": "splk-agent-fargate",
+            "image": "quay.io/signalfx/signalfx-agent:5.5.6",
             "entryPoint": [
                 "bash",
                 "-c"
@@ -15,7 +15,7 @@
                 "options": {
                     "awslogs-group": "ecs",
                     "awslogs-region": "us-east-1",
-                    "awslogs-stream-prefix": "splk-agent"
+                    "awslogs-stream-prefix": "splk-agent-fargate"
                 }
             },
             "command": [
@@ -43,7 +43,7 @@
                 }
             ],
             "dockerLabels": {
-                "app": "splk-agent"
+                "app": "splk-agent-fargate"
             }
         }
     ],
