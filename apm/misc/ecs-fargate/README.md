@@ -31,7 +31,10 @@ https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_cloudwatch_log
 Once all of the above is done:
 
 ### STEP 1
-Deploy with the following commands- change the variables in caps to suit your environment:
+Deploy with the following commands- *you must change the variables in caps in `trace-generator.json` to suit your environment:*
+
+RELEASEVERSIONHERE: Use the current SignalFx SmartAgent version in the Helm script below from here: https://github.com/signalfx/signalfx-agent/releases i.e. 5.5.5
+
 ```
 aws ecs create-cluster --cluster-name test-cluster  
 aws ecs register-task-definition --cli-input-json file://trace-generator.json
