@@ -37,7 +37,7 @@ RELEASEVERSIONHERE: Use the current SignalFx SmartAgent version in the Helm scri
 
 ```
 aws ecs create-cluster --cluster-name test-cluster-fargate  
-aws ecs register-task-definition --cli-input-json file://trace-generator.json
+aws ecs register-task-definition --cli-input-json file://trace-generator-fargate.json
 ```
 ### STEP 2
 Create the service based on the task just registered.
