@@ -5,7 +5,7 @@
     "containerDefinitions": [
         {
             "name": "splk-agent",
-            "image": "quay.io/signalfx/signalfx-agent:5.5.5",
+            "image": "quay.io/signalfx/signalfx-agent:RELEASEVERSIONHERE",
             "entryPoint": [
                 "bash",
                 "-c"
