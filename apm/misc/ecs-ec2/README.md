@@ -4,8 +4,8 @@ This repo demonstrates a reference implemenation for a single AWS ECS EC2 task e
 
 The single task spins up two ECS containers on EC2:
 
-#1 splk-agent - sidecar to observe ECS and relay traces to Splunk SignalFx   
-#2 trace-generator - generates traces using Python Requests doing GET requests to https://api.github.com
+#1 splk-agent-ec2 - sidecar to observe ECS and relay traces to Splunk SignalFx   
+#2 trace-generator-ec2 - generates traces using Python Requests doing GET requests to https://api.github.com
 
 ### SETUP
 
