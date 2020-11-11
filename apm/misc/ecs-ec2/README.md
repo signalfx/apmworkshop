@@ -24,9 +24,9 @@ To set up a SignalFx SmartAgent container in ECS:
 Configure ECS Cluster:  
 ```
 ecs-cli configure \
---cluster test-cluster \
+--cluster test-cluster-ec2 \
 --default-launch-type EC2 \
---config-name test-cluster \
+--config-name test-cluster-ec2 \
 --region YOURREGIONHEREi.e.us-east-1
 ```
 
@@ -45,7 +45,7 @@ ecs-cli up \
 --keypair YOURAWSEC2KEYPAIRNAMEHERE \
 --capability-iam --size 2 \
 --instance-type t2.medium \
---cluster-config test-cluster \
+--cluster-config test-cluster-ec2 \
 --ecs-profile ecs-ec2-profile \
 --port 9080
 ```
@@ -69,9 +69,9 @@ Deploy agent task to cluster:
 
 ```
 aws ecs create-service \
---cluster test-cluster \
+--cluster test-cluster-ec2 \
 --task-definition splk-agent:1 \
---service-name splk-agent \
+--service-name splk-agent-ec2 \
 --scheduling-strategy DAEMON
 ```
 
@@ -79,15 +79,15 @@ Deploy trace generator task to cluster:
 
 ```
 aws ecs create-service \
---cluster test-cluster \
+--cluster test-cluster-ec2 \
 --task-definition trace-generator:1 \
---service-name trace-generator \
+--service-name trace-generator-ec2 \
 --scheduling-strategy DAEMON
 ```
 
 Check processes:
 
-`ecs-cli ps --cluster-config test-cluster --ecs-profile ecs-ec2-profile`
+`ecs-cli ps --cluster-config test-cluster-ec2 --ecs-profile ecs-ec2-profile`
 
 At this point you should see your Splunk SignalFx ECS Container:
 
@@ -98,7 +98,8 @@ And your trace-generator generating traces:
 <img src="../../../../assets/ecs-trace-generator.png" width="360" /> 
 
 Cleanup:  
-`aws ecs delete-service --cluster test-cluster --service splk-agent --force`  
+`aws ecs delete-service --cluster test-cluster-ec2 --service splk-agent-ec2 --force`
+`aws ecs delete-service --cluster test-cluster-ec2 --service trace-generator-ec2 --force` 
 `ecs-cli down --cluster test-cluster --region YOURREGIONHEREi.e.us-east-1` 
 
 ### Extras
