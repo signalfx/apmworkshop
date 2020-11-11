@@ -4,8 +4,8 @@ This repo demonstrates a reference implemenation for a single AWS ECS Fargate ta
 
 The single task spins up two ECS Fargate containers:
 
-#1 Splk-Agent - sidecar to observe ECS and relay traces to SignalFx   
-#2 Trace-Generator-Fargate - generates traces using Python Requests doing GET requests to https://api.github.com
+#1 splk-agent-fargate - sidecar to observe ECS host metrics and relay application traces to Splunk APM   
+#2 trace-generator-fargate - generates traces using Python Requests doing GET requests to https://api.github.com
 
 ### SETUP
 The agent is a standard deployment of a Fargate container as documented here: [Splunk Infra Fargate Deployment](https://github.com/signalfx/signalfx-agent/tree/master/deployments/fargate)
