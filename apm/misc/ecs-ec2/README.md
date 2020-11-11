@@ -56,11 +56,11 @@ Deploy with the following commands- *you must change the variables in caps in th
 
 RELEASEVERSIONHERE: Use the current SignalFx SmartAgent version in the Helm script below from here: https://github.com/signalfx/signalfx-agent/releases i.e. 5.5.5
 
-`aws ecs register-task-definition --cli-input-json file://splk-agent-task.json`
+`aws ecs register-task-definition --cli-input-json file://splk-agent-task-ec2.json`
 
 Make sure to change the AWS REGION and then:
 
-`aws ecs register-task-definition --cli-input-json file://trace-generator-ecs.json`
+`aws ecs register-task-definition --cli-input-json file://trace-generator-ecs-ec2.json`
 
 Note that the task definition will increment each time you try it- from 1 to 2 etc. To check which version is current use:  
 `aws ecs list-task-definitions`
