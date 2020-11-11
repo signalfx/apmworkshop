@@ -52,8 +52,13 @@ ecs-cli up \
 
 Register your ECS EC2 tasks:
 
-Before registering the agent and trace generator tasks, view them and change appropriate values i.e. AWS ARNs and Splunk SignalFx realms/token etc:    
+Deploy with the following commands- *you must change the variables in caps in these task .json files to suit your environment:*
+
+RELEASEVERSIONHERE: Use the current SignalFx SmartAgent version in the Helm script below from here: https://github.com/signalfx/signalfx-agent/releases i.e. 5.5.5
+
 `aws ecs register-task-definition --cli-input-json file://splk-agent-task.json`
+
+Make sure to change the REALM and then:
 
 `aws ecs register-task-definition --cli-input-json file://trace-generator-ecs.json`
 
