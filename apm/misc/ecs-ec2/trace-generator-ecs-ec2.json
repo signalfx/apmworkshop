@@ -10,7 +10,7 @@
                 "options": {
                     "awslogs-group": "ecs",
                     "awslogs-region": "YOURREGIONHEREi.e.:us-east-1",
-                    "awslogs-stream-prefix": "trace-generator"
+                    "awslogs-stream-prefix": "trace-generator-ec2"
                 }
             },
             "command": [
@@ -47,13 +47,13 @@
             "image": "stevelsplunk/sfx-python",
             "essential": true,
             "dockerLabels": {
-                "app": "trace-generator"
+                "app": "trace-generator-ec2"
             },
-            "name": "trace-generator"
+            "name": "trace-generator-ec2"
         }
     ],
     "memory": "200",
-    "family": "trace-generator",
+    "family": "trace-generator-ec2",
     "requiresCompatibilities": [
         "EC2"
     ],
