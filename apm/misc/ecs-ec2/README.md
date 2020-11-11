@@ -98,7 +98,7 @@ And your trace-generator generating traces:
 <img src="../../../../assets/ecs-trace-generator.png" width="360" /> 
 
 Cleanup:  
-`aws ecs delete-service --cluster test-cluster-ec2 --service splk-agent-ec2 --force`. 
+`aws ecs delete-service --cluster test-cluster-ec2 --service splk-agent-ec2 --force`   
 `aws ecs delete-service --cluster test-cluster-ec2 --service trace-generator-ec2 --force` 
 `ecs-cli down --cluster test-cluster --region YOURREGIONHEREi.e.us-east-1` 
 
