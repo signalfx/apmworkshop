@@ -9,7 +9,7 @@
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-group": "ecs",
-                    "awslogs-region": "us-east-1",
+                    "awslogs-region": "YOURREGIONHEREi.e.:us-east-1",
                     "awslogs-stream-prefix": "trace-generator"
                 }
             },
