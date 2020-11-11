@@ -36,7 +36,7 @@ Deploy with the following commands- *you must change the variables in caps in `t
 RELEASEVERSIONHERE: Use the current SignalFx SmartAgent version in the Helm script below from here: https://github.com/signalfx/signalfx-agent/releases i.e. 5.5.5
 
 ```
-aws ecs create-cluster --cluster-name test-cluster  
+aws ecs create-cluster --cluster-name test-cluster-fargate  
 aws ecs register-task-definition --cli-input-json file://trace-generator.json
 ```
 ### STEP 2
@@ -49,7 +49,7 @@ To check which version is current use:
 
 To create the service:  
 
-`aws ecs create-service --cluster test-cluster --service-name splk-demo --task-definition splk-demo:1 \`    
+`aws ecs create-service --cluster test-cluster-fargate --service-name splk-demo --task-definition splk-demo:1 \`    
 `--desired-count 1 --launch-type "FARGATE" \`    
 `--network-configuration "awsvpcConfiguration={subnets=[subnet-YOURSUBNETIHERE],securityGroups=[sg-YOURSECURITYGROUPIDHERE],assignPublicIp=ENABLED}"`    
 
