@@ -70,7 +70,7 @@ Deploy agent task to cluster:
 ```
 aws ecs create-service \
 --cluster test-cluster-ec2 \
---task-definition splk-agent:1 \
+--task-definition splk-agent-ec2:1 \
 --service-name splk-agent-ec2 \
 --scheduling-strategy DAEMON
 ```
@@ -80,7 +80,7 @@ Deploy trace generator task to cluster:
 ```
 aws ecs create-service \
 --cluster test-cluster-ec2 \
---task-definition trace-generator:1 \
+--task-definition trace-generator-ec2:1 \
 --service-name trace-generator-ec2 \
 --scheduling-strategy DAEMON
 ```
