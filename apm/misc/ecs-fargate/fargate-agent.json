@@ -5,7 +5,7 @@
     "containerDefinitions": [
         {
             "name": "splk-agent-fargate",
-            "image": "quay.io/signalfx/signalfx-agent:5.5.6",
+            "image": "quay.io/signalfx/signalfx-agent:RELEASEVERSIONHERE",
             "entryPoint": [
                 "bash",
                 "-c"
@@ -14,7 +14,7 @@
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-group": "ecs",
-                    "awslogs-region": "us-east-1",
+                    "awslogs-region": "YOURREGIONHEREi.e.:us-east-1",
                     "awslogs-stream-prefix": "splk-agent-fargate"
                 }
             },
