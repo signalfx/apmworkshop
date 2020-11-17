@@ -1,8 +1,8 @@
 # Splunk APM Trace Generator Demo For AWS ECS Fargate
 
-This repo demonstrates a reference implemenation for a single AWS ECS Fargate task example of Splunk APM.
+This repo demonstrates single AWS ECS Fargate task example of Splunk APM.
 
-The single task spins up two ECS Fargate containers:
+The task spins up two ECS Fargate containers:
 
 #1 splk-agent-fargate - sidecar to observe ECS host metrics and relay application traces to Splunk APM   
 #2 trace-generator-fargate - generates traces using Python Requests doing GET requests to https://api.github.com
@@ -10,12 +10,12 @@ The single task spins up two ECS Fargate containers:
 ### SETUP
 The agent is a standard deployment of a Fargate container as documented here: [Splunk Infra Fargate Deployment](https://github.com/signalfx/signalfx-agent/tree/master/deployments/fargate)
 
-The Splunk Infraagent.yaml file is based on this [Fargate Example agent.yaml](https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/agent/fargate/agent.yaml)
+The agent .yaml configuration is based on this [Fargate Example agent.yaml](https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/agent/fargate/agent.yaml)
 
 It has been configured for APM with instructions here:
 https://docs.signalfx.com/en/latest/apm/apm-getting-started/apm-smart-agent.html
 
-The result is this file here- to use this you must change the REALM of the trace endpoint url (or set it as an environment variable) in the `.json` task definition: [Fargate Example agent.yaml](https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/agent/fargate/agent.yaml)
+To use this example task you must change the REALM of the `traceendpointurl` (or set it as an environment variable) in the `.json` task definition: [Fargate Example agent.yaml](https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/agent/fargate/agent.yaml)
 
 To deploy this example, you must have a Fargate ECS environment ready to go with VPC, task roles for logs, etc..
 
