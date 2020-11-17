@@ -143,4 +143,4 @@ This means spans are succssfully being sent to Splunk SignalFx.
 `sh delete-all.sh`  
 `helm delete signalfx-agent`  
 
-This is the last lab of the [APM Instrumentation Workshop](../3-workshop-labs.md)
+This is the last lab of the [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)
