@@ -18,6 +18,6 @@ Exercise each lab in order:
 
 #7: [Read the full APM guide on troubleshooting apps, dashboards, etc](https://docs.signalfx.com/en/latest/apm/apm-getting-started/apm-index.html)  
 
-To learn about more languges go to https://docs.signalfx.com/en/latest/apm/apm-instrument/apm-index.html and check out [dot.NET](../misc/dotnet), [ECS Fargate](../misc/fargate), and [EKS](../misc/eks) examples.
+To learn about more languges go to https://docs.signalfx.com/en/latest/apm/apm-instrument/apm-index.html and check out [dot.NET](../misc/dotnet), [ECS Fargate](../misc/ecs-fargate), [ECS ECS](../misc/ecs-ec2) and [EKS](../misc/eks) examples.
 
 [Return to workshop](../README.md)
