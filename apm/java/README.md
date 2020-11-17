@@ -1,4 +1,4 @@
-### This lab requires starting from the main [APM Instrumentation Workshop](../3-workshop-labs.md)
+### This lab requires starting from the main [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)
 
 Requirements:  
 `java 8 JDK` (`sudo apt install -y openjdk-8-jdk`)  
@@ -77,4 +77,4 @@ The `signalfx-tracing.jar` file is the automatic instrumentation that will emit 
 
 Splunk's autoinstrumentation for java is here: https://github.com/signalfx/signalfx-java-tracing
 
-You can now go to the next step of [APM Instrumentation Workshop](../3-workshop-labs.md)
+You can now go to the next step of [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)
