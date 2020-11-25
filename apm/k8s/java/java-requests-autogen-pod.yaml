@@ -10,7 +10,7 @@ spec:
     image: docker.io/openjdk:8
      env:
      - name: SIGNALFX_SERVICE_NAME
-       value: k8s-java-requests-trace-generator
+       value: java-requests-autogen
      - name: MY_NODE_NAME
        valueFrom:
          fieldRef:
@@ -19,5 +19,6 @@ spec:
      - name: SIGNALFX_ENDPOINT_URL
        value: http://$(MY_NODE_NAME):9080/v1/trace
      command: ["/bin/sh"]
+     args: ["run-client.sh"]
      imagePullPolicy: Always
   restartPolicy: Always
