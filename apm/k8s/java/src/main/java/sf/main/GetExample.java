@@ -33,7 +33,7 @@ public static void main(String[] args) throws IOException {
   while (x <= 100000 )
     {
        GetExample okhttpexample = new GetExample();
-       String okhttpresponse = okhttpexample.run("http://localhost:5000/echo");
+       String okhttpresponse = okhttpexample.run("https://api.github.com");
        System.out.println(okhttpresponse);
        System.out.println(x);
        x++;
