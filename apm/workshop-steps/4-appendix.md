@@ -3,6 +3,8 @@
 
 [Multipass](http://multipass.run) deploys and runs Ubuntu virtual machines easily on Mac and Windows.  
 
+Make sure multipass is the CURRENT version: `brew upgrade multipass`
+
 Workshop examples have been tested on this configuration:
 
 `multipass launch -n primary -d 16G -m 6G`
