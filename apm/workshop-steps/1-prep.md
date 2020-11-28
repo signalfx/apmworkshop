@@ -21,7 +21,7 @@ All examples in this workshop have been tested with the following multipass VM:
 
 [k3s](https://k3s.io/) is a lightweight Kubernetes- install this on your multipass VM. 
 
-See the [Appendix](../4-appendix.md) for more info on Multipass and k3s.
+See the [Appendix](4-appendix.md) for more info on Multipass and k3s.
 
 Software present on Linux in advance of workshop:  
 `curl`  
