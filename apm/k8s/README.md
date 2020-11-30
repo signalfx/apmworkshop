@@ -144,3 +144,13 @@ This means spans are succssfully being sent to Splunk SignalFx.
 `helm delete signalfx-agent`  
 
 This is the last lab of the [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)
+
+#### K8S Step 8: Deploy Java example
+
+In the `./apmworkshop/apm/k8s/java` directory is a dockerized example of Splunk Java instrumentation
+
+This can be deployed in your k3s cluster with the Splunk SignalFx agent already running...
+
+`source deploy-java-autogen.sh` deploys the container which will automatically generate spans for the request to `https://api.github.com` 
+
+`source delete-java-requests.sh` deletes the container.
