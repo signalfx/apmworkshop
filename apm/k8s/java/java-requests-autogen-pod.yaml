@@ -19,6 +19,6 @@ spec:
      - name: SIGNALFX_ENDPOINT_URL
        value: http://$(MY_NODE_NAME):9080/v1/trace
      command: ["/bin/sh"]
-     args: ["run-client.sh"]
+     args: ["run-binary.sh"]
      imagePullPolicy: Always
   restartPolicy: Always

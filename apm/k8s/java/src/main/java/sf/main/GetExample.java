@@ -1,6 +1,6 @@
 package sf.main;
 
-import java.io.IOException;
+import java.io.*;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -30,12 +30,12 @@ public static void wait(int ms)
 
 public static void main(String[] args) throws IOException {
   int x = 1;
+  String targetUrl = System.getProperty("targetUrl");
   while (x <= 100000 )
     {
        GetExample okhttpexample = new GetExample();
-       String okhttpresponse = okhttpexample.run("https://api.github.com");
-       System.out.println(okhttpresponse);
-       System.out.println(x);
+       String okhttpresponse = okhttpexample.run(targetUrl);
+       System.out.println(x + " " + targetUrl + " " + okhttpresponse);
        x++;
        wait(250);
       } // while loop
