@@ -1,1 +1,1 @@
-kubectl delete pod java-requests
+kubectl delete pod java-requests-autogen
