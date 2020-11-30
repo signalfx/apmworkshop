@@ -41,6 +41,6 @@ Step 2: [Install SmartAgent and Configure for APM](./workshop-steps/2-smartagent
 
 Step 3: [Complete APM Workshop Labs](./workshop-steps/3-workshop-labs.md)  
 
-Appendix: [Installing k3s and Using tmux](./workshop-steps/4-appendix.md)
+Appendix: [Installing Multipass and k3s / Using tmux](./workshop-steps/4-appendix.md)
 
 Check out other [examples such as ECS and EKS](misc)
