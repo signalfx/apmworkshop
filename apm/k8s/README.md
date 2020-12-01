@@ -152,5 +152,10 @@ In the `./apmworkshop/apm/k8s/java` directory is a dockerized example of Splunk 
 This can be deployed in your k3s cluster with the Splunk SignalFx agent already running...
 
 `source deploy-java-autogen.sh` deploys the container which will automatically generate spans for the request to `https://api.github.com` 
+You can edit this script to change the target URL for testing.
 
 `source delete-java-requests.sh` deletes the container.
+
+If you have the Splunk SignalFx SmartAgent running in a non localhost mode, alter the file:  
+`java-requests-autogen-pod.yaml` and change the  
+`      value: http://$(MY_NODE_NAME):9080/v1/trace` stanza to your the DNS or IP value of your Splunk SignalFx SmartAgent
