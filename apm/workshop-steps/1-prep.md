@@ -17,7 +17,7 @@ Linux operating system- examples use Ubuntu. RedHat and other Linux distribution
 
 [Multipass](multipass.run) runs on Mac and Windows machines that support virtualization and will quickly launch an Ubuntu virtual machine.  
 All examples in this workshop have been tested with the following multipass VM:  
-`multipass launch -n primary -d 8G -m 4G`
+`multipass launch -n primary -d 12G -m 6G`
 
 [k3s](https://k3s.io/) is a lightweight Kubernetes- install this on your multipass VM. 
 
