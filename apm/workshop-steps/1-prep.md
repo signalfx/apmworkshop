@@ -19,6 +19,10 @@ Linux operating system- examples use Ubuntu. RedHat and other Linux distribution
 All examples in this workshop have been tested with the following multipass VM:  
 `multipass launch -n primary -d 12G -m 6G`
 
+To enter your VM:
+
+`multipass shell primary`
+
 [k3s](https://k3s.io/) is a lightweight Kubernetes- install this on your multipass VM. 
 
 See the [Appendix](4-appendix.md) for more info on Multipass and k3s.
