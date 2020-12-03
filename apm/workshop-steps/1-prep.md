@@ -23,6 +23,8 @@ All examples in this workshop have been tested with the following multipass VM:
 
 See the [Appendix](4-appendix.md) for more info on Multipass and k3s.
 
+make sure to `sudo apt-get -y update` before and after installing anything
+
 Software present on Linux in advance of workshop:  
 `curl`     (installed by default with Ubuntu)  
 `git`      (installed by default with Ubuntu)  
