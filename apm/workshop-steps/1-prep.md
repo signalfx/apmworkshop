@@ -25,9 +25,9 @@ See the [Appendix](4-appendix.md) for more info on Multipass and k3s.
 
 Software present on Linux in advance of workshop:  
 `curl`     (installed by default with Ubuntu)  
-`git`      (installed by default with Ubuntu)
+`git`      (installed by default with Ubuntu)  
 `helm`     (`sudo snap install helm --classic`) 
-java 8 jdk (`sudo apt install -y openjdk-8-jdk`)  
+java 8 jdk (`sudo apt install -y openjdk-8-jdk`)    
 maven      (`sudo apt-get -y install maven`)  
 `tmux`     (installed by default with Ubuntu)  
 
