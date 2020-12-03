@@ -32,8 +32,8 @@ make sure to `sudo apt-get -y update` before and after installing anything
 Software present on Linux in advance of workshop:  
 `curl`     (installed by default with Ubuntu)  
 `git`      (installed by default with Ubuntu)  
-`helm`     (`sudo snap install helm --classic`) 
-java 8 jdk (`sudo apt install -y openjdk-8-jdk`)    
+`helm`     (`sudo snap install helm --classic`)   
+java 8 jdk (`sudo apt install -y openjdk-8-jdk`)      
 maven      (`sudo apt-get -y install maven`)  
 `tmux`     (installed by default with Ubuntu)  
 
