@@ -13,9 +13,21 @@ How to find token:
 
 #### Prep Step 2: Ensure you are using the following environment for this workshop  
 
-Linux operating system- examples use Ubuntu. RedHat and other Linux distributions will work the same- simply change the Debian style commands to fit your distribution.
+You will need three environment components for the workshop:
 
-[Multipass](multipass.run) runs on Mac and Windows machines that support virtualization and will quickly launch an Ubuntu virtual machine.  
+#1 Ubuntu Linux OS and associated key components: java, helm, and maven
+#2 k3s kubernetes
+#3 This rep
+
+##### #1 Linux OS
+
+RedHat and other Linux distributions will work the same- simply change the Debian style commands to fit your distribution.
+
+To run Ubuntu on your computer, use: [Multipass](multipass.run) which runs on Mac and Windows machines that support virtualization and will quickly launch an Ubuntu virtual machine.  
+
+See the [Appendix](4-appendix.md) for more info on Multipass and k3s.
+On a Mac make sure you use `brew upgrade` before installing Multipass and follow instructions from [Multipass](multipass.run)
+
 All examples in this workshop have been tested with the following multipass VM:  
 `multipass launch -n primary -d 12G -m 6G`
 
@@ -23,19 +35,20 @@ To enter your VM:
 
 `multipass shell primary`
 
+make sure to `sudo apt-get -y update` before and after installing anything
+
+Install the folliwing:  
+`helm`: `sudo snap install helm --classic`  
+'java 8 jdk': `sudo apt install -y openjdk-8-jdk`     
+'maven': `sudo apt-get -y install maven`
+
+##### #2 Multipass k8s
+
 [k3s](https://k3s.io/) is a lightweight Kubernetes- install this on your multipass VM. 
 
 See the [Appendix](4-appendix.md) for more info on Multipass and k3s.
 
-make sure to `sudo apt-get -y update` before and after installing anything
-
-Software present on Linux in advance of workshop:  
-`curl`     (installed by default with Ubuntu)  
-`git`      (installed by default with Ubuntu)  
-`helm`     (`sudo snap install helm --classic`)   
-java 8 jdk (`sudo apt install -y openjdk-8-jdk`)      
-maven      (`sudo apt-get -y install maven`)  
-`tmux`     (installed by default with Ubuntu)  
+##### #3 This repo
 
 Clone this repo: `git clone https://github.com/signalfx/apmworkshop/`
 
