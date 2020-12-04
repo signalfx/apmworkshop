@@ -39,6 +39,13 @@ The Kubernetes lab has also been tested on:
 * EKS / GKE: Not tested yet but 99.9% chance will have no issues  
 * Workshop will NOT work on: Macbook Pro Docker Desktop Kubernetes
 
+To tear down a Multipass VM:
+
+```
+multipass stop primary
+multipass delete primary
+multipass purge
+```
 
 #### Appendix C: use tmux instead of separate terminal windows/tabs  
 
