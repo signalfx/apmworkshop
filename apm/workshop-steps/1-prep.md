@@ -38,9 +38,9 @@ To enter your VM:
 make sure to `sudo apt-get -y update` before and after installing anything
 
 Install the folliwing:  
-`helm`: `sudo snap install helm --classic`  
-'java 8 jdk': `sudo apt install -y openjdk-8-jdk`     
-'maven': `sudo apt-get -y install maven`
+helm: `sudo snap install helm --classic`  
+java 8 jdk: `sudo apt install -y openjdk-8-jdk`     
+maven: `sudo apt-get -y install maven`
 
 ##### #2 Multipass k8s
 
