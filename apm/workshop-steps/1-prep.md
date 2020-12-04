@@ -15,11 +15,11 @@ How to find token:
 
 You will need three environment components for the workshop:
 
-#1 Ubuntu Linux OS and associated key components: java, helm, and maven
-#2 k3s kubernetes
-#3 This rep
+Env #1 Ubuntu Linux OS and associated key components: java, helm, and maven  
+Env #2 k3s kubernetes  
+Env #3 This rep  
 
-##### #1 Linux OS
+##### Env #1 Linux OS
 
 RedHat and other Linux distributions will work the same- simply change the Debian style commands to fit your distribution.
 
@@ -42,13 +42,13 @@ helm: `sudo snap install helm --classic`
 java 8 jdk: `sudo apt install -y openjdk-8-jdk`     
 maven: `sudo apt-get -y install maven`
 
-##### #2 Multipass k8s
+##### Env #2 Multipass k8s
 
 [k3s](https://k3s.io/) is a lightweight Kubernetes- install this on your multipass VM. 
 
 See the [Appendix](4-appendix.md) for more info on Multipass and k3s.
 
-##### #3 This repo
+##### Env #3 This repo
 
 Clone this repo: `git clone https://github.com/signalfx/apmworkshop/`
 
