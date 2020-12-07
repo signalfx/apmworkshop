@@ -32,7 +32,7 @@ RedHat and other Linux distributions will work the same- simply change the Debia
 
 To run Ubuntu on your computer, use: [Multipass](multipass.run) which runs on Mac and Windows machines that support virtualization and will quickly launch an Ubuntu virtual machine. 
 
-**Mac**
+**<ins>Mac</ins>**
 
 **#1 Install Brew**
 Install [brew package manager](https://brew.sh): `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` 
@@ -105,13 +105,13 @@ See the [Appendix](4-appendix.md) for more info on Multipass and k3s.
 
 Clone this repo: `git clone https://github.com/signalfx/apmworkshop/`
 
-**Windows**
+**<ins>Windows</ins>**
 
 Follow Multipass Windows installation instructions: https://multipass.run/docs/installing-on-windows
 
 Skip steps 1 and 2 above and start at step 3
 
-#### Prep Step 3: Review KEY SPLUNK APM CONCEPTS
+### Prep Step 3: Review KEY SPLUNK APM CONCEPTS
 
 1. There are two moving parts to APM:    
    **One: Application Spans:** Open standards APM spans emitted by your applications. We offer auto-instrumentation (no code changes) for most languages but you can use any framework/library that emits zipkin, OpenTracing, or [OpenTelemetry](https://opentelemtry.io). The optional [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector) can covert between trace formats, process, sample etc.  
