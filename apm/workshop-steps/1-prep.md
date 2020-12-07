@@ -30,12 +30,13 @@ RedHat and other Linux distributions will work the same- simply change the Debia
 
 ##### Env #1 Ubuntu On Your PC
 
-To run Ubuntu on your computer, use: [Multipass](multipass.run) which runs on Mac and Windows machines that support virtualization and will quickly launch an Ubuntu virtual machine. 
+Use: [Multipass](multipass.run) for Mac (and Windows machines that support virtualization)
 
-**<ins>Mac</ins>**
+##### <ins>Mac</ins>
 
 **#1 Install Brew**
-Install [brew package manager](https://brew.sh): `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` 
+Install [brew package manager](https://brew.sh):  
+`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` 
 
 Make sure `brew` is fully upgraded: `brew upgrade`
 
@@ -103,7 +104,7 @@ See the [Appendix](4-appendix.md) for more info on Multipass and k3s.
 
 Clone this repo: `git clone https://github.com/signalfx/apmworkshop/`
 
-**<ins>Windows</ins>**
+##### <ins>Windows</ins>
 
 Follow Multipass Windows installation instructions: https://multipass.run/docs/installing-on-windows
 
