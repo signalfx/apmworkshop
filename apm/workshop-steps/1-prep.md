@@ -32,9 +32,9 @@ RedHat and other Linux distributions will work the same- simply change the Debia
 
 To run Ubuntu on your computer, use: [Multipass](multipass.run) which runs on Mac and Windows machines that support virtualization and will quickly launch an Ubuntu virtual machine. 
 
-### Mac ###
+##### Mac ####
 
-##1 Install Brew##
+**#1 Install Brew**
 Install [brew package manager](https://brew.sh): `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` 
 
 Make sure `brew` is fully upgraded: `brew upgrade`
@@ -46,7 +46,7 @@ $ brew --version
 Homebrew 2.6.0
 ```
 
-## #2 Install Multipass ##
+**#2 Install Multipass**
 
 We will use [Multipass](https://multipass.run) as a hypervisor for Mac: 
 
@@ -56,7 +56,7 @@ If needed, further instructions are here: https://multipass.run/docs/installing-
 
 Do one final brew upgrade before spinning up VM: `brew upgrade`
 
-## #3 Launch Ubuntu VM ##
+**#3 Launch Ubuntu VM**
 
 Create your VM: `multipass launch -n primary -d 12G -m 6G`
 
@@ -74,7 +74,7 @@ To manage multipass VM:
 `multipass delete primary` deletes the VM from the hypervisor
 `multipass purge` purges created images but leaves the ubuntu template intace
 
-## #4 Install software needed for lab ##
+**#4 Install software needed for lab**
 
 Make sure you are working in the VM: `multipass shell primary`
 
@@ -92,7 +92,7 @@ sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml  
 ```
 
-## Every time you re-enter a shell you'll need to: ##   
+**Every time you re-enter a shell you'll need to:**   
 ```
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
@@ -101,11 +101,11 @@ Verify that you can see the basic pods of k3s: `kubectl get pods --all-namespace
 
 See the [Appendix](4-appendix.md) for more info on Multipass and k3s.
 
-## #5 Clone this repo ##
+**#5 Clone this repo**
 
 Clone this repo: `git clone https://github.com/signalfx/apmworkshop/`
 
-## Windows ##
+#### Windows ####
 
 Follow Multipass Windows installation instructions: https://multipass.run/docs/installing-on-windows
 
