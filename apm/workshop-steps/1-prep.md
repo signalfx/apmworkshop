@@ -24,9 +24,9 @@ Env #1 Associated key components: java, helm, and maven
 Env #2 k3s kubernetes  
 Env #3 This repo  
 
-Below we will review how to create a Linux environment on a Mac or PC and install the necessary software components.
-
 RedHat and other Linux distributions will work the same- simply change the Debian style commands to fit your distribution.
+
+#### To create a Linux environment on a Mac or PC and install the necessary software components:
 
 ##### Env #1 Ubuntu On Your PC
 
