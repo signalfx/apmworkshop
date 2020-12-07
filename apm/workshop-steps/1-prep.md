@@ -18,11 +18,7 @@ This workshop uses **Ubuntu Linux** as the server environment.
 
 You can use any Ubuntu platform- bare metal, VM, or cloud VM.
 
-Once you have an Ubuntu platform ready, you'llneed three environment components for the workshop:
-
-Env #1 Associated key components: java, helm, and maven  
-Env #2 k3s kubernetes  
-Env #3 This repo  
+Required software: java 8, helm, maven, k3s (light k8s), this repo
 
 RedHat and other Linux distributions will work the same- simply change the Debian style commands to fit your distribution.
 
