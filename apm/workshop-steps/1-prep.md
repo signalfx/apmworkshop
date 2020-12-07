@@ -34,7 +34,7 @@ To run Ubuntu on your computer, use: [Multipass](multipass.run) which runs on Ma
 
 ### Mac ###
 
-###1 Install Brew##
+##1 Install Brew##
 Install [brew package manager](https://brew.sh): `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` 
 
 Make sure `brew` is fully upgraded: `brew upgrade`
