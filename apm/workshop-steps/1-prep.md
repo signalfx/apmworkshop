@@ -60,7 +60,7 @@ Shell into VM: `multipass shell primary`
 
 You can exit VM by typing `exit` at the command line.
 
-To manage multipass VM:
+To manage multipass VM:  
 `multipass stop primary` stops the VM  
 `multipass delete primary` deletes the VM from the hypervisor  
 `multipass purge` purges created images but leaves the ubuntu template intace  
