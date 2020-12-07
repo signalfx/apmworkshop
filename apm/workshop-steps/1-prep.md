@@ -1,6 +1,6 @@
-### APM Preparation
+## APM Preparation
 
-#### Prep Step 1: Log in to your SignalFx account to identify token/realm  
+### Prep Step 1: Log in to your SignalFx account to identify token/realm  
 
 Check your [Splunk Signalfx Account](https://login.signalfx.com) (your welcome email has this link) and identify your TOKEN and REALM- these are available in the profile menu (the one on top right with a person icon) in your Splunk SignalFx account.
 
@@ -11,7 +11,7 @@ How to find token:
 <img src="../../../assets/token.png" width="360" />  
 
 
-#### Prep Step 2: Create Lab Environment  
+### Prep Step 2: Create Lab Environment  
 
 Splunk infra monitoring and APM are made for **server environments**.  
 This workshop uses **Ubuntu Linux** as the server environment.
@@ -32,7 +32,7 @@ RedHat and other Linux distributions will work the same- simply change the Debia
 
 To run Ubuntu on your computer, use: [Multipass](multipass.run) which runs on Mac and Windows machines that support virtualization and will quickly launch an Ubuntu virtual machine. 
 
-##### Mac ####
+**Mac**
 
 **#1 Install Brew**
 Install [brew package manager](https://brew.sh): `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` 
@@ -105,7 +105,7 @@ See the [Appendix](4-appendix.md) for more info on Multipass and k3s.
 
 Clone this repo: `git clone https://github.com/signalfx/apmworkshop/`
 
-#### Windows ####
+**Windows**
 
 Follow Multipass Windows installation instructions: https://multipass.run/docs/installing-on-windows
 
