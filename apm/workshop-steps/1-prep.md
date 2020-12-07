@@ -70,9 +70,9 @@ You can exit VM by typing `exit` at the command line.
 
 To manage multipass VM:
 
-`multipass stop primary` stops the VM
-`multipass delete primary` deletes the VM from the hypervisor
-`multipass purge` purges created images but leaves the ubuntu template intace
+`multipass stop primary` stops the VM  
+`multipass delete primary` deletes the VM from the hypervisor  
+`multipass purge` purges created images but leaves the ubuntu template intace  
 
 **#4 Install software needed for lab**
 
@@ -80,19 +80,17 @@ Make sure you are working in the VM: `multipass shell primary`
 
 Update Ubuntu: `sudo apt-get -y update`
 
-Install lab environment software:
 helm: `sudo snap install helm --classic`  
 java 8 jdk: `sudo apt install -y openjdk-8-jdk`     
-maven: `sudo apt-get -y install maven`
+maven: `sudo apt-get -y install maven`  
 k3s:
-
 ```
 curl -sfL https://get.k3s.io | sh -
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml  
 ```
 
-**Every time you re-enter a shell you'll need to:**   
+<ins>Every time you re-enter a shell you'll need to:</ins>   
 ```
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
