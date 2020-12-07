@@ -24,10 +24,6 @@ RedHat and other Linux distributions will work the same- simply change the Debia
 
 #### To create a Linux environment on a Mac or PC and install the necessary software components:
 
-##### Env #1 Ubuntu On Your PC
-
-Use: [Multipass](multipass.run) for Mac (and Windows machines that support virtualization)
-
 ##### <ins>Mac</ins>
 
 **#1 Install Brew**
@@ -37,7 +33,6 @@ Install [brew package manager](https://brew.sh):
 Make sure `brew` is fully upgraded: `brew upgrade`
 
 Results should be at least 1.5:
-
 ```
 $ brew --version
 Homebrew 2.6.0
@@ -66,7 +61,6 @@ Shell into VM: `multipass shell primary`
 You can exit VM by typing `exit` at the command line.
 
 To manage multipass VM:
-
 `multipass stop primary` stops the VM  
 `multipass delete primary` deletes the VM from the hypervisor  
 `multipass purge` purges created images but leaves the ubuntu template intace  
