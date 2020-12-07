@@ -11,36 +11,95 @@ How to find token:
 <img src="../../../assets/token.png" width="360" />  
 
 
-#### Prep Step 2: Ensure you are using the following environment for this workshop  
+#### Prep Step 2: Lab Environment  
 
-You will need three environment components for the workshop:
+Splunk infra monitoring and APM are made for **server environments**.  
+This workshop uses **Ubuntu Linux** as the server environment.
 
-Env #1 Ubuntu Linux OS and associated key components: java, helm, and maven  
+You can use any Ubuntu platform- bare metal, VM, or cloud VM.
+
+Once you have an Ubuntu platform ready, you'llneed three environment components for the workshop:
+
+Env #1 Associated key components: java, helm, and maven  
 Env #2 k3s kubernetes  
-Env #3 This rep  
+Env #3 This repo  
 
-##### Env #1 Linux OS
+Below we will review how to create a Linux environment on a Mac or PC and install the necessary software components.
 
 RedHat and other Linux distributions will work the same- simply change the Debian style commands to fit your distribution.
 
-To run Ubuntu on your computer, use: [Multipass](multipass.run) which runs on Mac and Windows machines that support virtualization and will quickly launch an Ubuntu virtual machine.  
+##### Env #1 Ubuntu On Your PC
 
-See the [Appendix](4-appendix.md) for more info on Multipass and k3s.
-On a Mac make sure you use `brew upgrade` before installing Multipass and follow instructions from [Multipass](multipass.run)
+To run Ubuntu on your computer, use: [Multipass](multipass.run) which runs on Mac and Windows machines that support virtualization and will quickly launch an Ubuntu virtual machine. 
 
-All examples in this workshop have been tested with the following multipass VM:  
+Mac:
+
+## #1 Install Brew ##
+Install [brew package manager](https://brew.sh): `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` 
+
+Make sure `brew` is fully upgraded: `brew upgrade`
+
+Results should be at least 1.5:
+
+```
+$ brew --version
+Homebrew 2.6.0
+```
+
+## #2 Install Multipass ##
+
+We will use [Multipass](https://multipass.run) as a hypervisor for Mac.
+
+`brew cask install multipass`
+
+If needed, further instructions are here: https://multipass.run/docs/installing-on-macos
+
+## #3 Launch Ubuntu VM ##
+
+Do one final brew upgrade before spinning up VM:
+
+`brew upgrade`
+
+Create your VM:
+
 `multipass launch -n primary -d 12G -m 6G`
 
-To enter your VM:
+This will download Ubuntu and may take a few minute the first time.
+
+This makes a VM named `primary`
+
+Shell into VM:
 
 `multipass shell primary`
 
-make sure to `sudo apt-get -y update` before and after installing anything
+You can exit VM by typing `exit` at the command line.
 
-Install the folliwing:  
+To manage multipass VM:
+
+`multipass stop primary` stops the VM
+`multipass delete primary` deletes the VM from the hypervisor
+`multipass purge` purges created images but leaves the ubuntu template intace
+
+## #4 Install software needed for lab ##
+
+Make sure you are working in the VM:
+
+`multipass shell primary`
+
+Update Ubuntu: `sudo apt-get -y update`
+
+Install lab environment software:
 helm: `sudo snap install helm --classic`  
 java 8 jdk: `sudo apt install -y openjdk-8-jdk`     
 maven: `sudo apt-get -y install maven`
+k3s:
+
+
+
+
+See the [Appendix](4-appendix.md) for more info on Multipass and k3s.
+
+
 
 ##### Env #2 Multipass k8s
 
