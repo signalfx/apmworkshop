@@ -1,22 +1,22 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: java-requests-autogen
+  name: java-otel-reqs-autogen
   labels:
-    app: java-requests-autogen
+    app: java-otel-reqs-autogen
 spec:
   containers:
-  - name: java-requests-autogen
+  - name: java-otel-reqs-autogen
     image: docker.io/stevelsplunk/sfx-java:latest
     env:
-    - name: SIGNALFX_SERVICE_NAME
-      value: java-requests-autogen
+    - name: OTEL_EXPORTER_JAEGER_SERVICE_NAME
+      value: java-otel-reqs-autogen
     - name: MY_NODE_NAME
       valueFrom:
         fieldRef:
           apiVersion: v1
           fieldPath: spec.nodeName
-    - name: SIGNALFX_ENDPOINT_URL
+    - name: OTEL_EXPORTER_JAEGER_ENDPOINT
       value: http://$(MY_NODE_NAME):9080/v1/trace
     command: ["/bin/sh"]
     args: ["run-binary.sh"]
