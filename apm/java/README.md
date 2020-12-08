@@ -19,9 +19,8 @@ Install Splunk OpenTelemetry Java Auto-instrumentation into `/opt`
 
 #### Step #3 Run the Java example with OKHTTP requests
 
-```
-source run-client.sh
-```
+`source run-client.sh`
+
 Environment variables are passed as system properties.
 You will see requests printed to the window.
 
