@@ -1,4 +1,4 @@
-### This lab requires starting from the main [APM Instrumentation Workshop](../3-workshop-labs.md)
+### This lab requires starting from the main [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)
 
 #### Step #1 Open new terminal to your Linux instance (or open new pane in tmux)  
 
@@ -72,4 +72,4 @@ This auto-instrumenting tracer must be added to the top of a Node app however no
 
 Splunk's autoinstrumentation for node.js is here: https://github.com/signalfx/signalfx-nodejs-tracing
 
-You can now go to the next step of [APM Instrumentation Workshop](../3-workshop-labs.md)
+You can now go to the next step of [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)

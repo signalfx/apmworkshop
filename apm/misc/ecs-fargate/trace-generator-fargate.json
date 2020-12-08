@@ -1,11 +1,11 @@
 {
-    "family": "splk-demo",
+    "family": "splk-fargate-task",
     "networkMode": "awsvpc",
 
     "containerDefinitions": [
         {
-            "name": "splk-agent",
-            "image": "quay.io/signalfx/signalfx-agent:5.5.5",
+            "name": "splk-agent-fargate",
+            "image": "quay.io/signalfx/signalfx-agent:RELEASEVERSIONHERE",
             "entryPoint": [
                 "bash",
                 "-c"
@@ -15,7 +15,7 @@
                 "options": {
                     "awslogs-group": "YOURLOGGROUPHEREi.e.:ecs",
                     "awslogs-region": "YOURREGIONHEREi.e.:us-east-1",
-                    "awslogs-stream-prefix": "splk-agent"
+                    "awslogs-stream-prefix": "splk-agent-fargate"
                 }
             },
             "command": [
@@ -43,11 +43,11 @@
                 }
             ],
             "dockerLabels": {
-                "app": "splk-agent"
+                "app": "splk-agent-fargate"
             }
         },
         {
-            "name": "python-trace-generator",
+            "name": "python-trace-generator-fargate",
             "image": "stevelsplunk/sfx-python:latest",
             "entryPoint": [
                 "bash",
@@ -59,7 +59,7 @@
                 "options": {
                     "awslogs-group": "YOURLOGGROUPHEREi.e.:ecs",
                     "awslogs-region": "YOURREGIONHEREi.e.us-east-1",
-                    "awslogs-stream-prefix": "autogen"
+                    "awslogs-stream-prefix": "python-trace-generator-fargate"
                 }
             },
 	    "workingDirectory": "/home/code",
@@ -69,7 +69,7 @@
             "environment": [
                 {
                     "name": "SIGNALFX_SERVICE_NAME",
-                    "value": "python-trace-generator"
+                    "value": "python-trace-generator-fargate"
                 },
                 {
                     "name": "SIGNALFX_ENDPOINT_URL",
@@ -77,7 +77,7 @@
                 }
             ],
             "dockerLabels": {
-                "app": "python-trace-generator"
+                "app": "python-trace-generator-fargate"
             }
 	}
     ],

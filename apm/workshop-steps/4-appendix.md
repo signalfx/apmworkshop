@@ -3,9 +3,11 @@
 
 [Multipass](http://multipass.run) deploys and runs Ubuntu virtual machines easily on Mac and Windows.  
 
+Make sure multipass is the CURRENT version: `brew upgrade multipass`
+
 Workshop examples have been tested on this configuration:
 
-`multipass launch -n primary -d 8G -m 4G`
+`multipass launch -n primary -d 16G -m 6G`
 
 Make sure to always run `sudo apt-get -y update` before executing any step in the workshop.
 
@@ -21,7 +23,10 @@ export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 ```
 
 Every time you re-enter a shell you'll need to:   
-`export KUBECONFIG=/etc/rancher/k3s/k3s.yaml`
+```
+export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
+```
 
 The stock configuration of k3s and this workshop's k8s examples have been tested on the following configurations:  
 
@@ -34,6 +39,13 @@ The Kubernetes lab has also been tested on:
 * EKS / GKE: Not tested yet but 99.9% chance will have no issues  
 * Workshop will NOT work on: Macbook Pro Docker Desktop Kubernetes
 
+To tear down a Multipass VM:
+
+```
+multipass stop primary
+multipass delete primary
+multipass purge
+```
 
 #### Appendix C: use tmux instead of separate terminal windows/tabs  
 

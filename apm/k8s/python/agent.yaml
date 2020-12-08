@@ -6,3 +6,5 @@ monitors:
 
 writer:
   traceExportFormat: sapm
+
+traceEndpointUrl: "https://ingest.us1.signalfx.com/v2/trace"

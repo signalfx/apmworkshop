@@ -10,7 +10,7 @@ spec:
      image: docker.io/stevelsplunk/sfx-python:latest
      env:
      - name: SIGNALFX_SERVICE_NAME
-       value: Python-Requests-Client
+       value: k8s-python-requests-client
      - name: MY_NODE_NAME
        valueFrom:
          fieldRef:

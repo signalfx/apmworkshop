@@ -19,7 +19,7 @@ spec:
               containerPort: 5000
           env:
             - name: SIGNALFX_SERVICE_NAME
-              value: Python-Flask-Server
+              value: k8s-python-flask-server
             - name: MY_NODE_NAME
               valueFrom:
                 fieldRef:

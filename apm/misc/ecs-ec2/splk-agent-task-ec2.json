@@ -10,7 +10,7 @@
                 "options": {
                     "awslogs-group": "YOURVALUEHEREi.e.:ecs",
                     "awslogs-region": "YOURVALUEHEREi.e.:us-east-1",
-                    "awslogs-stream-prefix": "splk-agent"
+                    "awslogs-stream-prefix": "splk-agent-ec2"
                 }
             },
             "command": [
@@ -36,7 +36,7 @@
                 },
                 {
                     "name": "CONFIG_URL",
-                    "value": "https://raw.githubusercontent.com/signalfx/signalfx-agent/v5.5.4/deployments/ecs/agent.yaml"
+                    "value": "https://raw.githubusercontent.com/signalfx/signalfx-agent/v5.5.6/deployments/ecs/agent.yaml"
                 }
             ],
             "mountPoints": [
@@ -56,16 +56,16 @@
                     "sourceVolume": "etc-passwd"
                 }
             ],
-            "image": "quay.io/signalfx/signalfx-agent:5.5.4",
+            "image": "quay.io/signalfx/signalfx-agent:5.5.6",
             "essential": true,
             "dockerLabels": {
-                "app": "splk-agent"
+                "app": "splk-agent-ec2"
             },
-            "name": "splk-agent"
+            "name": "splk-agent-ec2"
         }
     ],
     "memory": "200",
-    "family": "splk-agent",
+    "family": "splk-agent-ec2",
     "requiresCompatibilities": [
         "EC2"
     ],

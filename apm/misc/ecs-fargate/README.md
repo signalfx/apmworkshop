@@ -1,21 +1,21 @@
 # Splunk APM Trace Generator Demo For AWS ECS Fargate
 
-This repo demonstrates a reference implemenation for a single AWS ECS Fargate task example of Splunk APM.
+This repo demonstrates single AWS ECS Fargate task example of Splunk APM.
 
-The single task spins up two ECS Fargate containers:
+The task spins up two ECS Fargate containers:
 
-#1 Splk-Agent - sidecar to observe ECS and relay traces to SignalFx   
-#2 Trace-Generator - generates traces using Python Requests doing GET requests to https://api.github.com
+#1 splk-agent-fargate - sidecar to observe ECS host metrics and relay application traces to Splunk APM   
+#2 trace-generator-fargate - generates traces using Python Requests doing GET requests to https://api.github.com
 
 ### SETUP
 The agent is a standard deployment of a Fargate container as documented here: [Splunk Infra Fargate Deployment](https://github.com/signalfx/signalfx-agent/tree/master/deployments/fargate)
 
-The Splunk Infraagent.yaml file is based on this [Fargate Example agent.yaml](https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/agent/fargate/agent.yaml)
+The agent .yaml configuration is based on this [Fargate Example agent.yaml](https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/agent/fargate/agent.yaml)
 
 It has been configured for APM with instructions here:
 https://docs.signalfx.com/en/latest/apm/apm-getting-started/apm-smart-agent.html
 
-The result is this file here- to use this you must change the REALM of the trace endpoint url (or set it as an environment variable) in the `.json` task definition: [Fargate Example agent.yaml](https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/agent/fargate/agent.yaml)
+To use this example task you must change the REALM of the `traceendpointurl` (or set it as an environment variable) in the `.json` task definition: [Fargate Example agent.yaml](https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/agent/fargate/agent.yaml)
 
 To deploy this example, you must have a Fargate ECS environment ready to go with VPC, task roles for logs, etc..
 
@@ -31,10 +31,13 @@ https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_cloudwatch_log
 Once all of the above is done:
 
 ### STEP 1
-Deploy with the following commands- change the variables in caps to suit your environment:
+Deploy with the following commands- *you must change the variables in caps in `trace-generator.json` to suit your environment:*
+
+RELEASEVERSIONHERE: Use the current SignalFx SmartAgent version in the Helm script below from here: https://github.com/signalfx/signalfx-agent/releases i.e. 5.5.5
+
 ```
-aws ecs create-cluster --cluster-name test-cluster  
-aws ecs register-task-definition --cli-input-json file://trace-generator.json
+aws ecs create-cluster --cluster-name test-cluster-fargate  
+aws ecs register-task-definition --cli-input-json file://trace-generator-fargate.json
 ```
 ### STEP 2
 Create the service based on the task just registered.
@@ -46,7 +49,7 @@ To check which version is current use:
 
 To create the service:  
 
-`aws ecs create-service --cluster test-cluster --service-name splk-demo --task-definition splk-demo:1 \`    
+`aws ecs create-service --cluster test-cluster-fargate --service-name splk-demo --task-definition splk-demo:1 \`    
 `--desired-count 1 --launch-type "FARGATE" \`    
 `--network-configuration "awsvpcConfiguration={subnets=[subnet-YOURSUBNETIHERE],securityGroups=[sg-YOURSECURITYGROUPIDHERE],assignPublicIp=ENABLED}"`    
 
@@ -66,7 +69,7 @@ The screenshot below shows what the traces will look like.
 
 ### How it works
 
-The key to this working is that the trace generator container is sending its traces to ```localhost``` which is network addresss shared with the agent container. The agent running in the agent container sees these traces and has been configured to send them to SignalFx.
+The key to this working is that the trace generator container is sending its traces to ```localhost``` which is network address shared with the agent container. The agent running in the agent container sees these traces and has been configured to send them to SignalFx.
 
 The trace generator is using the automatic instrumentation for tracing from SignalFx and uses the Python Request libraries to request a neutral external website (set up in the Java code) once and then wait a random time between one and two seconds.
 
@@ -76,4 +79,4 @@ If you just want to run the SmartAgent, you can use the `fargate-agent.json` exa
 
 The [commands.md](./commands.md) file offers helpful commands for ECS Fargate management for the AWS CLI.
 
-Dockerfile for the java trace generator is here: https://raw.githubusercontent.com/slernersplunk/signalfx/master/apm/misc/containers/dockerfile-tracegenerator-java
+Dockerfile for the java trace generator is here: https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/python/dockerfile-sfx-python

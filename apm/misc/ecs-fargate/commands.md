@@ -9,7 +9,8 @@
 
 #### Monitor   
     
-`aws ecs list-task-definitions`   
+`aws ecs list-task-definitions`  
+`aws ecs list-clusters`  
 `aws ecs list-services --cluster YOURCLUSTERNAMEHERE`   
 `aws ecs describe-services --cluster YOURCLUSTERNAMEHERE --services YOURSERVICENAMEHERE`   
 
@@ -18,3 +19,4 @@
 `aws ecs deregister-task-definition --task-definition FAMILYNAMEHERE:VERSIONHERE`   
 `aws ecs delete-service --cluster YOURCLUSTERNAMEHERE --service YOURSERVICENAMEHERE --force`   
 `aws ecs delete-cluster --cluster YOURCLUSTERNAMEHERE`
+`ecs-cli down --cluster YOURCLUSTERNAMEHERE --region YOURREGIONHERE`
