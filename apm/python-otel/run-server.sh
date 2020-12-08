@@ -1,2 +1,2 @@
 source ./setup-server.sh
-sfx-py-trace ./flask-server.py
+splk-py-trace python ./flask-server.py
