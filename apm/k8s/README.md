@@ -21,8 +21,6 @@ To install helm: ```sudo snap install helm --classic```
 
 ```
 helm repo add signalfx https://dl.signalfx.com/helm-repo
-```
-```
 helm repo update
 ```
 Build your Helm install script based on the following variables:
@@ -88,8 +86,10 @@ to verify these values have been added:
 
 Deploy the flask-server:
 
-`source deploy-flask.sh`  
-`source deploy-python-requests.sh`
+```
+source deploy-flask.sh
+source deploy-python-requests.sh
+```
 
 #### K8S Step 4: Study the results
 
@@ -116,7 +116,6 @@ The SmartAgent pod is running with <ins>node wide visibility</ins>, so to tell e
             - name: SIGNALFX_ENDPOINT_URL
               value: http://$(MY_NODE_NAME):9080/v1/trace
 ```
-
 
 #### K8S Step 6: View trace spans flowing in SignalFx Agent pod
 `kubectl get pods`
