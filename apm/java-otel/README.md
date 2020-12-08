@@ -20,7 +20,7 @@ Install Splunk OpenTelemetry Java Auto-instrumentation into `/opt`
 #### Step #3 Set up environment and run the Java example with OKHTTP requests
 
 ```
-source setup-java-env.sh  
+source setup-otel-apm-env.sh  
 source run-client.sh
 ```
 
