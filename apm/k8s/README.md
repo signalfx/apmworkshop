@@ -122,7 +122,7 @@ The SmartAgent pod is running with <ins>node wide visibility</ins>, so to tell e
 
 Note the pod name of the `SignalFx Agent` pod
 
-`kubectl exec -it PODNAMEOFSIGNALFXAGENT -- bash -c "/bin/signalfx-agent status"`  
+`kubectl exec -it PODNAMEOFSIGNALFXAGENT -- signalfx-agent status`  
 
 `signalfx-agent status` will show the metrics and spans being sent by the agent like this:
 
