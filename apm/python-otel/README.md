@@ -6,9 +6,9 @@ Do all of these from your ~ directory:
 
 ```sudo apt-get -y update
 sudo apt install -y python3-pip
-python3 -m pip install signalfx_tracing flask
+python3 -m pip install splunk-opentelemetry flask
 export PATH="$HOME/.local/bin:$PATH"
-sfx-py-trace-bootstrap
+splk-py-trace-bootstrap
 ```
 
 #### Step #2 Set up environment and run Python Flask server using auto-instrumentation
@@ -16,7 +16,7 @@ sfx-py-trace-bootstrap
 ```
 cd ./apmworkshop/apm/python
 source setup-server.sh  
-sfx-py-trace flask-server.py  
+splk-py-trace python flask-server.py  
 ```
 
 You will see the server startup text when this is run.
