@@ -11,6 +11,8 @@ spec:
     env:
     - name: OTEL_EXPORTER_JAEGER_SERVICE_NAME
       value: k8s-java-otel-reqs-client
+    - name: OTEL_EXPORTER
+      value: jaeger
     - name: MY_NODE_NAME
       valueFrom:
         fieldRef:
