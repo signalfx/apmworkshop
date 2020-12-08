@@ -5,9 +5,12 @@ Hints on setting up a minimal cluster and local VM can be found in the [Appendix
 
 [Helm](helm.sh) must be installed.
 
-Set `kubectl` context:    
-`sudo kubectl config set-context --current --namespace=kube-system`
-
+Make sure k3s environment is correct:
+```
+sudo kubectl config set-context --current --namespace=kube-system
+export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+sudo chmod 644 /etc/rancher/k3s/k3s.yaml
+```
 ### All examples below take place in the `./apm/k8s/python` directory
 
 #### K8S Step 1: set up the SignalFx SmartAgent as a sidecar pod  
