@@ -17,14 +17,13 @@ Install Splunk OpenTelemetry Java Auto-instrumentation into `/opt`
 
 `source install-java-otel.sh`
 
-#### Step #3 Set up environment and run the Java example with OKHTTP requests
+#### Step #3 Run the Java example with OKHTTP requests
 
 ```
-source setup-otel-apm-env.sh  
 source run-client.sh
 ```
-
-You will see requests printed to the window
+Environment variables are passed as system properties.
+You will see requests printed to the window.
 
 #### Step #4 Traces / services will now be viewable in the APM dashboard
 
