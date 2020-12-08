@@ -1,1 +1,1 @@
-kubectl delete pod k8s-java-otel-reqs-client
+kubectl delete pod java-requests-autogen
