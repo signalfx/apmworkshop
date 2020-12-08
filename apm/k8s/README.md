@@ -44,13 +44,13 @@ Check this and then move on to next step.
 
 The default k8s SmartAgent config needs to be modified with some updated values for APM.
 
-##### If you are NOT doing this workshop as part of a group:  
+#### If you are NOT doing this workshop as part of a group:  
 
 ./apmworkshoip/apm/k8s/python (this directory) has an `agent.yaml` file without the `traceEndpoingUrl` set.
 
 Change the `traceEndpointUrl` by editing your realm i.e. set it to `traceEndpointUrl: "https://ingest.us1.signalfx.com/v2/trace"`
 
-##### If you are doing this workshop as part of a group:  
+#### If you are doing this workshop as part of a group:  
 
 **Step #1**
 ./apmworkshoip/apm/k8s/python (this directory) has an `agent.yaml` file with a default `environment` value.
@@ -72,11 +72,11 @@ monitors:
 traceEndpointUrl: "https://ingest.YOURREALMHERE.signalfx.com/v2/trace"
 ```
 
-##### Group and solo continue below
+#### Group and solo continue below
 
 To update your SignalFx agent helm repo with APM values:
 
-For K8S, use ```helm``` to reconfigure the agent pod with the enclosed `agent.yaml` additions to the `monitor` stanza:
+For K8S, use ```helm``` to reconfigure the agent pod with the enclosed `agent.yaml` additions to the `monitor` stanza:  
 `helm upgrade --reuse-values -f ./agent.yaml signalfx-agent signalfx/signalfx-agent`
 
 to verify these values have been added:  
