@@ -44,14 +44,24 @@ Check this and then move on to next step.
 
 #### K8S Step 2: SmartAgent Update For Kubernetes     
 
-If you are doing this workshop as part of a group:  
-Step #1.  
-/apm/k8s/python (this directory) has an `agent.yaml` file with a default `environment` value.
-Add a unique identifier to the `environment` name i.e. your initials `sfx-workshop-YOURINITIALSHERE`
+The default k8s SmartAgent config needs to be modified with some updated values for APM.
 
-Step #2. 
+##### If you are NOT doing this workshop as part of a group:  
+
+./apmworkshoip/apm/k8s/python (this directory) has an `agent.yaml` file without the `traceEndpoingUrl` set.
 
 Change the `traceEndpointUrl` by editing your realm i.e. set it to `traceEndpointUrl: "https://ingest.us1.signalfx.com/v2/trace"`
+
+##### If you are doing this workshop as part of a group:  
+
+**Step #1**
+./apmworkshoip/apm/k8s/python (this directory) has an `agent.yaml` file with a default `environment` value.
+Add a unique identifier to the `environment` name i.e. your initials `sfx-workshop-YOURINITIALSHERE`
+
+**Step #2**
+
+Change the `traceEndpointUrl` by editing your realm i.e. set it to `traceEndpointUrl: "https://ingest.us1.signalfx.com/v2/trace"`
+
 For a group workshop The resulting stanza is:
 
 ```
@@ -64,17 +74,14 @@ monitors:
 traceEndpointUrl: "https://ingest.YOURREALMHERE.signalfx.com/v2/trace"
 ```
 
-If you are NOT doing this workshop# as part of a group:  
+##### Group and solo continue below
 
-Change the `traceEndpointUrl` by editing your realm i.e. set it to `traceEndpointUrl: "https://ingest.us1.signalfx.com/v2/trace"`
+To update your SignalFx agent helm repo with APM values:
 
-To update your SignalFx agent helm repo with APM values:  
 For K8S, use ```helm``` to reconfigure the agent pod with the enclosed `agent.yaml` additions to the `monitor` stanza:
-
 `helm upgrade --reuse-values -f ./agent.yaml signalfx-agent signalfx/signalfx-agent`
 
 to verify these values have been added:  
-
 `helm get values signalfx-agent`
 
 #### K8S Step 3: Deploy the containerized instrumented Python examples 
@@ -150,7 +157,7 @@ This is the last lab of the [APM Instrumentation Workshop](../workshop-steps/3-w
 
 #### K8S Step 8: Deploy Java example
 
-In the `./apmworkshop/apm/k8s/java` directory is a dockerized example of Splunk Java instrumentation
+In the `./apmworkshop/apm/k8s/java` directory is a dockerized example of Splunk OpenTelemetry Java instrumentation
 
 This can be deployed in your k3s cluster with the Splunk SignalFx agent already running...
 
