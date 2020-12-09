@@ -4,7 +4,7 @@ Please see [Step 1](../workshop-steps/1-prep.md) to prep your environment with J
 
 #### Step #1 Open new terminal to your Linux instance (or open new pane in tmux)
 
-Make sure that you still have the Python Flask server from Lav #2 running. If you accidentally shut it down follow steps from Workshop #2 to restart the Python Flask server.
+Make sure that you still have the Python Flask server from Lab #2 running. If you accidentally shut it down follow steps from Workshop #2 to restart the Python Flask server.
 
 Make sure you are in the right directory to start the Java activities:  
 `cd ~/apmworkshop/apm/java`
