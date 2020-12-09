@@ -16,10 +16,7 @@ installs Splunk OpenTelemetry Java Auto-instrumentation into `/opt'
 
 #### Step #3 Run the Java example with OKHTTP requests
 
-```
-source run-client.sh
-```
-
+`source run-client.sh`
 You will see requests printed to the window.
 
 #### Step #4 Traces / services will now be viewable in the APM dashboard
