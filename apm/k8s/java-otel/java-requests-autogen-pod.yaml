@@ -14,7 +14,7 @@ spec:
         fieldRef:
           apiVersion: v1
           fieldPath: spec.nodeName
-    - name: SIGNALFX_ENDPOINT_URL
+    - name: OTEL_EXPORTER_JAEGER_ENDPOINT
       value: http://$(MY_NODE_NAME):9080/v1/trace
     command: ["/bin/sh"]
     args: ["run-binary.sh"]
