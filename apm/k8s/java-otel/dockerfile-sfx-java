@@ -1,0 +1,6 @@
+FROM openjdk:8  
+RUN apt-get update && \ 
+    apt install -y maven && \
+    mkdir /home/code
+WORKDIR /home/code
+COPY . /home/code/
