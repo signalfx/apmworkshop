@@ -1,12 +1,8 @@
 ## K8S Prep
 
 You must have a ready Kubernetes cluster for this example.  
-Hints on setting up a minimal cluster and local VM can be found in the [Appendix](../workshop-steps/4-appendix.md).  
-
-[Helm](helm.sh) must be installed.
-
-Set `kubectl` context:    
-`sudo kubectl config set-context --current --namespace=kube-system`
+A guide to setting up your own sandbox with k3s (light k8s) can be found in: [Step 1](../workshop-steps/1-prep.md).  
+All of those steps are required to run this lab.
 
 ### All examples below take place in the `./apm/k8s/python` directory
 
