@@ -8,10 +8,7 @@ All of those steps are required to run this lab.
 
 #### K8S Step 1: set up the SignalFx SmartAgent as a sidecar pod  
 
-K8S or K3S must be installed before helm is installed.  
-
-To install helm: ```sudo snap install helm --classic```
-
+Set up Splunk SignalFx SmartAgent in your k3s cluster:  
 ```
 helm repo add signalfx https://dl.signalfx.com/helm-repo
 ```
