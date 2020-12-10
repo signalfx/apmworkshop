@@ -5,6 +5,5 @@ export OTEL_EXPORTER_JAEGER_SERVICE_NAME=java-otel-reqs-client
 # change target URL below to alter the test target
 java \
 -DtargetUrl=https://api.github.com \
--Dotel.exporter=jaeger \
 -javaagent:/opt/splunk-otel-javaagent.jar \
 -jar ./target/java-app-1.0-SNAPSHOT.jar
