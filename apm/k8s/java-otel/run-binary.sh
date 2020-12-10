@@ -1,4 +1,4 @@
-curl -L https://github.com/signalfx/splunk-otel-java/releases/latest/download/splunk-otel-javaagent-all.jar -o splunk-otel-javaagent.jar
+curl -L https://github.com/signalfx/splunk-otel-java/releases/latest/download/splunk-otel-javaagent-all.jar -o /opt/splunk-otel-javaagent.jar
 chmod 755 /opt/splunk-otel-javaagent.jar
 export OTEL_EXPORTER_JAEGER_SERVICE_NAME=java-otel-reqs-client
 # change the endoint env variable in the deployment .yaml to change location of your agent
