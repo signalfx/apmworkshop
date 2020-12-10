@@ -29,6 +29,16 @@ helm install --set signalFxAccessToken=TOKENHERE \
 --set agentVersion=RELEASEVERSIONHERE \
 --set kubeletAPI.url=https://localhost:10250 signalfx-agent signalfx/signalfx-agent
 ```
+
+for example:
+```
+helm install --set signalFxAccessToken=iggrestofthetoken \
+--set clusterNamew=workshop-demo-cluster \
+--set signalFxRealm=us1 \
+--set agentVersion=5.6.0 \
+--set kubeletAPI.url=https://localhost:10250 signalfx-agent signalfx/signalfx-agent
+```
+
 Once you deploy the SmartAgent on your Kubernetes cluster, you will see the host appear within seconds in the Infrastructure Tab Kubnernetes Navigator in SignalFx.  
 Check this and then move on to next step.
 
