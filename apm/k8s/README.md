@@ -4,7 +4,7 @@ You must have a ready Kubernetes cluster for this example.
 A guide to setting up your own sandbox with k3s (light k8s) can be found in: [Step 1](../workshop-steps/1-prep.md).  
 All of those steps are required to run this lab.
 
-### All examples below take place in the `./apm/k8s/python` directory
+#### All examples below take place in the `./apm/k8s/python` directory
 
 #### K8S Step 1: set up the SignalFx SmartAgent as a sidecar pod  
 
