@@ -1,4 +1,6 @@
 export OTEL_EXPORTER_JAEGER_SERVICE_NAME=java-otel-reqs-client
+mvn compile
+mvn package
 mvn compile exec:exec \
 -Dexec.executable="java" \
 -Dotel.exporter=jaeger \
