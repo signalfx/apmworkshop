@@ -3,4 +3,4 @@
 java \
 -DtargetUrl=https://api.github.com \
 -javaagent:/opt/splunk-otel-javaagent.jar \
--jar ./target/java-app-1.0-SNAPSHOT.jar
+-jar target/java-app-1.0-SNAPSHOT.jar

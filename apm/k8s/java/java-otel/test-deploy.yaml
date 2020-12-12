@@ -20,7 +20,7 @@ spec:
           fieldPath: spec.nodeName
     - name: OTEL_EXPORTER_JAEGER_ENDPOINT
       value: http://$(MY_NODE_NAME):9080/v1/trace
-    command: ["/bin/sh"]
-    args: ["run-binary.sh"]
+    command: [ "/bin/bash", "-c", "--" ]
+    args: [ "while true; do sleep 30; done;" ]      
     imagePullPolicy: Always
   restartPolicy: Always
