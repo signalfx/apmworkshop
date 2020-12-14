@@ -150,7 +150,7 @@ This is the last lab of the [APM Instrumentation Workshop](../workshop-steps/3-w
 
 #### K8S Step 8: Deploy Java example
 
-In the `./apmworkshop/apm/k8s/java` directory is a dockerized example of Splunk Java instrumentation
+In the `./apmworkshop/apm/k8s/java-sfx` directory is a dockerized example of Splunk Java instrumentation
 
 This can be deployed in your k3s cluster with the Splunk SignalFx agent already running...
 
@@ -158,6 +158,9 @@ This can be deployed in your k3s cluster with the Splunk SignalFx agent already 
 You can edit this script to change the target URL for testing.
 
 `source delete-java-requests.sh` deletes the container.
+
+The pod is set to generate requests to https://api.github.com
+You can change the target URL in `run-binary.sh`
 
 If you have the Splunk SignalFx SmartAgent running in a non localhost mode, alter the file:  
 `java-requests-autogen-pod.yaml` and change the  
