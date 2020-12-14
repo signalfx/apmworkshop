@@ -1,2 +1,2 @@
-sh install-java-otel.sh
-sh run-java.sh
+sh ./java-otel/install-java-otel.sh
+sh ./java-otel/run-java.sh
