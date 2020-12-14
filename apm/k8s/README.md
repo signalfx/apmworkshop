@@ -4,6 +4,12 @@ You must have a ready Kubernetes cluster for this example.
 A guide to setting up your own sandbox with k3s (light k8s) can be found in: [Step 1](../workshop-steps/1-prep.md).  
 All of those steps are required to run this lab.
 
+Reminder- anytime you close your environment and go back to it, make sure the k3s environment variables from the prep are set:
+```
+export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
+```
+
 #### All examples below take place in the `./apm/k8s/python` directory
 
 #### K8S Step 1: set up the SignalFx SmartAgent as a sidecar pod  
