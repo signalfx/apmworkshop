@@ -159,6 +159,7 @@ This is the last lab of the [APM Instrumentation Workshop](../workshop-steps/3-w
 In the `./apmworkshop/apm/k8s/java-sfx` directory is a dockerized example of Splunk Java instrumentation
 
 This can be deployed in your k3s cluster with the Splunk SignalFx agent already running...
+Note that auto-gen testing containers do not generate Service Dashboard metrics due to the 'incomplete' nature of a get-only span...
 
 `source deploy-java-autogen.sh` deploys the container which will automatically generate spans for the request to `https://api.github.com` 
 You can edit this script to change the target URL for testing.
