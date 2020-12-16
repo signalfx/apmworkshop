@@ -1,19 +1,10 @@
-## Enabling µAPM on EKS
-_An organisation needs to be pre-provisioned as a µAPM entitlement is required for the purposes of this module. Please contact someone from SignalFx to get a trial instance with µAPM enabled if you don’t have one already._
-
-_To check if you have an organisation with µAPM enabled, just login to SignalFx and check that you have the µAPM tab on the top navbar next to Dashboards._
-
----
-
 ### 1. Requirements and Document Conventions
 
 This workshop is tested on MacOS and Linux- it should work on Windows as well if requirements are met. Tips, references, and troubleshooting tips for these components are in the appendix.
 
 The previous workshops should have been completed such that you have the following variables at the ready:
 
-SignalFx token
-
-SignalFx realm
+Splunk Infra (SignalFx) Token and Realm
 
 #### **Document Conventions**
 
