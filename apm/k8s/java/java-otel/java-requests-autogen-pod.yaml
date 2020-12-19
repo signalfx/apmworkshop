@@ -9,8 +9,6 @@ spec:
   - name: k8s-java-otel-reqs-client
     image: docker.io/stevelsplunk/sfx-java:latest
     env:
-    - name: OTEL_EXPORTER
-      value: jaeger
     - name: OTEL_EXPORTER_JAEGER_SERVICE_NAME
       value: k8s-java-otel-reqs-client
     - name: MY_NODE_NAME
