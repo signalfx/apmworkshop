@@ -1,7 +1,6 @@
 import requests
 from time import sleep
-from random import random
-from random import seed
+from random import random, seed
 
 seed(1)
 url = 'http://flask-server:5000/echo'
@@ -17,5 +16,5 @@ def pythonrequests():
 while x:
     pythonrequests()
     y = random()*2
-    print("Posting: ", url, " Sleeping: ",y)
+    print("Posting: ", url, " Sleeping: ", round(y,2))
     sleep(y)
