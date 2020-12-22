@@ -14,9 +14,9 @@ splk-py-trace-bootstrap
 #### Step #2 Set up environment and run Python Flask server using auto-instrumentation
 
 ```
-cd ./apmworkshop/apm/python
+cd ./apmworkshop/apm/python-otel
 source setup-server.sh  
-splk-py-trace python flask-server.py  
+splk-py-trace python3 flask-server.py  
 ```
 
 You will see the server startup text when this is run.
@@ -28,10 +28,10 @@ Open a new terminal window to your Linux instance, set up environment variables,
 ```
 cd ./apmworkshop/apm/python
 source setup-client.sh  
-sfx-py-trace python-requests.py
+splk-py-trace python3 python-requests-otel.py
 ```
 
-The `python-requests.py` client will make 100,000 calls to the server every 250ms. If it finishes you can run it again.  
+The `python-requests.py` client will make calls to the flask server with a random short sleep time.
 You can stop the requests with `ctrl-c`
 
 #### Step #4 Check SignalFx SmartAgent to see that spans are being sent
