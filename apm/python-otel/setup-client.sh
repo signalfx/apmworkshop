@@ -1,2 +1,2 @@
-export SIGNALFX_SERVICE_NAME='python-http-reqs-client'
-export SIGNALFX_ENDPOINT_URL='http://localhost:9080/v1/trace'
+export SPLK_SERVICE_NAME='py-otel-reqs-client'
+export SPLK_TRACE_EXPORTER_URL='http://localhost:9080/v1/trace'
