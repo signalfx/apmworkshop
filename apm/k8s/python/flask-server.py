@@ -3,7 +3,7 @@ from flask import Flask, make_response, request
 app = Flask(__name__)
    
 def convert_response(message):
-    return 'Hello From Flask Server- you sent: {}\n'.format(message)
+    return 'Hello From Flask Server\n'.format(message)
 
 @app.route('/echo', methods=['POST'])
 @app.route('/echo', methods=['GET'])

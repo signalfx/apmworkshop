@@ -9,7 +9,8 @@ x=1
 
 def pythonrequests():
     try:
-        requests.post(url, data = {'key': 'value'})
+        r=requests.post(url)
+        print (r.text)
     except requests.exceptions.RequestException as err:
         print(err)
 
