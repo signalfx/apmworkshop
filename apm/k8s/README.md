@@ -94,10 +94,10 @@ Deploy the python requests pod:
 Deploy the Java OKHTTP requests pod:
 
 Change to the java example directory:
-`~/apmworkshop/apm/k8s/java`
+`~/apmworkshop/apm/k8s/java/java-otel`
 
 Deploy the OpenTelemetry Java OKHTTP Pod:
-`source ./java-otel/deploy-java-requests.sh`
+`source deploy-java-requests.sh`
 
 
 #### K8S Step 4: Study the results
