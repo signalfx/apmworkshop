@@ -109,8 +109,8 @@ Skip steps 1 and 2 above and start at step 3
 3. The APM spans flow in real time and there is no sampling.  
 4. Pre-made default Service Dashboards for APM tracing will appear once spans are received by Splunk Signalfx. The uAPM view has directed troubleshooting. 
 5. Environment variables in the user environment and the SmartAgent config `/etc/signalfx/agent.yaml` control the setup of APM:      
-`SIGNALFX_ENDPOINT_URL` or OpenTelemetry `otel.exporter.jaeger.endpoint` tells your application where to send spans  
-`SIGNALFX_SERVICE_NAME` or OpenTelemetry `otel.exporter.jaeger.service.name` sets the name of your application in the APM interface  
+`SIGNALFX_ENDPOINT_URL` or OpenTelemetry `OTEL_EXPORTER_JAEGER_ENDPOINT` tells your application where to send spans  
+`SIGNALFX_SERVICE_NAME` or OpenTelemetry `OTEL_EXPORTER_JAEGER_SERVICE_NAME` sets the name of your application in the APM interface  
 The workshop contains scripts to set these.
 
 [Return to workshop for next step](../README.md)
