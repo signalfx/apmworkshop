@@ -1,7 +1,6 @@
 import requests
 from time import sleep
-from random import random
-from random import seed
+from random import random, seed
 
 seed(1)
 url = 'http://localhost:5000/echo'
@@ -16,6 +15,6 @@ def pythonrequests():
 
 while x:
     pythonrequests()
-    y = random()*2
+    y = random()
     print("Posting: ", url, " Sleeping: ",y)
     sleep(y)
