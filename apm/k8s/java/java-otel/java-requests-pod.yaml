@@ -19,6 +19,6 @@ spec:
     - name: OTEL_EXPORTER_JAEGER_ENDPOINT
       value: http://$(MY_NODE_NAME):9080/v1/trace
     command: ["/bin/sh"]
-    args: ["./java-otel/run-java-local.sh"]
+    args: ["./java-otel/run-java-local-flask.sh"]
     imagePullPolicy: Always
   restartPolicy: Always
