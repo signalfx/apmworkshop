@@ -15,5 +15,6 @@ def pythonrequests():
 
 while x:
     pythonrequests()
+    print(x)
     y = random()*2
     sleep(y)
