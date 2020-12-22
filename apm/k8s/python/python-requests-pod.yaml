@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: python-requests
+  name: k8s-python-requests-client
   labels:
-    app: python-requests
+    app: k8s-python-requests-client
 spec:
   containers:
-  -  name: python-requests
+  -  name: k8s-python-requests-client
      image: docker.io/stevelsplunk/sfx-python:latest
      env:
      - name: SIGNALFX_SERVICE_NAME
