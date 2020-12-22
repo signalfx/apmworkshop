@@ -21,7 +21,7 @@ splk-py-trace python3 flask-server.py
 
 You will see the server startup text when this is run.
 
-#### Step #3 Run the client python app via the `sfx-py-trace` command to send POST requests to the Flask server
+#### Step #3 Run the client python app via the `splk-py-trace` command to send requests to the Flask server
 
 Open a new terminal window to your Linux instance, set up environment variables, and run the `python-requests.py` client to sent POST requests to the Flask server (or use `tmux` and run in separate pane)
 
