@@ -1,3 +1,4 @@
+sh ./java-otel/install-java-otel.sh
 # change the endoint env variable in the deployment .yaml to change location of your agent
 # change target URL below to alter the test target
 java \
