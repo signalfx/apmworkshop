@@ -10,8 +10,6 @@ export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
 ```
 
-#### All examples below take place in the `./apm/k8s/python` directory
-
 #### K8S Step 1: set up the SignalFx SmartAgent as a sidecar pod  
 
 Set up Splunk SignalFx SmartAgent in your k3s cluster:  
@@ -84,6 +82,9 @@ to verify these values have been added:
 `helm get values signalfx-agent`
 
 #### K8S Step 3: Deploy the dockerized versions of python flask, python requests, and OpenTelemetry Java OKHTTP pods
+
+
+##### Start in `~/apmworkshop/apm/k8s/python` directory
 
 Deploy the flask-server pod:
 `source deploy-flask.sh`
@@ -162,7 +163,12 @@ Notice `Trace Spans Sent (last minute):   1083`
 This means spans are succssfully being sent to Splunk SignalFx.
 
 #### K8S Step 7: Clean up deployments and services
+Python:
 `sh delete-all.sh`  
 `helm delete signalfx-agent`  
+
+Java:
+In `~/apmworkshop/apm/k8s/java/java-otel`  
+`source delete-java-requests.sh`
 
 This is the last lab of the [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)
