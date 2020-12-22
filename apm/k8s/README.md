@@ -83,25 +83,38 @@ to verify these values have been added:
 
 `helm get values signalfx-agent`
 
-#### K8S Step 3: Deploy the containerized instrumented Python examples 
+#### K8S Step 3: Deploy the dockerized versions of python flask, python requests, and OpenTelemetry Java OKHTTP pods
 
-Deploy the flask-server:
+Deploy the flask-server pod:
+`source deploy-flask.sh`
 
-`source deploy-flask.sh`  
+Deploy the python requests pod:
 `source deploy-python-requests.sh`
+
+Deploy the Java OKHTTP requests pod:
+
+Change to the java example directory:
+`~/apmworkshop/apm/k8s/java`
+
+Deploy the OpenTelemetry Java OKHTTP Pod:
+`source ./java-otel/deploy-java-requests.sh`
+
 
 #### K8S Step 4: Study the results
 
-The APM Dashboard will show the instrumented Python-Requests Client posting to the Flask Server.  
+The APM Dashboard will show the instrumented Python-Requests and OpenTelemetry Java OKHTTP clients posting to the Flask Server.  
 Make sure you select the ENVIRONMENT to monitor on the selector next to `Troubleshooting` i.e. in image below you can see `sfx-workshop` is selected.
 
 <img src="../../../assets/vlcsnap-00007.png"/>  
 
 #### K8S Step 5: Study the `deployment.yaml` files
 
-Spans need to be send to the SmartAgent which is running in its own pod- the `deployment.yaml` files will demonstrate this.
+Spans need to be send to the SmartAgent which is running in its own pod- the deployment yaml files will demonstrate this:
+`~/apmworkshop/apm/k8s/java/java-otel/java-requests-pod.yaml`
+`~/apmworkshop/apm/k8s/python/flask-deployment.yaml`
+`~/apmworkshop/apm/k8s/python/python-requests-pod.yaml`
 
-Normally we use `SIGNALFX_ENDPOINT_URL` pointing to `localhost` on a single host application where the SmartAgent is running.
+Normally we use an environment variable pointing to `localhost` on a single host application where the SmartAgent is running.
 
 In k8s we have separate pods in a cluster for apps and the SmartAgent.  
 The SmartAgent pod is running with <ins>node wide visibility</ins>, so to tell each application pod where to send spans, we use this:
@@ -153,22 +166,3 @@ This means spans are succssfully being sent to Splunk SignalFx.
 `helm delete signalfx-agent`  
 
 This is the last lab of the [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)
-
-#### K8S Step 8: Deploy OpenTelemetry Java example
-
-In the `./apmworkshop/apm/k8s/java-otel` directory is a dockerized example of Splunk Java instrumentation
-
-This can be deployed in your k3s cluster with the Splunk SignalFx agent already running...
-Note that auto-gen testing containers do not generate Service Dashboard metrics due to the 'incomplete' nature of a get-only span...
-
-`source deploy-java-autogen.sh` deploys the container which will automatically generate spans for the request to `https://api.github.com` 
-You can edit this script to change the target URL for testing.
-
-`source delete-java-requests.sh` deletes the container.
-
-The pod is set to generate requests to https://api.github.com
-You can change the target URL in `run-binary.sh`
-
-If you have the Splunk SignalFx SmartAgent running in a non localhost mode, alter the file:  
-`java-requests-autogen-pod.yaml` and change the  
-`      value: http://$(MY_NODE_NAME):9080/v1/trace` stanza to your the DNS or IP value of your Splunk SignalFx SmartAgent
