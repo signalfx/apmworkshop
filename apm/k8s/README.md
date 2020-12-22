@@ -164,6 +164,7 @@ This means spans are succssfully being sent to Splunk SignalFx.
 
 #### K8S Step 7: Clean up deployments and services
 Python:
+In: `~/apmworkshop/apm/k8s/python`  
 `sh delete-all.sh`  
 `helm delete signalfx-agent`  
 
