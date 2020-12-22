@@ -1,1 +1,1 @@
-sfx-py-trace ./python-requests-k8s.py
+sfx-py-trace python-requests-k8s.py
