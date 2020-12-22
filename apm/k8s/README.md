@@ -154,9 +154,9 @@ This means spans are succssfully being sent to Splunk SignalFx.
 
 This is the last lab of the [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)
 
-#### K8S Step 8: Deploy Java example
+#### K8S Step 8: Deploy OpenTelemetry Java example
 
-In the `./apmworkshop/apm/k8s/java-sfx` directory is a dockerized example of Splunk Java instrumentation
+In the `./apmworkshop/apm/k8s/java-otel` directory is a dockerized example of Splunk Java instrumentation
 
 This can be deployed in your k3s cluster with the Splunk SignalFx agent already running...
 Note that auto-gen testing containers do not generate Service Dashboard metrics due to the 'incomplete' nature of a get-only span...
