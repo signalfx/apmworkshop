@@ -1,3 +1,3 @@
 kubectl delete deployment flask-server
 kubectl delete service flask-server
-kubectl delete pod python-requests
+kubectl delete pod k8s-python-requests-client

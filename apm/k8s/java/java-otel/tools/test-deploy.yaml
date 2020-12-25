@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: k8s-java-otel-reqs-client
+  labels:
+    app: k8s-java-otel-reqs-client
+spec:
+  containers:
+  - name: k8s-java-otel-reqs-client
+    image: docker.io/stevelsplunk/sfx-java:latest
+    env:
+    - name: OTEL_EXPORTER_JAEGER_SERVICE_NAME
+      value: k8s-java-otel-reqs-client
+    - name: MY_NODE_NAME
+      valueFrom:
+        fieldRef:
+          apiVersion: v1
+          fieldPath: spec.nodeName
+    - name: OTEL_EXPORTER_JAEGER_ENDPOINT
+      value: http://$(MY_NODE_NAME):9080/v1/trace
+    - name: FLASK_SERVER
+      value: http://$(MY_NODE_NAME):5000/echo
+    command: [ "/bin/bash", "-c", "--" ]
+    args: [ "while true; do sleep 30; done;" ]      
+    imagePullPolicy: Always
+  restartPolicy: Always

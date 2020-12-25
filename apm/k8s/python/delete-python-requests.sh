@@ -1,1 +1,1 @@
-kubectl delete pod python-requests
+kubectl delete pod k8s-python-requests-client

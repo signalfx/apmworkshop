@@ -8,7 +8,7 @@ Exercise each lab in order:
 #2: [Python: Deploy instrumented Flask server and generate traces with Python requests client](../python)  
 :play_or_pause_button: **VIDEO:** [#2 Python](https://drive.google.com/file/d/1OzSH9WNT5M36keU9coczsyL1j181se1D/view?usp=sharing)  
 
-#3: [Java: Generate traces from OKHTTP client](../java)  
+#3: [Java (OpenTelemetry): Generate traces from OKHTTP client](../java)  
 #4: [Node: Generate traces from Node HTTP.get client](../node)  
 #5: Check out the automatic [Service Dashboard](../dashboards/servicedashboard.md) for your apps  
 

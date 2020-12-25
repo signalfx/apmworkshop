@@ -4,34 +4,34 @@
 
 Do all of these from your ~ directory:
 
-```sudo apt-get -y update
-sudo apt install -y python3-pip
-python3 -m pip install splunk-opentelemetry flask
-export PATH="$HOME/.local/bin:$PATH"
+```sudo apt-get -y update && \
+sudo apt install -y python3-pip && \
+python3 -m pip install splunk-opentelemetry flask && \
+export PATH="$HOME/.local/bin:$PATH" && \
 splk-py-trace-bootstrap
 ```
 
 #### Step #2 Set up environment and run Python Flask server using auto-instrumentation
 
 ```
-cd ./apmworkshop/apm/python
+cd ./apmworkshop/apm/python-otel
 source setup-server.sh  
-splk-py-trace python flask-server.py  
+splk-py-trace python3 flask-server.py  
 ```
 
 You will see the server startup text when this is run.
 
-#### Step #3 Run the client python app via the `sfx-py-trace` command to send POST requests to the Flask server
+#### Step #3 Run the client python app via the `splk-py-trace` command to send requests to the Flask server
 
 Open a new terminal window to your Linux instance, set up environment variables, and run the `python-requests.py` client to sent POST requests to the Flask server (or use `tmux` and run in separate pane)
 
 ```
 cd ./apmworkshop/apm/python
 source setup-client.sh  
-sfx-py-trace python-requests.py
+splk-py-trace python3 python-requests-otel.py
 ```
 
-The `python-requests.py` client will make 100,000 calls to the server every 250ms. If it finishes you can run it again.  
+The `python-requests.py` client will make calls to the flask server with a random short sleep time.
 You can stop the requests with `ctrl-c`
 
 #### Step #4 Check SignalFx SmartAgent to see that spans are being sent

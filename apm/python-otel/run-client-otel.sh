@@ -1,2 +1,2 @@
-/bin/sh ./setup-client.sh
-splk-py-trace ./python-requests.py
+sh setup-client.sh
+splk-py-trace python3 python-requests.py
