@@ -86,20 +86,18 @@ to verify these values have been added:
 
 ##### Start in `~/apmworkshop/apm/k8s/python` directory
 
-Deploy the flask-server pod:
+Deploy the flask-server pod:  
 `source deploy-flask.sh`
 
-Deploy the python requests pod:
+Deploy the python requests pod:  
 `source deploy-python-requests.sh`
 
 Deploy the Java OKHTTP requests pod:
-
-Change to the java example directory:
-`~/apmworkshop/apm/k8s/java/`
-
-Deploy the OpenTelemetry Java OKHTTP Pod:
-`source ./java-otel/deploy-java-requests.sh`
-
+It runs from this directory:  
+```
+cd ~/apmworkshop/apm/k8s/java/`
+source ./java-otel/deploy-java-requests.sh
+```
 
 #### K8S Step 4: Study the results
 
