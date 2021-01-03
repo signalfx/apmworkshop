@@ -28,10 +28,11 @@ Open a new terminal window to your Linux instance, set up environment variables,
 ```
 cd ./apmworkshop/apm/python
 source setup-client.sh  
+export PATH="$HOME/.local/bin:$PATH"  
 splk-py-trace python3 python-requests-otel.py
 ```
 
-The `python-requests.py` client will make calls to the flask server with a random short sleep time.
+The `python-requests-otel.py` client will make calls to the flask server with a random short sleep time.
 You can stop the requests with `ctrl-c`
 
 #### Step #4 Check SignalFx SmartAgent to see that spans are being sent
