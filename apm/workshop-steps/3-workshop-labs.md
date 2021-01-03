@@ -4,8 +4,8 @@ Exercise each lab in order:
 
 #1: :play_or_pause_button: **VIDEO:** [Full demonstration of Splunk APM](https://drive.google.com/file/d/1jc5VWL4jKMqAUgUxDnMcpB42LKAn8Bdm/view?usp=sharing)  
 
-<ins>APM for apps on a single host</ins>  
-#2: [Python: Deploy instrumented Flask server and generate traces with Python requests client](../python)  
+<ins>APM for instrumented apps on a single host</ins>  
+#2: [Python (OpenTelemetry): Deploy Flask server and generate traces with Python requests client](../python)  
 :play_or_pause_button: **VIDEO:** [#2 Python](https://drive.google.com/file/d/1OzSH9WNT5M36keU9coczsyL1j181se1D/view?usp=sharing)  
 
 #3: [Java (OpenTelemetry): Generate traces from OKHTTP client](../java)  
