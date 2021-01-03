@@ -1,6 +1,6 @@
 ### This lab requires starting from the main [APM Instrumentation Workshop](../3-workshop-labs.md)
 
-#### Step #1 Install SignalFx tracing library and boostrap instrumentation. Make sure you have Python3 installed in advance of these steps.
+#### Step #1 Install Splunk OptenTelemetry Python tracing library and boostrap instrumentation. Make sure you have Python3 installed in advance of these steps.
 
 Do all of these from your ~ directory:
 
@@ -35,7 +35,7 @@ splk-py-trace python3 python-requests-otel.py
 The `python-requests-otel.py` client will make calls to the flask server with a random short sleep time.
 You can stop the requests with `ctrl-c`
 
-#### Step #4 Check SignalFx SmartAgent to see that spans are being sent
+#### Step #4 Check Splunk SignalFx SmartAgent to see that spans are being sent
 
 Open a new terminal window to your Linux instance (or use `tmux` and run in separate pane)
 
@@ -94,7 +94,7 @@ In the trace view you can click on spans to see more info and their tags, and so
 
 #### Step #6 Where is the auto-instrumentation?
 
-`sfx-py-trace` is the auto instrumenting function that runs Python3 with the instrumentation that automatically emits spans from the python app. No code changes are necessary.
+`splk-py-trace` is the auto instrumenting function that runs Python3 with the instrumentation that automatically emits spans from the Python app. No code changes are necessary.
 
 Splunk's autoinstrumentation for python is here: https://github.com/signalfx/splunk-otel-python
 
