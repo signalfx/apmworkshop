@@ -49,34 +49,32 @@ Check this and then move on to next step.
 
 #### K8S Step 2: SmartAgent Update For Kubernetes     
 
-If you are doing this workshop as part of a group:  
-Step #1.  
+<ins>If you are doing this workshop as part of a group:</ins>  
+
 `/apm/k8s/python/agent.yaml` has a default `environment` value.
+
 Add a unique identifier to the `environment` name i.e. your initials `sfx-workshop-YOURINITIALSHERE`
-
-Step #2. 
-
-Change the `traceEndpointUrl` by editing your realm i.e. set it to `traceEndpointUrl: "https://ingest.us1.signalfx.com/v2/trace"`
-For a group workshop The resulting stanza is:
-
 ```
 monitors:
   - type: signalfx-forwarder
     listenAddress: 0.0.0.0:9080
     defaultSpanTags:
      environment: "sfx-workshop-YOURINITIALSHERE"
-     
-traceEndpointUrl: "https://ingest.YOURREALMHERE.signalfx.com/v2/trace"
-```
+```     
 
-If you are NOT doing this workshop# as part of a group:  
+<ins>For all individuals and/or groups doing the workshop:</ins>  
+
+`/apm/k8s/python/agent.yaml` has a default `REALM` value in the `traceEndpointUrl`  
 
 Change the `traceEndpointUrl` by editing your realm i.e. set it to `traceEndpointUrl: "https://ingest.us1.signalfx.com/v2/trace"`
 
-For all group/solo workshop participants:  
+The resulting stanza is:
+```  
+traceEndpointUrl: "https://ingest.YOURREALMHERE.signalfx.com/v2/trace"
+```
 
 To update your SignalFx agent helm repo with APM values:  
-For K8S, use ```helm``` to reconfigure the agent pod with the enclosed `agent.yaml` additions to the `monitor` stanza:
+For K8S, use ```helm``` to reconfigure the agent pod with the enclosed `agent.yaml` and the values that have been updated.  
 
 `helm upgrade --reuse-values -f ./agent.yaml signalfx-agent signalfx/signalfx-agent`
 
@@ -97,10 +95,10 @@ Deploy the python requests pod:
 Deploy the Java OKHTTP requests pod:
 
 Change to the java example directory:
-`~/apmworkshop/apm/k8s/java/java-otel`
+`~/apmworkshop/apm/k8s/java/`
 
 Deploy the OpenTelemetry Java OKHTTP Pod:
-`source deploy-java-requests.sh`
+`source ./java-otel/deploy-java-requests.sh`
 
 
 #### K8S Step 4: Study the results
