@@ -95,7 +95,7 @@ Deploy the python requests pod:
 Deploy the Java OKHTTP requests pod:
 It runs from this directory:  
 ```
-cd ~/apmworkshop/apm/k8s/java/`
+cd ~/apmworkshop/apm/k8s/java/
 source ./java-otel/deploy-java-requests.sh
 ```
 
