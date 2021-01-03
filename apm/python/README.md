@@ -6,7 +6,7 @@ Do all of these from your ~ directory:
 
 ```sudo apt-get -y update && \
 sudo apt install -y python3-pip && \
-python3 -m pip install splunk-opentelemetry flask && \
+python3 -m pip install splunk-opentelemetry flask requests && \
 export PATH="$HOME/.local/bin:$PATH" && \
 splk-py-trace-bootstrap
 ```
