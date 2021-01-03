@@ -96,7 +96,7 @@ In the trace view you can click on spans to see more info and their tags, and so
 
 `sfx-py-trace` is the auto instrumenting function that runs Python3 with the instrumentation that automatically emits spans from the python app. No code changes are necessary.
 
-Splunk's autoinstrumentation for python is here: https://github.com/signalfx/signalfx-python-tracing
+Splunk's autoinstrumentation for python is here: https://github.com/signalfx/splunk-otel-python
 
 #### Step #7 Leave the Flask server running
 
