@@ -9,12 +9,12 @@ x=1
 def pythonrequests():
     try:
         r=requests.post(url)
-        print (r.text)
+        print(r.text)
     except requests.exceptions.RequestException as err:
         print(err)
 
 while x:
     pythonrequests()
     y = random()
-    print("Posting: ", url, " Sleeping: ",y)
+    print("Posting: ", url, " Sleeping: ", round(y,2))
     sleep(y)

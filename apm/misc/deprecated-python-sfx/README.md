@@ -1,41 +1,40 @@
 ### This lab requires starting from the main [APM Instrumentation Workshop](../3-workshop-labs.md)
 
-#### Step #1 Install Splunk OptenTelemetry Python tracing library and boostrap instrumentation. Make sure you have Python3 installed in advance of these steps.
+#### Step #1 Install SignalFx tracing library and boostrap instrumentation. Make sure you have Python3 installed in advance of these steps.
 
 Do all of these from your ~ directory:
 
 ```sudo apt-get -y update && \
-sudo apt install -y python3-pip && \
-python3 -m pip install splunk-opentelemetry flask && \
-export PATH="$HOME/.local/bin:$PATH" && \
-splk-py-trace-bootstrap
+sudo apt install -y python3-pip  && \
+python3 -m pip install signalfx_tracing flask  && \
+export PATH="$HOME/.local/bin:$PATH"  && \
+sfx-py-trace-bootstrap
 ```
 
 #### Step #2 Set up environment and run Python Flask server using auto-instrumentation
 
 ```
-cd ./apmworkshop/apm/python-otel
+cd ./apmworkshop/apm/python
 source setup-server.sh  
-splk-py-trace python3 flask-server.py  
+sfx-py-trace flask-server.py  
 ```
 
 You will see the server startup text when this is run.
 
-#### Step #3 Run the client python app via the `splk-py-trace` command to send requests to the Flask server
+#### Step #3 Run the client python app via the `sfx-py-trace` command to send POST requests to the Flask server
 
 Open a new terminal window to your Linux instance, set up environment variables, and run the `python-requests.py` client to sent POST requests to the Flask server (or use `tmux` and run in separate pane)
 
 ```
 cd ./apmworkshop/apm/python
 source setup-client.sh  
-export PATH="$HOME/.local/bin:$PATH"  
-splk-py-trace python3 python-requests-otel.py
+sfx-py-trace python-requests.py
 ```
 
-The `python-requests-otel.py` client will make calls to the flask server with a random short sleep time.
+The `python-requests.py` client will make 100,000 calls to the server every 250ms. If it finishes you can run it again.  
 You can stop the requests with `ctrl-c`
 
-#### Step #4 Check Splunk SignalFx SmartAgent to see that spans are being sent
+#### Step #4 Check SignalFx SmartAgent to see that spans are being sent
 
 Open a new terminal window to your Linux instance (or use `tmux` and run in separate pane)
 
@@ -94,9 +93,9 @@ In the trace view you can click on spans to see more info and their tags, and so
 
 #### Step #6 Where is the auto-instrumentation?
 
-`splk-py-trace` is the auto instrumenting function that runs Python3 with the instrumentation that automatically emits spans from the Python app. No code changes are necessary.
+`sfx-py-trace` is the auto instrumenting function that runs Python3 with the instrumentation that automatically emits spans from the python app. No code changes are necessary.
 
-Splunk's autoinstrumentation for python is here: https://github.com/signalfx/splunk-otel-python
+Splunk's autoinstrumentation for python is here: https://github.com/signalfx/signalfx-python-tracing
 
 #### Step #7 Leave the Flask server running
 
