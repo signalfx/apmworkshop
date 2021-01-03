@@ -1,1 +1,1 @@
-sfx-py-trace python-requests-k8s-otel.py
+splk-py-trace python3 python-requests-k8s-otel.py
