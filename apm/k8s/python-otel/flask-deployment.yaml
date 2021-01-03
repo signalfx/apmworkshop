@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-server-otel-deployment
+  name: flask-server-otel
 spec:
   selector:
     matchLabels:
