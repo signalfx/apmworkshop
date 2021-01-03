@@ -9,14 +9,14 @@ spec:
   -  name: k8s-py-requests-client-otel
      image: docker.io/stevelsplunk/splk-python:latest
      env:
-     - name: SIGNALFX_SERVICE_NAME
+     - name: SPLK_SERVICE_NAME
        value: k8s-python-requests-client
      - name: MY_NODE_NAME
        valueFrom:
          fieldRef:
            apiVersion: v1
            fieldPath: spec.nodeName
-     - name: SIGNALFX_ENDPOINT_URL
+     - name: SPLK_TRACE_EXPORTER_URL
        value: http://$(MY_NODE_NAME):9080/v1/trace
      command: [ "/bin/bash", "-c", "--" ]
      args: [ "while true; do sleep 30; done;" ]
