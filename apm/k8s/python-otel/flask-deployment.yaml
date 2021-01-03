@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: flask-server-otel
-          image: 'docker.io/stevelsplunk/sfx-python:latest'
+          image: 'docker.io/stevelsplunk/splk-python:latest'
           ports:
             - name: http
               containerPort: 5000

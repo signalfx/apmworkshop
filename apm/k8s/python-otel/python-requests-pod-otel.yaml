@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
   -  name: k8s-py-requests-client-otel
-     image: docker.io/stevelsplunk/sfx-python:latest
+     image: docker.io/stevelsplunk/splk-python:latest
      env:
      - name: SIGNALFX_SERVICE_NAME
        value: k8s-python-requests-client
