@@ -1,1 +1,1 @@
-kubectl create -f python-requests-pod.yaml
+kubectl create -f python-requests-pod-otel.yaml

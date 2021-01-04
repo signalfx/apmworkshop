@@ -1,4 +1,4 @@
 # requires dockerhub login
-sudo docker build . -f dockerfile-java -t sfx-java
-sudo docker tag sfx-java stevelsplunk/sfx-java
-sudo docker push stevelsplunk/sfx-java
+sudo docker build . -f dockerfile-java -t splk-java
+sudo docker tag splk-java stevelsplunk/splk-java
+sudo docker push stevelsplunk/splk-java
