@@ -6,7 +6,7 @@ All of those steps are required to run this lab.
 
 Reminder- anytime you close your environment and go back to it, make sure the k3s environment variables from the prep are set:
 ```
-export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
 ```
 
