@@ -1,6 +1,6 @@
 ```
-export SFX_REALM=US1
-export SFX_TOKEN=iggr1oMNzzoIbvsfjGq90Q
+export SFX_REALM=YOURREALMHERE
+export SFX_TOKEN=YOURTOKENHERE
 
 curl https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector-contrib/master/exporter/sapmexporter/examples/signalfx-k8s.yaml -o signalfx-k8s.yaml
 
