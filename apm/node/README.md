@@ -11,18 +11,16 @@ Make sure you are in the right directory to start the node.js activities:
 #### Step #2 Set up your node environment for APM
 
 ```
-sudo apt-get install -y nodejs npm
-npm init
+sudo apt-get install -y nodejs npm && \
+npm init && \
 npm install signalfx-tracing
 ```
 During `npm init` you can use all defaults
 
 #### Step #3 Set up environment and run the node app with HTTP.get requests
 
-```
-source setup-client.sh  
-node app.js
-```
+`source setup-client.sh`    
+`node app.js`
 
 You will see requests printed to the window
 
