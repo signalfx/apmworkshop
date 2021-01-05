@@ -159,11 +159,11 @@ This means spans are succssfully being sent to Splunk SignalFx.
 #### K8S Step 7: Clean up deployments and services
 
 Java:
-In `~/apmworkshop/apm/k8s/java/java-otel`  
+in `~/apmworkshop/apm/k8s/java/java-otel`  
 `source delete-java-requests.sh`
 
 Python:
-In: `~/apmworkshop/apm/k8s/python`  
+in: `~/apmworkshop/apm/k8s/python`  
 `sh delete-all.sh`  
 
 SignalFx Agent:
