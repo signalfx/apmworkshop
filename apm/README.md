@@ -10,9 +10,8 @@ Requirements:
 1. Splunk Observability Account
 2. Debian (i.e. Ubuntu) Linux environment with minimum 16G RAM and 8G disk should be ready to try all examples.  
 RedHat and other mainstream Linux distributions can be used by translating shell commands from Debian.
-3. Kubernetes cluster set up in advance. 
-
-Hints on setting up a minimal Ubunbtu VM and Kubernetes cluster on a local machine are included in the [Appendix](./workshop-steps/4-appendix.md).
+This workshop has a guide on how to set up an Ubuntu environment on your desktop via Multipass.
+3. Kubernetes cluster set up in advance in your Ubuntu environment.
 
 ### Document Conventions
 
@@ -41,6 +40,6 @@ Step 2: [Install SmartAgent and Configure for APM](./workshop-steps/2-smartagent
 
 Step 3: [Complete APM Workshop Labs](./workshop-steps/3-workshop-labs.md)  
 
-Appendix: [Installing k3s and Using tmux](./workshop-steps/4-appendix.md)
+Appendix: [Installing Multipass and k3s / Using tmux](./workshop-steps/4-appendix.md)
 
 Check out other [examples such as ECS and EKS](misc)

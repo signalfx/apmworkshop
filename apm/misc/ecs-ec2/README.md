@@ -4,8 +4,8 @@ This repo demonstrates a reference implemenation for a single AWS ECS EC2 task e
 
 The single task spins up two ECS containers on EC2:
 
-#1 splk-agent - sidecar to observe ECS and relay traces to Splunk SignalFx   
-#2 trace-generator - generates traces using Python Requests doing GET requests to https://api.github.com
+#1 splk-agent-ec2 - sidecar to observe ECS and relay traces to Splunk SignalFx   
+#2 trace-generator-ec2 - generates traces using Python Requests doing GET requests to https://api.github.com
 
 ### SETUP
 
@@ -24,9 +24,9 @@ To set up a SignalFx SmartAgent container in ECS:
 Configure ECS Cluster:  
 ```
 ecs-cli configure \
---cluster test-cluster \
+--cluster test-cluster-ec2 \
 --default-launch-type EC2 \
---config-name test-cluster \
+--config-name test-cluster-ec2 \
 --region YOURREGIONHEREi.e.us-east-1
 ```
 
@@ -45,17 +45,22 @@ ecs-cli up \
 --keypair YOURAWSEC2KEYPAIRNAMEHERE \
 --capability-iam --size 2 \
 --instance-type t2.medium \
---cluster-config test-cluster \
+--cluster-config test-cluster-ec2 \
 --ecs-profile ecs-ec2-profile \
 --port 9080
 ```
 
 Register your ECS EC2 tasks:
 
-Before registering the agent and trace generator tasks, view them and change appropriate values i.e. AWS ARNs and Splunk SignalFx realms/token etc:    
-`aws ecs register-task-definition --cli-input-json file://splk-agent-task.json`
+Deploy with the following commands- *you must change the variables in caps in these task .json files to suit your environment:*
 
-`aws ecs register-task-definition --cli-input-json file://trace-generator-ecs.json`
+RELEASEVERSIONHERE: Use the current SignalFx SmartAgent version in the Helm script below from here: https://github.com/signalfx/signalfx-agent/releases i.e. 5.5.5
+
+`aws ecs register-task-definition --cli-input-json file://splk-agent-task-ec2.json`
+
+Make sure to change the AWS REGION and then:
+
+`aws ecs register-task-definition --cli-input-json file://trace-generator-ecs-ec2.json`
 
 Note that the task definition will increment each time you try it- from 1 to 2 etc. To check which version is current use:  
 `aws ecs list-task-definitions`
@@ -64,9 +69,9 @@ Deploy agent task to cluster:
 
 ```
 aws ecs create-service \
---cluster test-cluster \
---task-definition splk-agent:1 \
---service-name splk-agent \
+--cluster test-cluster-ec2 \
+--task-definition splk-agent-ec2:1 \
+--service-name splk-agent-ec2 \
 --scheduling-strategy DAEMON
 ```
 
@@ -74,15 +79,15 @@ Deploy trace generator task to cluster:
 
 ```
 aws ecs create-service \
---cluster test-cluster \
---task-definition trace-generator:1 \
---service-name trace-generator \
+--cluster test-cluster-ec2 \
+--task-definition trace-generator-ec2:1 \
+--service-name trace-generator-ec2 \
 --scheduling-strategy DAEMON
 ```
 
 Check processes:
 
-`ecs-cli ps --cluster-config test-cluster --ecs-profile ecs-ec2-profile`
+`ecs-cli ps --cluster-config test-cluster-ec2 --ecs-profile ecs-ec2-profile`
 
 At this point you should see your Splunk SignalFx ECS Container:
 
@@ -93,8 +98,9 @@ And your trace-generator generating traces:
 <img src="../../../../assets/ecs-trace-generator.png" width="360" /> 
 
 Cleanup:  
-`aws ecs delete-service --cluster test-cluster --service splk-agent --force`  
-`ecs-cli down --cluster test-cluster --region YOURREGIONHEREi.e.us-east-1` 
+`aws ecs delete-service --cluster test-cluster-ec2 --service splk-agent-ec2 --force`   
+`aws ecs delete-service --cluster test-cluster-ec2 --service trace-generator-ec2 --force`    
+`ecs-cli down --cluster test-cluster-ec2 --region YOURREGIONHEREi.e.us-east-1` 
 
 ### Extras
 

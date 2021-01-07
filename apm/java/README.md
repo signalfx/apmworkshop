@@ -1,30 +1,23 @@
-### This lab requires starting from the main [APM Instrumentation Workshop](../3-workshop-labs.md)
+### This lab requires starting from the main [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)
 
-Requirements:  
-`java 8 JDK` (`sudo apt install -y openjdk-8-jdk`)  
-`maven` (`sudo apt-get install -y maven`)
+Please see [Step 1](../workshop-steps/1-prep.md) to prep your environment with Java, maven etc.
 
 #### Step #1 Open new terminal to your Linux instance (or open new pane in tmux)
 
-Make sure that you still have the Python Flask server from Workshop Activity #2 running. If you accidentally shut it down follow steps from Workshop #2 to restart the Python Flask server.
+Make sure that you still have the Python Flask server from Lab #2 running. If you accidentally shut it down follow steps from Workshop #2 to restart the Python Flask server.
 
 Make sure you are in the right directory to start the Java activities:  
-`cd ~/splunkobservability/apm/java`
+`cd ~/apmworkshop/apm/java`
 
-#### Step #2 Download current SignalFx Java Auto-instrumentation
+#### Step #2 Download Splunk OpenTelemetry Java Auto-instrumentation
 
-Install SignalFx Java Auto-instrumentation into `/opt/signalfx-tracing.jar`  
+`source install-java-otel.sh`
+installs Splunk OpenTelemetry Java Auto-instrumentation into `/opt'
 
-`source setup.sh`
+#### Step #3 Run the Java example with OKHTTP requests
 
-#### Step #3 Set up environment and run the Java example with OKHTTP requests
-
-```
-source setup-client.sh  
-source run-client.sh
-```
-
-You will see requests printed to the window
+`source run-client.sh`
+You will see requests printed to the window.
 
 #### Step #4 Traces / services will now be viewable in the APM dashboard
 
@@ -62,19 +55,19 @@ Trace Spans overwritten (total):  0
 Notice **Trace Spans Sent (last minute):   1083**  
 This means spans are succssfully being sent to Splunk SignalFx.
 
- 
 #### Step #6 Where is the auto-instrumentation?
 
 In the `run-client.sh` script is the java command:
 
 ```
 mvn compile exec:exec \
-  -Dexec.executable="java" \
-  -Dexec.args="-javaagent:/opt/signalfx-tracing.jar -cp %classpath sf.main.GetExample"
+-Dexec.executable="java" \
+-Dotel.exporter.jaeger.endpoint=http://127.0.0.1:9080/v1/trace \
+-Dexec.args="-javaagent:/opt/splunk-otel-javaagent.jar -cp %classpath sf.main.GetExample"
 ```
 
-The `signalfx-tracing.jar` file is the automatic instrumentation that will emit spans from the app. No code changes are necessary.
+The `splunk-otel-javaagent.jar` file is the automatic OpenTelemetry instrumentation that will emit spans from the app. No code changes are necessary.
 
-Splunk's autoinstrumentation for java is here: https://github.com/signalfx/signalfx-java-tracing
+Splunk's OpenTelmetry autoinstrumentation for Java is here: https://github.com/signalfx/splunk-otel-java
 
-You can now go to the next step of [APM Instrumentation Workshop](../3-workshop-labs.md)
+You can now go to the next step of [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)

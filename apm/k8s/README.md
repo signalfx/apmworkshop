@@ -1,17 +1,18 @@
 ## K8S Prep
 
 You must have a ready Kubernetes cluster for this example.  
-Hints on setting up a minimal cluster and local VM can be found in the [Appendix](../4-appendix.md).  
+A guide to setting up your own sandbox with k3s (light k8s) can be found in: [Step 1](../workshop-steps/1-prep.md).  
+All of those steps are required to run this lab.
 
-[Helm](helm.sh) must be installed.
-
-Set `kubectl` context:    
-`sudo kubectl config set-context --current --namespace=kube-system`
-
-### All examples below take place in the `./apm/k8s/python` directory
+Reminder- anytime you close your environment and go back to it, make sure the k3s environment variables from the prep are set:
+```
+export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
+sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
+```
 
 #### K8S Step 1: set up the SignalFx SmartAgent as a sidecar pod  
 
+Set up Splunk SignalFx SmartAgent in your k3s cluster:  
 ```
 helm repo add signalfx https://dl.signalfx.com/helm-repo
 ```
@@ -32,49 +33,84 @@ helm install --set signalFxAccessToken=TOKENHERE \
 --set agentVersion=RELEASEVERSIONHERE \
 --set kubeletAPI.url=https://localhost:10250 signalfx-agent signalfx/signalfx-agent
 ```
+
+for example:
+```
+helm install --set signalFxAccessToken=iggrestofthetoken \
+--set clusterNamew=workshop-demo-cluster \
+--set signalFxRealm=us1 \
+--set agentVersion=5.6.0 \
+--set kubeletAPI.url=https://localhost:10250 signalfx-agent signalfx/signalfx-agent
+```
+
 Once you deploy the SmartAgent on your Kubernetes cluster, you will see the host appear within seconds in the Infrastructure Tab Kubnernetes Navigator in SignalFx.  
+
 Check this and then move on to next step.
 
 #### K8S Step 2: SmartAgent Update For Kubernetes     
 
-If you are doing this workshop as part of a group:  
-/apm/k8s/python (this directory) has an `agent.yaml` file with a default `environment` value.
-Add a unique identifier to the `environment` name i.e. your initials `sfx-workshop-YOURINITIALSHERE`
-For a group workshop The resulting stanza is:
+<ins>If you are doing this workshop as part of a group:</ins>  
 
+`/apm/k8s/python/agent.yaml` has a default `environment` value.
+
+Add a unique identifier to the `environment` name i.e. your initials `sfx-workshop-YOURINITIALSHERE`
 ```
 monitors:
   - type: signalfx-forwarder
     listenAddress: 0.0.0.0:9080
     defaultSpanTags:
      environment: "sfx-workshop-YOURINITIALSHERE"
+```     
+
+<ins>For all individuals and/or groups doing the workshop:</ins>  
+
+`/apm/k8s/python/agent.yaml` has a default `REALM` value in the `traceEndpointUrl`  
+
+Change the `traceEndpointUrl` by editing your realm i.e. set it to `traceEndpointUrl: "https://ingest.us1.signalfx.com/v2/trace"`
+
+The resulting stanza is:
+```  
+traceEndpointUrl: "https://ingest.YOURREALMHERE.signalfx.com/v2/trace"
 ```
 
-If you are NOT doing this workshop as part of a group, you can leave `agent.yaml` as is.
-
-For K8S, use ```helm``` to reconfigure the agent pod with the enclosed `agent.yaml` additions to the `monitor` stanza:
+To update your SignalFx agent helm repo with APM values:  
+For K8S, use ```helm``` to reconfigure the agent pod with the enclosed `agent.yaml` and the values that have been updated.  
 
 `helm upgrade --reuse-values -f ./agent.yaml signalfx-agent signalfx/signalfx-agent`
 
-#### K8S Step 3: Deploy the containerized instrumented Python examples 
+to verify these values have been added:  
 
-Deploy the flask-server:
+`helm get values signalfx-agent`
 
-`source deploy-flask.sh`  
+#### K8S Step 3: Deploy the dockerized versions of python flask, python requests, and OpenTelemetry Java OKHTTP pods
+
+##### Start in `~/apmworkshop/apm/k8s/python` directory
+
+Deploy the flask-server pod:  
+`source deploy-flask.sh`
+
+Deploy the python requests pod:  
 `source deploy-python-requests.sh`
+
+Deploy the Java OKHTTP requests pod:
+It runs from this directory:  
+```
+cd ~/apmworkshop/apm/k8s/java/
+source ./java-otel/deploy-java-requests.sh
+```
 
 #### K8S Step 4: Study the results
 
-The APM Dashboard will show the instrumented Python-Requests Client posting to the Flask Server.  
+The APM Dashboard will show the instrumented Python-Requests and OpenTelemetry Java OKHTTP clients posting to the Flask Server.  
 Make sure you select the ENVIRONMENT to monitor on the selector next to `Troubleshooting` i.e. in image below you can see `sfx-workshop` is selected.
 
 <img src="../../../assets/vlcsnap-00007.png"/>  
 
 #### K8S Step 5: Study the `deployment.yaml` files
 
-Spans need to be send to the SmartAgent which is running in its own pod- the `deployment.yaml` files will demonstrate this.
+Spans need to be send to the SmartAgent which is running in its own pod- the deployment .yaml files will demonstrate this.
 
-Normally we use `SIGNALFX_ENDPOINT_URL` pointing to `localhost` on a single host application where the SmartAgent is running.
+Normally we use an environment variable pointing to `localhost` on a single host application where the SmartAgent is running.
 
 In k8s we have separate pods in a cluster for apps and the SmartAgent.  
 The SmartAgent pod is running with <ins>node wide visibility</ins>, so to tell each application pod where to send spans, we use this:
@@ -88,7 +124,6 @@ The SmartAgent pod is running with <ins>node wide visibility</ins>, so to tell e
             - name: SIGNALFX_ENDPOINT_URL
               value: http://$(MY_NODE_NAME):9080/v1/trace
 ```
-
 
 #### K8S Step 6: View trace spans flowing in SignalFx Agent pod
 `kubectl get pods`
@@ -122,7 +157,16 @@ Notice `Trace Spans Sent (last minute):   1083`
 This means spans are succssfully being sent to Splunk SignalFx.
 
 #### K8S Step 7: Clean up deployments and services
+
+Java:
+in `~/apmworkshop/apm/k8s/java/java-otel`  
+`source delete-java-requests.sh`
+
+Python:
+in: `~/apmworkshop/apm/k8s/python`  
 `sh delete-all.sh`  
+
+SignalFx Agent:
 `helm delete signalfx-agent`  
 
-This is the last lab of the [APM Instrumentation Workshop](../3-workshop-labs.md)
+This is the last lab of the [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)

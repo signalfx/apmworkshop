@@ -1,4 +1,4 @@
-### This lab requires starting from the main [APM Instrumentation Workshop](../3-workshop-labs.md)
+### This lab requires starting from the main [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)
 
 #### Step #1 Open new terminal to your Linux instance (or open new pane in tmux)  
 
@@ -11,18 +11,16 @@ Make sure you are in the right directory to start the node.js activities:
 #### Step #2 Set up your node environment for APM
 
 ```
-sudo apt-get install -y nodejs npm
-npm init
+sudo apt-get install -y nodejs npm && \
+npm init && \
 npm install signalfx-tracing
 ```
 During `npm init` you can use all defaults
 
 #### Step #3 Set up environment and run the node app with HTTP.get requests
 
-```
-source setup-client.sh  
-node app.js
-```
+`source setup-client.sh`    
+`node app.js`
 
 You will see requests printed to the window
 
@@ -72,4 +70,4 @@ This auto-instrumenting tracer must be added to the top of a Node app however no
 
 Splunk's autoinstrumentation for node.js is here: https://github.com/signalfx/signalfx-nodejs-tracing
 
-You can now go to the next step of [APM Instrumentation Workshop](../3-workshop-labs.md)
+You can now go to the next step of [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)
