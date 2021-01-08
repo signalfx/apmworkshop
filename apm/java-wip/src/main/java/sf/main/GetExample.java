@@ -57,29 +57,44 @@ public class GetExample {
       return response.body().string();
     }
   }
-  
-public static void wait(int ms)
-{
+
+  public static void wait(int ms)
+  {
     try
     {        Thread.sleep(ms);
     }
     catch(InterruptedException ex)
     {        Thread.currentThread().interrupt();
     }
-} // wait
+  } // wait
 
-public static void main(String[] args) throws IOException {
-  int x = 1;
-//  Tracer tracer =   openTelemetry.getTracer("","");
-  while (x <= 100000 )
+  private static void sampleTrace() {
+    Span span = tracer.spanBuilder("/").setSpanKind(Span.Kind.CLIENT).startSpan();
+    try (Scope scope = span.makeCurrent()) {
+      span.setAttribute("http.method", "GET");
+      span.setAttribute("http.url", "mymadeupthing.com");
+      span.addEvent("Init");
+      wait(250);
+      span.addEvent("End");
+    } finally {
+      span.end();
+    }
+
+  }
+
+  public static void main(String[] args) throws IOException {
+    int x = 1;
+    //  Tracer tracer =   openTelemetry.getTracer("","");
+    while (x <= 100000 )
     {
+       sampleTrace();
        GetExample okhttpexample = new GetExample();
        String okhttpresponse = okhttpexample.run("http://localhost:5000/echo");
        System.out.println(okhttpresponse);
        System.out.println(x);
        x++;
        wait(250);
-      } // while loop
+    } // while loop
 
   } // main
 
