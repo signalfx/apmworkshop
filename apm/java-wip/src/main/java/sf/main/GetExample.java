@@ -48,16 +48,21 @@ public static void main(String[] args) throws IOException {
        System.out.println(x);
        x++;
        wait(250);
-             // Start a span with scope
-       Span exampleSpan = tracer.spanBuilder("exampleSpan").startSpan();
+       
+       // Start a span with scope
+       Span exampleSpan = tracer.spanBuilder("exampleSpan") // operation name
+	       .setSpanKind(Span.Kind.CLIENT) // tag the span as a service boundary
+	       .startSpan();
        try (Scope scope = exampleSpan.makeCurrent()) {
          // Add attributes
-         exampleSpan.setAttribute("mykey", "myvalue");
+         exampleSpan.setAttribute("my.key", "myvalue");
 	 wait(100);
          } finally {
          // End span
          exampleSpan.end();
 	 } // finally
+      // End manual span stanza
+
       } // while loop
   } // main
 
