@@ -4,6 +4,7 @@ import io.opentelemetry.api.OpenTelemetry;
 import io.opentelemetry.api.trace.Span;
 import io.opentelemetry.api.trace.Tracer;
 import io.opentelemetry.context.Scope;
+import io.opentelemetry.extension.auto.annotations.WithSpan;
 
 import java.io.IOException;
 import okhttp3.OkHttpClient;
@@ -28,6 +29,7 @@ public class GetExample {
     }
   }
 
+@WithSpan
 public static void wait(int ms)
 {
     try
@@ -51,7 +53,7 @@ public static void main(String[] args) throws IOException {
        
        // Start a span with scope
        Span exampleSpan = tracer.spanBuilder("exampleSpan") // operation name
-	       .setSpanKind(Span.Kind.CLIENT) // tag the span as a service boundary
+	       .setSpanKind(Span.Kind.SERVER) // tag the span as a service boundary
 	       .startSpan();
        try (Scope scope = exampleSpan.makeCurrent()) {
          // Add attributes
