@@ -76,14 +76,14 @@ java 8 jdk: `sudo apt install -y openjdk-8-jdk`
 maven: `sudo apt-get -y install maven`  
 k3s:
 ```
-curl -sfL https://get.k3s.io | sh -
-sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
+curl -sfL https://get.k3s.io | sh -  && \
+sudo chmod 644 /etc/rancher/k3s/k3s.yaml && \  
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml  
 ```
 
 <ins>Every time you re-enter a shell you'll need to:</ins>   
 ```
-export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
 ```
 Verify that you can see the basic pods of k3s: `kubectl get pods --all-namespaces`
