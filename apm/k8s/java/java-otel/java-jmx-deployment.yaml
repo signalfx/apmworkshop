@@ -18,8 +18,8 @@ spec:
             - name: http
               containerPort: 3000
           env:
-            - name: SPLK_SERVICE_NAME
-              value: OTEL_EXPORTER_JAEGER_SERVICE_NAME
+            - name: OTEL_EXPORTER_JAEGER_SERVICE_NAME
+              value: k8s-java-reqs-client-otel
             - name: MY_NODE_NAME
               valueFrom:
                 fieldRef:
