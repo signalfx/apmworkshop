@@ -30,7 +30,7 @@ spec:
           command:
             - /bin/sh
           args:
-            - run-java-local-flask-jmx.sh
+            - ./java-otel/run-java-local-flask-jmx.sh
           imagePullPolicy: Always
 
 ---
