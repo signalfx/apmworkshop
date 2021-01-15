@@ -83,7 +83,7 @@ Deploy the python requests pod:
 
 Deploy the Java OKHTTP requests pod:
 ```
-cd ~/apmworkshop/apm/k8s/java/java-otel
+cd ~/apmworkshop/apm/k8s/java
 kubectl create -f java-reqs-jmx-deployment.yaml
 ```
 
@@ -147,7 +147,7 @@ This means spans are succssfully being sent to Splunk SignalFx.
 #### K8S Step 7: Clean up deployments and services
 
 Java:
-in `~/apmworkshop/apm/k8s/java/java-otel`  
+in `~/apmworkshop/apm/k8s/java/`  
 `source delete-java-requests.sh`
 
 Python:
