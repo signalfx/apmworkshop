@@ -99,7 +99,7 @@ Verify that you can see the basic pods of k3s:
 
 Here are all the install commands in a single stack:  
 ```
-sudo apt-get -y update && \  
+sudo apt-get -y update && \
 sudo snap install helm --classic && \  
 sudo apt install -y openjdk-8-jdk && \  
 sudo apt-get -y install maven && \  
