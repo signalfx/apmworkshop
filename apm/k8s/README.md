@@ -29,17 +29,17 @@ helm install --set signalFxAccessToken=TOKENHERE \
 --set clusterName=YOURK8SCLUSTERNAME \
 --set signalFxRealm=YOUREALMHERE \
 --set agentVersion=RELEASEVERSIONHERE \
---set kubeletAPI.url=https://localhost:10250 signalfx-agent signalfx/signalfx-agent
+--set kubeletAPI.url=https://localhost:10250 signalfx-agent signalfx/signalfx-agent \
 --set traceEndpointUrl=https://ingest.YOURREALMHERE.signalfx.com/v2/trace
 ```
 
 for example:
 ```
-helm install --set signalFxAccessToken=iggrestofthetoken \
+helm install --set signalFxAccessToken=youruniquetokenhere \
 --set clusterNamew=workshop-demo-cluster \
 --set signalFxRealm=us1 \
 --set agentVersion=5.7.1 \
---set traceEndpointUrl=https://ingest.us1.signalfx.com/v2/trace
+--set traceEndpointUrl=https://ingest.us1.signalfx.com/v2/trace \
 --set kubeletAPI.url=https://localhost:10250 signalfx-agent signalfx/signalfx-agent
 ```
 
