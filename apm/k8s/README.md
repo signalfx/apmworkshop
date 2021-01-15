@@ -71,7 +71,7 @@ to verify these values have been added:
 
 `helm get values signalfx-agent`
 
-#### K8S Step 3: Deploy the dockerized versions of python flask, python requests, and OpenTelemetry Java OKHTTP pods
+#### K8S Step 3: Deploy the dockerized versions of OpenTlemetry python flask, python requests, and Java OKHTTP pods
 
 ##### Start in `~/apmworkshop/apm/k8s/python` directory
 
