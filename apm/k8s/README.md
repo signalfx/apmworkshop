@@ -29,8 +29,8 @@ helm install --set signalFxAccessToken=TOKENHERE \
 --set clusterName=YOURK8SCLUSTERNAME \
 --set signalFxRealm=YOUREALMHERE \
 --set agentVersion=RELEASEVERSIONHERE \
---set kubeletAPI.url=https://localhost:10250 signalfx-agent signalfx/signalfx-agent \
---set traceEndpointUrl=https://ingest.YOURREALMHERE.signalfx.com/v2/trace
+--set traceEndpointUrl=https://ingest.YOURREALMHERE.signalfx.com/v2/trace \
+--set kubeletAPI.url=https://localhost:10250 signalfx-agent signalfx/signalfx-agent
 ```
 
 for example:
