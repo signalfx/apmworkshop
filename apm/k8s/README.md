@@ -82,10 +82,9 @@ Deploy the python requests pod:
 `kubectl create -f python-requests-pod-otel.yaml`
 
 Deploy the Java OKHTTP requests pod:
-It runs from this directory:  
 ```
-cd ~/apmworkshop/apm/k8s/java/
-source ./java-otel/deploy-java-requests.sh
+cd ~/apmworkshop/apm/k8s/java/java-otel
+kubectl create -f java-reqs-jmx-deployment.yaml
 ```
 
 #### K8S Step 4: Study the results
