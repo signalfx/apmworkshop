@@ -76,10 +76,10 @@ to verify these values have been added:
 ##### Start in `~/apmworkshop/apm/k8s/python` directory
 
 Deploy the flask-server pod:  
-`source deploy-flask.sh`
+`kubectl create -f flask-deployment.yaml`
 
 Deploy the python requests pod:  
-`source deploy-python-requests.sh`
+`kubectl create -f python-requests-pod-otel.yaml`
 
 Deploy the Java OKHTTP requests pod:
 It runs from this directory:  
