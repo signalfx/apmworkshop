@@ -144,7 +144,26 @@ Trace Spans overwritten (total):  0
 Notice `Trace Spans Sent (last minute):   1083` 
 This means spans are succssfully being sent to Splunk SignalFx.
 
-#### K8S Step 7: Clean up deployments and services
+#### K8S Step 7: Monitor JVM Metrics for the OpenTelemetry Java service
+
+Update the Splunk SmartAgent pod with a monitor for `k8s-java-reqs-client-otel` we created
+
+We want to add the following monitor to the SmartAgent:
+
+```
+monitors:
+  - type: collectd/genericjmx
+    host: k8s-java-reqs-client-otel
+    port: 3000
+```
+
+And we have this ready in a .yaml file:
+
+`cd ~/apmworkshop/apm/k8s/java/jmx`  
+
+`helm upgrade --reuse-values -f ./agent.yaml signalfx-agent signalfx/signalfx-agent`  
+
+#### K8S Step 8: Clean up deployments and services
 
 Java:
 in `~/apmworkshop/apm/k8s/java/`  
