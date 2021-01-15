@@ -163,6 +163,14 @@ And we have this ready in a .yaml file:
 
 `helm upgrade --reuse-values -f ./agent.yaml signalfx-agent signalfx/signalfx-agent`  
 
+JVM Metrics will now be pulled by the SmartAgent Pod.
+
+To see a dashboard with the JVM for the Java service, go to `Dashboards->JMX (collectd)->Generic Java Stats` and Filter for our service: `sf_service: k8s-java-reqs-client-otel`
+
+You will see a real time dashboard for the enabled JVM metrics as shown below:
+
+
+
 #### K8S Step 8: Clean up deployments and services
 
 Java:
