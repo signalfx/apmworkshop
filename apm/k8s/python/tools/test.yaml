@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: k8s-py-requests-client-otel
+  name: k8s-py-test-otel
   labels:
-    app: k8s-py-requests-client-otel
+    app: k8s-py-test-otel
 spec:
   containers:
-  -  name: k8s-py-requests-client-otel
+  -  name: k8s-py-test-otel
      image: docker.io/stevelsplunk/splk-python:latest
      env:
      - name: SPLK_SERVICE_NAME
-       value: k8s-python-requests-client
+       value: k8s-py-test
      - name: MY_NODE_NAME
        valueFrom:
          fieldRef:
