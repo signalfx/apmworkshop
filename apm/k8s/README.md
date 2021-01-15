@@ -110,7 +110,8 @@ The SmartAgent pod is running with <ins>node wide visibility</ins>, so to tell e
                   apiVersion: v1
                   fieldPath: spec.nodeName
             - name: SIGNALFX_ENDPOINT_URL
-              value: http://$(MY_NODE_NAME):9080/v1/trace```
+              value: http://$(MY_NODE_NAME):9080/v1/trace
+```
 
 #### K8S Step 6: View trace spans flowing in SignalFx Agent pod
 `kubectl get pods`
