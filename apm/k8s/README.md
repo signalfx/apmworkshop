@@ -92,7 +92,7 @@ kubectl create -f java-reqs-jmx-deployment.yaml
 The APM Dashboard will show the instrumented Python-Requests and OpenTelemetry Java OKHTTP clients posting to the Flask Server.  
 Make sure you select the ENVIRONMENT to monitor on the selector next to `Troubleshooting` i.e. in image below you can see `sfx-workshop` is selected.
 
-<img src="../../../assets/vlcsnap-00007.png"/  width="360" >  
+<img src="../../../assets/vlcsnap-00007.png" width="360" >  
 
 #### K8S Step 5: Study the `deployment.yaml` files
 
@@ -169,7 +169,7 @@ To see a dashboard with the JVM for the Java service, go to `Dashboards->JMX (co
 
 You will see a real time dashboard for the enabled JVM metrics as shown below:
 
-<img src="../../../assets/jvm.png"/  width="360" > 
+<img src="../../../assets/jvm.png" width="360" > 
 
 #### K8S Step 8: Clean up deployments and services
 
