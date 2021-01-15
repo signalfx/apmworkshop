@@ -1,4 +1,4 @@
-sh ./java-otel/install-java-otel.sh
+sh ./install-java-otel.sh
 # change the endoint env variable in the deployment .yaml to change location of your agent
 # change target URL below to alter the test target
 java \
@@ -8,4 +8,4 @@ java \
 -Dcom.sun.management.jmxremote.ssl=false \
 -Dcom.sun.management.jmxremote.rmi.port=3000 \
 -javaagent:/opt/splunk-otel-javaagent.jar \
--jar ./java-otel/target/java-app-1.0-SNAPSHOT.jar
+-jar ./target/java-app-1.0-SNAPSHOT.jar
