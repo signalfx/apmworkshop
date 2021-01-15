@@ -102,4 +102,4 @@ Splunk's autoinstrumentation for python is here: https://github.com/signalfx/spl
 
 You'll need need this process for the next client examples in the workshop.  
 
-You can now go to the next step of [APM Instrumentation Workshop Labs](../3-workshop-labs.md)
+You can now go to the next step of [APM Instrumentation Workshop Labs](../workshop-steps/3-workshop-labs.md)
