@@ -4,7 +4,7 @@ You must have a ready Kubernetes cluster for this example.
 A guide to setting up your own sandbox with k3s (light k8s) can be found in: [Step 1](../workshop-steps/1-prep.md).  
 All of those steps are required to run this lab.
 
-Reminder- anytime you close your environment and go back to it, make sure the k3s environment variables from the prep are set:
+Reminder- anytime you start a new environment / shell, make sure the k3s environment variables from the prep are set:
 ```
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
@@ -14,9 +14,7 @@ sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 
 Set up Splunk SignalFx SmartAgent in your k3s cluster:  
 ```
-helm repo add signalfx https://dl.signalfx.com/helm-repo
-```
-```
+helm repo add signalfx https://dl.signalfx.com/helm-repo && \
 helm repo update
 ```
 Build your Helm install script based on the following variables:
@@ -32,6 +30,7 @@ helm install --set signalFxAccessToken=TOKENHERE \
 --set signalFxRealm=YOUREALMHERE \
 --set agentVersion=RELEASEVERSIONHERE \
 --set kubeletAPI.url=https://localhost:10250 signalfx-agent signalfx/signalfx-agent
+--set traceEndpointUrl=https://ingest.YOURREALMHERE.signalfx.com/v2/trace
 ```
 
 for example:
@@ -39,7 +38,8 @@ for example:
 helm install --set signalFxAccessToken=iggrestofthetoken \
 --set clusterNamew=workshop-demo-cluster \
 --set signalFxRealm=us1 \
---set agentVersion=5.6.0 \
+--set agentVersion=5.7.1 \
+--set traceEndpointUrl=https://ingest.us1.signalfx.com/v2/trace
 --set kubeletAPI.url=https://localhost:10250 signalfx-agent signalfx/signalfx-agent
 ```
 
@@ -62,19 +62,8 @@ monitors:
      environment: "sfx-workshop-YOURINITIALSHERE"
 ```     
 
-<ins>For all individuals and/or groups doing the workshop:</ins>  
-
-`/apm/k8s/python/agent.yaml` has a default `REALM` value in the `traceEndpointUrl`  
-
-Change the `traceEndpointUrl` by editing your realm i.e. set it to `traceEndpointUrl: "https://ingest.us1.signalfx.com/v2/trace"`
-
-The resulting stanza is:
-```  
-traceEndpointUrl: "https://ingest.YOURREALMHERE.signalfx.com/v2/trace"
-```
-
 To update your SignalFx agent helm repo with APM values:  
-For K8S, use ```helm``` to reconfigure the agent pod with the enclosed `agent.yaml` and the values that have been updated.  
+For k8s, use `helm` to reconfigure the agent pod with the enclosed `agent.yaml` and the values that have been updated.  
 
 `helm upgrade --reuse-values -f ./agent.yaml signalfx-agent signalfx/signalfx-agent`
 
