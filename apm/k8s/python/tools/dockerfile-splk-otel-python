@@ -8,4 +8,4 @@ RUN apt-get update && \
     mkdir /home/code
 WORKDIR /home/code
 EXPOSE 5000
-COPY . /home/code/
+COPY .. /home/code/
