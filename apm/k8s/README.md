@@ -190,7 +190,11 @@ When this app deploys, it appears as an isolated bubble in the map. It has all m
 
 <img src="../../../assets/maninst.png" width="360"> 
 
-To see your manually instrumented function you need to select the Breakdown menu and break down the spans by Operation. You will see the function called Manual Span. 
+To see your manually instrumented function you need to select the Breakdown menu and break down the spans by Operation. 
+
+<img src="../../../assets/maninst-menu.png" width="360"> 
+
+You will see the function called Manual Span. 
 
 <img src="../../../assets/maninst-breakdown.png" width="360"> 
 
