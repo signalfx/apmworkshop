@@ -12,7 +12,7 @@ export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
 ```
 
-#### K8S Exercise 1: set up the SignalFx SmartAgent as a sidecar pod  
+### Exercise 1: set up the SignalFx SmartAgent as a sidecar pod  
 
 Set up Splunk SignalFx SmartAgent in your k3s cluster:  
 ```
@@ -49,7 +49,7 @@ Once you deploy the SmartAgent on your Kubernetes cluster, you will see the host
 
 Check this and then move on to next step.
 
-#### K8S Step 2: SmartAgent Update For Kubernetes     
+### Exercise 2: SmartAgent Update For Kubernetes     
 
 <ins>If you are doing this workshop as part of a group:</ins>  
 
@@ -89,14 +89,14 @@ cd ~/apmworkshop/apm/k8s/java
 kubectl create -f java-reqs-jmx-deployment.yaml
 ```
 
-#### K8S Exercise 4: Study the results
+### Exercise 4: Study the results
 
 The APM Dashboard will show the instrumented Python-Requests and OpenTelemetry Java OKHTTP clients posting to the Flask Server.  
 Make sure you select the ENVIRONMENT to monitor on the selector next to `Troubleshooting` i.e. in image below you can see `sfx-workshop` is selected.
 
 <img src="../../../assets/vlcsnap-00007.png" width="360" >  
 
-#### K8S Exercise 5: Study the `deployment.yaml` files
+### Exercise 5: Study the `deployment.yaml` files
 
 Spans need to be send to the SmartAgent which is running in its own pod- the deployment .yaml files will demonstrate this.
 
@@ -115,7 +115,7 @@ The SmartAgent pod is running with <ins>node wide visibility</ins>, so to tell e
               value: http://$(MY_NODE_NAME):9080/v1/trace
 ```
 
-#### K8S Exercise 6: View trace spans flowing in SignalFx Agent pod
+### Exercise 6: View trace spans flowing in SignalFx Agent pod
 `kubectl get pods`
 
 Note the pod name of the `SignalFx Agent` pod
@@ -146,7 +146,7 @@ Trace Spans overwritten (total):  0
 Notice `Trace Spans Sent (last minute):   1083` 
 This means spans are succssfully being sent to Splunk SignalFx.
 
-#### K8S Exercise 7: Monitor JVM etrics for a Java container
+### Exercise 7: Monitor JVM etrics for a Java container
 
 Update the Splunk SmartAgent pod with a monitor for `k8s-java-reqs-client-otel` we created
 
@@ -173,7 +173,7 @@ You will see a real time dashboard for the enabled JVM metrics as shown below:
 
 <img src="../../../assets/jvm.png" width="360"> 
 
-#### K8S Exercise 8: Manually instrumenat a Java app
+### Exercise 8: Manually instrumenat a Java app
 
 Lets say you have an app that has your own functions and doesn't only use auto-instrumented frameworks- or doesn't have any of them!  
 You can easily manually instrument your functions and have them appear as part of a service, or as an entire service.
@@ -206,7 +206,7 @@ To delete this app:
 
 `source delete-java-manual-inst.sh`  
 
-#### K8S Exercise 9: Clean up deployments and services
+### Exercise 9: Clean up deployments and services
 
 Java:
 in `~/apmworkshop/apm/k8s/java/`  
