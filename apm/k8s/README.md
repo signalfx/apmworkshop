@@ -94,7 +94,7 @@ kubectl create -f java-reqs-jmx-deployment.yaml
 The APM Dashboard will show the instrumented Python-Requests and OpenTelemetry Java OKHTTP clients posting to the Flask Server.  
 Make sure you select the ENVIRONMENT to monitor on the selector next to `Troubleshooting` i.e. in image below you can see `sfx-workshop` is selected.
 
-<img src="../../../assets/vlcsnap-00007.png" width="360" >  
+<img src="../../../assets/vlcsnap-00007.png" width="360">  
 
 ### Exercise 5: Study the `deployment.yaml` files
 
@@ -120,7 +120,7 @@ The SmartAgent pod is running with <ins>node wide visibility</ins>, so to tell e
 
 Note the pod name of the `SignalFx Agent` pod
 
-`kubectl exec -it PODNAMEOFSIGNALFXAGENT -- bash -c "/bin/signalfx-agent status"`  
+`kubectl exec -it PODNAMEOFSIGNALFXAGENT -- bash signalfx-agent status`  
 
 `signalfx-agent status` will show the metrics and spans being sent by the agent like this:
 
