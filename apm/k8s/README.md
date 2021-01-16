@@ -1,4 +1,6 @@
-## K8S Prep
+## APM Kubernetes and Advanced Java Examples
+
+#### K8S Prep
 
 You must have a ready Kubernetes cluster for this example.  
 A guide to setting up your own sandbox with k3s (light k8s) can be found in: [Step 1](../workshop-steps/1-prep.md).  
