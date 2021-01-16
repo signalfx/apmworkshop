@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: k8s-java-reqs-client-otel
+  name: test
 spec:
   selector:
     matchLabels:
-      name: k8s-java-reqs-client-otel
+      name: test
   template:
     metadata:
       labels:
-        name: k8s-java-reqs-client-otel
+        name: test
     spec:
       containers:
-        - name: k8s-java-reqs-client-otel
+        - name: test
           image: 'docker.io/stevelsplunk/splk-java:latest'
           ports:
             - name: http
@@ -35,10 +35,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: k8s-java-reqs-client-otel
+  name: test
 spec:
   selector:
-    name: k8s-java-reqs-client-otel
+    name: test
   ports:
   - protocol: TCP
     port: 3000
