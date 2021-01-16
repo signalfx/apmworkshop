@@ -12,7 +12,7 @@ public class GetExample {
 
 // Instantiate a tracer
 private static final Tracer tracer =
-    OpenTelemetry.getGlobalTracer("io.opentelemetry.sf.main.GetExample");
+    OpenTelemetry.getGlobalTracer("io.opentelemetry.sf.main.GetExample");	
 
 public static void wait(int ms)
 {
@@ -28,11 +28,10 @@ public static void main(String[] args) throws IOException {
   int x = 1;
   while (x>0)
     {
-
        System.out.println(x);
        x++;
        wait(250);
-       
+
        // Start a span with scope
        Span manualSpan = tracer.spanBuilder("manualSpan") // operation name
 	       .setSpanKind(Span.Kind.SERVER) // tag the span as a service boundary
@@ -47,7 +46,8 @@ public static void main(String[] args) throws IOException {
 	 } // finally
       // End manual span stanza
 
-      } // while loop
+    } // while loop
+
   } // main
 
 } // class
