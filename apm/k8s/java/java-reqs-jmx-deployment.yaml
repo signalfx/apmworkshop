@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-java-reqs-client-otel
+spec:
+  selector:
+    matchLabels:
+      name: k8s-java-reqs-client-otel
+  template:
+    metadata:
+      labels:
+        name: k8s-java-reqs-client-otel
+    spec:
+      containers:
+        - name: k8s-java-reqs-client-otel
+          image: 'docker.io/stevelsplunk/splk-java:latest'
+          ports:
+            - name: http
+              containerPort: 3000
+          env:
+            - name: OTEL_EXPORTER_JAEGER_SERVICE_NAME
+              value: k8s-java-reqs-client-otel
+            - name: MY_NODE_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: spec.nodeName
+            - name: OTEL_EXPORTER_JAEGER_ENDPOINT
+              value: http://$(MY_NODE_NAME):9080/v1/trace
+          command:
+            - /bin/sh
+          args:
+            - ./run-java-local-flask-jmx.sh
+          imagePullPolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8s-java-reqs-client-otel
+spec:
+  selector:
+    name: k8s-java-reqs-client-otel
+  ports:
+  - protocol: TCP
+    port: 3000
+    targetPort: 3000

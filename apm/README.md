@@ -10,7 +10,7 @@ Requirements:
 1. Splunk Observability Account
 2. Debian (i.e. Ubuntu) Linux environment with minimum 16G RAM and 8G disk should be ready to try all examples.  
 RedHat and other mainstream Linux distributions can be used by translating shell commands from Debian.
-This workshop has a guide on how to set up an Ubuntu environment on your desktop via Multipass.
+This workshop has a [guide](./workshop-steps/1-prep.md) on how to set up an Ubuntu environment on your desktop via Multipass.
 3. Kubernetes cluster set up in advance in your Ubuntu environment.
 
 ### Document Conventions
@@ -23,11 +23,11 @@ I.e. to change your REALM to `us1` change `api.YOURREALMHERE.signalfx.com` to `a
 ### Summary Of Steps
 
 1. Review basic [Splunk Observability Quick Start for Infrastructure](https://docs.signalfx.com/en/latest/getting-started/quick-start.html)  
-2. Install SignalFx SmartAgent on a host and configure it for APM
+2. Install Splunk SignalFx SmartAgent on a host and configure it for APM
 3. Instrument your app for APM
-4. Exercise app so it send spans to Splunk SignalFx
-5. Use the Splunk SignalFx APM platform for visualization, troubleshooting, alerts, and automation
-6. Study the code examples- they use frameworks that the auto-instrumentation picks up. The K8S deployment examples show how to build clusters with APM.  
+4. Exercise app so it send spans to the Splunk APM platform
+5. Use the Splunk APM platform for visualization, troubleshooting, alerts, and automation
+6. Study the code examples- they use frameworks that the auto-instrumentation picks up. The k8s deployment examples show how to build clusters with APM.  
    Make sure to watch :play_or_pause_button: **video** demos where indicated.
 
 ***

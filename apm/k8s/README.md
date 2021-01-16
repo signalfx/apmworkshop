@@ -4,9 +4,9 @@ You must have a ready Kubernetes cluster for this example.
 A guide to setting up your own sandbox with k3s (light k8s) can be found in: [Step 1](../workshop-steps/1-prep.md).  
 All of those steps are required to run this lab.
 
-Reminder- anytime you close your environment and go back to it, make sure the k3s environment variables from the prep are set:
+Reminder- anytime you start a new environment / shell, make sure the k3s environment variables from the prep are set:
 ```
-export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
 ```
 
@@ -14,9 +14,7 @@ sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 
 Set up Splunk SignalFx SmartAgent in your k3s cluster:  
 ```
-helm repo add signalfx https://dl.signalfx.com/helm-repo
-```
-```
+helm repo add signalfx https://dl.signalfx.com/helm-repo && \
 helm repo update
 ```
 Build your Helm install script based on the following variables:
@@ -31,15 +29,17 @@ helm install --set signalFxAccessToken=TOKENHERE \
 --set clusterName=YOURK8SCLUSTERNAME \
 --set signalFxRealm=YOUREALMHERE \
 --set agentVersion=RELEASEVERSIONHERE \
+--set traceEndpointUrl=https://ingest.YOURREALMHERE.signalfx.com/v2/trace \
 --set kubeletAPI.url=https://localhost:10250 signalfx-agent signalfx/signalfx-agent
 ```
 
 for example:
 ```
-helm install --set signalFxAccessToken=iggrestofthetoken \
+helm install --set signalFxAccessToken=youruniquetokenhere \
 --set clusterNamew=workshop-demo-cluster \
 --set signalFxRealm=us1 \
---set agentVersion=5.6.0 \
+--set agentVersion=5.7.1 \
+--set traceEndpointUrl=https://ingest.us1.signalfx.com/v2/trace \
 --set kubeletAPI.url=https://localhost:10250 signalfx-agent signalfx/signalfx-agent
 ```
 
@@ -62,19 +62,8 @@ monitors:
      environment: "sfx-workshop-YOURINITIALSHERE"
 ```     
 
-<ins>For all individuals and/or groups doing the workshop:</ins>  
-
-`/apm/k8s/python/agent.yaml` has a default `REALM` value in the `traceEndpointUrl`  
-
-Change the `traceEndpointUrl` by editing your realm i.e. set it to `traceEndpointUrl: "https://ingest.us1.signalfx.com/v2/trace"`
-
-The resulting stanza is:
-```  
-traceEndpointUrl: "https://ingest.YOURREALMHERE.signalfx.com/v2/trace"
-```
-
 To update your SignalFx agent helm repo with APM values:  
-For K8S, use ```helm``` to reconfigure the agent pod with the enclosed `agent.yaml` and the values that have been updated.  
+For k8s, use `helm` to reconfigure the agent pod with the enclosed `agent.yaml` and the values that have been updated.  
 
 `helm upgrade --reuse-values -f ./agent.yaml signalfx-agent signalfx/signalfx-agent`
 
@@ -82,21 +71,20 @@ to verify these values have been added:
 
 `helm get values signalfx-agent`
 
-#### K8S Step 3: Deploy the dockerized versions of python flask, python requests, and OpenTelemetry Java OKHTTP pods
+#### K8S Step 3: Deploy the dockerized versions of OpenTlemetry python flask, python requests, and Java OKHTTP pods
 
 ##### Start in `~/apmworkshop/apm/k8s/python` directory
 
 Deploy the flask-server pod:  
-`source deploy-flask.sh`
+`kubectl create -f flask-deployment.yaml`
 
 Deploy the python requests pod:  
-`source deploy-python-requests.sh`
+`kubectl create -f python-requests-pod-otel.yaml`
 
 Deploy the Java OKHTTP requests pod:
-It runs from this directory:  
 ```
-cd ~/apmworkshop/apm/k8s/java/
-source ./java-otel/deploy-java-requests.sh
+cd ~/apmworkshop/apm/k8s/java
+kubectl create -f java-reqs-jmx-deployment.yaml
 ```
 
 #### K8S Step 4: Study the results
@@ -104,7 +92,7 @@ source ./java-otel/deploy-java-requests.sh
 The APM Dashboard will show the instrumented Python-Requests and OpenTelemetry Java OKHTTP clients posting to the Flask Server.  
 Make sure you select the ENVIRONMENT to monitor on the selector next to `Troubleshooting` i.e. in image below you can see `sfx-workshop` is selected.
 
-<img src="../../../assets/vlcsnap-00007.png"/>  
+<img src="../../../assets/vlcsnap-00007.png" width="360" >  
 
 #### K8S Step 5: Study the `deployment.yaml` files
 
@@ -156,14 +144,41 @@ Trace Spans overwritten (total):  0
 Notice `Trace Spans Sent (last minute):   1083` 
 This means spans are succssfully being sent to Splunk SignalFx.
 
-#### K8S Step 7: Clean up deployments and services
+#### K8S Step 7: Monitor JVM Metrics for the OpenTelemetry Java service
+
+Update the Splunk SmartAgent pod with a monitor for `k8s-java-reqs-client-otel` we created
+
+We want to add the following monitor to the SmartAgent:
+
+```
+monitors:
+  - type: collectd/genericjmx
+    host: k8s-java-reqs-client-otel
+    port: 3000
+```
+
+And we have this ready in a .yaml file:
+
+`cd ~/apmworkshop/apm/k8s/java/jmx`  
+
+`helm upgrade --reuse-values -f ./agent.yaml signalfx-agent signalfx/signalfx-agent`  
+
+JVM Metrics will now be pulled by the SmartAgent Pod.
+
+To see a dashboard with the JVM for the Java service, go to `Dashboards->JMX (collectd)->Generic Java Stats` and filter for the service if more than one service is present: `sf_service: k8s-java-reqs-client-otel`
+
+You will see a real time dashboard for the enabled JVM metrics as shown below:
+
+<img src="../../../assets/jvm.png" width="360" > 
+
+#### K8S Step 8: Clean up deployments and services
 
 Java:
-In `~/apmworkshop/apm/k8s/java/java-otel`  
+in `~/apmworkshop/apm/k8s/java/`  
 `source delete-java-requests.sh`
 
 Python:
-In: `~/apmworkshop/apm/k8s/python`  
+in: `~/apmworkshop/apm/k8s/python`  
 `sh delete-all.sh`  
 
 SignalFx Agent:

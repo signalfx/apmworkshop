@@ -26,7 +26,7 @@ You will see the server startup text when this is run.
 Open a new terminal window to your Linux instance, set up environment variables, and run the `python-requests.py` client to sent POST requests to the Flask server (or use `tmux` and run in separate pane)
 
 ```
-cd ./apmworkshop/apm/python
+cd ~/apmworkshop/apm/python
 source setup-client.sh  
 export PATH="$HOME/.local/bin:$PATH"  
 splk-py-trace python3 python-requests-otel.py
@@ -102,4 +102,4 @@ Splunk's autoinstrumentation for python is here: https://github.com/signalfx/spl
 
 You'll need need this process for the next client examples in the workshop.  
 
-You can now go to the next step of [APM Instrumentation Workshop Labs](../3-workshop-labs.md)
+You can now go to the next step of [APM Instrumentation Workshop Labs](../workshop-steps/3-workshop-labs.md)

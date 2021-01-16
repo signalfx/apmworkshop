@@ -1,4 +1,4 @@
-mvn compile exec:exec \
+mvn compile -X exec:exec \
 -Dexec.executable="java" \
 -Dotel.exporter.jaeger.endpoint=http://127.0.0.1:9080/v1/trace \
 -Dotel.exporter.jaeger.service.name=java-otel-reqs-client \
