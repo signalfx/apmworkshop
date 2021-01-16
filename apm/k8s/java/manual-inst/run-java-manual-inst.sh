@@ -8,4 +8,4 @@ java \
 -Dcom.sun.management.jmxremote.ssl=false \
 -Dcom.sun.management.jmxremote.rmi.port=3000 \
 -javaagent:/opt/splunk-otel-javaagent.jar \
--jar ./target/java-app-1.0-SNAPSHOT.jar
+-jar ./manual-inst/target/java-app-1.0-SNAPSHOT.jar

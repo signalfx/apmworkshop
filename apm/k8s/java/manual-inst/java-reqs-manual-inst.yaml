@@ -1,47 +1,47 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: server-flask-otel
+  name: java-client-manual-inst
 spec:
   selector:
     matchLabels:
-      name: server-flask-otel
+      name: java-client-manual-inst
   template:
     metadata:
       labels:
-        name: server-flask-otel
+        name: java-client-manual-inst
     spec:
       containers:
-        - name: server-flask-otel
-          image: 'docker.io/stevelsplunk/splk-python:latest'
+        - name: java-client-manual-inst
+          image: 'docker.io/stevelsplunk/splk-java:latest'
           ports:
             - name: http
-              containerPort: 5000
+              containerPort: 3000
           env:
-            - name: SPLK_SERVICE_NAME
-              value: server-flask-otel
+            - name: OTEL_EXPORTER_JAEGER_SERVICE_NAME
+              value: java-client-manual-inst
             - name: MY_NODE_NAME
               valueFrom:
                 fieldRef:
                   apiVersion: v1
                   fieldPath: spec.nodeName
-            - name: SPLK_TRACE_EXPORTER_URL
+            - name: OTEL_EXPORTER_JAEGER_ENDPOINT
               value: http://$(MY_NODE_NAME):9080/v1/trace
           command:
             - /bin/sh
           args:
-            - run-server-otel.sh
+            - ./manual-inst/run-java-manual-inst.sh
           imagePullPolicy: Always
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: server-flask-otel
+  name: java-client-manual-inst
 spec:
   selector:
-    name: server-flask-otel
+    name: java-client-manual-inst
   ports:
   - protocol: TCP
-    port: 5000
-    targetPort: 5000
+    port: 3000
+    targetPort: 3000

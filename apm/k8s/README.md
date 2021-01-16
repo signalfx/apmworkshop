@@ -1,4 +1,6 @@
-## K8S Prep
+## APM Kubernetes and Advanced Java Examples
+
+#### K8S Prep
 
 You must have a ready Kubernetes cluster for this example.  
 A guide to setting up your own sandbox with k3s (light k8s) can be found in: [Step 1](../workshop-steps/1-prep.md).  
@@ -10,7 +12,7 @@ export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
 ```
 
-#### K8S Step 1: set up the SignalFx SmartAgent as a sidecar pod  
+#### K8S Exercise 1: set up the SignalFx SmartAgent as a sidecar pod  
 
 Set up Splunk SignalFx SmartAgent in your k3s cluster:  
 ```
@@ -71,7 +73,7 @@ to verify these values have been added:
 
 `helm get values signalfx-agent`
 
-#### K8S Step 3: Deploy the dockerized versions of OpenTlemetry python flask, python requests, and Java OKHTTP pods
+#### K8S Exercise 3: Deploy the dockerized versions of OpenTlemetry python flask, python requests, and Java OKHTTP pods
 
 ##### Start in `~/apmworkshop/apm/k8s/python` directory
 
@@ -87,14 +89,14 @@ cd ~/apmworkshop/apm/k8s/java
 kubectl create -f java-reqs-jmx-deployment.yaml
 ```
 
-#### K8S Step 4: Study the results
+#### K8S Exercise 4: Study the results
 
 The APM Dashboard will show the instrumented Python-Requests and OpenTelemetry Java OKHTTP clients posting to the Flask Server.  
 Make sure you select the ENVIRONMENT to monitor on the selector next to `Troubleshooting` i.e. in image below you can see `sfx-workshop` is selected.
 
 <img src="../../../assets/vlcsnap-00007.png" width="360" >  
 
-#### K8S Step 5: Study the `deployment.yaml` files
+#### K8S Exercise 5: Study the `deployment.yaml` files
 
 Spans need to be send to the SmartAgent which is running in its own pod- the deployment .yaml files will demonstrate this.
 
@@ -113,7 +115,7 @@ The SmartAgent pod is running with <ins>node wide visibility</ins>, so to tell e
               value: http://$(MY_NODE_NAME):9080/v1/trace
 ```
 
-#### K8S Step 6: View trace spans flowing in SignalFx Agent pod
+#### K8S Exercise 6: View trace spans flowing in SignalFx Agent pod
 `kubectl get pods`
 
 Note the pod name of the `SignalFx Agent` pod
@@ -144,7 +146,7 @@ Trace Spans overwritten (total):  0
 Notice `Trace Spans Sent (last minute):   1083` 
 This means spans are succssfully being sent to Splunk SignalFx.
 
-#### K8S Step 7: Monitor JVM Metrics for the OpenTelemetry Java service
+#### K8S Exercise 7: Monitor JVM etrics for a Java container
 
 Update the Splunk SmartAgent pod with a monitor for `k8s-java-reqs-client-otel` we created
 
@@ -171,7 +173,29 @@ You will see a real time dashboard for the enabled JVM metrics as shown below:
 
 <img src="../../../assets/jvm.png" width="360" > 
 
-#### K8S Step 8: Clean up deployments and services
+#### K8S Exercise 8: Manually instrumenat a Java app
+
+Lets say you have an app that has your own functions and doesn't only use auto-instrumented frameworks- or doesn't have any of them!  
+You can easily manually instrument your functions and have them appear as part of a service, or as an entire service.
+
+Example is here:
+
+`cd ~/apmworkshop/apm/k8s/java/manual-inst`  
+
+Deploy an app with ONLY manual instrumentation:
+
+`kubectl create -f java-reqs-manual-inst.yaml`
+
+When this app deploys, it appears as an isolated bubble in the map. It has all metrics and tracing just like an auto-instrumented app does. To see your manually instrumented function you need to select the Breakdown menu and break down the spans by Operation. You will see the function called Manual Span. Study the [manual instrumentation code example here.](https://github.com/signalfx/apmworkshop/blob/master/apm/k8s/java/manual-inst/src/main/java/sf/main/GetExample.java)
+
+Note that this is the most minimal example of manual instrumentation- there is a vast amount of power available in OpenTelemetry- please see [the documentation](https://github.com/open-telemetry/opentelemetry-java-instrumentation) and [in depth details](https://github.com/open-telemetry/opentelemetry-java/blob/master/QUICKSTART.md#tracing)
+
+You can delete this app:
+
+`source delete-java-manual-inst.sh`  
+
+
+#### K8S Exercise 9: Clean up deployments and services
 
 Java:
 in `~/apmworkshop/apm/k8s/java/`  
