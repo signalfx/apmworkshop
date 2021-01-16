@@ -202,15 +202,15 @@ Study the [manual instrumentation code example here.](https://github.com/signalf
 
 Note that this is the most minimal example of manual instrumentation- there is a vast amount of power available in OpenTelemetry- please see [the documentation](https://github.com/open-telemetry/opentelemetry-java-instrumentation) and [in depth details](https://github.com/open-telemetry/opentelemetry-java/blob/master/QUICKSTART.md#tracing)
 
-To delete this app:
-
-`source delete-java-manual-inst.sh`  
 
 ### Exercise 9: Clean up deployments and services
 
 Java:
 in `~/apmworkshop/apm/k8s/java/`  
 `source delete-java-requests.sh`
+
+in `~/apmworkshop/apm/k8s/java/manual-inst`  
+`source delete-java-manual-inst.sh`  
 
 Python:
 in: `~/apmworkshop/apm/k8s/python`  
