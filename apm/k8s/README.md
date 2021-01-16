@@ -146,7 +146,7 @@ Trace Spans overwritten (total):  0
 Notice `Trace Spans Sent (last minute):   1083` 
 This means spans are succssfully being sent to Splunk SignalFx.
 
-#### K8S Exercise 7: Monitor JVM Metrics for the OpenTelemetry Java service
+#### K8S Exercise 7: Monitor JVM etrics for a Java container
 
 Update the Splunk SmartAgent pod with a monitor for `k8s-java-reqs-client-otel` we created
 
@@ -173,7 +173,7 @@ You will see a real time dashboard for the enabled JVM metrics as shown below:
 
 <img src="../../../assets/jvm.png" width="360" > 
 
-#### K8S Exercise 8: Manually instrumenat an app
+#### K8S Exercise 8: Manually instrumenat a Java app
 
 Lets say you have an app that has your own functions and doesn't only use auto-instrumented frameworks- or doesn't have any of them!  
 You can easily manually instrument your functions and have them appear as part of a service, or as an entire service.
