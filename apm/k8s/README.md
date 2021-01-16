@@ -171,7 +171,7 @@ To see a dashboard with the JVM for the Java service, go to `Dashboards->JMX (co
 
 You will see a real time dashboard for the enabled JVM metrics as shown below:
 
-<img src="../../../assets/jvm.png" width="360" > 
+<img src="../../../assets/jvm.png" width="360"> 
 
 #### K8S Exercise 8: Manually instrumenat a Java app
 
@@ -186,14 +186,21 @@ Deploy an app with ONLY manual instrumentation:
 
 `kubectl create -f java-reqs-manual-inst.yaml`
 
-When this app deploys, it appears as an isolated bubble in the map. It has all metrics and tracing just like an auto-instrumented app does. To see your manually instrumented function you need to select the Breakdown menu and break down the spans by Operation. You will see the function called Manual Span. Study the [manual instrumentation code example here.](https://github.com/signalfx/apmworkshop/blob/master/apm/k8s/java/manual-inst/src/main/java/sf/main/GetExample.java)
+When this app deploys, it appears as an isolated bubble in the map. It has all metrics and tracing just like an auto-instrumented app does. 
+
+<img src="../../../assets/maninst.png" width="360"> 
+
+To see your manually instrumented function you need to select the Breakdown menu and break down the spans by Operation. You will see the function called Manual Span. 
+
+<img src="../../../assets/maninst-breakdown.png" width="360"> 
+
+Study the [manual instrumentation code example here.](https://github.com/signalfx/apmworkshop/blob/master/apm/k8s/java/manual-inst/src/main/java/sf/main/GetExample.java)
 
 Note that this is the most minimal example of manual instrumentation- there is a vast amount of power available in OpenTelemetry- please see [the documentation](https://github.com/open-telemetry/opentelemetry-java-instrumentation) and [in depth details](https://github.com/open-telemetry/opentelemetry-java/blob/master/QUICKSTART.md#tracing)
 
-You can delete this app:
+To delete this app:
 
 `source delete-java-manual-inst.sh`  
-
 
 #### K8S Exercise 9: Clean up deployments and services
 
