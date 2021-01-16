@@ -38,7 +38,7 @@ helm install --set signalFxAccessToken=TOKENHERE \
 for example:
 ```
 helm install --set signalFxAccessToken=youruniquetokenhere \
---set clusterNamew=workshop-demo-cluster \
+--set clusterName=workshop-demo-cluster \
 --set signalFxRealm=us1 \
 --set agentVersion=5.7.1 \
 --set traceEndpointUrl=https://ingest.us1.signalfx.com/v2/trace \
