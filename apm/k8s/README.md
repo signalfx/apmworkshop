@@ -1,4 +1,4 @@
-## APM Kubernetes and Advanced Java Examples
+## APM For Kubernetes and Advanced Java Examples
 
 ### K8S Prep
 
@@ -145,6 +145,8 @@ Trace Spans overwritten (total):  0
 
 Notice `Trace Spans Sent (last minute):   1083` 
 This means spans are succssfully being sent to Splunk SignalFx.
+
+## Advanced Java Exercises
 
 ### Exercise 7: Monitor JVM etrics for a Java container
 
