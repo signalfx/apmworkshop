@@ -19,6 +19,21 @@ helm upgrade --reuse-values signalfx-agent signalfx/signalfx-agent \
 ```
 
 To delete the collector:  
+
+Tell your SmartAgent pod to send the spans and metrics to the Splunk APM service.  
+
+```
+helm upgrade --reuse-values signalfx-agent signalfx/signalfx-agent \
+--set ingestUrl=https://ingest.YOURREALMERE.signalfx.com \
+--set traceEndpointUrl=https://ingest.YOUREALMHERE.signalfx.com/v2/trace
+```
+i.e.
+```
+helm upgrade --reuse-values signalfx-agent signalfx/signalfx-agent \
+--set ingestUrl=https://ingest.US1.signalfx.com \
+--set traceEndpointUrl=https://ingest.US1.signalfx.com/v2/trace
+```
+
 ```
 kubectl delete deployment otel-collector && \
 kubectl delete service otel-collector && \
