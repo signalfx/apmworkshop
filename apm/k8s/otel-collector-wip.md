@@ -34,6 +34,8 @@ helm upgrade --reuse-values signalfx-agent signalfx/signalfx-agent \
 --set traceEndpointUrl=https://ingest.US1.signalfx.com/v2/trace
 ```
 
+Delete collector k8s components:
+
 ```
 kubectl delete deployment otel-collector && \
 kubectl delete service otel-collector && \
