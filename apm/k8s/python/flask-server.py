@@ -7,13 +7,12 @@ def convert_response(message):
 
 @app.route('/echo', methods=['GET', 'POST'])
 def echo():
-    data = request.data
-    if request.method == 'POST':
+     if request.method == 'POST':
         print ('You posted ')
-        return(data)
+        return(request.data)
     else:
         print ('You getted ')
-        return(data)
+        return(request.data)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
