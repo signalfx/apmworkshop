@@ -8,10 +8,12 @@ For this workshop, we will install a minimal configuration, as a container, and 
 
 Once the Collector is receiving and re-transmitting telemetry, it can process, export, convert etc.
 
+Official Splunk docs are [here](https://docs.signalfx.com/en/latest/apm/apm-getting-started/apm-opentelemetry-collector.html)  
+And original k8s template is [here](https://github.com/open-telemetry/opentelemetry-collector-contrib/blob/master/exporter/sapmexporter/examples/signalfx-k8s.yaml)
+
 ### Install OpenTelemetry Collector Deployment for Kubernetes
 
-
-Set up the SFX Environment variables in `~/apmworkshop/apm/k8s/signalfx-k8s.yaml`
+Set up the SFX Environment variables in `~/apmworkshop/apm/k8s/otel-collector-k8s.yaml`
 
 | Value | Description |
 |-------|-------------|
