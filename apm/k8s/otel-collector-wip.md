@@ -8,7 +8,7 @@ Set up the SFX Environment variables in `~/apmworkshop/apm/k8s/signalfx-k8s.yaml
 Create the OpenTelemetry Collector deployment:  
 `kubectl create -f signalfx-k8s.yaml`  
 
-Tell your SmartAgent pod to send the spans and metrics to the OpenTelemetry Collector deployment:  
+Tell SmartAgent to send the spans and metrics to the OpenTelemetry Collector deployment:  
 
 ```
 helm upgrade --reuse-values signalfx-agent signalfx/signalfx-agent \
@@ -18,7 +18,7 @@ helm upgrade --reuse-values signalfx-agent signalfx/signalfx-agent \
 
 To delete the collector:  
 
-Tell your SmartAgent pod to send the spans and metrics to the Splunk APM service.  
+Tell SmartAgent to send the spans and metrics to the Splunk APM service:  
 
 ```
 helm upgrade --reuse-values signalfx-agent signalfx/signalfx-agent \
