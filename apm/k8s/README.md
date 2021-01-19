@@ -27,7 +27,7 @@ Values to configure:
 `YOURTOKENHERE`: token from your account  
 `YOURREALMHERE`: your realm from your account i.e. us1  
 `YOURCLUSTERNAMEHERE`: any name you pick to represent the cluster  
-`RELEASEVERSIONHERE`: Use the current SignalFx SmartAgent version in the Helm script below from here: https://github.com/signalfx/signalfx-agent/releases i.e. 5.7.1
+`RELEASEVERSIONHERE`: Use the current SignalFx SmartAgent version in the Helm script below from here: https://github.com/signalfx/signalfx-agent/releases i.e. 5.7.1  
 `sfx-workshop`: If you are in a group- put your initials in fornt of this i.e. `js-sfx-workshop`
 
 Once `values.yaml` is configured, you can use it with helm to set up the SmartAgent pod:
