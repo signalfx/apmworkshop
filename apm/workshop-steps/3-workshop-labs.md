@@ -11,8 +11,7 @@ Exercise each lab in order:
 | 4 | [Node: Generate traces from Node HTTP.get client](../node) |
 | 5 | Check out the automatic [Service Dashboard](../dashboards/servicedashboard.md) for your apps |  
 | | OpenTelemetry APM for containerized apps on Kubernetes / Advanced Java APM Topics |
-| 6 | Set up and try [APM for Kubernetes](../k8s) with dockerized versions of the Python Flask and Python/Java request examples and try advanced Java APM    
-:play_or_pause_button: **VIDEO:** [#6 Kubernetes](https://drive.google.com/file/d/1aKMbNNDyebVSS8D1WOpAy81AdcUTQz3w/view?usp=sharing) |  
+| 6 | Set up and try [APM for Kubernetes](../k8s) with dockerized versions of the Python Flask and Python/Java request examples and try advanced Java APM :play_or_pause_button: **VIDEO:** [Kubernetes](https://drive.google.com/file/d/1aKMbNNDyebVSS8D1WOpAy81AdcUTQz3w/view?usp=sharing) |  
 | 7:| [Read the full APM guide on troubleshooting apps, dashboards, etc](https://docs.signalfx.com/en/latest/apm/apm-getting-started/apm-index.html) |
 
 To learn about more languges go to https://docs.signalfx.com/en/latest/apm/apm-instrument/apm-index.html and check out these misc guides:
