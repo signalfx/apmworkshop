@@ -19,61 +19,22 @@ Set up Splunk SignalFx SmartAgent in your k3s cluster:
 helm repo add signalfx https://dl.signalfx.com/helm-repo && \
 helm repo update
 ```
-Build your Helm install script based on the following variables:
 
-TOKENHERE: token from your account  
-YOURREALMHERE: your realm from your account i.e. us1  
-YOURK8SCLUSTERNAME: any name you pick to represent the cluster  
-RELEASEVERSIONHERE: Use the current SignalFx SmartAgent version in the Helm script below from here: https://github.com/signalfx/signalfx-agent/releases i.e. 5.5.1
+Configure the `~/apmworkshop/apm/k8s/values.yaml` file for your environment. This sets up all the elements needed for Splunk APM.
+An example file (for reference- do not deploy it) is here: `~/apmworkshop/apm/k8s/values-example.txt`
 
-```
-helm install --set signalFxAccessToken=TOKENHERE \
---set clusterName=YOURK8SCLUSTERNAME \
---set signalFxRealm=YOUREALMHERE \
---set agentVersion=RELEASEVERSIONHERE \
---set traceEndpointUrl=https://ingest.YOURREALMHERE.signalfx.com/v2/trace \
---set kubeletAPI.url=https://localhost:10250 signalfx-agent signalfx/signalfx-agent
-```
+Values to configure:  
+`YOURTOKENHERE`: token from your account  
+`YOURREALMHERE`: your realm from your account i.e. us1  
+`YOURCLUSTERNAMEHERE`: any name you pick to represent the cluster  
+`RELEASEVERSIONHERE`: Use the current SignalFx SmartAgent version in the Helm script below from here: https://github.com/signalfx/signalfx-agent/releases i.e. 5.7.1
+`sfx-workshop`: If you are in a group- put your initials in fornt of this i.e. `js-sfx-workshop`
 
-for example:
-```
-helm install --set signalFxAccessToken=youruniquetokenhere \
---set clusterName=workshop-demo-cluster \
---set signalFxRealm=us1 \
---set agentVersion=5.7.1 \
---set traceEndpointUrl=https://ingest.us1.signalfx.com/v2/trace \
---set kubeletAPI.url=https://localhost:10250 signalfx-agent signalfx/signalfx-agent
-```
+Once `values.yaml` is configured, you can use it with helm to set up the SmartAgent pod:
 
-Once you deploy the SmartAgent on your Kubernetes cluster, you will see the host appear within seconds in the Infrastructure Tab Kubnernetes Navigator in SignalFx.  
+`helm install -f values.yaml signalfx-agent signalfx/signalfx-agent`
 
-Check this and then move on to next step.
-
-### Exercise 2: SmartAgent Update For Kubernetes     
-
-<ins>If you are doing this workshop as part of a group:</ins>  
-
-`/apm/k8s/python/agent.yaml` has a default `environment` value.
-
-Add a unique identifier to the `environment` name i.e. your initials `sfx-workshop-YOURINITIALSHERE`
-```
-monitors:
-  - type: signalfx-forwarder
-    listenAddress: 0.0.0.0:9080
-    defaultSpanTags:
-     environment: "sfx-workshop-YOURINITIALSHERE"
-```     
-
-To update your SignalFx agent helm repo with APM values:  
-For k8s, use `helm` to reconfigure the agent pod with the enclosed `agent.yaml` and the values that have been updated.  
-
-`helm upgrade --reuse-values -f ./agent.yaml signalfx-agent signalfx/signalfx-agent`
-
-to verify these values have been added:  
-
-`helm get values signalfx-agent`
-
-### Exercise 3: Deploy the dockerized versions of OpenTlemetry python flask, python requests, and Java OKHTTP pods
+### Exercise 2: Deploy the dockerized versions of OpenTlemetry python flask, python requests, and Java OKHTTP pods
 
 ##### Start in `~/apmworkshop/apm/k8s/python` directory
 
@@ -89,14 +50,14 @@ cd ~/apmworkshop/apm/k8s/java
 kubectl create -f java-reqs-jmx-deployment.yaml
 ```
 
-### Exercise 4: Study the results
+### Exercise 3: Study the results
 
 The APM Dashboard will show the instrumented Python-Requests and OpenTelemetry Java OKHTTP clients posting to the Flask Server.  
 Make sure you select the ENVIRONMENT to monitor on the selector next to `Troubleshooting` i.e. in image below you can see `sfx-workshop` is selected.
 
 <img src="../../../assets/vlcsnap-00007.png" width="360">  
 
-### Exercise 5: Study the `deployment.yaml` files
+### Exercise 4: Study the `deployment.yaml` files
 
 Spans need to be send to the SmartAgent which is running in its own pod- the deployment .yaml files will demonstrate this.
 
@@ -115,7 +76,7 @@ The SmartAgent pod is running with <ins>node wide visibility</ins>, so to tell e
               value: http://$(MY_NODE_NAME):9080/v1/trace
 ```
 
-### Exercise 6: View trace spans flowing in SignalFx Agent pod
+### Exercise 5: View trace spans flowing in SignalFx Agent pod
 `kubectl get pods`
 
 Note the pod name of the `SignalFx Agent` pod
@@ -148,7 +109,7 @@ This means spans are succssfully being sent to Splunk SignalFx.
 
 ## Advanced Java Exercises
 
-### Exercise 7: Monitor JVM etrics for a Java container
+### Exercise 6: Monitor JVM etrics for a Java container
 
 Update the Splunk SmartAgent pod with a monitor for `k8s-java-reqs-client-otel` we created
 
@@ -175,7 +136,7 @@ You will see a real time dashboard for the enabled JVM metrics as shown below:
 
 <img src="../../../assets/jvm.png" width="360"> 
 
-### Exercise 8: Manually instrumenat a Java app
+### Exercise 7: Manually instrumenat a Java app
 
 Lets say you have an app that has your own functions and doesn't only use auto-instrumented frameworks- or doesn't have any of them!  
 You can easily manually instrument your functions and have them appear as part of a service, or as an entire service.
@@ -205,7 +166,7 @@ Study the [manual instrumentation code example here.](https://github.com/signalf
 Note that this is the most minimal example of manual instrumentation- there is a vast amount of power available in OpenTelemetry- please see [the documentation](https://github.com/open-telemetry/opentelemetry-java-instrumentation) and [in depth details](https://github.com/open-telemetry/opentelemetry-java/blob/master/QUICKSTART.md#tracing)
 
 
-### Exercise 9: Clean up deployments and services
+### Clean up deployments and services
 
 Java:
 in `~/apmworkshop/apm/k8s/java/`  
