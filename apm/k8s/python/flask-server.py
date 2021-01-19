@@ -2,9 +2,6 @@ from flask import Flask, make_response, request
 
 app = Flask(__name__)
    
-def convert_response(message):
-    return format(message)
-
 @app.route('/echo', methods=['GET', 'POST'])
 def echo():
      if request.method == 'POST':
