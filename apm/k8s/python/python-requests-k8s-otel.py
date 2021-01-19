@@ -7,14 +7,15 @@ url = 'http://server-flask-otel:5000/echo'
 x=1
 
 def pythonrequests():
+    payload = {'key': 'value'}
     try:
-        r=requests.post(url)
-        print(r.text)
+        r=requests.post(url, params=payload)
+        print('posting: ', r.url, ' ', r.text)
     except requests.exceptions.RequestException as err:
         print(err)
 
 while x:
     pythonrequests()
     y = random()
-    print("Posting: ", url, " Sleeping: ", round(y,2))
-    sleep(y)
+    print('Sleeping: ', round(y,2))
+    sleep(round(y,2))

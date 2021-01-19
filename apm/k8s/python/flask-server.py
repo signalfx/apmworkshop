@@ -4,11 +4,11 @@ app = Flask(__name__)
    
 @app.route('/echo', methods=['GET', 'POST'])
 def echo():
-     if request.method == 'POST':
-        print ('You posted ')
+    if request.method == 'POST':
+        print('You posted ')
         return(request.data)
     else:
-        print ('You getted ')
+        print('You getted ')
         return(request.data)
 
 if __name__ == '__main__':
