@@ -1,3 +1,16 @@
+## OpenTelemetry Collector
+
+"The OpenTelemetry Collector offers a vendor-agnostic implementation on how to receive, process and export telemetry data. In addition, it removes the need to run, operate and maintain multiple agents/collectors in order to support open-source telemetry data formats (e.g. Jaeger, Prometheus, etc.) sending to multiple open-source or commercial back-ends."
+
+https://github.com/open-telemetry/opentelemetry-collector
+
+For this workshop, we will install a minimal configuration, as a container, and steer the destination of metrics and spans emitted by the Splunk SmartAgent to the OpenTelemetry Collector deployment, which will then send them to the Splunk Observability Platform.
+
+Once the Collector is receiving and re-transmitting telemetry, it can process, export, convert etc.
+
+### Install OpenTelemetry Collector Deployment for Kubernetes
+
+
 Set up the SFX Environment variables in `~/apmworkshop/apm/k8s/signalfx-k8s.yaml`
 
 | Value | Description |
