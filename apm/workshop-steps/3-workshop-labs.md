@@ -14,7 +14,7 @@ Exercise each lab in order:
 | 6 | [APM for Containerized Apps on Kubernetes](../k8s) with dockerized versions of the Python Flask and Python/Java examples |
 ||:play_or_pause_button: **VIDEO:** [Kubernetes](https://drive.google.com/file/d/1aKMbNNDyebVSS8D1WOpAy81AdcUTQz3w/view?usp=sharing) |
 
-[Read the full APM guide on troubleshooting apps, dashboards, etc](https://docs.signalfx.com/en/latest/apm/apm-getting-started/apm-index.html
+[Read the full APM guide on troubleshooting apps, dashboards, etc](https://docs.signalfx.com/en/latest/apm/apm-getting-started/apm-index.html)
 
 To learn about more languges go to https://docs.signalfx.com/en/latest/apm/apm-instrument/apm-index.html and check out these misc guides:
 [dot.NET](../misc/dotnet)  
