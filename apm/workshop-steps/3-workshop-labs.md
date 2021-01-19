@@ -5,7 +5,7 @@ Exercise each lab in order:
 |Lab|Activity|
 |---|--------|
 | 1 | :play_or_pause_button: **VIDEO:** [Full demonstration of Splunk APM](https://drive.google.com/file/d/1jc5VWL4jKMqAUgUxDnMcpB42LKAn8Bdm/view?usp=sharing) |
-||APM for Apps On A **Single Host**|
+||**APM for Apps On A Single Host**|
 | 2 | [Python (OpenTelemetry): Deploy Flask server and generate traces with Python requests client](../python)|
 | 3 | [Java (OpenTelemetry): Generate traces from OKHTTP client](../java) |
 | 4 | [Node: Generate traces from Node HTTP.get client](../node) |
