@@ -3,8 +3,7 @@ Each lab showcases a simple framework using APM auto-instrumentation.
 Exercise each lab in order:  
 
 |Lab|Activity|
-|---|--------|
-|:---:|:---|
+|:---:|:--------|
 | 1 | :play_or_pause_button: **VIDEO:** [Full demonstration of Splunk APM](https://drive.google.com/file/d/1jc5VWL4jKMqAUgUxDnMcpB42LKAn8Bdm/view?usp=sharing) |
 ||**APM: Apps on a single Hhost**|
 | 2 | [Python (OpenTelemetry): Deploy Flask server and generate traces with Python requests client](../python)|
