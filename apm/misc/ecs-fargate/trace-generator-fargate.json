@@ -48,7 +48,7 @@
         },
         {
             "name": "python-trace-generator-fargate",
-            "image": "stevelsplunk/sfx-python:latest",
+            "image": "stevelsplunk/splk-python:latest",
             "entryPoint": [
                 "bash",
                 "-c"
@@ -64,7 +64,7 @@
             },
 	    "workingDirectory": "/home/code",
             "command": [
-                "sh run-autogen.sh"
+                "sh ./tools/run-autogen.sh"
             ],
             "environment": [
                 {
