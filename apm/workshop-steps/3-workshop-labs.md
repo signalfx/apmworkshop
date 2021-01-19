@@ -1,6 +1,4 @@
 #### APM Instrumentation Workshop Labs 
-Each lab showcases a simple framework using APM auto-instrumentation.    
-Exercise each lab in order:  
 
 |Lab|Activity|
 |:---:|:--------|
