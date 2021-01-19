@@ -107,13 +107,13 @@ Trace Spans overwritten (total):  0
 ```
 
 Notice `Trace Spans Sent (last minute):   1083` 
-This means spans are succssfully being sent to Splunk SignalFx.
+This means spans are succssfully being sent to Splunk APM.
 
 ## Advanced Java Exercises
 
 ### Exercise 6: Monitor JVM etrics for a Java container
 
-Update the Splunk SmartAgent pod with a monitor for `k8s-java-reqs-client-otel` we created
+Update the Splunk SmartAgent pod with a monitor for `k8s-java-reqs-client-otel` app
 
 We want to add the following monitor to the SmartAgent:
 
@@ -140,7 +140,7 @@ You will see a real time dashboard for the enabled JVM metrics as shown below:
 
 ### Exercise 7: Manually instrumenat a Java app
 
-Lets say you have an app that has your own functions and doesn't only use auto-instrumented frameworks- or doesn't have any of them!  
+Let's say you have an app that has your own functions and doesn't only use auto-instrumented frameworks- or doesn't have any of them!  
 You can easily manually instrument your functions and have them appear as part of a service, or as an entire service.
 
 Example is here:
