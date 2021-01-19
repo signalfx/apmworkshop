@@ -1,16 +1,14 @@
-Set up these env variables:  
-```
-export SFX_REALM=YOURREALMHERE
-export SFX_TOKEN=YOURTOKENHERE
-```
+Set up the SFX Environment variables in `~/apmworkshop/apm/k8s/signalfx-k8s.yaml`
 
-Get the example deplooyment yaml:  
-`curl https://raw.githubusercontent.com/open-telemetry/opentelemetry-collector-contrib/master/exporter/sapmexporter/examples/signalfx-k8s.yaml -o signalfx-k8s.yaml`
+| Value | Description |
+|-------|-------------|
+|`YOURREALMHERE`| your realm i.e. US1|
+|`YOURTOKENHERE`| your token i.e. av9dd9ckdr9|
 
-Create the pod with the OpenTelemetry Collector:  
+Create the OpenTelemetry Collector deployment:  
 `kubectl create -f signalfx-k8s.yaml`  
 
-Tell your SmartAgent pod to send the spans and metrics to the collector:  
+Tell your SmartAgent pod to send the spans and metrics to the OpenTelemetry Collector deployment:  
 
 ```
 helm upgrade --reuse-values signalfx-agent signalfx/signalfx-agent \
