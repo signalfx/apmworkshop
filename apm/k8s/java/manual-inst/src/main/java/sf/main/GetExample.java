@@ -6,6 +6,7 @@ import io.opentelemetry.api.trace.Tracer;
 import io.opentelemetry.context.Scope;
 import io.opentelemetry.api.trace.attributes.SemanticAttributes;
 
+import java.util.Random; 
 import java.io.IOException;
 
 public class GetExample {
@@ -26,6 +27,12 @@ public static void wait(int ms)
 
 public static void main(String[] args) throws IOException {
   int x = 1;
+
+  Random random = new Random();
+  int val = random.nextInt();
+  String userID = new String();
+  userID = Integer.toHexString(val);
+
   while (x>0)
     {
        System.out.println(x);
@@ -39,6 +46,7 @@ public static void main(String[] args) throws IOException {
        try (Scope scope = manualSpan.makeCurrent()) {
          // Add attributes
          manualSpan.setAttribute("my.key", "myvalue");
+         manualSpan.setAttribute("user.ID", userID);
 	 wait(10);
          } finally {
          // End span
