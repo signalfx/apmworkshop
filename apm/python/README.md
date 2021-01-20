@@ -1,17 +1,9 @@
 ### This lab requires starting from the main [APM Instrumentation Workshop](../3-workshop-labs.md)
 
-#### Step #1 Install Splunk OptenTelemetry Python tracing library and boostrap instrumentation. Make sure you have Python3 installed in advance of these steps.
 
-Do all of these from your ~ directory:
+#### Step #1 Set up environment and run Python Flask server using auto-instrumentation
 
-```sudo apt-get -y update && \
-sudo apt install -y python3-pip && \
-python3 -m pip install splunk-opentelemetry flask requests && \
-export PATH="$HOME/.local/bin:$PATH" && \
-splk-py-trace-bootstrap
-```
-
-#### Step #2 Set up environment and run Python Flask server using auto-instrumentation
+`multipass shell primary`
 
 ```
 cd ./apmworkshop/apm/python
@@ -21,15 +13,14 @@ splk-py-trace python3 flask-server.py
 
 You will see the server startup text when this is run.
 
-#### Step #3 Run the client python app via the `splk-py-trace` command to send requests to the Flask server
+#### Step #2 Run the client python app via the `splk-py-trace` command to send requests to the Flask server
 
 Open a new terminal window to your Linux instance, set up environment variables, and run the `python-requests.py` client to sent POST requests to the Flask server (or use `tmux` and run in separate pane)
 
 ```
 cd ~/apmworkshop/apm/python
 source setup-client.sh  
-export PATH="$HOME/.local/bin:$PATH"  
-splk-py-trace python3 python-requests-otel.py
+splk-py-trace python3 python-requests.py
 ```
 
 The `python-requests-otel.py` client will make calls to the flask server with a random short sleep time.
