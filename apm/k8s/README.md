@@ -180,4 +180,7 @@ in: `~/apmworkshop/apm/k8s/python`
 SignalFx Agent:
 `helm delete signalfx-agent`  
 
+k3s:
+`/usr/local/bin/k3s-uninstall.sh`
+
 This is the last lab of the [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)
