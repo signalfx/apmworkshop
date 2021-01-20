@@ -9,7 +9,6 @@ ingestUrl: https://ingest.YOURREALMHERE.signalfx.com
 traceEndpointUrl: https://ingest.YOURREALMHERE.signalfx.com/v2/trace
 
 monitors:
-  monitors:
   - type: collectd/genericjmx
     host: k8s-java-reqs-client-otel
     port: 3000
