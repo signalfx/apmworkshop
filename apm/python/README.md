@@ -14,7 +14,7 @@ splk-py-trace-bootstrap
 #### Step #2 Set up environment and run Python Flask server using auto-instrumentation
 
 ```
-cd ./apmworkshop/apm/python-otel
+cd ./apmworkshop/apm/python
 source setup-server.sh  
 splk-py-trace python3 flask-server.py  
 ```
