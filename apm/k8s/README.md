@@ -125,7 +125,7 @@ You will see a real time dashboard for the enabled JVM metrics as shown below:
 
 <img src="../../../assets/jvm.png" width="360"> 
 
-### Exercise 7: Manually instrumenat a Java app
+### Exercise 7: CURRENTLY UNDER MAINTANCE- DO NOT USE UNTIL THIS MESSAGE IS REMOVED: Manually instrumenat a Java app
 
 Let's say you have an app that has your own functions and doesn't only use auto-instrumented frameworks- or doesn't have any of them!  
 You can easily manually instrument your functions and have them appear as part of a service, or as an entire service.
