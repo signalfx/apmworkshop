@@ -73,9 +73,6 @@ Make sure you are working in the VM: `multipass shell primary`
 Update Ubuntu:  
 `sudo apt-get -y update`
 
-Install helm k8s deployment manager:  
-`sudo snap install helm --classic`  
-
 Install Java 8 jdk:  
 `sudo apt install -y openjdk-8-jdk`     
 
@@ -89,6 +86,9 @@ sudo chmod 644 /etc/rancher/k3s/k3s.yaml && \
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml  
 ```
 
+Install helm k8s deployment manager:  
+`sudo snap install helm --classic`  
+
 <ins>Every time you re-enter a shell you'll need to:</ins>   
 ```
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
@@ -100,12 +100,12 @@ Verify that you can see the basic pods of k3s:
 OPTIONAL: Here are all the install commands in a single stack:  
 ```
 sudo apt-get -y update && \
-sudo snap install helm --classic && \
 sudo apt install -y openjdk-8-jdk && \
 sudo apt-get -y install maven && \
 curl -sfL https://get.k3s.io | sh -  && \
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml && \
-export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
+sudo snap install helm --classic
 ```
 
 See the [Appendix](4-appendix.md) for more info on Multipass and k3s.
