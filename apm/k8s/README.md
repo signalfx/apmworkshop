@@ -2,7 +2,6 @@
 
 ### K8S Prep
 
-
 Reminder- anytime you start a new shell in your Multipass environment, make sure the k3s environment variables from the prep are set:
 ```
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
@@ -27,6 +26,13 @@ Values to configure:
 Once `values.yaml` is configured, you can use it with helm to set up the SmartAgent pod:
 
 `helm install -f values.yaml signalfx-agent signalfx/signalfx-agent`
+
+If you see this error "Error: Kubernetes cluster unreachable: Get "http://localhost:8080/version?timeout=32s": dial tcp 127.0.0.1:8080: connect: connection refused" then make sure you set the kube env correctly:
+
+```
+export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
+sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
+```
 
 ### Exercise 2: Deploy the dockerized versions of OpenTlemetry python flask, python requests, and Java OKHTTP pods
 
