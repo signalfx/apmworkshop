@@ -13,10 +13,10 @@
 
 [Read the full APM guide on troubleshooting apps, dashboards, etc](https://docs.signalfx.com/en/latest/apm/apm-getting-started/apm-index.html)
 
-To learn about more languges go to https://docs.signalfx.com/en/latest/apm/apm-instrument/apm-index.html and check out these misc guides:
+To learn about more languges go to https://docs.signalfx.com/en/latest/apm/apm-instrument/apm-index.html and check out these misc guides:  
 [dot.NET](../misc/dotnet)  
 [ECS Fargate](../misc/ecs-fargate)  
 [ECS EC2](../misc/ecs-ec2)  
-[EKS](../misc/eks)
+[EKS](../misc/eks)  
 
 [Return to workshop](../README.md)
