@@ -5,6 +5,8 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt-get -y update
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 
+sudo apt-get install -y nodejs
+
 sudo apt install -y openjdk-8-jdk
 sudo apt-get -y install maven
 curl -sfL https://get.k3s.io | sh -
