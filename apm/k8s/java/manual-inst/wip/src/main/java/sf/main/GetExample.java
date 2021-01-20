@@ -14,8 +14,11 @@ import java.io.IOException;
 
 public class GetExample {
 
+TracerProvider tracerProvider =
+    OpenTelemetry.getGlobalTracerProvider();
+
 private static final Tracer tracer =
-    OpenTelemetry.getTracer("io.opentelemetry.sf.main.GetExample");		
+    tracerProvider.getTracer("io.opentelemetry.sf.main.GetExample");		
 
 private static void wait(int ms)
 {
