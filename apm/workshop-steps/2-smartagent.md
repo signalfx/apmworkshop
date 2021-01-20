@@ -16,9 +16,12 @@ Or use the menus in the Splunk SignalFx web portal:
 Once you deploy the SmartAgent on a host, you will see the host appear within seconds in the Infrastructure Tab in SignalFx.  
 Check this and then move on to next step.
 
-##### Configure SmartAgent for APM and restart it    
+##### Configure SmartAgent for APM and restart it  
 
 Reference docs are here: https://docs.signalfx.com/en/latest/apm/apm-getting-started/apm-smart-agent.html  
+
+Shell into your host:  
+`multipass shell primary`
 
 Edit `/etc/signalfx/agent.yaml` and update the stanzas below:
 
