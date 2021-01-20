@@ -18,4 +18,7 @@ python3 -m pip install splunk-opentelemetry flask requests
 export PATH="$HOME/.local/bin:$PATH"
 splk-py-trace-bootstrap
 
+helm repo add signalfx https://dl.signalfx.com/helm-repo
+helm repo update
+
 git clone https://github.com/signalfx/apmworkshop
