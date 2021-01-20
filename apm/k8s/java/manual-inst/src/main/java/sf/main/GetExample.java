@@ -13,7 +13,7 @@ public class GetExample {
 
 // Instantiate a tracer
 private static final Tracer tracer =
-    OpenTelemetry.getGlobalTracer("io.opentelemetry.sf.main.GetExample");	
+    OpenTelemetry.getTracer("io.opentelemetry.sf.main.GetExample");	
 
 public static void wait(int ms)
 {
