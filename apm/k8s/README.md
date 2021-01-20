@@ -11,7 +11,8 @@ sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 
 ### Exercise 1: set up the SignalFx SmartAgent as a sidecar pod  
 
-Configure the `~/apmworkshop/apm/k8s/values.yaml` file for your environment. This sets up all the elements needed for Splunk APM.
+Configure the `~/apmworkshop/apm/k8s/values.yaml` file for your environment.  
+This sets up all the elements needed for Splunk APM.
 An example file (for reference- do not deploy it) is here: `~/apmworkshop/apm/k8s/values-example.txt`
 
 Values to configure:  
