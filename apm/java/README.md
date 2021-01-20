@@ -9,10 +9,10 @@ Make sure that you still have the Python Flask server from Lab #2 running. If yo
 Make sure you are in the right directory to start the Java activities:  
 `cd ~/apmworkshop/apm/java`
 
-#### Step #2 Download Splunk OpenTelemetry Java Auto-instrumentation
+#### Step #2 Download Splunk OpenTelemetry Java Auto-instrumentation to /opt
 
 `source install-java-otel.sh`
-installs Splunk OpenTelemetry Java Auto-instrumentation into `/opt'
+
 
 #### Step #3 Run the Java example with OKHTTP requests
 
@@ -35,7 +35,7 @@ Open a new terminal window to your Linux instance (or use `tmux` and run in sepa
 
 ```
 ubuntu@primary:~$ signalfx-agent status
-SignalFx Agent version:           5.5.1
+SignalFx Agent version:           5.7.1
 Agent uptime:                     1h31m32s
 Observers active:                 host
 Active Monitors:                  10
