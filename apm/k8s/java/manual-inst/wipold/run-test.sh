@@ -3,4 +3,4 @@ sh ./manual-inst/install-java-otel.sh
 java \
 -DtargetUrl=http://localhost:5000/echo?key=value \
 -javaagent:/opt/splunk-otel-javaagent.jar \
--jar ./manual-inst/target/java-app-1.0-SNAPSHOT.jar
+-jar ./target/java-app-1.0-SNAPSHOT.jar
