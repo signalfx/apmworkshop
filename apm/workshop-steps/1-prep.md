@@ -48,6 +48,10 @@ If needed, further instructions are here: https://multipass.run/docs/installing-
 
 Do one final brew upgrade before spinning up VM: `brew upgrade`
 
+##### <ins>Windows</ins>
+
+Follow Multipass Windows installation instructions: https://multipass.run/docs/installing-on-windows
+
 **#3 Launch Ubuntu VM**
 
 Create your VM: `multipass launch -n primary -d 12G -m 6G`
@@ -68,58 +72,15 @@ To manage multipass VM:
 
 **#4 Install software needed for labs**
 
-Make sure you are working in the VM: `multipass shell primary`
+A bootstrap script will install everything needed and clone this repo:
 
-Update Ubuntu:  
-`sudo apt-get -y update`
+Linux / Mac:
+`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/setup-multipass-primary.sh)`
 
-Install Java 8 jdk:  
-`sudo apt install -y openjdk-8-jdk`     
+Windows:
 
-Install maven java packager:  
-`sudo apt-get -y install maven`  
-
-Install k3s lightweight k8s and set up its permissions:
-```
-curl -sfL https://get.k3s.io | sh -  && \
-sudo chmod 644 /etc/rancher/k3s/k3s.yaml && \  
-export KUBECONFIG=/etc/rancher/k3s/k3s.yaml  
-```
-
-Install helm k8s deployment manager:  
-`sudo snap install helm --classic`  
-
-<ins>Every time you re-enter a shell you'll need to:</ins>   
-```
-export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
-sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
-```
-Verify that you can see the basic pods of k3s:  
-`kubectl get pods --all-namespaces`
-
-OPTIONAL: Here are all the install commands in a single stack:  
-```
-sudo apt-get -y update && \
-sudo apt install -y openjdk-8-jdk && \
-sudo apt-get -y install maven && \
-curl -sfL https://get.k3s.io | sh -  && \
-sudo chmod 644 /etc/rancher/k3s/k3s.yaml && \
-export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
-sudo snap install helm --classic
-```
-
-See the [Appendix](4-appendix.md) for more info on Multipass and k3s.
-
-**#5 Clone this repo**
-
-Clone the APM Instrumentation Workshop repo:  
-`git clone https://github.com/signalfx/apmworkshop/`
-
-##### <ins>Windows</ins>
-
-Follow Multipass Windows installation instructions: https://multipass.run/docs/installing-on-windows
-
-Skip steps 1 and 2 above and start at step 3
+`multipass exec primary -- curl https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/multipass.sh -o multipass.sh`
+`multipass exec primary -- sh multipass.sh`
 
 ### Prep Step 3: Review KEY SPLUNK APM CONCEPTS
 
