@@ -26,7 +26,7 @@ splk-py-trace python3 python-requests.py
 The `python-requests-otel.py` client will make calls to the flask server with a random short sleep time.
 You can stop the requests with `ctrl-c`
 
-#### Step #4 Check Splunk SignalFx SmartAgent to see that spans are being sent
+#### Step #3 Check Splunk SignalFx SmartAgent to see that spans are being sent
 
 Open a new terminal window to your Linux instance (or use `tmux` and run in separate pane)
 
@@ -34,7 +34,7 @@ Open a new terminal window to your Linux instance (or use `tmux` and run in sepa
 
 ```
 ubuntu@primary:~$ signalfx-agent status
-SignalFx Agent version:           5.5.1
+SignalFx Agent version:           5.7.1
 Agent uptime:                     1h31m32s
 Observers active:                 host
 Active Monitors:                  10
@@ -54,7 +54,7 @@ Trace Spans overwritten (total):  0
 Notice **Trace Spans Sent (last minute):   1083**  
 This means spans are succssfully being sent to Splunk SignalFx.
 
-#### Step #5 Traces / services will now be viewable in the APM dashboard
+#### Step #4 Traces / services will now be viewable in the APM dashboard
 
 A new service takes about 90 seconds to register for the first time, and then all data will be available in real time.
 Additionally span IDs will print in the terminal where flask-server.py is running.
@@ -83,13 +83,13 @@ In the trace view you can click on spans to see more info and their tags, and so
 
 <img src="../../../assets/vlcsnap-00006.png" /> 
 
-#### Step #6 Where is the auto-instrumentation?
+#### Step #5 Where is the auto-instrumentation?
 
 `splk-py-trace` is the auto instrumenting function that runs Python3 with the instrumentation that automatically emits spans from the Python app. No code changes are necessary.
 
 Splunk's autoinstrumentation for python is here: https://github.com/signalfx/splunk-otel-python
 
-#### Step #7 Leave the Flask server running
+#### Step #6 Leave the Flask server running
 
 You'll need need this process for the next client examples in the workshop.  
 
