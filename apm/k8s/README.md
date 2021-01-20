@@ -120,24 +120,13 @@ This means spans are succssfully being sent to Splunk APM.
 
 ### Exercise 6: Monitor JVM etrics for a Java container
 
-Update the Splunk SmartAgent pod with a monitor for `k8s-java-reqs-client-otel` app
-
-We want to add the following monitor to the SmartAgent:
-
+Our original deployment of the Splunk SmartAgent had the following stanza which tells the agent to query the `k8s-java-reqs-client-otel` pod for JVM metrics on port 3000:  
 ```
 monitors:
   - type: collectd/genericjmx
     host: k8s-java-reqs-client-otel
     port: 3000
 ```
-
-And we have this ready in a .yaml file:
-
-`cd ~/apmworkshop/apm/k8s/java/jmx`  
-
-`helm upgrade --reuse-values -f ./agent.yaml signalfx-agent signalfx/signalfx-agent`  
-
-JVM Metrics will now be pulled by the SmartAgent Pod.
 
 To see a dashboard with the JVM for the Java service, go to `Dashboards->JMX (collectd)->Generic Java Stats` and filter for the service if more than one service is present: `sf_service: k8s-java-reqs-client-otel`
 
