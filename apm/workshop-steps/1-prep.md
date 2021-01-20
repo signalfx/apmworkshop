@@ -74,11 +74,10 @@ To manage multipass VM:
 
 A bootstrap script will install everything needed and clone this repo:
 
-Linux / Mac:
+Linux / Mac:  
 `bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/setup-multipass-primary.sh)`
 
 Windows:
-
 `multipass exec primary -- curl https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/multipass.sh -o multipass.sh`  
 `multipass exec primary -- sh multipass.sh`
 
