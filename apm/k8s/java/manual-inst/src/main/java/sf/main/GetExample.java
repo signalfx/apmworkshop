@@ -46,8 +46,7 @@ public static void main(String[] args) throws IOException {
        try (Scope scope = manualSpan.makeCurrent()) {
          // Add attributes
          manualSpan.setAttribute("my.key", "myvalue");
-         manualSpan.setAttribute("user.ID", userID);
-	 wait(10);
+//         manualSpan.setAttribute("user.ID", userID);
          } finally {
          // End span
          manualSpan.end();
