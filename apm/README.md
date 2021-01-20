@@ -20,7 +20,7 @@ I.e. to change your REALM to `us1` change `api.YOURREALMHERE.signalfx.com` to `a
 
 :play_or_pause_button: **VIDEO:** will proceed a link to the associated section's video to download (downloading is recommended)
 
-### Summary Of Steps
+### Workshop Summary
 
 1. Review basic [Splunk Observability Quick Start for Infrastructure](https://docs.signalfx.com/en/latest/getting-started/quick-start.html)  
 2. Install Splunk SignalFx SmartAgent on a host and configure it for APM
