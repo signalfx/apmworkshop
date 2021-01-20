@@ -2,30 +2,14 @@
 
 ### K8S Prep
 
-You must have a ready Kubernetes cluster for this example.  
-A guide to setting up your own sandbox with k3s (light k8s) can be found in: [Step 1](../workshop-steps/1-prep.md)
 
-If you are starting the workshop at this labe, you can execute these steps to prep your environment:    
-```
-curl -sfL https://get.k3s.io | sh -  && \
-sudo chmod 644 /etc/rancher/k3s/k3s.yaml && \
-export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
-sudo snap install helm --classic
-```
-
-Reminder- anytime you start a new environment / shell, make sure the k3s environment variables from the prep are set:
+Reminder- anytime you start a new shell in your Multipass environment, make sure the k3s environment variables from the prep are set:
 ```
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
 ```
 
 ### Exercise 1: set up the SignalFx SmartAgent as a sidecar pod  
-
-Set up Splunk SignalFx SmartAgent in your k3s cluster:  
-```
-helm repo add signalfx https://dl.signalfx.com/helm-repo && \
-helm repo update
-```
 
 Configure the `~/apmworkshop/apm/k8s/values.yaml` file for your environment. This sets up all the elements needed for Splunk APM.
 An example file (for reference- do not deploy it) is here: `~/apmworkshop/apm/k8s/values-example.txt`
