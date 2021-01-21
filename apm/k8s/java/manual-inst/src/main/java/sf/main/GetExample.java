@@ -51,8 +51,8 @@ public class GetExample {
       exampleSpan.setAttribute("user.id", userID);
       exampleSpan.setAttribute("service.name", "someotherservice");
       exampleSpan.addEvent("MyEvent");
-      //simulate some work
-      doSomeWork();
+      //simulate some work and annotate the function with spans using @WithSpan
+      annotateSpanFunc();
     } finally {
       // Always end the span in a finally block.
       exampleSpan.end();
@@ -61,11 +61,11 @@ public class GetExample {
 
   //the agent will automatically create a span for you and put it into the current Context.
   @WithSpan
-  private static void doSomeWork() {
+  private static void annotateSpanFunc() {
     Span.current().addEvent("starting sleep");
     Random random = new Random();
     int randsleep = random.nextInt(250);
     wait(randsleep);
     Span.current().addEvent("stopping sleep");
-  } //doSomeWork
+  } //annotateSpanFunc
 } //class
