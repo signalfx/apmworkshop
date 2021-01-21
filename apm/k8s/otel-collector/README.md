@@ -13,7 +13,9 @@ Original k8s template on which this lab is based is [here](https://github.com/op
 
 ### Install OpenTelemetry Collector Deployment for Kubernetes
 
-Set up the SFX Environment variables in `~/apmworkshop/apm/k8s/otel-collector-k8s.yaml`
+`cd ~/apmworkshop/apm/k8s/otel-collector/`
+
+Set up the SFX Environment variables in `otel-collector-k8s.yaml`
 
 | Value | Description |
 |-------|-------------|
