@@ -1,1 +1,1 @@
-Start in [k8s lab](../README.md)
+Start in [k8s lab](../../README.md)
