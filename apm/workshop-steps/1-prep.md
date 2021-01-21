@@ -85,8 +85,8 @@ Windows:
 
 1. There are two moving parts to APM:    
    **One: Application Spans:** Open standards APM spans emitted by your applications. OpenTelmetry auto-instrumentation (no code changes) for most languages is availabile but you can use any framework/library that emits zipkin, OpenTracing, or [OpenTelemetry](https://opentelemtry.io). The optional [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector) can covert between trace formats, process, sample etc.  
-   **Two: Instructructure metrics:** Metrics are emitted by an infrastructure agent called [Splunk SignalFx SmartAgent](https://docs.signalfx.com/en/latest/integrations/agent/agent-install-methods.html) observing the application's host or container cluster. The infrastructure agent is lightweight, open source, real-time, and designed for microservices, containers, and cloud.   
-2. Application spans will be sent to the Splunk SignalFx SmartAgent running on a host or k8s pod to correlate APM with host metrics. The SmartAgent then relays the spans to SignalFx where they will be assembled into traces.   
+   **Two: Instructructure metrics:** Metrics are emitted by an infrastructure agent called [Splunk SmartAgent](https://docs.signalfx.com/en/latest/integrations/agent/agent-install-methods.html) observing the application's host or container cluster. The infrastructure agent is lightweight, open source, real-time, and designed for microservices, containers, and cloud.   
+2. Application spans will be sent to the Splunk SmartAgent running on a host or k8s pod to correlate APM with host metrics. The SmartAgent then relays the spans to Splunk APM where they will be assembled into traces.   
 3. The APM spans flow in real time and there is no sampling.  
 4. Pre-made default Service Dashboards for APM tracing will appear once spans are received by Splunk APM. The APM view has directed troubleshooting. 
 5. Environment variables in the user environment and the SmartAgent config `/etc/signalfx/agent.yaml` control the setup of APM:      
