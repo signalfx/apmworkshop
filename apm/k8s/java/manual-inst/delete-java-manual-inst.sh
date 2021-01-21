@@ -1,2 +1,2 @@
-kubectl delete deployment java-client-manual-inst
-kubectl delete service java-client-manual-inst
+kubectl delete deployment java-manual-inst-k8s
+kubectl delete service java-manual-inst-k8s

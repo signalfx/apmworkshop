@@ -1,2 +1,2 @@
-kubectl delete deployment java-client-otel
-kubectl delete service java-client-otel
+kubectl delete deployment java-client-otel-k8s
+kubectl delete service java-client-otel-k8s
