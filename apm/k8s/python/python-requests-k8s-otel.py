@@ -3,7 +3,7 @@ from time import sleep
 from random import random, seed
 
 seed(1)
-url = 'http://server-flask-otel:5000/echo'
+url = 'http://server-flask-otel-k8s:5000/echo'
 x=1
 
 def pythonrequests():
