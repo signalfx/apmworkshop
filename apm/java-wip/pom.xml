@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.signalfx.public</groupId>
   <artifactId>java-app</artifactId>
@@ -14,33 +15,36 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
 
-<dependencies>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.opentelemetry</groupId>
+        <artifactId>opentelemetry-bom</artifactId>
+        <version>0.14.1</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
 
     <dependency>
       <groupId>io.opentelemetry</groupId>
       <artifactId>opentelemetry-api</artifactId>
-      <version>0.13.1</version>
     </dependency>
 
     <dependency>
       <groupId>io.opentelemetry</groupId>
       <artifactId>opentelemetry-context</artifactId>
-      <version>0.13.1</version>
     </dependency>
 
     <dependency>
       <groupId>io.opentelemetry</groupId>
-      <artifactId>opentelemetry-sdk</artifactId>
-      <version>0.13.1</version>
+      <artifactId>opentelemetry-extension-annotations</artifactId>
     </dependency>
 
-    <dependency>
-      <groupId>io.opentelemetry</groupId>
-      <artifactId>opentelemetry-extension-auto-annotations</artifactId>
-      <version>0.10.0</version>
-    </dependency>	    
-
-</dependencies>
+  </dependencies>
 
   <build>
     <plugins>
@@ -56,7 +60,8 @@
             </goals>
             <configuration>
               <transformers>
-                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                <transformer
+                  implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                   <mainClass>sf.main.GetExample</mainClass>
                 </transformer>
               </transformers>
