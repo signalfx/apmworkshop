@@ -23,7 +23,7 @@ I.e. to change your REALM to `us1` change `api.YOURREALMHERE.signalfx.com` to `a
 ### Workshop Summary
 
 1. Review basic [Splunk Observability Quick Start for Infrastructure](https://docs.signalfx.com/en/latest/getting-started/quick-start.html)  
-2. Install Splunk SignalFx SmartAgent on a host and configure it for APM
+2. Install Splunk SmartAgent on a host and configure it for APM
 3. Instrument your app for APM
 4. Exercise app so it send spans to the Splunk APM platform
 5. Use the Splunk APM platform for visualization, troubleshooting, alerts, and automation
@@ -36,7 +36,7 @@ I.e. to change your REALM to `us1` change `api.YOURREALMHERE.signalfx.com` to `a
 
 Step 1: [Prepare Your Environment and Review Key Concepts](./workshop-steps/1-prep.md)  
 
-Step 2: [Install SmartAgent and Configure for APM](./workshop-steps/2-smartagent.md)  
+Step 2: [Install Splunk SmartAgent and Configure for APM](./workshop-steps/2-smartagent.md)  
 
 Step 3: [Complete APM Workshop Labs](./workshop-steps/3-workshop-labs.md)  
 
