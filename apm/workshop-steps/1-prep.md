@@ -54,7 +54,7 @@ Follow Multipass Windows installation instructions: https://multipass.run/docs/i
 
 **#3 Launch Ubuntu VM**
 
-Create your VM: `multipass launch -n primary -d 12G -m 6G`
+Create your VM: `multipass launch -n primary -d 7G -m 7G`
 
 This will download Ubuntu and may take a few minute the first time.
 
