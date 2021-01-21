@@ -152,7 +152,7 @@ You will see the function called Manual Span.
 
 Study the [manual instrumentation code example here.](https://github.com/signalfx/apmworkshop/blob/master/apm/k8s/java/manual-inst/src/main/java/sf/main/GetExample.java)
 
-There are two methods shown- the decorator @WithSpan method, and using the Global Tracer method...
+There are two methods shown- the decorator @WithSpan method, and using the GlobalTracer method...
 
 Note that this is the most minimal example of manual instrumentation- there is a vast amount of power available in OpenTelemetry- please see [the documentation](https://github.com/open-telemetry/opentelemetry-java-instrumentation) and [in depth details](https://github.com/open-telemetry/opentelemetry-java/blob/master/QUICKSTART.md#tracing)
 
