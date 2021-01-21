@@ -125,7 +125,7 @@ You will see a real time dashboard for the enabled JVM metrics as shown below:
 
 <img src="../../../assets/jvm.png" width="360"> 
 
-### Exercise 7:  Manually instrument a Java app
+### Exercise 7:  Manually instrument a Java app and add custom tags
 
 Let's say you have an app that has your own functions and doesn't only use auto-instrumented frameworks- or doesn't have any of them!  
 You can easily manually instrument your functions and have them appear as part of a service, or as an entire service.
@@ -152,7 +152,7 @@ You will see the function called Manual Span.
 
 Study the [manual instrumentation code example here.](https://github.com/signalfx/apmworkshop/blob/master/apm/k8s/java/manual-inst/src/main/java/sf/main/GetExample.java)
 
-There are two methods shown- the decorator @WithSpan method, and using the GlobalTracer method...
+There are two methods shown- the decorator @WithSpan method (easiest), and using the GlobalTracer method (more complicated/powerful)...
 
 Note that this is the most minimal example of manual instrumentation- there is a vast amount of power available in OpenTelemetry- please see [the documentation](https://github.com/open-telemetry/opentelemetry-java-instrumentation) and [in depth details](https://github.com/open-telemetry/opentelemetry-java/blob/master/QUICKSTART.md#tracing)
 
