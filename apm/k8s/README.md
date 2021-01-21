@@ -111,7 +111,7 @@ This means spans are succssfully being sent to Splunk APM.
 
 ### Exercise 6: Monitor JVM etrics for a Java container
 
-Our original deployment of the Splunk SmartAgent had the following stanza which tells the agent to query the `k8s-java-reqs-client-otel` pod for JVM metrics on port 3000:  
+Our original deployment `values.yaml` file for Splunk SmartAgent had the following stanza which tells the agent to query the `k8s-java-reqs-client-otel` pod for JVM metrics on port 3000:  
 ```
 monitors:
   - type: collectd/genericjmx
