@@ -23,7 +23,7 @@ Set up the SFX Environment variables in `otel-collector-k8s.yaml`
 |`YOURTOKENHERE`| your token i.e. av9dd9ckdr9|
 
 Create the OpenTelemetry Collector deployment:  
-`kubectl create -f signalfx-k8s.yaml`  
+`kubectl create -f otel-collector-k8s.yaml`  
 
 Tell SmartAgent to send the spans and metrics to the OpenTelemetry Collector deployment:  
 
