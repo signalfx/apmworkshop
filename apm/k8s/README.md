@@ -119,7 +119,7 @@ monitors:
     port: 3000
 ```
 
-To see a dashboard with the JVM for the Java service, go to `Dashboards->JMX (collectd)->Generic Java Stats` and filter for the service if more than one service is present: `sf_service: k8s-java-reqs-client-otel`
+To see a dashboard with the JVM for the Java service, go to `Dashboards->JMX (collectd)->Generic Java Stats` and filter for the service if more than one service is present: `sf_service: client-java-otel-k8s`
 
 You will see a real time dashboard for the enabled JVM metrics as shown below:
 
