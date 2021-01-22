@@ -56,6 +56,8 @@ Apply the OpenTelemetry Collector deployment with redaction processing:
 
 Since this interrupts span flow, wait about a minute to examine spans again and check the `user.id` and you will see that it now reads `redacted`
 
+The `processors` sections of `otel-redact.yaml.yaml` show how this is done- and full documentation is [here](https://github.com/open-telemetry/opentelemetry-collector/blob/master/processor/README.md)
+
 To delete the collector:  
 
 Tell SmartAgent to send the spans and metrics to the Splunk APM service:  
