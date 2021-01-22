@@ -55,7 +55,7 @@ Do one final brew upgrade before spinning up VM: `brew upgrade`
 
 Follow Multipass Windows installation instructions: https://multipass.run/docs/installing-on-windows
 
-**#3 Launch Ubuntu VM**
+**#3 Launch Multipass Ubuntu VM**
 
 Create your VM:  
 `multipass launch -n primary -d 8G -m 8G`
@@ -74,7 +74,7 @@ To manage multipass VM:
 `multipass delete primary` deletes the VM from the hypervisor  
 `multipass purge` purges created images but leaves the ubuntu template intace  
 
-**#4 Install software needed for labs**
+**#4 Install Lab Software On Ubuntu VM**
 
 A bootstrap script will install everything needed and clone this repo:
 
