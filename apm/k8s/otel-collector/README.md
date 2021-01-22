@@ -25,6 +25,8 @@ Set up the SFX Environment variables in `otel-collector-k8s.yaml`
 Create the OpenTelemetry Collector deployment:  
 `kubectl apply -f otel-collector-k8s.yaml`  
 
+### Change Metrics/Span Destination to the OpenTelemetry Collector Pod
+
 Tell SmartAgent to send the spans and metrics to the OpenTelemetry Collector deployment:  
 
 ```
@@ -32,6 +34,27 @@ helm upgrade --reuse-values signalfx-agent signalfx/signalfx-agent \
 --set ingestUrl=http://otel-collector:9943 \
 --set traceEndpointUrl=http://otel-collector:7276/v2/trace
 ```
+
+You will now see the OpenTelemetry Collector's metrics in the Dashboards section of the Observability portal.
+
+### Redact Span Tags to Prevent Particular Information From Being Sent to Splunk
+
+In the Java Manual Instrumenation Example, the ExampleSpans service has a manually created tag called `user.id` that shows unique user IDs from the application.
+Right now all spans are being forwarded without processing by the OpenTelemetry exporter.
+
+If we want to redact the `user.id`:
+
+Set up the SFX Environment variables in `otel-redact.yaml`
+
+| Value | Description |
+|-------|-------------|
+|`YOURREALMHERE`| your realm i.e. US1|
+|`YOURTOKENHERE`| your token i.e. av9dd9ckdr9|
+
+Apply the OpenTelemetry Collector deployment with redaction processing:  
+`kubectl apply -f otel-redact.yaml.yaml`  
+
+Since this interrupts span flow, wait about a minute to examine spans again and check the `user.id` and you will see that it now reads `redacted`
 
 To delete the collector:  
 
@@ -49,10 +72,6 @@ helm upgrade --reuse-values signalfx-agent signalfx/signalfx-agent \
 --set traceEndpointUrl=https://ingest.US1.signalfx.com/v2/trace
 ```
 
-Delete collector k8s components:
+### Delete collector k8s components:
 
-```
-kubectl delete deployment otel-collector && \
-kubectl delete service otel-collector && \
-kubectl delete configmap otel-collector-conf
-```
+`source delete-otel-collector.sh`
