@@ -156,7 +156,7 @@ There are two methods shown- the decorator @WithSpan method (easiest), and using
 
 Note that this is the most minimal example of manual instrumentation- there is a vast amount of power available in OpenTelemetry- please see [the documentation](https://github.com/open-telemetry/opentelemetry-java-instrumentation) and [in depth details](https://github.com/open-telemetry/opentelemetry-java/blob/master/QUICKSTART.md#tracing)
 
-### Exercise 7: Deploy the OpenTelemetry Collector and Process Spans
+### Exercise 8: Deploy the OpenTelemetry Collector and Process Spans
 
 "The OpenTelemetry Collector offers a vendor-agnostic implementation on how to receive, process and export telemetry data. In addition, it removes the need to run, operate and maintain multiple agents/collectors in order to support open-source telemetry data formats (e.g. Jaeger, Prometheus, etc.) sending to multiple open-source or commercial back-ends."
 
@@ -222,7 +222,7 @@ To delete all k8s lab work:
 in `~/apmworkshop/apm/k8s/
 `source delete-all-k8s.sh`
 
-To delete the collector:  
+To delete the Collector:  
 
 Tell SmartAgent to send the spans and metrics to the Splunk APM service:  
 
