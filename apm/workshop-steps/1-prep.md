@@ -20,11 +20,8 @@ You can use any Ubuntu platform- bare metal, VM, or cloud VM.
 
 **If you have your own Linux box**
 
-You can create a lab environment by installing:
-Java 8  
-Helm  
-Maven  
-k8s  
+You can create a lab environment by executing the following:  
+`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/multipass.sh)`
 
 RedHat and other Linux distributions will work the same- simply change the Debian style commands to fit your distribution.
 
