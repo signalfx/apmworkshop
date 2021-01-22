@@ -159,16 +159,9 @@ Note that this is the most minimal example of manual instrumentation- there is a
 
 ### Clean up deployments and services
 
-Java:
-in `~/apmworkshop/apm/k8s/java/`  
-`source delete-java-requests.sh`
-
-in `~/apmworkshop/apm/k8s/java/manual-inst`  
-`source delete-java-manual-inst.sh`  
-
-Python:
-in: `~/apmworkshop/apm/k8s/python`  
-`sh delete-all.sh`  
+To delete all k8s lab work:  
+in `~/apmworkshop/apm/k8s/
+`source delete-all-k8s.sh`
 
 SignalFx Agent:
 `helm delete signalfx-agent`  
