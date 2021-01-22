@@ -39,15 +39,15 @@ sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 ##### Start in `~/apmworkshop/apm/k8s/python` directory
 
 Deploy the flask-server pod:  
-`kubectl create -f flask-deployment.yaml`
+`kubectl apply -f flask-deployment.yaml`
 
 Deploy the python requests pod:  
-`kubectl create -f python-requests-pod-otel.yaml`
+`kubectl apply -f python-requests-pod-otel.yaml`
 
 Deploy the Java OKHTTP requests pod:
 ```
 cd ~/apmworkshop/apm/k8s/java
-kubectl create -f java-reqs-jmx-deployment.yaml
+kubectl apply -f java-reqs-jmx-deployment.yaml
 ```
 
 ### Exercise 3: Study the results
@@ -136,7 +136,7 @@ Example is here:
 
 Deploy an app with ONLY manual instrumentation:
 
-`kubectl create -f java-reqs-manual-inst.yaml`
+`kubectl apply -f java-reqs-manual-inst.yaml`
 
 When this app deploys, it appears as an isolated bubble in the map. It has all metrics and tracing just like an auto-instrumented app does. 
 
