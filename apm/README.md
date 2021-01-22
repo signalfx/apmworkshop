@@ -15,7 +15,7 @@ This workshop has a [guide](./workshop-steps/1-prep.md) on how to set up an Ubun
 
 ### Document Conventions
 
-Variables from your Splunk Observability (SignalFx) account are displayed like this: YOURVARIABLEHERE.   
+Variables from your Splunk Observability account are displayed like this: YOURVARIABLEHERE.   
 I.e. to change your REALM to `us1` change `api.YOURREALMHERE.signalfx.com` to `api.us1.signalfx.com`  
 
 :play_or_pause_button: **VIDEO:** will proceed a link to the associated section's video to download (downloading is recommended)
