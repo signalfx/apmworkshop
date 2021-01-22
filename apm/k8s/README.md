@@ -175,6 +175,8 @@ In the Java Manual Instrumenation Example, the ExampleSpans service has a manual
 
 <img src="../../../assets/redact0.png" width="360"> 
 
+<img src="../../../assets/redact1.png" width="360"> 
+
 If we want to redact the `user.id`:
 
 `cd ~/apmworkshop/apm/k8s/otel-collector/`
