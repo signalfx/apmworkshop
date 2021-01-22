@@ -195,7 +195,6 @@ Set up the SFX Environment variables in `otel-redact.yaml` in this stanza:
 |`YOURREALMHERE`| your realm i.e. US1|
 |`YOURTOKENHERE`| your token i.e. av9dd9ckdr9|
 
-
 Create the OpenTelemetry Collector deployment with redaction processing:  
 `kubectl apply -f otel-redact.yaml`  
 
@@ -206,6 +205,11 @@ helm upgrade --reuse-values signalfx-agent signalfx/signalfx-agent \
 --set ingestUrl=http://otel-collector:9943 \
 --set traceEndpointUrl=http://otel-collector:7276/v2/trace
 ```
+
+You will now get dashboards for OpenTelemetry Collector performance in the `Dashboards` section of the UI.
+
+<img src="../../../assets/oteldash1.png" width="360"> 
+<img src="../../../assets/oteldash2.png" width="360"> 
 
 Since this interrupts span flow, wait about a minute to examine spans again and check the `user.id` and you will see that it now reads `redacted`
 
