@@ -10,7 +10,7 @@ traceEndpointUrl: https://ingest.YOURREALMHERE.signalfx.com/v2/trace
 
 monitors:
   - type: collectd/genericjmx
-    host: java-client-otel-k8s
+    host: client-java-otel-k8s
     port: 3000
   - type: signalfx-forwarder
     listenAddress: 0.0.0.0:9080
