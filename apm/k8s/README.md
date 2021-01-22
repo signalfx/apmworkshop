@@ -222,7 +222,7 @@ You will now see the OpenTelemetry Collector's metrics in the Dashboards section
 ### Clean up deployments and services
 
 To delete all k8s lab work:  
-in `~/apmworkshop/apm/k8s/
+in `~/apmworkshop/apm/k8s/`  
 `source delete-all-k8s.sh`
 
 To delete the Collector:  
