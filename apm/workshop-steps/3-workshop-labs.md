@@ -9,7 +9,7 @@
 | [4](../node) | Single Host App: [Node: Generate traces from Node HTTP.get client](../node) |
 | [5](../dashboards/servicedashboard.md) | Check out the automatic [Service Dashboard](../dashboards/servicedashboard.md) for your apps |  
 | | **APM: Containerized apps on Kubernetes and Advanced Java APM Topics** |
-| [6](../k8s) | [APM for Containerized Apps on Kubernetes](../k8s): Python and Java examples / Manual Instrumentation / OpenTelemetry Collector ) |
+| [6](../k8s) | [APM for Containerized Apps on Kubernetes](../k8s): Python and Java examples / Manual Instrumentation / OpenTelemetry Collector |
 
 [Read the full APM guide on troubleshooting apps, dashboards, etc](https://docs.signalfx.com/en/latest/apm/apm-getting-started/apm-index.html)
 
