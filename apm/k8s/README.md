@@ -173,7 +173,14 @@ Original k8s template on which this lab is based is [here](https://github.com/op
 
 `cd ~/apmworkshop/apm/k8s/otel-collector/`
 
-Set up the SFX Environment variables in `otel-collector-k8s.yaml`
+Set up the SFX Environment variables in `otel-collector-k8s.yaml` in this stanza:
+
+```     env:
+        - name: SFX_REALM
+          value: YOURREALMHERE
+        - name: SFX_TOKEN
+          value: YOURTOKENHERE
+```
 
 | Value | Description |
 |-------|-------------|
@@ -202,7 +209,14 @@ Right now all spans are being forwarded without processing by the OpenTelemetry 
 
 If we want to redact the `user.id`:
 
-Set up the SFX Environment variables in `otel-redact.yaml`
+Set up the SFX Environment variables in `otel-redact.yaml` in this stanza:
+
+```     env:
+        - name: SFX_REALM
+          value: YOURREALMHERE
+        - name: SFX_TOKEN
+          value: YOURTOKENHERE
+```
 
 | Value | Description |
 |-------|-------------|
