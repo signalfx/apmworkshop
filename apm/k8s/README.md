@@ -55,7 +55,7 @@ kubectl apply -f java-reqs-jmx-deployment.yaml
 The APM Dashboard will show the instrumented Python-Requests and OpenTelemetry Java OKHTTP clients posting to the Flask Server.  
 Make sure you select the ENVIRONMENT to monitor on the selector next to `Troubleshooting` i.e. in image below you can see `sfx-workshop` is selected.
 
-<img src="../../../assets/vlcsnap-00007.png" width="360">  
+<img src="../../../assets/k8s1.png" width="360">  
 
 ### Exercise 4: Study the `deployment.yaml` files
 
@@ -140,15 +140,15 @@ Deploy an app with ONLY manual instrumentation:
 
 When this app deploys, it appears as an isolated bubble in the map. It has all metrics and tracing just like an auto-instrumented app does. 
 
-<img src="../../../assets/maninst.png" width="360"> 
+<img src="../../../assets/manual1.png" width="360"> 
 
 To see your manually instrumented function you need to select the Breakdown menu and break down the spans by Operation. 
 
-<img src="../../../assets/maninst-menu.png" width="360"> 
+<img src="../../../assets/manual2.png" width="360"> 
 
-You will see the function called Manual Span. 
+You will see the function called ExampleSpan. 
 
-<img src="../../../assets/maninst-breakdown.png" width="360"> 
+<img src="../../../assets/manual3.png" width="360"> 
 
 Study the [manual instrumentation code example here.](https://github.com/signalfx/apmworkshop/blob/master/apm/k8s/java/manual-inst/src/main/java/sf/main/GetExample.java)
 
@@ -173,8 +173,9 @@ Original k8s template on which this lab is based is [here](https://github.com/op
 
 In the Java Manual Instrumenation Example, the ExampleSpans service has a manually created tag called `user.id` that shows unique user IDs from the application. See an example trace with `user.id` highlighted in blue.
 
-If we want to redact the `user.id`:
+<img src="../../../assets/redact0.png" width="360"> 
 
+If we want to redact the `user.id`:
 
 `cd ~/apmworkshop/apm/k8s/otel-collector/`
 
@@ -205,6 +206,8 @@ helm upgrade --reuse-values signalfx-agent signalfx/signalfx-agent \
 ```
 
 Since this interrupts span flow, wait about a minute to examine spans again and check the `user.id` and you will see that it now reads `redacted`
+
+<img src="../../../assets/redact2.png" width="360"> 
 
 The `processors` sections of `otel-redact.yaml.yaml` show how this is done- and full documentation is [here](https://github.com/open-telemetry/opentelemetry-collector/blob/master/processor/README.md)
 
