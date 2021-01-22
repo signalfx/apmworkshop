@@ -18,7 +18,13 @@ This workshop uses **Ubuntu Linux** as the server environment.
 
 You can use any Ubuntu platform- bare metal, VM, or cloud VM.
 
-Required software: java 8, helm, maven, k3s (light k8s), this repo
+**If you have your own Linux box**
+
+You can create a lab environment by installing:
+Java 8  
+Helm  
+Maven  
+k8s  
 
 RedHat and other Linux distributions will work the same- simply change the Debian style commands to fit your distribution.
 
@@ -54,7 +60,8 @@ Follow Multipass Windows installation instructions: https://multipass.run/docs/i
 
 **#3 Launch Ubuntu VM**
 
-Create your VM: `multipass launch -n primary -d 8G -m 8G`
+Create your VM:  
+`multipass launch -n primary -d 8G -m 8G`
 
 This will download Ubuntu and may take a few minute the first time.
 
