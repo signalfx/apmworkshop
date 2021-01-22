@@ -124,9 +124,9 @@ spec:
             memory: 400Mi
         env:
         - name: SFX_REALM
-          value: us1
+          value: YOURREALMHERE
         - name: SFX_TOKEN
-          value: iggr1oMNzzoIbvsfjGq90Q
+          value: YOURTOKENHERE
         ports:
         - containerPort: 55679 # Default endpoint for ZPages.
         - containerPort: 55680 # Default endpoint for OpenTelemetry receiver.
