@@ -8,6 +8,10 @@ export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
 ```
 
+<ins>If you are starting from scratch and only want to do this k8s lab:</ins>
+
+Prep your Debian env with this script: https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/k8s-only.sh
+
 ### Exercise 1: set up the SignalFx SmartAgent as a sidecar pod  
 
 Configure the `~/apmworkshop/apm/k8s/values.yaml` file for your environment.  
