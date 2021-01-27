@@ -13,6 +13,8 @@
 
 [Read the full APM guide on troubleshooting apps, dashboards, etc](https://docs.signalfx.com/en/latest/apm/apm-getting-started/apm-index.html)
 
+After working through the labs, try a nice relaxing game of [Python Trace Invaders](https://github.com/signalfx/apmworkshop/tree/master/apm/python/traceinvaders) (for Mac only)
+
 To learn about more languges go to https://docs.signalfx.com/en/latest/apm/apm-instrument/apm-index.html and check out these misc guides:  
 [dot.NET](../misc/dotnet)  
 [ECS Fargate](../misc/ecs-fargate)  
