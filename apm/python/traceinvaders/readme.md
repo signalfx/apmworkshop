@@ -3,6 +3,7 @@
 <img src="./screenshot.png" width="640">
 
 ## Defeat the aliens who are sending error spans by shooting them- each successful shot sends a healthy request!
+## With sound!
 
 This game showcases [OpenTelemetry Manual Python Instrumentation](https://opentelemetry-python.readthedocs.io/en/stable/)
 
