@@ -59,7 +59,7 @@
                 "options": {
                     "awslogs-group": "YOURLOGGROUPHEREi.e.:ecs",
                     "awslogs-region": "YOURREGIONHEREi.e.us-east-1",
-                    "awslogs-stream-prefix": "python-trace-generator-fargate"
+                    "awslogs-stream-prefix": "py-trace-generator-fargate"
                 }
             },
 	    "workingDirectory": "/home/code",
@@ -68,16 +68,16 @@
             ],
             "environment": [
                 {
-                    "name": "SIGNALFX_SERVICE_NAME",
-                    "value": "python-trace-generator-fargate"
+                    "name": "SPLK_SERVICE_NAME",
+                    "value": "py-trace-generator-fargate"
                 },
                 {
-                    "name": "SIGNALFX_ENDPOINT_URL",
+                    "name": "SPLK_TRACE_EXPORTER_URL",
                     "value": "http://localhost:9080/v1/trace"
                 }
             ],
             "dockerLabels": {
-                "app": "python-trace-generator-fargate"
+                "app": "py-trace-generator-fargate"
             }
 	}
     ],
