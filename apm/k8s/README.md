@@ -255,3 +255,5 @@ k3s:
 `/usr/local/bin/k3s-uninstall.sh`
 
 This is the last lab of the [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)
+
+After working through the labs, try a nice relaxing game of [Python Trace Invaders](https://github.com/signalfx/apmworkshop/tree/master/apm/python/traceinvaders) (for Mac only)
