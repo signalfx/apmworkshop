@@ -2,7 +2,12 @@
 
 <img src="./screenshot.png" width="640">
 
+## Defeat the aliens who are sending error spans by shooting them- each successful shot sends a healthy request!
+
+This game showcases [OpenTelemetry Manual Python Instrumentation](https://opentelemetry-python.readthedocs.io/en/stable/)
+
 This is designed for MacOS only at this time.
+It does not require a Splunk APM or Infrastructure agent.
 
 ### Step #1
 
