@@ -38,4 +38,6 @@ The goal is to keep the reqs/sec high and the error spans at zero.
 
 Exit by closing game window or ctrl-c in terminal.
 
+
+Open source heritage:
 This is a project written originally by Christian Thompson (http://christianthompson.com/node/45) in Python 2. And was rewritten in Python 3 here: https://github.com/samkoe/space_invaders and further modified by Splunk for OpenTelemetry and branding.
