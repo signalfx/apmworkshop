@@ -64,9 +64,6 @@ This will execute a loop slowly building 10,000 parent spans. These will appear 
 
 `signalfx agent status`
 
-Below you can see tmux three panes on left, and SignalFx dashboard on right.
-
-![image-20200415082344073](image-20200415082344073.png)
 
 #### Step 4: End Example
 
