@@ -1,4 +1,4 @@
-### This lab requires starting from the main [APM Instrumentation Workshop](../3-workshop-labs.md)
+### This lab requires starting from the main [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)
 
 
 #### Step #1 Set up environment and run Python Flask server using auto-instrumentation
