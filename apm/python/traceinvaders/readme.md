@@ -9,7 +9,7 @@ This game showcases [OpenTelemetry Manual Python Instrumentation](https://opente
 
 TraceInvaders runs on MacOS w/ sound effects and Windows w/o sound effects. On Windows you'll need to manually set the environment variables that `setup.sh` creates
 
-It does not require a Splunk APM or Infrastructure agent- but does require a Splunk APM account.
+A Splunk APM account is required but the Splunk APM or Infrastructure agent is not.
 
 ### Step #1
 
