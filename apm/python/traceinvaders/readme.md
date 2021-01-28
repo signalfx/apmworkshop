@@ -30,6 +30,10 @@ Set up your Splunk APM REALM and TOKEN by editing: `setup.sh` and then run the s
 
 To run game: `source startgame.sh`
 
+Note- the game will still run if not connected to Splunk APM.
+
+### Instructions ###
+
 **Instructions**
 
 The Splunk APM Service Dashboard for TraceInvaders shows a req/sec every time you hit an alien.
@@ -38,6 +42,10 @@ Every time the aliens advance downwards towards you, an error span is generated.
 The goal is to keep the reqs/sec high and the error spans at zero.
 
 Exit by closing game window or ctrl-c in terminal.
+
+**Troubleshooting**
+
+If you see this in your terminal during gameplay `ConnectionRefusedError: [Errno 61] Connection refused` then recheck your Splunk Realm and Token in the `setup.sh` script and re-run it.
 
 
 Open source heritage:
