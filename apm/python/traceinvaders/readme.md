@@ -20,6 +20,8 @@ Set up your Mac for Splunk Python OpenTelemetry:
 Make sure you don't have conflicting Python OpenTelemetry or APM packages- this command cleans out all PIP packages: `pip freeze | xargs pip uninstall -y`
 
 ```
+python3 -m pip install --upgrade pip && \
+python3 -m pip install wheel && \
 python3 -m pip install splunk-opentelemetry && \
 export PATH="$HOME/.local/bin:$PATH" && \
 splk-py-trace-bootstrap
