@@ -12,7 +12,9 @@ It does not require a Splunk APM or Infrastructure agent- but does require a Spl
 
 ### Step #1
 
-Set up your Mac for Splunk Python OpenTelemetry- make sure you don't have conflicting Python OpenTelemetry packages:
+Set up your Mac for Splunk Python OpenTelemetry
+
+Make sure you don't have conflicting Python OpenTelemetry or APM packages- this command cleans out all PIP packages: `pip freeze | xargs pip uninstall -y`
 
 ```
 sudo apt install -y python3-pip && \
