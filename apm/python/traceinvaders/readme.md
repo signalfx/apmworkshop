@@ -8,7 +8,7 @@
 This game showcases [OpenTelemetry Manual Python Instrumentation](https://opentelemetry-python.readthedocs.io/en/stable/)
 
 This is designed for MacOS only at this time.
-It does not require a Splunk APM or Infrastructure agent.
+It does not require a Splunk APM or Infrastructure agent- but does require a Splunk APM account.
 
 ### Step #1
 
