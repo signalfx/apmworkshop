@@ -1,4 +1,5 @@
-# Space Invaders ( a terminal - based arcade game )
+# Trace Invaders: ASCII Edition
+
 Adapted from: https://github.com/preet021/Space-Invaders
         
 ### Rules
