@@ -11,7 +11,6 @@ Make sure you are in the right directory to start the node.js activities:
 #### Step #2 Set up your node environment for APM
 
 ```
-sudo apt-get install -y nodejs npm && \
 npm init && \
 npm install signalfx-tracing
 ```

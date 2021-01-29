@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: java-client-manual-inst
+  name: java-manual-inst-k8s
 spec:
   selector:
     matchLabels:
-      name: java-client-manual-inst
+      name: java-manual-inst-k8s
   template:
     metadata:
       labels:
-        name: java-client-manual-inst
+        name: java-manual-inst-k8s
     spec:
       containers:
-        - name: java-client-manual-inst
+        - name: java-manual-inst-k8s
           image: 'docker.io/stevelsplunk/splk-java:latest'
           ports:
             - name: http
               containerPort: 3000
           env:
             - name: OTEL_EXPORTER_JAEGER_SERVICE_NAME
-              value: java-client-manual-inst
+              value: java-manual-inst-k8s
             - name: MY_NODE_NAME
               valueFrom:
                 fieldRef:
@@ -30,17 +30,17 @@ spec:
           command:
             - /bin/sh
           args:
-            - ./manual-inst/run-java-manual-inst.sh
+            - ./manual-inst/run-java-manual-inst-k8s.sh
           imagePullPolicy: Always
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: java-client-manual-inst
+  name: java-manual-inst-k8s
 spec:
   selector:
-    name: java-client-manual-inst
+    name: java-manual-inst-k8s
   ports:
   - protocol: TCP
     port: 3000

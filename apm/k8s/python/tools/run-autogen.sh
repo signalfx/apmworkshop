@@ -1,1 +1,1 @@
-sfx-py-trace ./python-requests-autogen.py
+splk-py-trace python3 ./tools/python-requests-autogen.py
