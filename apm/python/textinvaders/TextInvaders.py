@@ -197,7 +197,7 @@ class Engine(Board, Spaceship, Missile, Alien):
                 self.miss2.append(newmissile)
 
             elif inp == 'q':
-                print('Come back again!')
+                print('Thank you for playing Trace Invaders: ASCII Edition')
                 exit()
 
             else:
