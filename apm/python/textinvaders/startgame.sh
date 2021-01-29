@@ -1,1 +1,1 @@
-python3 run.py
+splk-py-trace python3 run.py

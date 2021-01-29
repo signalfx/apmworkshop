@@ -190,6 +190,10 @@ class Engine(Board, Spaceship, Missile, Alien):
 
         while True:
 
+            with tracer.start_as_current_span("GameRun"):
+                current_span = trace.get_current_span()
+                current_span.set_attribute("span.kind", "SERVER")
+
             self.board.render()
 
             #remove scoring for trace version due to change in making i.pos int
