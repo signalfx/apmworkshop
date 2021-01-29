@@ -7,6 +7,11 @@ from Classes import Spaceship
 from Classes import Missile
 from Classes import Alien
 
+from opentelemetry import trace
+
+#create tracer
+tracer = trace.get_tracer(__name__)
+
 
 class Engine(Board, Spaceship, Missile, Alien):
     '''game engine that inherits from classes
@@ -51,6 +56,10 @@ class Engine(Board, Spaceship, Missile, Alien):
                 if self.board.grid[i.pos] == 'A':
                     delmiss.append(i)
                     self.score += 10
+                    # missile hit! send a span
+                    with tracer.start_as_current_span("AlienHit"):
+                        current_span = trace.get_current_span()
+                        current_span.set_attribute("span.kind", "SERVER")
                     self.board.grid[i.pos] = ' '
                     alien_obj = self.findalien(i.pos)
                     delaliens.append(alien_obj)
@@ -59,6 +68,10 @@ class Engine(Board, Spaceship, Missile, Alien):
                 elif self.board.grid[i.pos] == '@':
                     delmiss.append(i)
                     self.score += 5
+                    # missile hit! send a span
+                    with tracer.start_as_current_span("AlienHit"):
+                        current_span = trace.get_current_span()
+                        current_span.set_attribute("span.kind", "SERVER")
                     self.board.grid[i.pos] = ' '
                     alien_obj = self.findalien(i.pos)
                     delaliens.append(alien_obj)
@@ -78,9 +91,8 @@ class Engine(Board, Spaceship, Missile, Alien):
 
                 if self.board.grid[i.pos] == i.ch:
                     self.board.grid[i.pos] = ' '
-#
+# i.pos was originally not int but was giving errors- changed to int
                 i.pos -= int((i.jump) / 2)
-                print(i.pos)
                 if i.pos < 0:
                     delmiss.append(i)
                     continue
@@ -101,7 +113,7 @@ class Engine(Board, Spaceship, Missile, Alien):
 
                 else:
                     pass
-#
+# i.pos was originally not int but was giving errors- changed to int
                 i.pos -= int((i.jump) / 2)
 
                 if i.pos < 0:
@@ -180,7 +192,8 @@ class Engine(Board, Spaceship, Missile, Alien):
 
             self.board.render()
 
-            print ('YOUR SCORE:', self.score)
+            #remove scoring for trace version due to change in making i.pos int
+            print ('YOUR SCORE:', self.score, '   press q to quit')
 
             inp = getinp()
 
