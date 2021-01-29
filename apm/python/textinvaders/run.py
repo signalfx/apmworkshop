@@ -19,4 +19,4 @@ inp = getinp()
 if inp() != 'q':
     myEngine.run()
 else:
-    print('Thank You For Playing! Come back again!')
+    print('Thank you for playing Trace Invaders: ASCII Edition')
