@@ -3,7 +3,7 @@
 |Lab|Activity|
 |:---:|:--------|
 | [1](https://drive.google.com/file/d/1jc5VWL4jKMqAUgUxDnMcpB42LKAn8Bdm/view?usp=sharing) | :play_or_pause_button: **VIDEO:** [Full demonstration of Splunk APM](https://drive.google.com/file/d/1jc5VWL4jKMqAUgUxDnMcpB42LKAn8Bdm/view?usp=sharing) |
-||**APM: Apps on a single Hhost**|
+||**APM: Apps on a single host**|
 | [2](../python) | Single Host App: [Python (OpenTelemetry): Deploy Flask server and generate traces with Python requests client](../python)|
 | [3](../java) | Single Host App: [Java (OpenTelemetry): Generate traces from OKHTTP client](../java) |
 | [4](../node) | Single Host App: [Node: Generate traces from Node HTTP.get client](../node) |
