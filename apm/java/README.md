@@ -72,7 +72,7 @@ java \
 
 The `splunk-otel-javaagent.jar` file is the automatic OpenTelemetry instrumentation that will emit spans from the app. No code changes are necessary.
 
-The app service name for the APM console is set here: `OTEL_EXPORTER_JAEGER_SERVICE_NAME=java-otel-reqs-client`
+The app service name for the APM console is set here: `-Dotel.exporter.jaeger.service.name=java-otel-reqs-client` and as a backup for illustration is set as an environment variable as well.
 
 Splunk's OpenTelmetry autoinstrumentation for Java is here: https://github.com/signalfx/splunk-otel-java
 
