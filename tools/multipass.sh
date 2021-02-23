@@ -6,6 +6,7 @@ sudo apt-get -y update
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 
 sudo apt-get install -y nodejs
+sudo apt install -y npm
 
 sudo apt install -y openjdk-8-jdk
 sudo apt-get -y install maven
