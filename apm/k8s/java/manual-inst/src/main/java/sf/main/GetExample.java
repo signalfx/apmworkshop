@@ -18,7 +18,6 @@ public class GetExample {
   public static void main(String[] args) {
     int x = 1;
     while (x < Integer.MAX_VALUE) {
-
       System.out.println("Loop: " + x);
       x++;
       fullyManualInstrumentation();
