@@ -6,7 +6,7 @@
 `multipass shell primary`
 
 ```
-cd ./apmworkshop/apm/python
+cd ~/apmworkshop/apm/python
 source setup-server.sh  
 splk-py-trace python3 flask-server.py  
 ```
