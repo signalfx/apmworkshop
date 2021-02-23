@@ -18,8 +18,8 @@ spec:
             - name: http
               containerPort: 3000
           env:
-            - name: SPLK_SERVICE_NAME
-              value: test
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: service.name=client-java-otel-k8s
             - name: MY_NODE_NAME
               valueFrom:
                 fieldRef:
