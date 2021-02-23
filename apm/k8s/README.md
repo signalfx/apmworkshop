@@ -42,6 +42,8 @@ sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 
 ##### Start in `~/apmworkshop/apm/k8s/python` directory
 
+`cd ~/apmworkshop/apm/k8s/python`  
+
 Deploy the flask-server pod:  
 `kubectl apply -f flask-deployment.yaml`
 
