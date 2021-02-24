@@ -2,6 +2,7 @@ package sf.main;
 
 import io.opentelemetry.api.GlobalOpenTelemetry;
 import io.opentelemetry.api.trace.Span;
+import io.opentelemetry.api.trace.SpanKind;
 import io.opentelemetry.api.trace.Tracer;
 import io.opentelemetry.context.Scope;
 import io.opentelemetry.extension.annotations.WithSpan;
@@ -34,7 +35,7 @@ public class GetExample {
 
   private static void fullyManualInstrumentation() {
     Span exampleSpan = tracer.spanBuilder("exampleSpan") // operation name
-        .setSpanKind(Span.Kind.SERVER) // tag the span as a service boundary
+        .setSpanKind(SpanKind.SERVER) // tag the span as a service boundary
         .startSpan();
     
     Random random = new Random(); 	   
