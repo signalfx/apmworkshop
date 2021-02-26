@@ -76,7 +76,8 @@ To manage multipass VM:
 
 **#4 Install Lab Software On Ubuntu VM**
 
-A bootstrap script will install everything needed and clone this repo:
+A bootstrap script will install everything needed and clone this repo.  
+This will take up to 15 minutes to execute- leave it running until complete.  
 
 Linux / Mac:  
 `bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/setup-multipass-primary.sh)`
