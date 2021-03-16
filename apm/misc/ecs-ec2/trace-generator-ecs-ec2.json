@@ -19,11 +19,11 @@
             "cpu": 0,
             "environment": [
                 {
-                    "name": "SIGNALFX_SERVICE_NAME",
+                    "name": "SPLUNK_SERVICE_NAME",
                     "value": "ecs-trace-generator"
                 },
                 {
-                    "name": "SIGNALFX_ENDPOINT_URL",
+                    "name": "SPLUNK_TRACE_EXPORTER_URL",
                     "value": "http://localhost:9080/v1/trace"
                 }
             ],
@@ -44,7 +44,7 @@
                     "sourceVolume": "etc-passwd"
                 }
             ],
-            "image": "stevelsplunk/sfx-python",
+            "image": "stevelsplunk/splk-otel-python",
             "essential": true,
             "dockerLabels": {
                 "app": "trace-generator-ec2"
