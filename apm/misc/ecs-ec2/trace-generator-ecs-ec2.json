@@ -44,7 +44,7 @@
                     "sourceVolume": "etc-passwd"
                 }
             ],
-            "image": "stevelsplunk/splk-otel-python",
+            "image": "stevelsplunk/splk-python",
             "essential": true,
             "dockerLabels": {
                 "app": "trace-generator-ec2"
