@@ -68,11 +68,11 @@
             ],
             "environment": [
                 {
-                    "name": "SPLK_SERVICE_NAME",
+                    "name": "SPLUNK_SERVICE_NAME",
                     "value": "py-trace-generator-fargate"
                 },
                 {
-                    "name": "SPLK_TRACE_EXPORTER_URL",
+                    "name": "SPLUNK_TRACE_EXPORTER_URL",
                     "value": "http://localhost:9080/v1/trace"
                 }
             ],
