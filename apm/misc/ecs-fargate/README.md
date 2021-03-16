@@ -79,4 +79,4 @@ If you just want to run the SmartAgent, you can use the `fargate-agent.json` exa
 
 The [commands.md](./commands.md) file offers helpful commands for ECS Fargate management for the AWS CLI.
 
-Dockerfile for the java trace generator is here: https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/python/dockerfile-sfx-python
+Dockerfile for the java trace generator is here: https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/k8s/python/dockerfile-splk-otel-python
