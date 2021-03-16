@@ -48,7 +48,7 @@
         },
         {
             "name": "python-trace-generator-fargate",
-            "image": "stevelsplunk/splk-python:latest",
+            "image": "stevelsplunk/splk-otel-python:latest",
             "entryPoint": [
                 "bash",
                 "-c"
