@@ -49,7 +49,7 @@ To check which version is current use:
 
 To create the service:  
 
-`aws ecs create-service --cluster test-cluster-fargate --service-name splk-demo --task-definition splk-demo:1 \`    
+`aws ecs create-service --cluster test-cluster-fargate --service-name splk-demo --task-definition splk-fargate-task:1 \`    
 `--desired-count 1 --launch-type "FARGATE" \`    
 `--network-configuration "awsvpcConfiguration={subnets=[subnet-YOURSUBNETIHERE],securityGroups=[sg-YOURSECURITYGROUPIDHERE],assignPublicIp=ENABLED}"`    
 
