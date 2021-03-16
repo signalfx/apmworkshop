@@ -4,7 +4,7 @@ from random import random
 from random import seed
 
 seed(1)
-url = 'https://api.github.com'
+url = "https://api.github.com"
 
 def pythonrequests():
     try:
@@ -15,6 +15,6 @@ x=1
 
 while x:
     pythonrequests()
-    y = random()*2
+    y = (random()*2)+1
     print("Getting: ", url, " Sleeping: ",y)
     sleep(y)
