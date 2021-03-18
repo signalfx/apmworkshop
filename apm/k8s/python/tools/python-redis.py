@@ -23,6 +23,6 @@ def hello_redis():
 if __name__ == '__main__':
     while x:
         hello_redis()
-        y=round(random(),1)+.5
+        y=round(random(),1)+.25
         print('Sleeping: ', y)
         sleep(y)

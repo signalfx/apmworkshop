@@ -1,25 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: autogen-redis-otel-k8s
+  name: python-autogen-otel
 spec:
   selector:
     matchLabels:
-      name: autogen-redis-otel-k8s
+      name: python-autogen-otel
   template:
     metadata:
       labels:
-        name: autogen-redis-otel-k8s
+        name: python-autogen-otel
     spec:
       containers:
-      - name: autogen-redis-otel-k8s
+      - name: python-autogen-otel
         image: docker.io/stevelsplunk/splk-python-autogen:latest
         ports:
-        - name: redis
-          containerPort: 6379
+        - containerPort: 6379
         env:
         - name: SPLUNK_SERVICE_NAME
-          value: autogen-redis-otel-k8s
+          value: python-autogen-otel
         - name: MY_NODE_NAME
           valueFrom:
             fieldRef:
@@ -35,11 +34,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: autogen-redis-otel-k8s
+  name: python-autogen-otel
 spec:
+  type: ClusterIP
   selector:
-    name: autogen-redis-otel-k8s
+    app: python-autogen-otel
   ports:
-  - protocol: TCP
+  - name: redis
     port: 6379
     targetPort: 6379
