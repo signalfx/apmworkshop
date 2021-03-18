@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-autogen-redis-otel-k8s
+  name: autogentest
 spec:
   selector:
     matchLabels:
-      name: test-autogen-redis-otel-k8s
+      name: autogentest
   template:
     metadata:
       labels:
-        name: test-autogen-redis-otel-k8s
+        name: autogentest
     spec:
       containers:
-      - name: test-autogen-redis-otel-k8s
+      - name: autogentest
         image: docker.io/stevelsplunk/splk-python-autogen:latest
         ports:
         - name: redis
           containerPort: 6379
         env:
         - name: SPLUNK_SERVICE_NAME
-          value: test-autogen-redis-otel-k8s
+          value: autogentest
         - name: MY_NODE_NAME
           valueFrom:
             fieldRef:
@@ -27,17 +27,17 @@ spec:
               fieldPath: spec.nodeName
         - name: SPLUNK_TRACE_EXPORTER_URL
           value: http://$(MY_NODE_NAME):9080/v1/trace
-     command: [ "/bin/bash", "-c", "--" ]
-     args: [ "while true; do sleep 30; done;" ]
-     imagePullPolicy: Always
+        command: [ "/bin/bash", "-c", "--" ]
+        args: [ "while true; do sleep 30; done;" ]
+        imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: test-autogen-redis-otel-k8s
+  name: autogentest
 spec:
   selector:
-    name: test- autogen-redis-otel-k8s
+    name: autogentest
   ports:
   - protocol: TCP
     port: 6379

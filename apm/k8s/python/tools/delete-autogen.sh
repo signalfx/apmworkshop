@@ -1,2 +1,2 @@
-kubectl delete deployment autogen-redis-otel
-kubectl delete service autogen-redis-otel
+kubectl delete deployment autogentest
+kubectl delete service autogentest
