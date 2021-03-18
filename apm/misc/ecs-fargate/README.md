@@ -59,21 +59,15 @@ To create the service:
 
 Click "Troubleshoot" in your APM console, make sure you are in the `trace-generator environment` by clicking on the pulldown menu next to "Troubleshoot", and click "Show Traces" from lower left of screen to see traces. 
 
-See below left of furthest left screen for this link.
-
-The framework used to generate requests is Python Requests.
-
-The screenshot below shows what the traces will look like.
-
 <img src="../../../../assets/ecs-trace-generator2.png" width="360" /> 
 
 ### How it works
 
-The key to this working is that the trace generator container is sending its traces to ```localhost``` which is network address shared with the agent container. The agent running in the agent container sees these traces and has been configured to send them to SignalFx.
+The key to this working is that the trace generator container is sending its traces to ```localhost``` which is network address shared with the agent container. The agent running in the agent container sees these traces and has been configured to send them to Splunk APM.
 
-The trace generator is using the automatic instrumentation for tracing from SignalFx and uses the redis libraries to query a self-running redis server and then wait a random time between queries.
+The trace generator is using the automatic instrumentation for tracing from OpenTelemetry and uses the redis libraries to query a self-running redis server and then wait a random time between queries.
 
-If you just want to run the SmartAgent, you can use the `fargate-agent.json` example.
+If you just want to run the Splunk SmartAgent, you can use the `fargate-agent.json` example.
 
 ### Extras
 
