@@ -5,7 +5,7 @@ This repo demonstrates a reference implemenation for a single AWS ECS EC2 task e
 The single task spins up two ECS containers on EC2:
 
 #1 splk-agent-ec2 - sidecar to observe ECS and relay traces to Splunk SignalFx   
-#2 trace-generator-ec2 - generates traces using Python Requests doing GET requests to https://api.github.com
+#2 trace-generator-ec2 - generates traces using redis queries to a self running redis server
 
 ### SETUP
 
@@ -40,6 +40,9 @@ configure profile \
 ```
 
 Deploy ECS EC2 VM:  
+
+note the AWS ECS Keypair name is found in the AWS console under EC2->Key Pairs  
+
 ```
 ecs-cli up \
 --keypair YOURAWSEC2KEYPAIRNAMEHERE \
@@ -54,7 +57,7 @@ Register your ECS EC2 tasks:
 
 Deploy with the following commands- *you must change the variables in caps in these task .json files to suit your environment:*
 
-RELEASEVERSIONHERE: Use the current SignalFx SmartAgent version in the Helm script below from here: https://github.com/signalfx/signalfx-agent/releases i.e. 5.5.5
+RELEASEVERSIONHERE: Use the current SignalFx SmartAgent version in the Helm script below from here: https://github.com/signalfx/signalfx-agent/releases i.e. 5.9.0
 
 `aws ecs register-task-definition --cli-input-json file://splk-agent-task-ec2.json`
 
@@ -95,7 +98,7 @@ At this point you should see your Splunk SignalFx ECS Container:
 
 And your trace-generator generating traces:
 
-<img src="../../../../assets/ecs-trace-generator.png" width="360" /> 
+<img src="../../../../assets/ecs-trace-generator2.png" width="360" /> 
 
 Cleanup:  
 `aws ecs delete-service --cluster test-cluster-ec2 --service splk-agent-ec2 --force`   
