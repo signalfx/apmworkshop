@@ -5,7 +5,7 @@ This repo demonstrates single AWS ECS Fargate task example of Splunk APM.
 The task spins up two ECS Fargate containers:
 
 #1 splk-agent-fargate - sidecar to observe ECS host metrics and relay application traces to Splunk APM   
-#2 trace-generator-fargate - generates traces using Python Requests doing GET requests to https://api.github.com
+#2 trace-generator-fargate - generates traces using redis calls to a self-running redis server
 
 ### SETUP
 The agent is a standard deployment of a Fargate container as documented here: [Splunk Infra Fargate Deployment](https://github.com/signalfx/signalfx-agent/tree/master/deployments/fargate)
@@ -33,7 +33,7 @@ Once all of the above is done:
 ### STEP 1
 Deploy with the following commands- *you must change the variables in caps in `trace-generator-fargate.json` to suit your environment:*
 
-RELEASEVERSIONHERE: Use the current SignalFx SmartAgent version in the Helm script below from here: https://github.com/signalfx/signalfx-agent/releases i.e. 5.5.5
+RELEASEVERSIONHERE: Use the current SignalFx SmartAgent version in the Helm script below from here: https://github.com/signalfx/signalfx-agent/releases i.e. 5.9.0
 
 ```
 aws ecs create-cluster --cluster-name test-cluster-fargate  
@@ -71,7 +71,7 @@ The screenshot below shows what the traces will look like.
 
 The key to this working is that the trace generator container is sending its traces to ```localhost``` which is network address shared with the agent container. The agent running in the agent container sees these traces and has been configured to send them to SignalFx.
 
-The trace generator is using the automatic instrumentation for tracing from SignalFx and uses the Python Request libraries to request a neutral external website (set up in the Java code) once and then wait a random time between one and two seconds.
+The trace generator is using the automatic instrumentation for tracing from SignalFx and uses the redis libraries to query a self-running redis server and then wait a random time between queries.
 
 If you just want to run the SmartAgent, you can use the `fargate-agent.json` example.
 
@@ -79,4 +79,4 @@ If you just want to run the SmartAgent, you can use the `fargate-agent.json` exa
 
 The [commands.md](./commands.md) file offers helpful commands for ECS Fargate management for the AWS CLI.
 
-Dockerfile for the java trace generator is here: https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/k8s/python/dockerfile-splk-otel-python
+Dockerfile for the java trace generator is here: https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/k8s/python/tools
