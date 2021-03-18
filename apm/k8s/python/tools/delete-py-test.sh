@@ -1,1 +1,1 @@
-kubectl delete pod k8s-py-test-otel
+kubectl delete pod k8s-py-test-otel-autogen
