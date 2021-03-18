@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: client-py-otel-k8s
+  name: k8s-py-otel-autogen
   labels:
-    app: client-py-otel-k8s
+    app: k8s-py-otel-autogen
 spec:
   containers:
-  -  name: client-py-otel-k8s
-     image: docker.io/stevelsplunk/splk-python:latest
+  -  name: k8s-py-otel-autogen
+     image: docker.io/stevelsplunk/splk-python-autogen:latest
      env:
      - name: SPLUNK_SERVICE_NAME
-       value: client-py-otel-k8s
+       value: k8s-py-otel-autogen
      - name: MY_NODE_NAME
        valueFrom:
          fieldRef:
