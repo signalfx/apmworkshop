@@ -40,6 +40,9 @@ configure profile \
 ```
 
 Deploy ECS EC2 VM:  
+
+note the AWS ECS Keypair name is found in the AWS console under EC2->Key Pairs  
+
 ```
 ecs-cli up \
 --keypair YOURAWSEC2KEYPAIRNAMEHERE \
