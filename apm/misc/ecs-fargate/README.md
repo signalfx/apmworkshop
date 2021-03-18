@@ -65,7 +65,7 @@ The framework used to generate requests is Python Requests.
 
 The screenshot below shows what the traces will look like.
 
-![Screenshot](apm-screen.png)  
+<img src="../../../../assets/ecs-trace-generator2.png" width="360" /> 
 
 ### How it works
 
