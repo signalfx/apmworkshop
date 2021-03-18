@@ -18,14 +18,14 @@ spec:
             - name: http
               containerPort: 5000
           env:
-            - name: SPLK_SERVICE_NAME
+            - name: SPLUNK_SERVICE_NAME
               value: server-flask-otel-k8s
             - name: MY_NODE_NAME
               valueFrom:
                 fieldRef:
                   apiVersion: v1
                   fieldPath: spec.nodeName
-            - name: SPLK_TRACE_EXPORTER_URL
+            - name: SPLUNK_TRACE_EXPORTER_URL
               value: http://$(MY_NODE_NAME):9080/v1/trace
           command:
             - /bin/sh

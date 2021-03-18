@@ -31,7 +31,7 @@ https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_cloudwatch_log
 Once all of the above is done:
 
 ### STEP 1
-Deploy with the following commands- *you must change the variables in caps in `trace-generator.json` to suit your environment:*
+Deploy with the following commands- *you must change the variables in caps in `trace-generator-fargate.json` to suit your environment:*
 
 RELEASEVERSIONHERE: Use the current SignalFx SmartAgent version in the Helm script below from here: https://github.com/signalfx/signalfx-agent/releases i.e. 5.5.5
 
@@ -49,7 +49,7 @@ To check which version is current use:
 
 To create the service:  
 
-`aws ecs create-service --cluster test-cluster-fargate --service-name splk-demo --task-definition splk-demo:1 \`    
+`aws ecs create-service --cluster test-cluster-fargate --service-name splk-demo --task-definition splk-fargate-task:1 \`    
 `--desired-count 1 --launch-type "FARGATE" \`    
 `--network-configuration "awsvpcConfiguration={subnets=[subnet-YOURSUBNETIHERE],securityGroups=[sg-YOURSECURITYGROUPIDHERE],assignPublicIp=ENABLED}"`    
 
@@ -79,4 +79,4 @@ If you just want to run the SmartAgent, you can use the `fargate-agent.json` exa
 
 The [commands.md](./commands.md) file offers helpful commands for ECS Fargate management for the AWS CLI.
 
-Dockerfile for the java trace generator is here: https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/python/dockerfile-sfx-python
+Dockerfile for the java trace generator is here: https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/k8s/python/dockerfile-splk-otel-python

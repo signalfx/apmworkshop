@@ -1,12 +1,14 @@
 ### This lab requires starting from the main [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)
 
-
 #### Step #1 Set up environment and run Python Flask server using auto-instrumentation
 
 `multipass shell primary`
 
+It is recommended to do each step in a `tmux` terminal- run `tmux` and do each step in a separate pane: https://tmuxcheatsheet.com/  
+Otherwise you can do each step in a new terminal window.  
+
 ```
-cd ./apmworkshop/apm/python
+cd ~/apmworkshop/apm/python
 source setup-server.sh  
 splk-py-trace python3 flask-server.py  
 ```

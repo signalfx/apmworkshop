@@ -1,1 +1,2 @@
-splk-py-trace python3 ./tools/python-requests-autogen.py
+sudo service redis-server restart
+splk-py-trace python3 ./python-redis.py

@@ -12,7 +12,7 @@ sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 
 Prep your Debian env with this script: https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/k8s-only.sh
 
-### Exercise 1: set up the SignalFx SmartAgent as a sidecar pod  
+### Exercise 1: set up the Splunk SmartAgent as a sidecar pod  
 
 Configure the `~/apmworkshop/apm/k8s/values.yaml` file for your environment.  
 This sets up all the elements needed for Splunk APM.
@@ -24,7 +24,7 @@ Values to configure:
 |`YOURTOKENHERE`|token from your account|
 |`YOURREALMHERE`|your realm from your account i.e. us1|
 |`YOURCLUSTERNAMEHERE`|any name you pick to represent the cluster|
-|`RELEASEVERSIONHERE`|Use the current SignalFx SmartAgent version in the Helm script below from here: https://github.com/signalfx/signalfx-agent/releases i.e. 5.7.1|
+|`RELEASEVERSIONHERE`|Use the current Splunk SmartAgent version in the Helm script below from here: https://github.com/signalfx/signalfx-agent/releases i.e. 5.7.1|
 |`sfx-workshop`|If you are in a group- put your initials in fornt of this i.e. `js-sfx-workshop`|
 
 Once `values.yaml` is configured, you can use it with helm to set up the SmartAgent pod:
@@ -41,6 +41,8 @@ sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 ### Exercise 2: Deploy the dockerized versions of OpenTlemetry python flask, python requests, and Java OKHTTP pods
 
 ##### Start in `~/apmworkshop/apm/k8s/python` directory
+
+`cd ~/apmworkshop/apm/k8s/python`  
 
 Deploy the flask-server pod:  
 `kubectl apply -f flask-deployment.yaml`
@@ -80,10 +82,10 @@ The SmartAgent pod is running with <ins>node wide visibility</ins>, so to tell e
               value: http://$(MY_NODE_NAME):9080/v1/trace
 ```
 
-### Exercise 5: View trace spans flowing in SignalFx Agent pod
+### Exercise 5: View trace spans flowing in Splunk SmartAgent pod
 `kubectl get pods`
 
-Note the pod name of the `SignalFx Agent` pod
+Note the pod name of the `Splunk SmartAgent` pod
 
 `kubectl exec -it PODNAMEOFSIGNALFXAGENT -- bash signalfx-agent status`  
 
@@ -248,7 +250,7 @@ helm upgrade --reuse-values signalfx-agent signalfx/signalfx-agent \
 Delete collector k8s components:  
 `source delete-otel-collector.sh`
 
-SignalFx Agent:
+Splunk SmartAgent:
 `helm delete signalfx-agent`  
 
 k3s:

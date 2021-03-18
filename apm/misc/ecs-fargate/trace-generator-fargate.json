@@ -48,7 +48,7 @@
         },
         {
             "name": "python-trace-generator-fargate",
-            "image": "stevelsplunk/splk-python:latest",
+            "image": "stevelsplunk/splk-python-autogen:latest",
             "entryPoint": [
                 "bash",
                 "-c"
@@ -64,15 +64,15 @@
             },
 	    "workingDirectory": "/home/code",
             "command": [
-                "sh ./tools/run-autogen.sh"
+                "sh ./run-autogen.sh"
             ],
             "environment": [
                 {
-                    "name": "SPLK_SERVICE_NAME",
+                    "name": "SPLUNK_SERVICE_NAME",
                     "value": "py-trace-generator-fargate"
                 },
                 {
-                    "name": "SPLK_TRACE_EXPORTER_URL",
+                    "name": "SPLUNK_TRACE_EXPORTER_URL",
                     "value": "http://localhost:9080/v1/trace"
                 }
             ],

@@ -18,8 +18,8 @@ spec:
             - name: http
               containerPort: 3000
           env:
-            - name: OTEL_EXPORTER_JAEGER_SERVICE_NAME
-              value: java-manual-inst-k8s
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: service.name=java-manual-inst-k8s
             - name: MY_NODE_NAME
               valueFrom:
                 fieldRef:
