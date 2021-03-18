@@ -8,4 +8,5 @@ RUN apt-get update && \
     splk-py-trace-bootstrap  && \
     mkdir /home/code
 WORKDIR /home/code
+EXPOSE 6379
 COPY . /home/code/
