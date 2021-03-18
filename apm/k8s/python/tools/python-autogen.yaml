@@ -1,24 +1,45 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: k8s-py-otel-autogen
-  labels:
-    app: k8s-py-otel-autogen
+  name: autogen-redis-otel-k8s
 spec:
-  containers:
-  -  name: k8s-py-otel-autogen
-     image: docker.io/stevelsplunk/splk-python-autogen:latest
-     env:
-     - name: SPLUNK_SERVICE_NAME
-       value: k8s-py-otel-autogen
-     - name: MY_NODE_NAME
-       valueFrom:
-         fieldRef:
-           apiVersion: v1
-           fieldPath: spec.nodeName
-     - name: SPLUNK_TRACE_EXPORTER_URL
-       value: http://$(MY_NODE_NAME):9080/v1/trace
-     command: ["/bin/sh"]
-     args: ["run-autogen.sh"]
-     imagePullPolicy: Always
-  restartPolicy: Always
+  selector:
+    matchLabels:
+      name: autogen-redis-otel-k8s
+  template:
+    metadata:
+      labels:
+        name: autogen-redis-otel-k8s
+    spec:
+      containers:
+      - name: autogen-redis-otel-k8s
+        image: docker.io/stevelsplunk/splk-python-autogen:latest
+        ports:
+        - name: redis
+          containerPort: 6379
+        env:
+        - name: SPLUNK_SERVICE_NAME
+          value: autogen-redis-otel-k8s
+        - name: MY_NODE_NAME
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: spec.nodeName
+        - name: SPLUNK_TRACE_EXPORTER_URL
+          value: http://$(MY_NODE_NAME):9080/v1/trace
+        command: ["/bin/sh"]
+        args: ["run-autogen.sh"]
+        imagePullPolicy: Always
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: autogen-redis-otel-k8s
+spec:
+  selector:
+    name: autogen-redis-otel-k8s
+  ports:
+  - protocol: TCP
+    port: 6379
+    targetPort: 6379
