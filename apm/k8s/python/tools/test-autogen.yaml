@@ -15,8 +15,7 @@ spec:
       - name: autogentest
         image: docker.io/stevelsplunk/splk-python-autogen:latest
         ports:
-        - name: redis
-          containerPort: 6379
+        - containerPort: 6379
         env:
         - name: SPLUNK_SERVICE_NAME
           value: autogentest
@@ -36,9 +35,10 @@ kind: Service
 metadata:
   name: autogentest
 spec:
+  type: ClusterIP
   selector:
-    name: autogentest
+    app: autogentest
   ports:
-  - protocol: TCP
+  - name: redis
     port: 6379
     targetPort: 6379
