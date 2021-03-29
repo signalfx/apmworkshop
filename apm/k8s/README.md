@@ -25,7 +25,7 @@ Values to configure:
 |`YOURREALMHERE`|your realm from your account i.e. us1|
 |`YOURCLUSTERNAMEHERE`|any name you pick to represent the cluster|
 |`RELEASEVERSIONHERE`|Use the current Splunk SmartAgent version in the Helm script below from here: https://github.com/signalfx/signalfx-agent/releases i.e. 5.7.1|
-|`sfx-workshop`|If you are in a group- put your initials in fornt of this i.e. `js-sfx-workshop`|
+|`sfx-workshop`|If you are in a group- put your initials in front of this i.e. `js-sfx-workshop`|
 
 Once `values.yaml` is configured, you can use it with helm to set up the SmartAgent pod:
 
