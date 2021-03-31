@@ -16,7 +16,8 @@ monitors:
     listenAddress: 0.0.0.0:9080
     defaultSpanTags:
 # Customize this name to create your own APM environment
-     environment: "sfx-workshop"
+
+environment: "sfx-workshop"
 
 kubeletAPI.url: https://localhost:10250
 writer:
