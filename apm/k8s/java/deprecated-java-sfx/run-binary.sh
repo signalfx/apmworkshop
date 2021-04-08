@@ -1,7 +1,0 @@
-curl -L https://github.com/signalfx/signalfx-java-tracing/releases/latest/download/signalfx-tracing.jar -o /opt/signalfx-tracing.jar
-chmod 755 /opt/signalfx-tracing.jar
-# change target URL below to alter the test target
-java \
--DtargetUrl=https://api.github.com \
--javaagent:/opt/signalfx-tracing.jar \
--jar ./java-sfx/target/java-app-1.0-SNAPSHOT.jar

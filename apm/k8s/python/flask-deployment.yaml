@@ -1,31 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-server-otel
+  name: server-flask-otel-k8s
 spec:
   selector:
     matchLabels:
-      name: flask-server-otel
+      name: server-flask-otel-k8s
   template:
     metadata:
       labels:
-        name: flask-server-otel
+        name: server-flask-otel-k8s
     spec:
       containers:
-        - name: flask-server-otel
+        - name: server-flask-otel-k8s
           image: 'docker.io/stevelsplunk/splk-python:latest'
           ports:
             - name: http
               containerPort: 5000
           env:
-            - name: SPLK_SERVICE_NAME
-              value: k8s-py-flask-server-otel
+            - name: SPLUNK_SERVICE_NAME
+              value: server-flask-otel-k8s
             - name: MY_NODE_NAME
               valueFrom:
                 fieldRef:
                   apiVersion: v1
                   fieldPath: spec.nodeName
-            - name: SPLK_TRACE_EXPORTER_URL
+            - name: SPLUNK_TRACE_EXPORTER_URL
               value: http://$(MY_NODE_NAME):9080/v1/trace
           command:
             - /bin/sh
@@ -37,10 +37,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: flask-server-otel
+  name: server-flask-otel-k8s
 spec:
   selector:
-    name: flask-server-otel
+    name: server-flask-otel-k8s
   ports:
   - protocol: TCP
     port: 5000

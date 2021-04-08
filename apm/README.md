@@ -10,24 +10,24 @@ Requirements:
 1. Splunk Observability Account
 2. Debian (i.e. Ubuntu) Linux environment with minimum 16G RAM and 8G disk should be ready to try all examples.  
 RedHat and other mainstream Linux distributions can be used by translating shell commands from Debian.
-This workshop has a guide on how to set up an Ubuntu environment on your desktop via Multipass.
+This workshop has a [guide](./workshop-steps/1-prep.md) on how to set up an Ubuntu environment on your desktop via Multipass.
 3. Kubernetes cluster set up in advance in your Ubuntu environment.
 
 ### Document Conventions
 
-Variables from your Splunk Observability (SignalFx) account are displayed like this: YOURVARIABLEHERE.   
+Variables from your Splunk Observability account are displayed like this: YOURVARIABLEHERE.   
 I.e. to change your REALM to `us1` change `api.YOURREALMHERE.signalfx.com` to `api.us1.signalfx.com`  
 
 :play_or_pause_button: **VIDEO:** will proceed a link to the associated section's video to download (downloading is recommended)
 
-### Summary Of Steps
+### Workshop Summary
 
 1. Review basic [Splunk Observability Quick Start for Infrastructure](https://docs.signalfx.com/en/latest/getting-started/quick-start.html)  
-2. Install SignalFx SmartAgent on a host and configure it for APM
+2. Install Splunk SmartAgent on a host and configure it for APM
 3. Instrument your app for APM
-4. Exercise app so it send spans to Splunk SignalFx
-5. Use the Splunk SignalFx APM platform for visualization, troubleshooting, alerts, and automation
-6. Study the code examples- they use frameworks that the auto-instrumentation picks up. The K8S deployment examples show how to build clusters with APM.  
+4. Exercise app so it send spans to the Splunk APM platform
+5. Use the Splunk APM platform for visualization, troubleshooting, alerts, and automation
+6. Study the code examples- they use frameworks that the auto-instrumentation picks up. The k8s deployment examples show how to build clusters with APM.  
    Make sure to watch :play_or_pause_button: **video** demos where indicated.
 
 ***
@@ -36,10 +36,11 @@ I.e. to change your REALM to `us1` change `api.YOURREALMHERE.signalfx.com` to `a
 
 Step 1: [Prepare Your Environment and Review Key Concepts](./workshop-steps/1-prep.md)  
 
-Step 2: [Install SmartAgent and Configure for APM](./workshop-steps/2-smartagent.md)  
+Step 2: [Install Splunk SmartAgent and Configure for APM](./workshop-steps/2-smartagent.md)  
 
 Step 3: [Complete APM Workshop Labs](./workshop-steps/3-workshop-labs.md)  
 
 Appendix: [Installing Multipass and k3s / Using tmux](./workshop-steps/4-appendix.md)
 
-Check out other [examples such as ECS and EKS](misc)
+Non Kubernetes container examples:  
+[AWS ECS EC2 and Fargate ](misc)

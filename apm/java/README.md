@@ -9,14 +9,14 @@ Make sure that you still have the Python Flask server from Lab #2 running. If yo
 Make sure you are in the right directory to start the Java activities:  
 `cd ~/apmworkshop/apm/java`
 
-#### Step #2 Download Splunk OpenTelemetry Java Auto-instrumentation
+#### Step #2 Download Splunk OpenTelemetry Java Auto-instrumentation to /opt
 
 `source install-java-otel.sh`
-installs Splunk OpenTelemetry Java Auto-instrumentation into `/opt'
+
 
 #### Step #3 Run the Java example with OKHTTP requests
 
-`source run-client.sh`
+`source run-client.sh`  
 You will see requests printed to the window.
 
 #### Step #4 Traces / services will now be viewable in the APM dashboard
@@ -35,7 +35,7 @@ Open a new terminal window to your Linux instance (or use `tmux` and run in sepa
 
 ```
 ubuntu@primary:~$ signalfx-agent status
-SignalFx Agent version:           5.5.1
+SignalFx Agent version:           5.7.1
 Agent uptime:                     1h31m32s
 Observers active:                 host
 Active Monitors:                  10
@@ -60,13 +60,19 @@ This means spans are succssfully being sent to Splunk SignalFx.
 In the `run-client.sh` script is the java command:
 
 ```
-mvn compile exec:exec \
+export OTEL_EXPORTER_JAEGER_SERVICE_NAME=java-otel-reqs-client
+
+java \
 -Dexec.executable="java" \
 -Dotel.exporter.jaeger.endpoint=http://127.0.0.1:9080/v1/trace \
--Dexec.args="-javaagent:/opt/splunk-otel-javaagent.jar -cp %classpath sf.main.GetExample"
+-Dotel.exporter.jaeger.service.name=java-otel-reqs-client \
+-javaagent:/opt/splunk-otel-javaagent.jar \
+-jar ./target/java-app-1.0-SNAPSHOT.jar
 ```
 
 The `splunk-otel-javaagent.jar` file is the automatic OpenTelemetry instrumentation that will emit spans from the app. No code changes are necessary.
+
+The app service name for the APM console is set here: `-Dotel.exporter.jaeger.service.name=java-otel-reqs-client` and as a backup for illustration is set as an environment variable as well.
 
 Splunk's OpenTelmetry autoinstrumentation for Java is here: https://github.com/signalfx/splunk-otel-java
 

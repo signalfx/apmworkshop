@@ -1,3 +1,3 @@
-kubectl delete deployment flask-server-otel
-kubectl delete service flask-server-otel
-kubectl delete pod k8s-py-reqs-client-otel
+kubectl delete deployment server-flask-otel-k8s	
+kubectl delete service server-flask-otel-k8s
+kubectl delete pod client-py-otel-k8s
