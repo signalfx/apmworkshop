@@ -1,7 +1,7 @@
 ## Splunk Observability APM Instrumentation Workshops w/ Code Samples
 
-4/15/2021 NOTE THIS WORKSHOP WILL BE REDESIGNED FOR SPLUNK OBSERVABILITY CLOUD  
-EXAMPLES ALL WORK BUT ARE DEPRECATED
+## 4/15/2021 NOTE THIS WORKSHOP WILL BE REDESIGNED FOR SPLUNK OBSERVABILITY CLOUD  
+## EXAMPLES ALL WORK BUT ARE DEPRECATED
 
 All examples are designed to be used in conjunction with official documentation: https://docs.signalfx.com
 
