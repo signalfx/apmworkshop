@@ -6,6 +6,7 @@ RUN apt-get update && \
     export PATH="$HOME/.local/bin:$PATH" && \
     splk-py-trace-bootstrap  && \
     mkdir /home/code
+ENV PYTHONUNBUFFERED True
 WORKDIR /home/code
 EXPOSE 5000
 COPY . /home/code/
