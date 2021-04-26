@@ -1,13 +1,13 @@
 FROM python:slim
 RUN apt-get update && \ 
     apt install -y python3-pip && \
-    python3 -m pip install --upgrade pip && \
     apt install -y redis-server && \
     apt install -y procps && \
     apt install -y net-tools && \
     apt install -y curl && \
     apt install -y netcat && \
-    python3 -m pip install splunk-opentelemetry requests redis && \
+    apt install -y vim && \
+    python3 -m pip install splunk-opentelemetry redis && \
     apt -y autoremove && apt-get -y autoclean && \
     export PATH="$HOME/.local/bin:$PATH" && \
     splk-py-trace-bootstrap  && \
