@@ -17,6 +17,8 @@ spec:
         ports:
         - containerPort: 6379
         env:
+        - name: OTEL_RESOURCE_ATTRIBUTES
+          value: otel-demo
         - name: SPLUNK_SERVICE_NAME
           value: python-autogen-otel
         - name: MY_NODE_NAME
@@ -24,11 +26,12 @@ spec:
             fieldRef:
               apiVersion: v1
               fieldPath: spec.nodeName
-        - name: SPLUNK_TRACE_EXPORTER_URL
+        - name: OTEL_EXPORTER_JAEGER_ENDPOINT
           value: http://$(MY_NODE_NAME):9080/v1/trace
-        command: [ "/bin/bash", "-c", "--" ]
-        args: [ "while true; do sleep 30; done;" ]
+        command: ["/bin/sh"]
+        args: ["run-autogen.sh"]
         imagePullPolicy: Always
+
 ---
 apiVersion: v1
 kind: Service
