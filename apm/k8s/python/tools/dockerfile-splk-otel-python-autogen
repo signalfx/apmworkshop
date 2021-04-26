@@ -1,8 +1,8 @@
 FROM python:slim
-RUN apt-get update && \ 
+RUN apt-get update && \
     apt install -y python3-pip && \
+    python3 -m pip install pip==21.0.1 && \
     apt install -y redis-server && \
-    python3 -m pip install --upgrade pip && \
     python3 -m pip install splunk-opentelemetry opentelemetry-instrumentation-redis redis && \
 #   apt install -y procps && \
 #   apt install -y net-tools && \
