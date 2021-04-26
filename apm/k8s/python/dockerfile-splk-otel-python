@@ -1,6 +1,7 @@
 FROM python:slim
 RUN apt-get update && \ 
     apt install -y python3-pip && \
+    python3 -m pip install --upgrade pip && \
     python3 -m pip install splunk-opentelemetry flask requests && \
     apt -y autoremove && apt-get -y autoclean && \
     export PATH="$HOME/.local/bin:$PATH" && \
