@@ -17,13 +17,21 @@ Make sure you have python3 set up on your Mac and its path is correct such that 
 
 Set up your Mac for Splunk Python OpenTelemetry:
 
-Make sure you don't have conflicting Python OpenTelemetry or APM packages- this command cleans out all PIP packages: `pip freeze | xargs pip uninstall -y`
+#### Create a new isolated virtual environment and activate it
 
+This will ensure your packages will not conflict with systems packages and not break other projects/apps.
+
+```bash
+python3 -m venv venv && \
+source venv/bin/activate
 ```
-python3 -m pip install --upgrade pip && \
-python3 -m pip install wheel && \
-python3 -m pip install splunk-opentelemetry && \
-export PATH="$HOME/.local/bin:$PATH" && \
+Use `. venv/bin/activate.fish` if you're using fish shell.
+
+#### Setup your new virtual environment
+```bash
+pip install --upgrade pip && \
+pip install wheel && \
+pip install splunk-opentelemetry && \
 splk-py-trace-bootstrap
 ```
 
