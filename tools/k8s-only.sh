@@ -12,6 +12,7 @@ sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 
 sudo snap install helm --classic
+helm repo add splunk-otel-collector-chart https://signalfx.github.io/splunk-otel-collector-chart
 helm repo update
 
 git clone https://github.com/signalfx/apmworkshop
