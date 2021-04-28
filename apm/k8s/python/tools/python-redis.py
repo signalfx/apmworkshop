@@ -14,10 +14,10 @@ def hello_redis():
     try:
         r = redis.StrictRedis(host=redis_host, port=redis_port, password=redis_password, decode_responses=True)
         r.set("msg:hello", "Hello Redis!!!")
-#       msg = r.get("msg:hello")
+        msg = r.get("msg:hello")
 #       print(msg)
     except Exception as e:
-#       print(e)
+        print(e)
 
 while True:
     now = datetime.datetime.now()
