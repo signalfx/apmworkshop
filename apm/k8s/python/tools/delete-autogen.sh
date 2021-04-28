@@ -1,2 +1,2 @@
-kubectl delete deployment python-autogen-otel
-kubectl delete service python-autogen-otel
+kubectl delete deployment pod-py-autogen-otel
+kubectl delete service pod-py-autogen-otel
