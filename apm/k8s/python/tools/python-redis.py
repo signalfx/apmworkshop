@@ -9,7 +9,6 @@ redis_password = ""
 seed(1)
 x=1
 
-
 def hello_redis():
     try:
         r = redis.StrictRedis(host=redis_host, port=redis_port, password=redis_password, decode_responses=True)
@@ -19,10 +18,8 @@ def hello_redis():
     except Exception as e:
         print(e)
 
-
-if __name__ == '__main__':
-    while x:
-        hello_redis()
-        y=round(random(),1)+.25
-        print('Sleeping: ', y)
-        sleep(y)
+while True:
+    hello_redis()
+    y=round(random(),1)+.25
+    print('Sleeping: ', y)
+    sleep(y)
