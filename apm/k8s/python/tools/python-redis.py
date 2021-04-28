@@ -1,6 +1,6 @@
 import redis
 from time import sleep
-from random import random, seed
+from random import random, seed, randint
 import datetime
 
 redis_host = "127.0.0.1"
@@ -20,14 +20,14 @@ def hello_redis():
         print(e)
 
 while True:
-    random_number = random.randint(0,16777215)
+    random_number = randint(0,16777215)
     hex_number = str(hex(random_number))
-    hex_number ='#'+ hex_number[2:]
+    hex_number = hex_number[2:]
 
     now = datetime.datetime.now()
     hello_redis()
 
     y=round(random(),1)+.25
     sleep(y)
-    print (now.strftime("%Y-%m-%d %H:%M:%S")," "transactionID", hex_number)
+    print (now.strftime("%Y-%m-%d %H:%M:%S")," "transactionID ", hex_number)
 #   print('Sleeping: ', y)
