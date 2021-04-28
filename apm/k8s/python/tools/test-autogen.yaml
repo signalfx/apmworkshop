@@ -9,6 +9,8 @@ spec:
     ports:
     - containerPort: 6379
     env:
+    - name: TZ
+      value: America/New_York
     - name: OTEL_RESOURCE_ATTRIBUTES
       value: environment=otel-demo
     - name: SPLUNK_SERVICE_NAME

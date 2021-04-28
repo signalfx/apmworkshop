@@ -24,10 +24,10 @@ while True:
     hex_number = str(hex(random_number))
     hex_number = hex_number[2:]
 
-    now = datetime.datetime.now()
     hello_redis()
 
     y=round(random(),1)+.25
     sleep(y)
-    print (now.strftime("%Y-%m-%d %H:%M:%S"), " transactionID ", hex_number)
+    printtime = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%f")[:-3]+"Z"
+    print (printtime, " transactionID ", hex_number)
 #   print('Sleeping: ', y)

@@ -4,6 +4,7 @@ RUN apt-get update && \
     python3 -m pip install pip==21.0.1 && \
     apt install -y redis-server && \
     python3 -m pip install splunk-opentelemetry opentelemetry-instrumentation-redis redis && \
+    apt-get install -y ntp && \
 #   apt install -y procps && \
 #   apt install -y net-tools && \
 #   apt install -y curl && \
@@ -17,4 +18,4 @@ ENV PYTHONUNBUFFERED true
 WORKDIR /home/code
 EXPOSE 6379
 COPY . /home/code/
-COPY redis.conf /etc/redis/
+COPY redis.conf /etc/redis
