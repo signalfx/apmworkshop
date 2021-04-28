@@ -1,46 +1,37 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
-  name: python-autogen-otel
+  name: pod-py-autogen-otel
 spec:
-  selector:
-    matchLabels:
-      name: python-autogen-otel
-  template:
-    metadata:
-      labels:
-        name: python-autogen-otel
-    spec:
-      containers:
-      - name: python-autogen-otel
-        image: docker.io/stevelsplunk/splk-python-autogen:latest
-        ports:
-        - containerPort: 6379
-        env:
-        - name: OTEL_RESOURCE_ATTRIBUTES
-          value: environment=otel-demo
-        - name: SPLUNK_SERVICE_NAME
-          value: python-autogen-otel
-        - name: MY_NODE_NAME
-          valueFrom:
-            fieldRef:
-              apiVersion: v1
-              fieldPath: spec.nodeName
-        - name: OTEL_EXPORTER_JAEGER_ENDPOINT
-          value: http://$(MY_NODE_NAME):9080/v1/trace
-        command: ["/bin/sh"]
-        args: ["run-autogen.sh"]
-        imagePullPolicy: Always
-
+  containers:
+  - name: pod-py-autogen-otel
+    image: docker.io/stevelsplunk/splk-python-autogen:latest
+    ports:
+    - containerPort: 6379
+    env:
+    - name: OTEL_RESOURCE_ATTRIBUTES
+      value: environment=otel-demo
+    - name: SPLUNK_SERVICE_NAME
+      value: python-autogen-otel
+    - name: MY_NODE_NAME
+      valueFrom:
+        fieldRef:
+          apiVersion: v1
+          fieldPath: spec.nodeName
+    - name: OTEL_EXPORTER_JAEGER_ENDPOINT
+      value: http://$(MY_NODE_NAME):9080/v1/trace
+    command: ["/bin/sh"]
+    args: ["run-autogen.sh"]
+    imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: python-autogen-otel
+  name: svc-py-autogen-otel
 spec:
   type: ClusterIP
   selector:
-    app: python-autogen-otel
+    app: pod-py-autogen-otel
   ports:
   - name: redis
     port: 6379
