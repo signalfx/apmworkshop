@@ -29,5 +29,5 @@ while True:
 
     y=round(random(),1)+.25
     sleep(y)
-    print (now.strftime("%Y-%m-%d %H:%M:%S") ", "transactionID ", hex_number)
+    print (now.strftime("%Y-%m-%d %H:%M:%S"), " transactionID ", hex_number)
 #   print('Sleeping: ', y)
