@@ -12,4 +12,4 @@ Set up a multipass instance called "primary":
 
 Set up docker:
 
-`bash <curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/docker.sh)`
+`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/docker.sh)`
