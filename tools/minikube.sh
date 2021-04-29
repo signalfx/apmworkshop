@@ -10,6 +10,7 @@ sudo apt-get -y update
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 sudo usermod -aG docker $USER && newgrp docker
 alias k="minikube kubectl"
+alias kubectl="minikube kubectl"
 sudo snap install helm --classic
 helm repo add splunk-otel-collector-chart https://signalfx.github.io/splunk-otel-collector-chart
 helm repo update
