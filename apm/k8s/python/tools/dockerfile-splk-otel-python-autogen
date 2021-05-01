@@ -3,11 +3,11 @@ RUN apt-get update && \
     apt install -y python3-pip && \
     python3 -m pip install pip==21.0.1 && \
     apt install -y redis-server && \
-    python3 -m pip install \
-        splunk-opentelemetry \
-        opentelemetry-api \
-        opentelemetry-instrumentation-redis \
-        redis \
+    python3 -m pip install && \
+    python3 -m pip splunk-opentelemetry && \
+    python3 -m pip opentelemetry-api && \
+    python3 -m pip opentelemetry-instrumentation-redis && \
+    python3 -m pip redis && \
     apt-get install -y ntp && \
 #   apt install -y procps && \
 #   apt install -y net-tools && \
