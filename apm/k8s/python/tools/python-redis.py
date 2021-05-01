@@ -34,8 +34,8 @@ while True:
         print(printtime, " transactionID ", hex_number)
         span.set_attribute("transactionTime", printtime)
         span.set_attribute("transactionID", hex_number)
-        span.set_attribute("span.kind", "server") # APM app type is "service"
+        span.set_attribute("Span.Kind", "SERVER") # APM app type is "service"
     
     y=round(random(),1)+.25
-        sleep(y)
+    sleep(y)
 #   print('Sleeping: ', y)
