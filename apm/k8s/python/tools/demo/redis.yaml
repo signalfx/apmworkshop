@@ -11,6 +11,9 @@ spec:
     env:
     - name: TZ
       value: America/New_York
+    command: ["/bin/sh"]
+    args: ["run-redis.sh"]
+    imagePullPolicy: Always
  
 ---
 apiVersion: v1
