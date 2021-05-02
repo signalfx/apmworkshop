@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: pod-py-autogen-otel
-    image: docker.io/stevelsplunk/splk-python-autogen:latest
+    image: docker.io/stevelsplunk/splk-python-autogen
     ports:
     - containerPort: 6379
     env:
