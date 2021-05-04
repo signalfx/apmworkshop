@@ -5,7 +5,7 @@ import datetime
 from opentelemetry import trace
 import json
 
-redis_host = "127.0.0.1"
+redis_host = "redis"
 redis_port = 6379
 redis_password = ""
 
