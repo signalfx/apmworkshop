@@ -35,6 +35,7 @@ while True:
     
     tracer = trace.get_tracer(__name__)     # create a manual span for a logging operation called "log"
     with tracer.start_as_current_span("log") as span:
+        span.set_attribute("span.kind", "server")
         span.set_attribute("transactionTime", printtime)
         span.set_attribute("transactionID", hex_number)
         print(json.dumps(log_dict))
