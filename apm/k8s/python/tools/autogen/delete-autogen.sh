@@ -1,2 +1,6 @@
-kubectl delete pod pod-py-autogen-otel &
-kubectl delete service svc-py-autogen-otel &
+kubectl delete pod py-autogen &
+kubectl delete service py-autogen &
+kubectl delete deployment py-autogen &
+kubectl delete pod redis &
+kubectl delete service redis &
+kubectl delete deployment redis &

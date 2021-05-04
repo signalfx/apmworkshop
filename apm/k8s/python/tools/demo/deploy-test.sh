@@ -1,1 +1,0 @@
-kubectl apply -f test-redis.yaml

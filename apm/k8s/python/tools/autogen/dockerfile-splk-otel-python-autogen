@@ -14,11 +14,11 @@ RUN apt-get update && \
     mkdir /home/code
 WORKDIR /home/code
 EXPOSE 6379
-COPY . /home/code/
 COPY redis.conf /etc/redis
-
+COPY . /home/code/
 #   apt install -y procps && \
 #   apt install -y net-tools && \
 #   apt install -y curl && \
 #   apt install -y netcat && \
 #   apt install -y vim && \
+#   apt install -y iputils-ping && \
