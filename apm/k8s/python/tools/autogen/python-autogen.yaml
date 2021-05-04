@@ -1,40 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: redis
+  name: py-autogen
   labels:
-    app: redis
+    app: py-autogen
 spec:
   selector:
-    app: redis
+    app: py-autogen
   ports:
   - port: 6379
     targetPort: 6379
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: redis
-spec:
-  selector:
-    matchLabels:
-      app: redis
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: redis
-    spec:
-      containers:
-      - name: redis
-        image: docker.io/stevelsplunk/splk-python-autogen
-        ports:
-        - containerPort: 6379
-        env:
-        - name: TZ
-          value: America/New_York
-        command: ["/bin/sh"]
-        args: ["run-server.sh"]
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -71,3 +46,37 @@ spec:
           value: http://$(MY_NODE_NAME):9080/v1/trace
         command: ["/bin/sh"]
         args: ["run-autogen.sh"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  labels:
+    app: redis
+spec:
+  selector:
+    app: redis
+  ports:
+  - port: 6379
+    targetPort: 6379
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+spec:
+  selector:
+    matchLabels:
+      app: redis
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: redis
+        image: docker.io/stevelsplunk/redis
+        ports:
+        - containerPort: 6379
+        command: ["redis-server", "/usr/local/etc/redis/redis.conf"]

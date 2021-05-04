@@ -1,1 +1,0 @@
-service redis-server restart
