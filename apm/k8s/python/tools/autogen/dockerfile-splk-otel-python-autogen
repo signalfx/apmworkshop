@@ -22,3 +22,4 @@ COPY redis.conf /etc/redis
 #   apt install -y curl && \
 #   apt install -y netcat && \
 #   apt install -y vim && \
+#   apt install -y iputils-ping && \

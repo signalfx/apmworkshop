@@ -4,16 +4,17 @@ metadata:
   name: pod-redis
 spec:
   containers:
-  - name: pod-redis
+  - name: redis
     image: docker.io/stevelsplunk/redis
     ports:
     - containerPort: 6379
     env:
     - name: TZ
       value: America/New_York
-    command: [ "/bin/bash", "-c", "--" ]
-    args: [ "while true; do sleep 30; done;" ]
+    command: ["/bin/sh"]
+    args: ["run-redis.sh"]
     imagePullPolicy: Always
+ 
 ---
 apiVersion: v1
 kind: Service
