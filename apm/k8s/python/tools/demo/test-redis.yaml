@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-redis
+spec:
+  containers:
+  - name: pod-redis
+    image: docker.io/stevelsplunk/redis
+    ports:
+    - containerPort: 6379
+    env:
+    - name: TZ
+      value: America/New_York
+    command: [ "/bin/bash", "-c", "--" ]
+    args: [ "while true; do sleep 30; done;" ]
+    imagePullPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-redis
+spec:
+  type: ClusterIP
+  selector:
+    app: pod-redis
+  ports:
+  - name: redis
+    port: 6379
+    targetPort: 6379
