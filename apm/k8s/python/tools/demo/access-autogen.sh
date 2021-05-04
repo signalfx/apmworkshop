@@ -1,1 +1,1 @@
-kubectl exec -it pod-py-autogen-otel -- bash
+kubectl exec -it test -- bash
