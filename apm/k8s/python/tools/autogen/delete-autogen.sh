@@ -1,2 +1,2 @@
-kubectl delete pod pod-py-autogen-otel &
-kubectl delete service svc-py-autogen-otel &
+kubectl delete pod py-autogen &
+kubectl delete service py-autogen &
