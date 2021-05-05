@@ -1,9 +1,10 @@
-import redis
+import redis # make sure python redis package is installed
+from opentelemetry import trace # make sure python opentelemetry package is installed
+from opentelemetry.trace import SpanKind
+import datetime
+import json
 from time import sleep
 from random import random, seed, randint
-import datetime
-from opentelemetry import trace
-import json
 
 redis_host = "redis"
 redis_port = 6379
@@ -34,8 +35,7 @@ while True:
                 }
     
     tracer = trace.get_tracer(__name__)     # create a manual span for a logging operation called "log"
-    with tracer.start_as_current_span("log"):
-    #with tracer.start_as_current_span("log", kind=SpanKind.SERVER):
+    with tracer.start_as_current_span("log", kind=SpanKind.SERVER) as span:
         span.set_attribute("transactionTime", printtime)
         span.set_attribute("transactionID", hex_number)
         print(json.dumps(log_dict))
