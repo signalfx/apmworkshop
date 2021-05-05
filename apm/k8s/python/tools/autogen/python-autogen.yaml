@@ -11,6 +11,8 @@ spec:
     env:
     - name: TZ
       value: America/New_York
+    - name: REDISHOST
+      value: redis
     - name: OTEL_RESOURCE_ATTRIBUTES
       value: deployment.environment=otel-demo
     - name: SPLUNK_SERVICE_NAME

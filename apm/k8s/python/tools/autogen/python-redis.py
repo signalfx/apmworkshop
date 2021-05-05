@@ -3,10 +3,11 @@ from opentelemetry import trace # make sure python opentelemetry package is inst
 from opentelemetry.trace import SpanKind
 import datetime
 import json
+import os
 from time import sleep
 from random import random, seed, randint
 
-redis_host = "redis"
+redis_host = os.getenv('REDISHOST')
 redis_port = 6379
 redis_password = ""
 
