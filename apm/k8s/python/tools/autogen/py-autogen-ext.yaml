@@ -25,7 +25,7 @@ spec:
     - name: OTEL_EXPORTER_JAEGER_ENDPOINT
       value: http://$(MY_NODE_NAME):9080/v1/trace
     command: ["/bin/sh"]
-    args: ["run-autogen.sh"]
+    args: ["run-autogen-ext.sh"]
 ---
 apiVersion: v1
 kind: Service
