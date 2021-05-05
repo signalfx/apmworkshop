@@ -1,1 +1,1 @@
-kubectl apply -f python-autogen.yaml
+kubectl apply -f py-autogen.yaml
