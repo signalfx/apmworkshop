@@ -1,8 +1,27 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from time import sleep
+from random import seed, randrange
+
+seed()
 
 app = Flask(__name__)
 
+@app.route('/good-ad')
+def good_ad():
+    return 'ad auccess!'
+
+@app.route('/slow-ad')
+def slow_ad():
+    y = randrange(3,7)
+    sleep(y)
+    message = "Slooow ad: " + str(y) + " seconds"
+    return message
+
+def index(op):
+    return render_template('index.html', op=op)
+
 @app.route('/<op>')
+
 def index(op):
     return render_template('index.html', op=op)
 
