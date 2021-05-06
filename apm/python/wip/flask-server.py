@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/good-ad')
 def good_ad():
-    return 'ad auccess!'
+    return 'ad success!'
 
 @app.route('/slow-ad')
 def slow_ad():
