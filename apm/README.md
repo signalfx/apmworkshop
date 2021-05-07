@@ -21,10 +21,10 @@ I.e. to change your REALM to `us1` change `api.YOURREALMHERE.signalfx.com` to `a
 
 1. Review basic [Splunk Observability Guide for Infrastructure](https://docs.splunk.com/Observability/infrastructure/infrastructure.html#nav-Set-up-Infrastructure-Monitoring)  
 2. Install Splunk OpenTelemetry Collector Agent on a host
-3. Instrument your app for OpenTelemetry APM
+3. Instrument apps (Java, Python, and Node.js examples) for for APM with OpenTelemetry instrumentation
 4. Exercise app so it send spans to the Splunk APM platform
-5. Use the Splunk APM platform for visualization, troubleshooting, alerts, and automation
-6. Study the code examples- they use frameworks that the auto-instrumentation picks up. The k8s deployment examples show how to build clusters with APM.  
+5. Use the Splunk APM platform for visualization and troubleshooting
+6. Study the code examples- they use frameworks that the auto-instrumentation picks up. The k8s deployment examples show how to deploy microservices with OpenTelemetry APM.  
    Make sure to watch :play_or_pause_button: **video** demos where indicated.
 
 ***
