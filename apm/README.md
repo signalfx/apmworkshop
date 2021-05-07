@@ -2,14 +2,11 @@
 
 ### Audience And Requirements
 
-Audience: Intermediate and advanced developers, devops, and SREs who have already set up their Splunk Observability (formerly SignalFx) account and have tried out integrations and dashboards. Skill level should include troubleshooting a Linux and Kubernetes environment.
-
-The term "SignalFx" refers to the Splunk Observability services.
+Audience: Intermediate and advanced developers, devops, and SREs who have already set up their Splunk Observability Cloud account and have tried out integrations and dashboards. Skill level should include setting up and troubleshooting Linux and Kubernetes environments as well as deploying modern applications i.e. Java 8, Python, Node.
 
 Requirements:   
-1. Splunk Observability Account
-2. Debian (i.e. Ubuntu) Linux environment with minimum 16G RAM and 8G disk should be ready to try all examples.  
-RedHat and other mainstream Linux distributions can be used by translating shell commands from Debian.
+1. Splunk Observability Cloud Account
+2. Debian (i.e. Ubuntu) Linux environment with minimum 16G RAM and 28G disk  
 This workshop has a [guide](./workshop-steps/1-prep.md) on how to set up an Ubuntu environment on your desktop via Multipass.
 3. Kubernetes cluster set up in advance in your Ubuntu environment.
 
@@ -22,9 +19,9 @@ I.e. to change your REALM to `us1` change `api.YOURREALMHERE.signalfx.com` to `a
 
 ### Workshop Summary
 
-1. Review basic [Splunk Observability Quick Start for Infrastructure](https://docs.signalfx.com/en/latest/getting-started/quick-start.html)  
-2. Install Splunk SmartAgent on a host and configure it for APM
-3. Instrument your app for APM
+1. Review basic [Splunk Observability Guide for Infrastructure](https://docs.splunk.com/Observability/infrastructure/infrastructure.html#nav-Set-up-Infrastructure-Monitoring)  
+2. Install Splunk OpenTelemetry Collector Agent on a host
+3. Instrument your app for OpenTelemetry APM
 4. Exercise app so it send spans to the Splunk APM platform
 5. Use the Splunk APM platform for visualization, troubleshooting, alerts, and automation
 6. Study the code examples- they use frameworks that the auto-instrumentation picks up. The k8s deployment examples show how to build clusters with APM.  
@@ -36,7 +33,7 @@ I.e. to change your REALM to `us1` change `api.YOURREALMHERE.signalfx.com` to `a
 
 Step 1: [Prepare Your Environment and Review Key Concepts](./workshop-steps/1-prep.md)  
 
-Step 2: [Install Splunk SmartAgent and Configure for APM](./workshop-steps/2-smartagent.md)  
+Step 2: [Install Splunk OpenTelemetry Collector Agent](./workshop-steps/2-smartagent.md)  
 
 Step 3: [Complete APM Workshop Labs](./workshop-steps/3-workshop-labs.md)  
 
