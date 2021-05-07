@@ -33,7 +33,7 @@ I.e. to change your REALM to `us1` change `api.YOURREALMHERE.signalfx.com` to `a
 
 Step 1: [Prepare Your Environment and Review Key Concepts](./workshop-steps/1-prep.md)  
 
-Step 2: [Install Splunk OpenTelemetry Collector Agent](./workshop-steps/2-smartagent.md)  
+Step 2: [Install Splunk OpenTelemetry Collector Agent](./workshop-steps/2-otelagent.md)  
 
 Step 3: [Complete APM Workshop Labs](./workshop-steps/3-workshop-labs.md)  
 
