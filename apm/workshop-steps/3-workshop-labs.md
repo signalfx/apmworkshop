@@ -11,14 +11,13 @@
 | | **APM: Containerized apps on Kubernetes and Advanced Java APM Topics** |
 | [6](../k8s) | [APM for Containerized Apps on Kubernetes](../k8s): Python and Java examples / Manual Instrumentation / OpenTelemetry Collector |
 
-[Read the full APM guide on troubleshooting apps, dashboards, etc](https://docs.signalfx.com/en/latest/apm/apm-getting-started/apm-index.html)
+[Read the full Splunk APM guide on troubleshooting apps, dashboards, etc](https://docs.splunk.com/Observability/apm/apm.html)
 
 After working through the labs, try a nice relaxing game of [Python Trace Invaders](https://github.com/signalfx/apmworkshop/tree/master/apm/python/traceinvaders) (for Mac only)
 
-To learn about more languges go to https://docs.signalfx.com/en/latest/apm/apm-instrument/apm-index.html and check out these misc guides:  
+To learn about more languges go to https://docs.splunk.com/Observability/apm/apm.html#step-2-instrument-your-applications and check out these misc guides:  
 [dot.NET](../misc/dotnet)  
 [ECS Fargate](../misc/ecs-fargate)  
 [ECS EC2](../misc/ecs-ec2)  
-[EKS](../misc/eks)  
 
 [Return to workshop](../README.md)
