@@ -1,6 +1,6 @@
 ## Splunk Observability Microservices APM Instrumentation Workshop
 
-### Audience And Requirements
+### Audience / Requirements
 
 Audience: Intermediate and advanced developers, devops, and SREs who have already set up their Splunk Observability Cloud account and have tried out integrations and dashboards. Skill level should include setting up and troubleshooting Linux and Kubernetes environments as well as deploying modern applications i.e. Java 8, Python, Node.
 
