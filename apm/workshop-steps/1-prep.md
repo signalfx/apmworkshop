@@ -2,7 +2,7 @@
 
 ### Prep Step 1: Log in to your Splunk Observability account to identify token/realm  
 
-Check your [Splunk Observability Account](https://login.signalfx.com) (your welcome email has this link) and identify your TOKEN and REALM- these are available in the profile menu (the one on top right with a person icon) in your Splunk Observability  account.
+Check your [Splunk Observability Account](https://app.us1.signalfx.com/o11y/#/home) (your welcome email has this link) and identify your TOKEN and REALM- these are available in the profile menu in your Splunk Observability account. Note that the realm component i.e. `us1` may be different for your account based on how you signed up.
 
 How to find realm:  
 <img src="../../../assets/org.png" width="360" />  
@@ -58,7 +58,7 @@ Follow Multipass Windows installation instructions: https://multipass.run/docs/i
 **#3 Launch Multipass Ubuntu VM**
 
 Create your VM:  
-`multipass launch -n primary -d 7G -m 8G`
+`multipass launch -n primary -d 17G -m 8G`
 
 This will download Ubuntu and may take a few minute the first time.
 
@@ -89,11 +89,11 @@ Windows:
 ### Prep Step 3: Review KEY SPLUNK APM CONCEPTS
 
 1. There are two moving parts to APM:    
-   **One: Application Spans:** Open standards APM spans emitted by your applications. OpenTelmetry auto-instrumentation (no code changes) for most languages is availabile but you can use any framework/library that emits zipkin, OpenTracing, or [OpenTelemetry](https://opentelemtry.io). The optional [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector) can covert between trace formats, process, sample etc.  
-   **Two: Instructructure metrics:** Metrics are emitted by an infrastructure agent called [Splunk SmartAgent](https://docs.signalfx.com/en/latest/integrations/agent/agent-install-methods.html) observing the application's host or container cluster. The infrastructure agent is lightweight, open source, real-time, and designed for microservices, containers, and cloud.   
-2. Application spans will be sent to the Splunk SmartAgent running on a host or k8s pod to correlate APM with host metrics. The SmartAgent then relays the spans to Splunk APM where they will be assembled into traces.   
+   **One: Application Spans:** Open standards APM spans emitted by your applications. OpenTelmetry auto-instrumentation (no code changes) for most languages is availabile but you can use any framework/library that emits zipkin, OpenTracing, or [OpenTelemetry](https://opentelemtry.io). The spans are received by an OpenTelemetry Collector which both doubles as an infrastructure metrics collection agent and a telemetry processor. The Collector then forwards all telemetry (metrics/traces/logs) to Splunk Observability Cloud.
+   **Two: Instructructure metrics:** Infrastructure metrics are collected by your OpenTelemetry Collector which is observing the application's host or container cluster. The infrastructure agent is lightweight, open source, real-time, and designed for microservices, containers, and cloud.   
+2. Application spans will be sent to the OpenTelemetry Collector running on a host or k8s pod to correlate APM with host metrics. The Collector then relays the spans to Splunk Observability Cloud APM where they will be assembled into traces.   
 3. The APM spans flow in real time and there is no sampling.  
-4. Pre-made default Service Dashboards for APM tracing will appear once spans are received by Splunk APM. The APM view has directed troubleshooting. 
+4. Pre-made default Service Dashboards for APM will appear once spans are received by Splunk APM. The APM view has directed troubleshooting. 
 5. Environment variables in the user environment and the SmartAgent config `/etc/signalfx/agent.yaml` control the setup of APM:      
 `OTEL_EXPORTER_JAEGER_ENDPOINT` tells your application where to send spans  
 `OTEL_EXPORTER_JAEGER_SERVICE_NAME` sets the name of your application in the APM interface  
