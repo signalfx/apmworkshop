@@ -89,7 +89,7 @@ Windows:
 ### Prep Step 3: Review KEY SPLUNK APM CONCEPTS
 
 1. There are two moving parts to APM:    
-   **One: Application Spans:** Open standards APM spans emitted by your applications. OpenTelmetry auto-instrumentation (no code changes) for most languages is availabile but you can use any framework/library that emits zipkin, OpenTracing, or [OpenTelemetry](https://opentelemtry.io). The spans are received by an OpenTelemetry Collector which both doubles as an infrastructure metrics collection agent and a telemetry processor. The Collector then forwards all telemetry (metrics/traces/logs) to Splunk Observability Cloud.
+   **One: Application Spans:** Open standards APM spans emitted by your applications. OpenTelmetry auto-instrumentation (no code changes) for most languages is availabile but you can use any framework/library that emits spans in formats zipkin, OpenTracing, or [OpenTelemetry](https://opentelemtry.io). The spans are received by an OpenTelemetry Collector which both doubles as an infrastructure metrics collection agent and a telemetry processor. The Collector then forwards all telemetry (metrics/traces/logs) to Splunk Observability Cloud.  
    **Two: Instructructure metrics:** Infrastructure metrics are collected by your OpenTelemetry Collector which is observing the application's host or container cluster. The infrastructure agent is lightweight, open source, real-time, and designed for microservices, containers, and cloud.   
 2. Application spans will be sent to the OpenTelemetry Collector running on a host or k8s pod to correlate APM with host metrics. The Collector then relays the spans to Splunk Observability Cloud APM where they will be assembled into traces.   
 3. The APM spans flow in real time and there is no sampling.  
