@@ -6,7 +6,7 @@ Audience: Intermediate and advanced developers, devops, and SREs who have alread
 
 Requirements:   
 1. Splunk Observability Cloud Account
-2. Debian (i.e. Ubuntu) Linux environment with minimum 16G RAM and 28G disk  
+2. Debian (i.e. Ubuntu) Linux environment with minimum 8G RAM and 17G disk  
 This workshop has a [guide](./workshop-steps/1-prep.md) on how to set up an Ubuntu environment on your desktop via Multipass.
 3. Kubernetes cluster set up in advance in your Ubuntu environment.
 
