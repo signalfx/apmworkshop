@@ -19,20 +19,21 @@ spec:
             - name: http
               containerPort: 5000
           env:
-          - name: SPLUNK_SERVICE_NAME
-            value: server-flask-otel-k8s
-          - name: MY_NODE_NAME
-            valueFrom:
-              fieldRef:
-                apiVersion: v1
-                fieldPath: spec.nodeName
-          - name: OTEL_EXPORTER_JAEGER_ENDPOINT
-            value: http://$(MY_NODE_NAME):9080/v1/trace
-          - name: OTEL_RESOURCE_ATTRIBUTES
-            value: deployment.environment:apm-workshop
-          command: ["/bin/sh"]
-          args: ["run-server.sh"]
-
+            - name: SPLUNK_SERVICE_NAME
+              value: server-flask-otel-k8s
+            - name: MY_NODE_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: spec.nodeName
+            - name: OTEL_EXPORTER_JAEGER_ENDPOINT
+              value: http://$(MY_NODE_NAME):9080/v1/trace
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: deployment.environment:apm-workshop
+          command:
+            - /bin/sh
+          args:
+            - run-server-otel.sh
 ### Flask Server Service
 ---
 apiVersion: v1
@@ -46,7 +47,6 @@ spec:
   - protocol: TCP
     port: 5000
     targetPort: 5000
-
 ### Python Requests Pod
 ---
 apiVersion: v1
@@ -72,4 +72,4 @@ spec:
     - name: OTEL_RESOURCE_ATTRIBUTES
       value: deployment.environment:apm-workshop
     command: ["/bin/sh"]
-    args: ["run-client.sh"]
+    args: ["run-client-k8s-otel.sh"]
