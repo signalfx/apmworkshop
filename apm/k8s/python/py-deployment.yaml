@@ -13,25 +13,24 @@ spec:
         name: server-flask-otel-k8s
     spec:
       containers:
-        - name: server-flask-otel-k8s
-          image: 'docker.io/stevelsplunk/splk-python:latest'
-          ports:
-            - name: http
-              containerPort: 5000
-          env:
-          - name: SPLUNK_SERVICE_NAME
-            value: server-flask-otel-k8s
-          - name: MY_NODE_NAME
-            valueFrom:
-              fieldRef:
-                apiVersion: v1
-                fieldPath: spec.nodeName
-          - name: OTEL_EXPORTER_JAEGER_ENDPOINT
-            value: http://$(MY_NODE_NAME):9080/v1/trace
-          - name: OTEL_RESOURCE_ATTRIBUTES
-            value: deployment.environment:apm-workshop
-          command: ["/bin/sh"]
-          args: ["run-server.sh"]
+      - name: server-flask-otel-k8s
+        image: docker.io/stevelsplunk/splk-python
+        ports:
+          - name: http
+            containerPort: 5000
+        env:
+        - name: SPLUNK_SERVICE_NAME
+          value: server-flask-otel-k8s
+        - name: SPLUNK_OTEL_AGENT
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP
+        - name: OTEL_EXPORTER_JAEGER_ENDPOINT
+          value: http://$(SPLUNK_OTEL_AGENT):9080/v1/trace
+        - name: OTEL_RESOURCE_ATTRIBUTES
+          value: deployment.environment=apm-workshop
+        command: ["/bin/sh"]
+        args: ["run-server.sh"]
 
 ### Flask Server Service
 ---
@@ -58,18 +57,17 @@ metadata:
 spec:
   containers:
   - name: client-py-otel-k8s
-    image: docker.io/stevelsplunk/splk-python:latest
+    image: docker.io/stevelsplunk/splk-python
     env:
     - name: SPLUNK_SERVICE_NAME
       value: client-py-otel-k8s
-    - name: MY_NODE_NAME
+    - name: SPLUNK_OTEL_AGENT
       valueFrom:
         fieldRef:
-          apiVersion: v1
-          fieldPath: spec.nodeName
+          fieldPath: status.hostIP
     - name: OTEL_EXPORTER_JAEGER_ENDPOINT
-      value: http://$(MY_NODE_NAME):9080/v1/trace
+      value: http://$(SPLUNK_OTEL_AGENT):9080/v1/trace
     - name: OTEL_RESOURCE_ATTRIBUTES
-      value: deployment.environment:apm-workshop
+      value: deployment.environment=apm-workshop
     command: ["/bin/sh"]
     args: ["run-client.sh"]
