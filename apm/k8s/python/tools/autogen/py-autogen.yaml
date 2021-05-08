@@ -17,13 +17,12 @@ spec:
       value: deployment.environment=otel-demo
     - name: SPLUNK_SERVICE_NAME
       value: python-autogen-otel
-    - name: MY_NODE_NAME
+    - name: SPLUNK_OTEL_AGENT
       valueFrom:
         fieldRef:
-          apiVersion: v1
-          fieldPath: spec.nodeName
+          fieldPath: status.hostIP
     - name: OTEL_EXPORTER_JAEGER_ENDPOINT
-      value: http://$(MY_NODE_NAME):9080/v1/trace
+      value: http://$(SPLUNK_OTEL_AGENT):9080/v1/trace
     command: ["/bin/sh"]
     args: ["run-autogen.sh"]
 ---
