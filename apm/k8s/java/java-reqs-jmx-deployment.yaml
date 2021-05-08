@@ -2,46 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: client-java-otel-k8s
-spec:
-  selector:
-    matchLabels:
-      name: client-java-otel-k8s
-  template:
-    metadata:
-      labels:
-        name: client-java-otel-k8s
-    spec:
-      containers:
-        - name: client-java-otel-k8s
-          image: 'docker.io/stevelsplunk/splk-java:latest'
-          ports:
-            - name: http
-              containerPort: 3000
-          env:
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=client-java-otel-k8s
-            - name: MY_NODE_NAME
-              valueFrom:
-                fieldRef:
-                  apiVersion: v1
-                  fieldPath: spec.nodeName
-            - name: OTEL_EXPORTER_JAEGER_ENDPOINT
-              value: http://$(MY_NODE_NAME):9080/v1/trace
-          command:
-            - /bin/sh
-          args:
-            - ./run-java-local-flask-jmx.sh
-          imagePullPolicy: Always
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: client-java-otel-k8s
-spec:
-  selector:
+  labels:
     name: client-java-otel-k8s
-  ports:
-  - protocol: TCP
-    port: 3000
-    targetPort: 3000
+spec:
+  containers:
+  - name: client-java-otel-k8s
+    image: docker.io/stevelsplunk/splk-java
+    env:
+    - name: SPLUNK_SERVICE_NAME
+      value: client-java-otel-k8s
+    - name: SPLUNK_OTEL_AGENT
+      valueFrom:
+        fieldRef:
+          fieldPath: status.hostIP
+    - name: OTEL_EXPORTER_JAEGER_ENDPOINT
+      value: http://$(SPLUNK_OTEL_AGENT):9080/v1/trace
+    - name: OTEL_RESOURCE_ATTRIBUTES
+      value: deployment.environment=apm-workshop
+    command: ["/bin/sh"]
+    args: ["run-client.sh"]
