@@ -27,7 +27,7 @@ You can use `ctrl-c` to stop the requests and server any time.
 
 You should now see a new Java requests service alongside the Python one.
 
-#### Step #5 Check SignalFx SmartAgent to see that spans are being sent
+#### Step #5 Check OpenTelemetry Collector Statistics to see that spans are being sent
 
 Open a new terminal window to your Linux instance (or use `tmux` and run in separate pane)
 
@@ -43,7 +43,7 @@ In the `run-client.sh` script is the java command:
 java \
 -Dexec.executable="java" \
 -Dotel.exporter.jaeger.endpoint=http://127.0.0.1:9080/v1/trace \
--Dotel.resource.attributes=service.name=java-otel-reqs-client,deployment.environment=apm-workshop \
+-Dotel.resource.attributes=service.name=java-otel-client,deployment.environment=apm-workshop \
 -javaagent:/opt/splunk-otel-javaagent.jar \
 -jar ./target/java-app-1.0-SNAPSHOT.jar
 ```

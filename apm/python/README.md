@@ -26,7 +26,7 @@ source run-client.sh
 The `python-requests.py` client will make calls to the flask server with a random short sleep time.
 You can stop the requests with `ctrl-c`
 
-#### Step #3 Check OpenTelemetry Collector Stats
+#### Step #3 Check OpenTelemetry Collector Statistics to see that spans are being sent
 
 Open a new terminal window to your Linux instance (or use `tmux` and run in separate pane)
 
