@@ -11,6 +11,9 @@ helm repo update
 #clone workshop
 git clone https://github.com/signalfx/apmworkshop
 
+#install lynx
+sudo apt install -y lynx
+
 #update .bashrc for workshop
 echo -e "\n\n" >> /home/ubuntu/.bashrc
 cat bashrc >> /home/ubuntu/.bashrc

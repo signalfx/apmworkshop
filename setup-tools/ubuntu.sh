@@ -24,6 +24,9 @@ sudo snap install helm --classic
 helm repo add splunk-otel-collector-chart https://signalfx.github.io/splunk-otel-collector-chart
 helm repo update
 
+#install lynx
+sudo apt install -y lynx
+
 #clone workshop
 git clone https://github.com/signalfx/apmworkshop
 

@@ -1,2 +1,2 @@
-export SPLK_SERVICE_NAME=py-otel-flask-server
-export SPLK_TRACE_EXPORTER_URL=http://localhost:9080/v1/trace
+export OTEL_RESOURCE_ATTRIBUTES=service.name=py-otel-flask-server
+export OTEL_EXPORTER_JAEGER_ENDPOINT=http://localhost:9080/v1/trace
