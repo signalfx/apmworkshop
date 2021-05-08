@@ -18,21 +18,18 @@ spec:
             - name: http
               containerPort: 3000
           env:
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=java-manual-inst-k8s
-            - name: MY_NODE_NAME
-              valueFrom:
-                fieldRef:
-                  apiVersion: v1
-                  fieldPath: spec.nodeName
-            - name: OTEL_EXPORTER_JAEGER_ENDPOINT
-              value: http://$(MY_NODE_NAME):9080/v1/trace
-          command:
-            - /bin/sh
-          args:
-            - ./manual-inst/run-java-manual-inst-k8s.sh
-          imagePullPolicy: Always
-
+          - name: OTEL_RESOURCE_ATTRIBUTES
+            value: service.name=java-otel-man-inst
+          - name: SPLUNK_OTEL_AGENT
+            valueFrom:
+              fieldRef:
+                fieldPath: status.hostIP
+          - name: OTEL_EXPORTER_JAEGER_ENDPOINT
+            value: http://$(SPLUNK_OTEL_AGENT):9080/v1/trace
+          - name: OTEL_RESOURCE_ATTRIBUTES
+            value: deployment.environment=apm-workshop
+          command: ["/bin/sh"]
+          args: ["./manual-inst/run-java-manual-inst-k8s.sh"]
 ---
 apiVersion: v1
 kind: Service
