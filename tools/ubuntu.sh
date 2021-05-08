@@ -1,26 +1,28 @@
-sudo apt-get -y update
-sudo apt-get -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo apt-get -y update
-sudo apt-get -y install docker-ce docker-ce-cli containerd.io
-
+#install Node
 sudo apt-get install -y nodejs
 sudo apt install -y npm
 
+#install Java
 sudo apt install -y openjdk-8-jdk
-sudo apt-get -y install maven
+#sudo apt-get -y install maven
+
+#install k3s
 curl -sfL https://get.k3s.io | sh -
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
 
+#install python pip
 sudo apt install -y python3-pip
-python3 -m pip install splunk-opentelemetry flask requests
+
+#install python dependencies 
+python3 -m pip install splunk-opentelemetry flask requests redis
 export PATH="$HOME/.local/bin:$PATH"
 splk-py-trace-bootstrap
 
+#install helm
 sudo snap install helm --classic
 helm repo add signalfx https://dl.signalfx.com/helm-repo
 helm repo update
 
+#clone workshop
 git clone https://github.com/signalfx/apmworkshop
