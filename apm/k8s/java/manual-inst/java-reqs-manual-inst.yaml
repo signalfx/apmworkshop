@@ -3,28 +3,20 @@ kind: Pod
 metadata:
   name: java-manual-inst-k8s
 spec:
-  selector:
-    matchLabels:
-      name: java-manual-inst-k8s
-  template:
-    metadata:
-      labels:
-        name: java-manual-inst-k8s
-    spec:
-      containers:
-        - name: java-manual-inst-k8s
-          image: 'docker.io/stevelsplunk/splk-java:latest'
-          ports:
-            - name: http
-              containerPort: 3000
-          env:
-          - name: SPLUNK_OTEL_AGENT
-            valueFrom:
-              fieldRef:
-                fieldPath: status.hostIP
-          - name: OTEL_EXPORTER_JAEGER_ENDPOINT
-            value: http://$(SPLUNK_OTEL_AGENT):9080/v1/trace
-          - name: OTEL_RESOURCE_ATTRIBUTES
-            value: service.name=java-otel-manual-inst,deployment.environment:apm-workshop
-          command: ["/bin/sh"]
-          args: ["./manual-inst/run-java-manual-inst-k8s.sh"]
+  containers:
+  - name: java-manual-inst-k8s
+    image: 'docker.io/stevelsplunk/splk-java:latest'
+    ports:
+      - name: http
+        containerPort: 3000
+    env:
+    - name: SPLUNK_OTEL_AGENT
+      valueFrom:
+        fieldRef:
+          fieldPath: status.hostIP
+    - name: OTEL_EXPORTER_JAEGER_ENDPOINT
+      value: http://$(SPLUNK_OTEL_AGENT):9080/v1/trace
+    - name: OTEL_RESOURCE_ATTRIBUTES
+      value: service.name=java-otel-manual-inst,deployment.environment:apm-workshop
+    command: ["/bin/sh"]
+    args: ["./manual-inst/run-java-manual-inst-k8s.sh"]
