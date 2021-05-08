@@ -2,34 +2,13 @@
 
 ### K8S Prep
 
-Reminder- anytime you start a new shell in your Multipass environment, make sure the k3s environment variables from the prep are set:
-```
-export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
-sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
-```
-
-<ins>If you are starting from scratch and only want to do this k8s lab:</ins>
+Identify your token from the Splunk Observability Cloud Portal: `Organization Settings->Access Tokens`
 
 Prep your Debian env with this script: https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/k8s-only.sh
 
-### Exercise 1: set up the Splunk SmartAgent as a sidecar pod  
+### Exercise 1: Use the Data Setup Wizard to set up a Splunk OpenTelemetry Collector pod on the k3s cluster
 
-Configure the `~/apmworkshop/apm/k8s/values.yaml` file for your environment.  
-This sets up all the elements needed for Splunk APM.
-An example file (for reference- do not deploy it) is here: `~/apmworkshop/apm/k8s/values-example.txt`
-
-Values to configure:  
-| Value | Description           |
-|-------|-----------------------|
-|`YOURTOKENHERE`|token from your account|
-|`YOURREALMHERE`|your realm from your account i.e. us1|
-|`YOURCLUSTERNAMEHERE`|any name you pick to represent the cluster|
-|`RELEASEVERSIONHERE`|Use the current Splunk SmartAgent version in the Helm script below from here: https://github.com/signalfx/signalfx-agent/releases i.e. 5.7.1|
-|`sfx-workshop`|If you are in a group- put your initials in front of this i.e. `js-sfx-workshop`|
-
-Once `values.yaml` is configured, you can use it with helm to set up the SmartAgent pod:
-
-`helm install -f values.yaml signalfx-agent signalfx/signalfx-agent`
+Note the name of the deployment when the install completes i.e.:   `splunk-otel-collector-1620485965`  
 
 If you see this error "Error: Kubernetes cluster unreachable: Get "http://localhost:8080/version?timeout=32s": dial tcp 127.0.0.1:8080: connect: connection refused" then make sure you set the kube env correctly:
 
@@ -37,6 +16,40 @@ If you see this error "Error: Kubernetes cluster unreachable: Get "http://localh
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
 ```
+
+Update k3s for Splunk Log Observer:  
+
+You'll need the Collector deployment from the Data Setup Wizard install.  
+
+You can also dervice this from using `helm list` i.e.:  
+```
+NAME                                    NAMESPACE       REVISION        UPDATED                                 STATUS       CHART                           APP VERSION
+splunk-otel-collector-1620504591        default         1               2021-05-08 20:09:51.625419479 +0000 UTC deployed     splunk-otel-collector-0.25.0  
+```
+The deployment name would be: `splunk-otel-collector-1620504591`  
+
+Update this deployment with the following:  
+`helm upgrade --reuse-values \
+--set splunkAccessToken=YOURTOKENHERE \
+--set fluentd.config.containers.logFormatType="cri" \
+--set fluentd.config.containers.criTimeFormat="%Y-%m-%dT%H:%M:%S.%NZ" \
+YOUROTELDEPLOYMENTHERE \ 
+splunk-otel-collector-chart/splunk-otel-collector` 
+
+Replacing:
+YOURTOKENHERE with your token
+YOUROTELDEPLOYMENTHERE with the deployment from step 1
+
+i.e.:
+
+`helm upgrade --reuse-values \  
+--set splunkAccessToken=s9s9d887e7f667w8d9s8a \  
+--set fluentd.config.containers.logFormatType="cri" \  
+--set fluentd.config.containers.criTimeFormat="%Y-%m-%dT%H:%M:%S.%NZ" \  
+splunk-otel-collector-1620504591 \   
+splunk-otel-collector-chart/splunk-otel-collector` 
+
+
 
 ### Exercise 2: Deploy the dockerized versions of OpenTlemetry python flask, python requests, and Java OKHTTP pods
 
