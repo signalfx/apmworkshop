@@ -8,13 +8,14 @@ Identify your token from the Splunk Observability Cloud Portal: `Organization Se
 
 **Step 1:** Splunk Observability Cloud Portal: `Data Setup->Kubernetes->Add Connection`  
 Choose the following:
-|Key|Value|
-|Access Token|Select from list|
-|Cluster Name|Your initials-cluster i.e. SL-cluster|
-|Provider|Other|
-|Distribution|Other|
-|Add Gateway|No|
-|Log Collection|True|  
+| Key | Value |
+| ----- | ---- |
+| Access Token | Select from list |
+| Cluster Name | Your initials-cluster i.e. SL-cluster |
+| Provider | Other |
+| Distribution | Other |
+| Add Gateway | No |
+| Log Collection | True |  
 
 And then select `Next`  
 
