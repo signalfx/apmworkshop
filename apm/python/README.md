@@ -9,8 +9,7 @@ Otherwise you can do each step in a new terminal window.
 
 ```
 cd ~/apmworkshop/apm/python
-source setup-server.sh  
-splk-py-trace python3 flask-server.py  
+source run-server.sh
 ```
 
 You will see the server startup text when this is run.
@@ -21,40 +20,18 @@ Open a new terminal window to your Linux instance, set up environment variables,
 
 ```
 cd ~/apmworkshop/apm/python
-source setup-client.sh  
-splk-py-trace python3 python-requests.py
+source run-client.sh
 ```
 
-The `python-requests-otel.py` client will make calls to the flask server with a random short sleep time.
+The `python-requests.py` client will make calls to the flask server with a random short sleep time.
 You can stop the requests with `ctrl-c`
 
-#### Step #3 Check Splunk SignalFx SmartAgent to see that spans are being sent
+#### Step #3 Check OpenTelemetry Collector Stats
 
 Open a new terminal window to your Linux instance (or use `tmux` and run in separate pane)
 
-`signalfx-agent status` will show the metrics and spans being sent by the agent like this:
-
-```
-ubuntu@primary:~$ signalfx-agent status
-SignalFx Agent version:           5.7.1
-Agent uptime:                     1h31m32s
-Observers active:                 host
-Active Monitors:                  10
-Configured Monitors:              10
-Discovered Endpoint Count:        8
-Bad Monitor Config:               None
-Global Dimensions:                {host: primary}
-GlobalSpanTags:                   map[]
-Datapoints sent (last minute):    370
-Datapoints failed (last minute):  0
-Datapoints overwritten (total):   0
-Events Sent (last minute):        6
-Trace Spans Sent (last minute):   1083
-Trace Spans overwritten (total):  0
-```
-
-Notice **Trace Spans Sent (last minute):   1083**  
-This means spans are succssfully being sent to Splunk SignalFx.
+`lynx localhost:55679/debug/tracez` will show the metrics and spans being gathered and sent by the Collector.  
+Lynx is a text browser that was installed during with the `setup-tools`. Enabling a web browser to access your environment will allow for a full web GUI.  
 
 #### Step #4 Traces / services will now be viewable in the APM dashboard
 
@@ -87,9 +64,13 @@ In the trace view you can click on spans to see more info and their tags, and so
 
 #### Step #5 Where is the auto-instrumentation?
 
+The `run-server.sh` and `run-client.sh` scripts set up the environment variables for OpenTelemetry and invoke the Python auto instrumentation:  
+
 `splk-py-trace` is the auto instrumenting function that runs Python3 with the instrumentation that automatically emits spans from the Python app. No code changes are necessary.
 
-Splunk's autoinstrumentation for python is here: https://github.com/signalfx/splunk-otel-python
+Splunk Observability Cloud has a `Getting Data In` Wizard to guide through instrumentation setup.
+
+OpenTelemetry repo for python is here: https://github.com/signalfx/splunk-otel-python
 
 #### Step #6 Leave the Flask server running
 

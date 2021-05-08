@@ -1,0 +1,7 @@
+digraph "com.signalfx.public:java-app:jar:1.0-SNAPSHOT" { 
+	"com.signalfx.public:java-app:jar:1.0-SNAPSHOT" -> "com.squareup.okhttp3:okhttp:jar:4.9.0:compile" ; 
+	"com.squareup.okhttp3:okhttp:jar:4.9.0:compile" -> "com.squareup.okio:okio:jar:2.8.0:compile" ; 
+	"com.squareup.okhttp3:okhttp:jar:4.9.0:compile" -> "org.jetbrains.kotlin:kotlin-stdlib:jar:1.4.10:compile" ; 
+	"com.squareup.okio:okio:jar:2.8.0:compile" -> "org.jetbrains.kotlin:kotlin-stdlib-common:jar:1.4.0:compile" ; 
+	"org.jetbrains.kotlin:kotlin-stdlib:jar:1.4.10:compile" -> "org.jetbrains:annotations:jar:13.0:compile" ; 
+ } 
