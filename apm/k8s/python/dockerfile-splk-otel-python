@@ -1,13 +1,12 @@
 FROM python:slim
 RUN apt-get update && \ 
     apt install -y python3-pip && \
-    python3 -m pip install --upgrade pip && \
-    python3 -m pip install splunk-opentelemetry flask requests && \
+    python3 -m pip install pip==21.0.1 && \
+    python3 -m pip install splunk-opentelemetry && \
     apt -y autoremove && apt-get -y autoclean && \
     export PATH="$HOME/.local/bin:$PATH" && \
     splk-py-trace-bootstrap  && \
     mkdir /home/code
-ENV PYTHONUNBUFFERED True
-WORKDIR /home/code
 EXPOSE 5000
+WORKDIR /home/code
 COPY . /home/code/

@@ -1,3 +1,4 @@
+### Flask Server Pod
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -25,14 +26,15 @@ spec:
                 fieldRef:
                   apiVersion: v1
                   fieldPath: spec.nodeName
-            - name: SPLUNK_TRACE_EXPORTER_URL
+            - name: OTEL_EXPORTER_JAEGER_ENDPOINT
               value: http://$(MY_NODE_NAME):9080/v1/trace
+            - name: OTEL_RESOURCE_ATTRIBUTES
+              value: deployment.environment:apm-workshop
           command:
             - /bin/sh
           args:
             - run-server-otel.sh
-          imagePullPolicy: Always
-
+### Flask Server Service
 ---
 apiVersion: v1
 kind: Service
@@ -45,3 +47,29 @@ spec:
   - protocol: TCP
     port: 5000
     targetPort: 5000
+### Python Requests Pod
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client-py-otel-k8s
+  labels:
+    app: client-py-otel-k8s
+spec:
+  containers:
+  - name: client-py-otel-k8s
+    image: docker.io/stevelsplunk/splk-python:latest
+    env:
+    - name: SPLUNK_SERVICE_NAME
+      value: client-py-otel-k8s
+    - name: MY_NODE_NAME
+      valueFrom:
+        fieldRef:
+          apiVersion: v1
+          fieldPath: spec.nodeName
+    - name: OTEL_EXPORTER_JAEGER_ENDPOINT
+      value: http://$(MY_NODE_NAME):9080/v1/trace
+    - name: OTEL_RESOURCE_ATTRIBUTES
+      value: deployment.environment:apm-workshop
+    command: ["/bin/sh"]
+    args: ["run-client-k8s-otel.sh"]

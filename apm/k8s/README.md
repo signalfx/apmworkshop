@@ -79,11 +79,8 @@ splunk-otel-collector-chart/splunk-otel-collector
 
 `cd ~/apmworkshop/apm/k8s/python`  
 
-Deploy the flask-server pod:  
-`kubectl apply -f flask-deployment.yaml`
-
-Deploy the python requests pod:  
-`kubectl apply -f python-requests-pod-otel.yaml`
+Deploy the Flask server deployment/service and the python-requests pod:  
+`kubectl apply -f py-deployment.yaml`
 
 Deploy the Java OKHTTP requests pod:
 ```

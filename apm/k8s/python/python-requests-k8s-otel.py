@@ -10,12 +10,12 @@ def pythonrequests():
     payload = {'key': 'value'}
     try:
         r=requests.post(url, params=payload)
-        print('posting: ', r.url, ' ', r.text)
+    #   print('posting: ', r.url, ' ', r.text)
     except requests.exceptions.RequestException as err:
         print(err)
 
 while x:
     pythonrequests()
     y = random()
-    print('Sleeping: ', round(y,2))
+    # print('Sleeping: ', round(y,2))
     sleep(round(y,2))
