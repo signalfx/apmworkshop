@@ -43,8 +43,7 @@ In the `run-client.sh` script is the java command:
 java \
 -Dexec.executable="java" \
 -Dotel.exporter.jaeger.endpoint=http://127.0.0.1:9080/v1/trace \
--Dotel.resource.attributes=service.name=java-otel-reqs-client \
--Dotel.resource.attributes=deployment.environment=apm-workshop \
+-Dotel.resource.attributes=service.name=java-otel-reqs-client,deployment.environment=apm-workshop \
 -javaagent:/opt/splunk-otel-javaagent.jar \
 -jar ./target/java-app-1.0-SNAPSHOT.jar
 ```
@@ -52,6 +51,8 @@ java \
 The `splunk-otel-javaagent.jar` file is the automatic OpenTelemetry instrumentation that will emit spans from the app. No code changes are necessary.
 
 The `otel.` resources set up the service name, environment, and destination to send the spans.  
+
+Splunk Observability Cloud has a `Getting Data In` Wizard to guide through instrumentation setup.  
 
 Splunk's OpenTelmetry autoinstrumentation for Java is here: https://github.com/signalfx/splunk-otel-java
 
