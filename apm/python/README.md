@@ -31,6 +31,7 @@ You can stop the requests with `ctrl-c`
 Open a new terminal window to your Linux instance (or use `tmux` and run in separate pane)
 
 `lynx localhost:55679/debug/tracez` will show the metrics and spans being gathered and sent by the Collector.  
+
 Lynx is a text browser that was installed during with the `setup-tools`. Enabling a web browser to access your environment will allow for a full web GUI.  
 
 #### Step #4 Traces / services will now be viewable in the APM dashboard
