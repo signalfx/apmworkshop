@@ -11,8 +11,10 @@ spec:
     env:
     - name: TZ
       value: America/New_York
+    - name: REDISHOST
+      value: 127.0.0.1
     - name: OTEL_RESOURCE_ATTRIBUTES
-      value: environment=otel-demo
+      value: deployment.environment=otel-demo
     - name: SPLUNK_SERVICE_NAME
       value: python-autogen-otel
     - name: MY_NODE_NAME
@@ -28,33 +30,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: redis
+  name: py-autogen
   labels:
-    app: redis
+    app: py-autogen
 spec:
   selector:
-    app: redis
+    app: py-autogen
   ports:
   - port: 6379
     targetPort: 6379
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: redis
-spec:
-  selector:
-    matchLabels:
-      app: redis
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: redis
-    spec:
-      containers:
-      - name: redis
-        image: docker.io/stevelsplunk/redis
-        ports:
-        - containerPort: 6379
-        command: ["redis-server", "/usr/local/etc/redis/redis.conf"]

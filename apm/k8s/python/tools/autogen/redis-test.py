@@ -1,6 +1,4 @@
 import redis # make sure python redis package is installed
-from opentelemetry import trace # make sure python opentelemetry package is installed
-from opentelemetry.trace import SpanKind
 import datetime
 import json
 import os
@@ -19,7 +17,7 @@ def hello_redis():  # simple redis example that will be picked up by auto-instru
         r = redis.StrictRedis(host=redis_host, port=redis_port, password=redis_password, decode_responses=True)
         r.set("msg:hello", "Hello Redis!!!")
         msg = r.get("msg:hello")
-#       print(msg)
+        print(msg)
     except Exception as e:
         print(e)
 
@@ -35,11 +33,7 @@ while True:
                 'transactionID': hex_number
                 }
     
-    tracer = trace.get_tracer(__name__)     # create a manual span for a logging operation called "log"
-    with tracer.start_as_current_span("log", kind=SpanKind.SERVER) as span:
-        span.set_attribute("transactionTime", printtime)
-        span.set_attribute("transactionID", hex_number)
-        print(json.dumps(log_dict))
+    # print(json.dumps(log_dict))
     
     y=round(random(),1)+.25
     sleep(y)
