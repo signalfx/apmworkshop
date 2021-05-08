@@ -35,25 +35,23 @@ Open a new terminal window to your Linux instance (or use `tmux` and run in sepa
 
 Lynx is a text browser that was installed during with the `setup-tools`. Enabling a web browser to access your environment will allow for a full web GUI.  
 
-
 #### Step #6 Where is the auto-instrumentation?
 
 In the `run-client.sh` script is the java command:
 
 ```
-export OTEL_EXPORTER_JAEGER_SERVICE_NAME=java-otel-reqs-client
-
 java \
 -Dexec.executable="java" \
 -Dotel.exporter.jaeger.endpoint=http://127.0.0.1:9080/v1/trace \
--Dotel.exporter.jaeger.service.name=java-otel-reqs-client \
+-Dotel.resource.attributes=service.name=java-otel-reqs-client \
+-Dotel.resource.attributes=deployment.environment=apm-workshop \
 -javaagent:/opt/splunk-otel-javaagent.jar \
 -jar ./target/java-app-1.0-SNAPSHOT.jar
 ```
 
 The `splunk-otel-javaagent.jar` file is the automatic OpenTelemetry instrumentation that will emit spans from the app. No code changes are necessary.
 
-The app service name for the APM console is set here: `-Dotel.exporter.jaeger.service.name=java-otel-reqs-client` and as a backup for illustration is set as an environment variable as well.
+The `otel.` resources set up the service name, environment, and destination to send the spans.  
 
 Splunk's OpenTelmetry autoinstrumentation for Java is here: https://github.com/signalfx/splunk-otel-java
 
