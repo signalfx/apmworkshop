@@ -28,4 +28,5 @@ helm repo update
 git clone https://github.com/signalfx/apmworkshop
 
 #update .bashrc for workshop
+echo "\n\n" >> /home/ubuntu/.bashrc
 cat bashrc >> /home/ubuntu/.bashrc
