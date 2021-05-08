@@ -1,5 +1,5 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
   name: client-java-otel-k8s
   labels:
@@ -9,8 +9,8 @@ spec:
   - name: client-java-otel-k8s
     image: docker.io/stevelsplunk/splk-java
     env:
-    - name: SPLUNK_SERVICE_NAME
-      value: client-java-otel-k8s
+    - name: OTEL_RESOURCE_ATTRIBUTES
+      value: service.name=client-java-otel-k8s
     - name: SPLUNK_OTEL_AGENT
       valueFrom:
         fieldRef:
