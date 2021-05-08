@@ -4,21 +4,42 @@
 
 Identify your token from the Splunk Observability Cloud Portal: `Organization Settings->Access Tokens`
 
-Prep your Debian env with this script: https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/k8s-only.sh
-
 ### Exercise 1: Use the Data Setup Wizard to set up a Splunk OpenTelemetry Collector pod on the k3s cluster
 
-Note the name of the deployment when the install completes i.e.:   `splunk-otel-collector-1620485965`  
+**Step 1:** Splunk Observability Cloud Portal: `Data Setup->Kubernetes->Add Connection`  
+Choose the following:
+|Key|Value|
+|Access Token|Select from list|
+|Cluster Name|Your initials-cluster i.e. SL-cluster|
+|Provider|Other|
+|Distribution|Other|
+|Add Gateway|No|
+|Log Collection|True|  
 
-If you see this error "Error: Kubernetes cluster unreachable: Get "http://localhost:8080/version?timeout=32s": dial tcp 127.0.0.1:8080: connect: connection refused" then make sure you set the kube env correctly:
+And then select `Next`  
 
+`Install Integration` page: copy and paste each step to your shell. The final step will install the OpenTelemetry Collector pod.  
+
+A result will look like this:  
+```
+NAME: splunk-otel-collector-1620505665
+LAST DEPLOYED: Sat May  8 20:27:46 2021
+NAMESPACE: default
+STATUS: deployed
+REVISION: 1
+TEST SUITE: None
+```
+
+Note the name of the deployment when the install completes i.e.:   `splunk-otel-collector-1620505665`  
+
+If you see any errors with `helm` from the Data Setup Wizard, then run the following and try again:  
 ```
 export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
 ```
 
+**Step 2:**
 Update k3s for Splunk Log Observer:  
-
 You'll need the Collector deployment from the Data Setup Wizard install.  
 
 You can also dervice this from using `helm list` i.e.:  
