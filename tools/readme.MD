@@ -1,6 +1,6 @@
-Set up an exiting clean Debian Linux system: 
+Set up an exiting clean Ubuntu system: 
 
-`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/multipass.sh)`
+`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/ubuntu.sh)`
 
 Set up an exiting clean Debian Linux system with only the k8s tooling:
 
@@ -8,12 +8,8 @@ Set up an exiting clean Debian Linux system with only the k8s tooling:
 
 Set up a multipass instance called "primary":
 
-`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/setup-multipass-primary.sh)`
+`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/multipass.sh)`
 
-Set up docker:
-
-`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/docker.sh)`
-
-set up Minikube:
+## If you want to use Minikube instead of k3s (optional)
 
 `bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/minikube.sh)`
