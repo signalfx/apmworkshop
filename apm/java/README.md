@@ -50,8 +50,6 @@ The `splunk-otel-javaagent.jar` file is the automatic OpenTelemetry instrumentat
 
 The `otel.` resources set up the service name, environment, and destination to send the spans.  
 
-Splunk Observability Cloud has a `Getting Data In` Wizard to guide through instrumentation setup.  
-
 Splunk's OpenTelmetry autoinstrumentation for Java is here: https://github.com/signalfx/splunk-otel-java
 
 You can now go to the next step of [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)
