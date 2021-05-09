@@ -157,13 +157,13 @@ When this app deploys, it appears as an isolated bubble in the map. It has all m
 
 Take a look at the traces and their spans to see the manually added values of Message, Logs etc.
 
-<img src="../assets/21-k8s-m-trace-png" width="360">  
+<img src="../assets/21-k8s-m-trace.png" width="360">  
 
 You will see the function called ExampleSpan. 
 
-<img src="../assets/22-k8s-m-span1" width="360"> 
+<img src="../assets/22-k8s-m-span1.png" width="360"> 
 
-<img src="../assets/23-k8s-m-span2" width="360"> 
+<img src="../assets/23-k8s-m-span2.png" width="360"> 
 
 Study the [manual instrumentation code example here.](https://github.com/signalfx/apmworkshop/blob/master/apm/k8s/java/manual-inst/src/main/java/sf/main/GetExample.java)
 
