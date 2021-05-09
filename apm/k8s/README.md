@@ -44,6 +44,7 @@ sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 
 **Step 2:**
 Update k3s for Splunk Log Observer:  
+k3s has a different format that standard k8s for logging and we need to update our deployment for this.  
 You'll need the Collector deployment from the Data Setup Wizard install.  
 
 You can also dervice this from using `helm list` i.e.:  
@@ -84,16 +85,13 @@ splunk-otel-collector-chart/splunk-otel-collector
 
 Deploy the Flask server deployment/service and the python-requests pod:  
 ```
-cd ~/apmworkshop/apm/k8s/python
+cd ~/apmworkshop/apm/k8s
 kubectl apply -f py-deployment.yaml
 ```
 -creates a Flask microservice http server, and a Python-requests pod making requests on Flask
 
 Deploy the Java OKHTTP requests pod:
-```
-cd ~/apmworkshop/apm/k8s/java
-kubectl apply -f java-deployment.yaml
-```
+`kubectl apply -f java-deployment.yaml`
 
 -creates a Java OKHTTP requests pod making requests on Flask
 
