@@ -159,7 +159,7 @@ Take a look at the traces and their spans to see the manually added values of Me
 
 <img src="../assets/21-k8s-m-trace.png" width="360">  
 
-You will see the function called ExampleSpan. 
+You will see the function called ExampleSpan with custom `Logging` messages and a `message:myevent` span/tag.  
 
 <img src="../assets/22-k8s-m-span1.png" width="360"> 
 
