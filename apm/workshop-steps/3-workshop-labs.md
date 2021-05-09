@@ -1,6 +1,6 @@
 #### APM Instrumentation Workshop Labs 
 
-| Lab | Activity |
+| # | Lav |
 | - | - |
 | | **APM for Single Host Apps** |
 | [1](../python) | [Python (OpenTelemetry): Deploy Flask server and generate traces with Python requests client](../python)|
