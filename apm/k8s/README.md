@@ -51,12 +51,14 @@ splunk-otel-collector-1620504591        default         1               2021-05-
 The deployment name would be: `splunk-otel-collector-1620504591`  
 
 Update this deployment with the following:  
-`helm upgrade --reuse-values \
+```
+helm upgrade --reuse-values \
 --set splunkAccessToken=YOURTOKENHERE \
 --set fluentd.config.containers.logFormatType="cri" \
 --set fluentd.config.containers.criTimeFormat="%Y-%m-%dT%H:%M:%S.%NZ" \
 YOUROTELDEPLOYMENTHERE \ 
-splunk-otel-collector-chart/splunk-otel-collector` 
+splunk-otel-collector-chart/splunk-otel-collector
+``` 
 
 Replacing:
 YOURTOKENHERE with your token
