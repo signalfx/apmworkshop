@@ -47,4 +47,4 @@ Step 3: [Complete APM Workshop Labs](./workshop-steps/3-workshop-labs.md)
 Appendix: [Installing Multipass and k3s / Using tmux](./workshop-steps/4-appendix.md)
 
 Non Kubernetes container examples:  
-[AWS ECS EC2 and Fargate ](misc)
+[AWS ECS EC2/Fargate ](misc)
