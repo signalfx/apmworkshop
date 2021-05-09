@@ -9,6 +9,8 @@ Identify your token from the Splunk Observability Cloud Portal: `Organization Se
 If you have the OpenTelemetry Collector running on a host, remove it at this time:  
 `sudo sh /tmp/splunk-otel-collector.sh --uninstall`
 
+<img src="../assets/17-datasetup-k8s.png" width="360">  
+
 **Step 1:** Splunk Observability Cloud Portal: `Data Setup->Kubernetes->Add Connection`  
 Choose the following:
 | Key | Value |
@@ -23,6 +25,8 @@ Choose the following:
 And then select `Next`  
 
 `Install Integration` page: copy and paste each step to your shell. The final step will install the OpenTelemetry Collector pod.  
+
+<img src="../assets/18-datasetup-k8sinstall.png" width="360"> 
 
 A result will look like this:  
 ```
