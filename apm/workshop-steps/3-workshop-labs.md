@@ -1,15 +1,14 @@
 #### APM Instrumentation Workshop Labs 
 
-|Lab|Activity|
-|:---:|:--------|
-| [1](https://drive.google.com/file/d/1jc5VWL4jKMqAUgUxDnMcpB42LKAn8Bdm/view?usp=sharing) | :play_or_pause_button: **VIDEO:** [Full demonstration of Splunk APM](https://drive.google.com/file/d/1jc5VWL4jKMqAUgUxDnMcpB42LKAn8Bdm/view?usp=sharing) |
-||**APM: Apps on a single Hhost**|
-| [2](../python) | Single Host App: [Python (OpenTelemetry): Deploy Flask server and generate traces with Python requests client](../python)|
-| [3](../java) | Single Host App: [Java (OpenTelemetry): Generate traces from OKHTTP client](../java) |
-| [4](../node) | Single Host App: [Node: Generate traces from Node HTTP.get client](../node) |
-| [5](../dashboards/servicedashboard.md) | Check out the automatic [Service Dashboard](../dashboards/servicedashboard.md) for your apps |  
-| | **APM: Containerized apps on Kubernetes and Advanced Java APM Topics** |
-| [6](../k8s) | [APM for Containerized Apps on Kubernetes](../k8s): Python and Java examples / Manual Instrumentation / OpenTelemetry Collector |
+| # | Lab |
+| - | - |
+| | **APM for Single Host Apps** |
+| [1](../python) | [Python (OpenTelemetry): Deploy Flask server and generate traces with Python requests client](../python)|
+| [2](../java) | [Java (OpenTelemetry): Generate traces from OKHTTP client](../java) |
+| [3](../node) | [Node: Generate traces from Node HTTP.get client](../node) |
+| [4](../dashboards/servicedashboard.md) | Check out the automatic [Service Dashboard](../dashboards/servicedashboard.md) for your apps |  
+| | **APM for Containerized Apps on k8s and Advanced Java Topics** |
+| [5](../k8s) | [Deploy APM on k8s](../k8s): Python and Java examples / Manual Instrumentation / OpenTelemetry Collector |
 
 [Read the full Splunk APM guide on troubleshooting apps, dashboards, etc](https://docs.splunk.com/Observability/apm/apm.html)
 

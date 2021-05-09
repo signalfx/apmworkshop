@@ -6,7 +6,7 @@ Make sure that you still have the Python Flask server from Workshop Activity #2 
 
 Make sure you are in the right directory to start the node.js activities:  
 
-`cd ~/splunkobservability/apm/node`
+`cd ~/apmworkshop/apm/node`
 
 #### Step #2 Set up your node environment for APM
 
@@ -18,38 +18,17 @@ During `npm init` you can use all defaults
 
 #### Step #3 Set up environment and run the node app with HTTP.get requests
 
-`source setup-client.sh`    
-`node app.js`
+`source run-client.sh`    
 
 You will see requests printed to the window
 
-#### Step #4 Check SignalFx SmartAgent to see that spans are being sent
+#### Step #4 Check OpenTelemetry Collector Statistics to see that spans are being sent
 
 Open a new terminal window to your Linux instance (or use `tmux` and run in separate pane)
 
-`signalfx-agent status` will show the metrics and spans being sent by the agent like this:
+`lynx localhost:55679/debug/tracez` will show the metrics and spans being gathered and sent by the Collector.  
 
-```
-ubuntu@primary:~$ signalfx-agent status
-SignalFx Agent version:           5.5.1
-Agent uptime:                     1h31m32s
-Observers active:                 host
-Active Monitors:                  10
-Configured Monitors:              10
-Discovered Endpoint Count:        8
-Bad Monitor Config:               None
-Global Dimensions:                {host: primary}
-GlobalSpanTags:                   map[]
-Datapoints sent (last minute):    370
-Datapoints failed (last minute):  0
-Datapoints overwritten (total):   0
-Events Sent (last minute):        6
-Trace Spans Sent (last minute):   1083
-Trace Spans overwritten (total):  0
-```
-
-Notice **Trace Spans Sent (last minute):   1083**  
-This means spans are succssfully being sent to Splunk SignalFx.
+Lynx is a text browser that was installed during with the `setup-tools`. Enabling a web browser to access your environment will allow for a full web GUI.  
 
 #### Step #5 Traces / services will now be viewable in the APM dashboard
 
@@ -61,11 +40,15 @@ You should now see a Node requests service alongside the Python and Java ones.
 
 #### Step #6 Where is the auto-instrumentation?
 
-In `app.js` is a call to initiate an auto instrumenting tracer from npm package `signalfx-tracing`
+For Node.js, the current auto-instrumentation is based on OpenTracing from Splunk SignalFx. These spans are accepted by the OpenTelmetry Collector.
+
+In `app.js` is a call to initiate an auto-instrumenting tracer from npm package `signalfx-tracing`
 
 `const tracer = require('signalfx-tracing').init()`
 
 This auto-instrumenting tracer must be added to the top of a Node app however no code changes are necessary.  
+
+You can see in the `run-client.sh` how the environment has been set up for OpenTelemtry.
 
 Splunk's autoinstrumentation for node.js is here: https://github.com/signalfx/signalfx-nodejs-tracing
 

@@ -1,0 +1,4 @@
+splunk-opentelemetry
+flask
+requests
+redis

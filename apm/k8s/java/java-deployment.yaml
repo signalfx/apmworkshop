@@ -1,14 +1,11 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: java-manual-inst-k8s
+  name: client-java-otel-k8s
 spec:
   containers:
-  - name: java-manual-inst-k8s
-    image: 'docker.io/stevelsplunk/splk-java:latest'
-    ports:
-      - name: http
-        containerPort: 3000
+  - name: client-java-otel-k8s
+    image: docker.io/stevelsplunk/splk-java
     env:
     - name: SPLUNK_OTEL_AGENT
       valueFrom:
@@ -17,6 +14,6 @@ spec:
     - name: OTEL_EXPORTER_JAEGER_ENDPOINT
       value: http://$(SPLUNK_OTEL_AGENT):9080/v1/trace
     - name: OTEL_RESOURCE_ATTRIBUTES
-      value: service.name=java-otel-manual-inst,deployment.environment=apm-workshop
+      value: 'service.name=client-java-otel-k8s,deployment.environment=apm-workshop'
     command: ["/bin/sh"]
-    args: ["./manual-inst/run-java-manual-inst-k8s.sh"]
+    args: ["run-client.sh"]

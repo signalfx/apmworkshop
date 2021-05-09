@@ -1,0 +1,3 @@
+splunk-opentelemetry
+flask
+requests
