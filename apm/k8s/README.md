@@ -134,9 +134,21 @@ The Collector pod is running with <ins>node wide visibility</ins>, so to tell ea
 Note the pod name of the `OpenTelemetry Collector` pod i.e.:  
 `splunk-otel-collector-1620505665-agent-sw45w`
 
+Send the Zpages stats to the lynx browser:  
+`kubectl exec -it YOURAGENTPODHERE -- curl localhost:55679/debug/tracez | lynx -stdin`  
+i.e.
+`kubectl exec -it splunk-otel-collector-1620505665-agent-sw45w -- curl localhost:55679/debug/tracez | lynx -stdin`
+
+
+
 ## Advanced Java Exercises
 
 ### Exercise 6: Monitor JVM etrics for a Java container
+
+JVM metrics are now included with the Splunk OpenTelemetry instrumentation however examples are not yet ready.  
+Preview data is here: https://github.com/signalfx/splunk-otel-java/blob/main/docs/metrics.md#jvm  
+
+Remote JMX metrics are also available via this monitor:  https://docs.splunk.com/Observability/gdi/genericjmx/genericjmx.html  
 
 ### Exercise 7:  Manually instrument a Java app and add custom tags
 
@@ -177,17 +189,14 @@ Note that this is the most minimal example of manual instrumentation- there is a
 
 To delete all k8s lab work:  
 in `~/apmworkshop/apm/k8s/`  
-`source delete-all-k8s.sh`
+`source delete-all-k8s.sh`  
 
-To delete the Collector from k8s:
-
+To delete the Collector from k8s:  
 `helm list`  
 `helm delete YOURCOLLECTORHERE`
 i.e. `helm delete splunk-otel-collector-1620505665`  
 
-
-k3s:
-`/usr/local/bin/k3s-uninstall.sh`
+k3s: `/usr/local/bin/k3s-uninstall.sh`  
 
 This is the last lab of the [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)
 

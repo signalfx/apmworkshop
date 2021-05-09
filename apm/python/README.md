@@ -34,6 +34,8 @@ Open a new terminal window to your Linux instance (or use `tmux` and run in sepa
 
 Lynx is a text browser that was installed during with the `setup-tools`. Enabling a web browser to access your environment will allow for a full web GUI.  
 
+<img src="../assets/06-zpages.png" width="360"> 
+
 #### Step #4 Traces / services will now be viewable in the APM dashboard
 
 A new service takes about 90 seconds to register for the first time, and then all data will be available in real time.  

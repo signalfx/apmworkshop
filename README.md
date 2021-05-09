@@ -1,6 +1,4 @@
-## Splunk Observability Microservices APM Instrumentation Workshops
-
-## 5/8/21 Under Construction
+## Splunk Observability Cloud: APM Instrumentation Workshop
 
 ### Start Here: [APM Instrumentation Workshop](./apm)  
 * Labs for instrumenting applications with OpenTelemetry APM
