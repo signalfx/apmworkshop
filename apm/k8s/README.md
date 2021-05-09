@@ -1,6 +1,6 @@
 ## APM For Kubernetes and Advanced Java Examples
 
-### K8S Prep
+### k8s Prep
 
 Identify your token from the Splunk Observability Cloud Portal: `Organization Settings->Access Tokens`
 
@@ -11,7 +11,7 @@ If you have the OpenTelemetry Collector running on a host, remove it at this tim
 
 <img src="../assets/17-datasetup-k8s.png" width="360">  
 
-**Step 1:** Splunk Observability Cloud Portal: `Data Setup->Kubernetes->Add Connection`  
+**Step 1: Splunk Observability Cloud Portal: `Data Setup->Kubernetes->Add Connection`**  
 Choose the following:
 | Key | Value |
 | ----- | ---- |
@@ -46,8 +46,7 @@ export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
 ```
 
-**Step 2:**
-Update k3s for Splunk Log Observer:  
+**Step 2: Update k3s for Splunk Log Observer:**  
 k3s has a different format that standard k8s for logging and we need to update our deployment for this.  
 You'll need the Collector deployment from the Data Setup Wizard install.  
 
