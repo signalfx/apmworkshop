@@ -127,7 +127,7 @@ The Collector pod is running with <ins>node wide visibility</ins>, so to tell ea
   value: http://$(SPLUNK_OTEL_AGENT):9080/v1/trace
 ```
 
-### Exercise 5: TBD View trace spans flowing in the Collector  
+### Exercise 5: View Collector POD stats 
 
 `kubectl get pods`
 
