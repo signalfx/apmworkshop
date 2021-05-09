@@ -36,7 +36,7 @@ You should now see a Node requests service alongside the Python and Java ones.
 
 <img src="../assets/16-nodespans.png" width="360">  
 
-#### Step #6 Where is the auto-instrumentation?
+#### Step #5 Where is the auto-instrumentation?
 
 For Node.js, the current auto-instrumentation is based on OpenTracing from Splunk SignalFx. These spans are accepted by the OpenTelmetry Collector.
 
