@@ -6,6 +6,9 @@ Identify your token from the Splunk Observability Cloud Portal: `Organization Se
 
 ### Exercise 1: Use the Data Setup Wizard to set up a Splunk OpenTelemetry Collector pod on the k3s cluster
 
+If you have the OpenTelemetry Collector running on a host, remove it at this time:  
+`sudo sh /tmp/splunk-otel-collector.sh --uninstall`
+
 **Step 1:** Splunk Observability Cloud Portal: `Data Setup->Kubernetes->Add Connection`  
 Choose the following:
 | Key | Value |
