@@ -17,6 +17,6 @@ spec:
     - name: OTEL_EXPORTER_JAEGER_ENDPOINT
       value: http://$(SPLUNK_OTEL_AGENT):9080/v1/trace
     - name: OTEL_RESOURCE_ATTRIBUTES
-      value: service.name=java-otel-manual-inst,deployment.environment:apm-workshop
+      value: service.name=java-otel-manual-inst,deployment.environment=apm-workshop
     command: ["/bin/sh"]
     args: ["./manual-inst/run-java-manual-inst-k8s.sh"]
