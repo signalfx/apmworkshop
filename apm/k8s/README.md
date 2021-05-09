@@ -103,14 +103,14 @@ Deploy the Java OKHTTP requests pod:
 The APM Dashboard will show the instrumented Python-Requests and Java OKHTTP clients posting to the Flask Server.  
 Make sure you select the `apm-workshop` ENVIRONMENT to monitor.
 
-<img src="../../../assets/k8s1.png" width="360">  
+<img src="../assets/19-k8s-apm.png" width="360">  
 
 ### Exercise 4: Study the `deployment.yaml` files
 
 Example in Github or:  
 ```
-more ~/apmworkshop/apm/k8s/python/py-deployment.yaml   
-more ~/apmworkshop/apm/k8s/java/java-deployment.yaml   
+more ~/apmworkshop/apm/k8s/py-deployment.yaml   
+more ~/apmworkshop/apm/k8s/java-deployment.yaml   
 ```
 The .yaml files show the environment variables telling the instrumentation to send spans to the OpenTelemetry Collector.
 
@@ -127,7 +127,8 @@ The Collector pod is running with <ins>node wide visibility</ins>, so to tell ea
   value: http://$(SPLUNK_OTEL_AGENT):9080/v1/trace
 ```
 
-### Exercise 5: View trace spans flowing in the Collector
+### Exercise 5: TBD View trace spans flowing in the Collector  
+
 `kubectl get pods`
 
 Note the pod name of the `OpenTelemetry Collector` pod i.e.:  
@@ -152,15 +153,17 @@ Deploy an app with ONLY manual instrumentation:
 
 When this app deploys, it appears as an isolated bubble in the map. It has all metrics and tracing just like an auto-instrumented app does. 
 
-<img src="../../../assets/manual1.png" width="360"> 
+<img src="../assets/20-k8s-manual.png" width="360">  
 
-To see your manually instrumented function you need to select the Breakdown menu and break down the spans by Operation. 
+Take a look at the traces and their spans to see the manually added values of Message, Logs etc.
 
-<img src="../../../assets/manual2.png" width="360"> 
+<img src="../assets/21-k8s-m-trace-png" width="360">  
 
 You will see the function called ExampleSpan. 
 
-<img src="../../../assets/manual3.png" width="360"> 
+<img src="../assets/22-k8s-m-span1" width="360"> 
+
+<img src="../assets/23-k8s-m-span2" width="360"> 
 
 Study the [manual instrumentation code example here.](https://github.com/signalfx/apmworkshop/blob/master/apm/k8s/java/manual-inst/src/main/java/sf/main/GetExample.java)
 
