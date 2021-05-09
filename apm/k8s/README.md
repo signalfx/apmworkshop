@@ -139,7 +139,7 @@ Send the Zpages stats to the lynx browser:
 i.e.
 `kubectl exec -it splunk-otel-collector-1620505665-agent-sw45w -- curl localhost:55679/debug/tracez | lynx -stdin`
 
-
+<img src="../assets/06-zpages.png" width="360"> 
 
 ## Advanced Java Exercises
 
