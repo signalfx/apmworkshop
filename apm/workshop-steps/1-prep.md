@@ -68,7 +68,7 @@ To manage multipass VM:
 **#4 Install Lab Software On Ubuntu VM**
 
 A bootstrap script will install everything needed and clone this repo.  
-This will take up to 15 minutes to execute- leave it running until complete.  
+This will take up to 10 minutes to execute- leave it running until complete.  
 
 **From your command line (not logged into the Multipass "primary" VM):**  
 
@@ -91,15 +91,11 @@ Windows:
 
 2. Application spans will be sent to the OpenTelemetry Collector running on a host or k8s pod to correlate APM with host metrics. The Collector then relays the spans to Splunk Observability Cloud APM where they will be assembled into traces.  
 
-3. The APM spans flow in real time and there is no sampling.  
+3. The APM spans flow in real time and there is no sampling. Pre-made default Service Dashboards with application metrics for each app will appear once spans are received by Splunk APM. The APM view has directed troubleshooting.  
 
-4. Pre-made default Service Dashboards for APM will appear once spans are received by Splunk APM. The APM view has directed troubleshooting.  
-
-5. Environment variables: control the setup of APM. These names vary based on instrumentation but they always include two:  
-**Endpoint**: destination to send spans
-**Service name**: the name of the application as you want it to appear in a service map
-
-Additionally for Splunk APM, there is:
+4. Environment variables: control the setup of APM. These names vary based on instrumentation but they always include two:  
+**Endpoint**: destination to send spans  
+**Service name**: the name of the application as you want it to appear in a service map  
 **Environment**: a value for segmenting betwen dev/prod etc. Can be set with instrumentation and not necessarily as part of an ENV variable.
 
 [Return to workshop for next step](../README.md)

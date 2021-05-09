@@ -1,7 +1,7 @@
 #### APM Instrumentation Workshop Labs 
 
-|Lab|Activity|
-||**APM: Apps on a single Hhost**|
+| Lab | Activity |
+| | **APM: Apps on a single Hhost** |
 | [1](../python) | [Python (OpenTelemetry): Deploy Flask server and generate traces with Python requests client](../python)|
 | [2](../java) | [Java (OpenTelemetry): Generate traces from OKHTTP client](../java) |
 | [3](../node) | [Node: Generate traces from Node HTTP.get client](../node) |
