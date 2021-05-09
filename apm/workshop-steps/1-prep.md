@@ -82,7 +82,8 @@ Windows:
 
 ### Prep Step 3: Review KEY SPLUNK APM CONCEPTS
 
-1. There are two moving parts to OpenTelemetry APM:    
+1. There are two moving parts to OpenTelemetry APM:   
+ 
    **Application Spans:**  
    OpenTelemetry instrumentation causes spans to be emitted by your applications. OpenTelmetry auto-instrumentation (no code changes) for most languages is availabile but you can use any framework/library that emits spans in formats zipkin, OpenTracing, or [OpenTelemetry](https://opentelemtry.io). The spans are received by an OpenTelemetry Collector which both doubles as an infrastructure metrics collection agent and a telemetry processor. The Collector then forwards all telemetry (metrics/traces/logs) to Splunk Observability Cloud.  
     
