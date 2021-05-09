@@ -12,7 +12,7 @@ This workshop has a [guide](./workshop-steps/1-prep.md) on how to set up an Ubun
 
 You can use any Ubuntu or Debian environment and any Kubernetes cluster for the workshop by using the included setup tools.  
 
-### Document Conventions
+#### Document Conventions
 
 Variables from your Splunk Observability account are displayed like this: YOURVARIABLEHERE.   
 I.e. to change your REALM to `us1` change `api.YOURREALMHERE.signalfx.com` to `api.us1.signalfx.com`  
@@ -23,7 +23,7 @@ k8s = Kubernetes
 k3s = a lightweight Kubernetes from Rancher (https://www.k3s.io)
 signalfx = Splunk Observability domain name/endpoint/technology name
 
-### Workshop Summary
+#### Workshop Summary
 
 1. Install Splunk OpenTelemetry Collector Agent on a host
 2. Run APM with host based apps (Java, Python, and Node.js examples) using OpenTelemetry / OpenTracing app instrumentation
