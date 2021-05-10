@@ -7,7 +7,7 @@ otelAgent:
     processors:
       attributes/update:
         actions:
-          - key: user.id
+          - key: my.key
             value: redacted
             action: update
     service:
