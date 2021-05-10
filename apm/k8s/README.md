@@ -166,11 +166,11 @@ i.e.
 
 <img src="../assets/06-zpages.png" width="360"> 
 
-## Advanced Java Exercises
-
 ***
 
-### Exercise 6: Monitor JVM etrics for a Java container (coming soon)
+## Advanced APM Topics: Manual instrumenation, span processing, JVM monitoring
+
+### Exercise 6: Monitor JVM metrics for a Java container (coming soon)
 
 JVM metrics are now included with the Splunk OpenTelemetry instrumentation however examples are not yet ready.  
 Preview data is here: https://github.com/signalfx/splunk-otel-java/blob/main/docs/metrics.md#jvm  
