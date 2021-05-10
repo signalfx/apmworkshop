@@ -185,6 +185,8 @@ Note that this is the most minimal example of manual instrumentation- there is a
 
 ### Exercise 8: Process Spans with the OpenTelemetry Collector
 
+COMING SOON  
+
 ### Clean up deployments and services
 
 To delete all k8s lab work:  
