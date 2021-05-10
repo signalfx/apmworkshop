@@ -2,10 +2,12 @@
 
 ### k8s Prep
 
-Identify your token and realm from the Splunk Observability Cloud Portal: 
+Identify your token and realm from the Splunk Observability Cloud Portal:   
 `Organization Settings->Access Tokens` and `Your Name->Account Settings`  
 
-If you are running this on your own k8s cluster, make sure you have `helm` and `lynx` installed.  
+If using your own cluster, make sure you have `helm` and `lynx` installed.  
+
+***
 
 ### Exercise 1: Use the Data Setup Wizard to set up a Splunk OpenTelemetry Collector pod on the k3s cluster
 
@@ -94,11 +96,13 @@ splunk-otel-collector-chart/splunk-otel-collector
 i.e.
 
 ```
-helm install \
+helm upgrade \
 splunk-otel-collector-1620609739 \
 --values k3slogs.yaml \
 splunk-otel-collector-chart/splunk-otel-collector
 ```
+
+***
 
 ### Exercise 2: Deploy APM for containerized apps: Python and Java
 
@@ -113,6 +117,7 @@ kubectl apply -f py-deployment.yaml
 Deploy the Java OKHTTP requests pod (makes requests of Flask server):  
 `kubectl apply -f java-deployment.yaml`
 
+***
 
 ### Exercise 3: Study the results
 
@@ -120,6 +125,8 @@ The APM Dashboard will show the instrumented Python-Requests and Java OKHTTP cli
 Make sure you select the `apm-workshop` ENVIRONMENT to monitor.
 
 <img src="../assets/19-k8s-apm.png" width="360">  
+
+***
 
 ### Exercise 4: Study the `deployment.yaml` files
 
@@ -143,6 +150,8 @@ The Collector pod is running with <ins>node wide visibility</ins>, so to tell ea
   value: http://$(SPLUNK_OTEL_AGENT):9080/v1/trace
 ```
 
+***
+
 ### Exercise 5: View Collector POD stats 
 
 `kubectl get pods`
@@ -157,14 +166,18 @@ i.e.
 
 <img src="../assets/06-zpages.png" width="360"> 
 
-## Advanced Java Exercises
+***
 
-### Exercise 6: Monitor JVM etrics for a Java container (coming soon)
+## Advanced APM Topics: Manual instrumenation, span processing, JVM monitoring
+
+### Exercise 6: Monitor JVM metrics for a Java container (coming soon)
 
 JVM metrics are now included with the Splunk OpenTelemetry instrumentation however examples are not yet ready.  
 Preview data is here: https://github.com/signalfx/splunk-otel-java/blob/main/docs/metrics.md#jvm  
 
 Remote JMX metrics are also available via this monitor:  https://docs.splunk.com/Observability/gdi/genericjmx/genericjmx.html  
+
+***
 
 ### Exercise 7:  Manually instrument a Java app and add custom tags
 
@@ -199,9 +212,13 @@ There are two methods shown- the decorator @WithSpan method (easiest), and using
 
 Note that this is the most minimal example of manual instrumentation- there is a vast amount of power available in OpenTelemetry- please see [the documentation](https://github.com/open-telemetry/opentelemetry-java-instrumentation) and [in depth details](https://github.com/open-telemetry/opentelemetry-java/blob/master/QUICKSTART.md#tracing)
 
+***
+
 ### Exercise 8: Process Spans with the OpenTelemetry Collector
 
 See [Processing Spans](./collectorconfig/README.md)  
+
+***
 
 ### Clean up deployments and services
 
@@ -215,6 +232,8 @@ To delete the Collector from k8s:
 i.e. `helm delete splunk-otel-collector-1620505665`  
 
 k3s: `/usr/local/bin/k3s-uninstall.sh`  
+
+---
 
 This is the last lab of the [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)
 
