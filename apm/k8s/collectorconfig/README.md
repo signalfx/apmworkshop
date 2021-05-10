@@ -2,11 +2,13 @@
 
 The OpenTelemetry Collector has many powerful configuration options ranging from splitting telemetry to multiple destinations to sampling to span processing.  
 
-Full documentation is here: https://github.com/signalfx/splunk-otel-collector  
+Processor documentation: https://github.com/open-telemetry/opentelemetry-collector/tree/main/processor  
 
-Examples are here: https://github.com/signalfx/splunk-otel-collector-chart/tree/main/examples  
+Collector config examples: https://github.com/signalfx/splunk-otel-collector-chart/tree/main/examples  
 
-This example will show how to process/update a span by replacing a custom value with "redacted".
+Full documentation: https://github.com/signalfx/splunk-otel-collector  
+
+This example will show how to process/update a span by replacing a custom value with "redacted".   
 
 **Step 1: Prepare values for Collector update**  
 
@@ -46,7 +48,12 @@ splunk-otel-collector-chart/splunk-otel-collector
 
 `Splunk Observability Portal -> APM -> Explore -> java-otel-manual-inst -> Traces`
 
+:play_or_pause_button: [**VIDEO: finding a single trace**](../../assets/26-find-span.mp4)
+
 Example `my.key` and you'll see that the value is `redacted` 
+
+<img src="../../assets/25-span-redacted.png" width="360">  
+
 
 If you want to make changes and update the `spanprocessor.yaml` or any values file, use:  
 `helm upgrade --resuse-values` when re-applying i.e.  
@@ -57,3 +64,5 @@ helm upgrade \
 --values spanprocessor.yaml \
 splunk-otel-collector-chart/splunk-otel-collector
 ```
+
+[Click here to return to k8s APM lab](../README.md)

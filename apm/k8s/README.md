@@ -185,7 +185,7 @@ Note that this is the most minimal example of manual instrumentation- there is a
 
 ### Exercise 8: Process Spans with the OpenTelemetry Collector
 
-COMING SOON  
+See [Processing Spans](./collectorconfig/README.md)  
 
 ### Clean up deployments and services
 
