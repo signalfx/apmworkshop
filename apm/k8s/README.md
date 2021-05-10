@@ -2,10 +2,10 @@
 
 ### k8s Prep
 
-Identify your token and realm from the Splunk Observability Cloud Portal: 
+Identify your token and realm from the Splunk Observability Cloud Portal:   
 `Organization Settings->Access Tokens` and `Your Name->Account Settings`  
 
-If you are running this on your own k8s cluster, make sure you have `helm` and `lynx` installed.  
+If using your own cluster, make sure you have `helm` and `lynx` installed.  
 
 ***
 
