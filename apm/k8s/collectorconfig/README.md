@@ -15,7 +15,8 @@ This example will show how to process/update a span by replacing a custom value 
 `helm list`  
 
 `helm get values NAME`  
-i.e. helm get values splunk-otel-collector-1620609739
+
+i.e. `helm get values splunk-otel-collector-1620609739`
 
 make note of:
 `clusterNAME`
