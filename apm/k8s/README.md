@@ -69,9 +69,9 @@ YOUROTELDEPLOYMENTHERE \
 splunk-otel-collector-chart/splunk-otel-collector
 ``` 
 
-Replacing:
-YOURTOKENHERE with your token
-YOUROTELDEPLOYMENTHERE with the deployment from step 1
+Replacing:  
+`YOURTOKENHERE` with your token  
+`YOUROTELDEPLOYMENTHERE` with the deployment from step 1  
 
 i.e.:
 
