@@ -67,7 +67,7 @@ Update this deployment with the following:
 helm upgrade --reuse-values \
 --set splunkAccessToken=YOURTOKENHERE \
 --set fluentd.config.containers.logFormatType="cri" \
---set fluentd.config.containers.criTimeFormat="%Y-%m-%dT%H:%M:%S.%Nz" \
+--set fluentd.config.containers.criTimeFormat="%Y-%m-%dT%H:%M:%S.%NZ" \
 YOUROTELDEPLOYMENTHERE \ 
 splunk-otel-collector-chart/splunk-otel-collector
 ``` 
@@ -82,7 +82,7 @@ i.e.:
 helm upgrade --reuse-values \  
 --set splunkAccessToken=s9s9d887e7f667w8d9s8a \  
 --set fluentd.config.containers.logFormatType="cri" \  
---set fluentd.config.containers.criTimeFormat="%Y-%m-%dT%H:%M:%S.%Nz" \  
+--set fluentd.config.containers.criTimeFormat="%Y-%m-%dT%H:%M:%S.%NZ" \  
 splunk-otel-collector-1620504591 \   
 splunk-otel-collector-chart/splunk-otel-collector
 ```
