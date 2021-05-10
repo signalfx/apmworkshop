@@ -47,6 +47,8 @@ sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 ```
 
 **Step 2: Update k3s for Splunk Log Observer:**  
+
+<ins>Skip this step if you are using your own k8s (non k3s) cluster.</ins>
 k3s has a different format that standard k8s for logging and we need to update our deployment for this.  
 You'll need the Collector deployment from the Data Setup Wizard install.  
 
