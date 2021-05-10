@@ -4,19 +4,21 @@
 
 Check your [Splunk Observability Account](https://app.us1.signalfx.com/o11y/#/home) (your welcome email has this link) and identify your TOKEN and REALM- these are available in the profile menu in your Splunk Observability account. Note that the realm component i.e. `us1` may be different for your account based on how you signed up.
 
-How to find realm:  
-<img src="../../../assets/org.png" width="360" />  
+How to find realm:
+
+`Splunk Observability Menu -> Your Name -> Account Settings`    
+
+<img src="../assets/01-realm.png" width="360" />  
 
 How to find token:  
-<img src="../../../assets/token.png" width="360" />  
+<img src="../assets/02-token.png" width="360" />  
 
 
 ### Prep Step 2: Create Lab Environment  
 
 Splunk infra monitoring and APM are made for **server environments**.    
 
-This workshop uses **Ubuntu Linux** as the server environment.  
-
+This workshop uses **Ubuntu Linux** as the server environment.    
 You can use any Ubuntu platform- bare metal, VM, or cloud VM.
 
 #### To create a Linux environment on a Mac or PC and install the necessary software components:

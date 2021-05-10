@@ -1,4 +1,0 @@
-monitors:
-  - type: collectd/genericjmx
-    host: k8s-java-reqs-client-otel 
-    port: 3000

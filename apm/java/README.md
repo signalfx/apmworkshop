@@ -27,15 +27,13 @@ You can use `ctrl-c` to stop the requests and server any time.
 
 You should now see a new Java requests service alongside the Python one.
 
-#### Step #5 Check OpenTelemetry Collector Statistics to see that spans are being sent
+<img src="../assets/11-java.png" width="360">  
 
-Open a new terminal window to your Linux instance (or use `tmux` and run in separate pane)
+<img src="../assets/12-javatraces.png" width="360">  
 
-`lynx localhost:55679/debug/tracez` will show the metrics and spans being gathered and sent by the Collector.  
+<img src="../assets/13-javaspans.png" width="360">  
 
-Lynx is a text browser that was installed during with the `setup-tools`. Enabling a web browser to access your environment will allow for a full web GUI.  
-
-#### Step #6 Where is the auto-instrumentation?
+#### Step #5 Where is the auto-instrumentation?
 
 In the `run-client.sh` script is the java command:
 
@@ -51,8 +49,6 @@ java \
 The `splunk-otel-javaagent.jar` file is the automatic OpenTelemetry instrumentation that will emit spans from the app. No code changes are necessary.
 
 The `otel.` resources set up the service name, environment, and destination to send the spans.  
-
-Splunk Observability Cloud has a `Getting Data In` Wizard to guide through instrumentation setup.  
 
 Splunk's OpenTelmetry autoinstrumentation for Java is here: https://github.com/signalfx/splunk-otel-java
 

@@ -22,15 +22,7 @@ During `npm init` you can use all defaults
 
 You will see requests printed to the window
 
-#### Step #4 Check OpenTelemetry Collector Statistics to see that spans are being sent
-
-Open a new terminal window to your Linux instance (or use `tmux` and run in separate pane)
-
-`lynx localhost:55679/debug/tracez` will show the metrics and spans being gathered and sent by the Collector.  
-
-Lynx is a text browser that was installed during with the `setup-tools`. Enabling a web browser to access your environment will allow for a full web GUI.  
-
-#### Step #5 Traces / services will now be viewable in the APM dashboard
+#### Step #4 Traces / services will now be viewable in the APM dashboard
 
 A new service takes about 90 seconds to register for the first time, and then all data will be available in real time.
 Additionally span IDs will print in the terminal where flask-server.py is running.
@@ -38,7 +30,13 @@ You can use `ctrl-c` to stop the requests and server any time.
 
 You should now see a Node requests service alongside the Python and Java ones.  
 
-#### Step #6 Where is the auto-instrumentation?
+<img src="../assets/14-node.png" width="360">  
+
+<img src="../assets/15-nodetraces.png" width="360">  
+
+<img src="../assets/16-nodespans.png" width="360">  
+
+#### Step #5 Where is the auto-instrumentation?
 
 For Node.js, the current auto-instrumentation is based on OpenTracing from Splunk SignalFx. These spans are accepted by the OpenTelmetry Collector.
 

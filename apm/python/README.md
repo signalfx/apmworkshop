@@ -16,7 +16,7 @@ You will see the server startup text when this is run.
 
 #### Step #2 Run the client python app via the `splk-py-trace` command to send requests to the Flask server
 
-Open a new terminal window to your Linux instance, set up environment variables, and run the `python-requests.py` client to sent POST requests to the Flask server (or use `tmux` and run in separate pane)
+Open a new terminal window to your Linux instance and run the Python client to sent POST requests to the Flask server (or use `tmux` and run in separate pane)
 
 ```
 cd ~/apmworkshop/apm/python
@@ -34,34 +34,30 @@ Open a new terminal window to your Linux instance (or use `tmux` and run in sepa
 
 Lynx is a text browser that was installed during with the `setup-tools`. Enabling a web browser to access your environment will allow for a full web GUI.  
 
+<img src="../assets/06-zpages.png" width="360"> 
+
 #### Step #4 Traces / services will now be viewable in the APM dashboard
 
-A new service takes about 90 seconds to register for the first time, and then all data will be available in real time.
-Additionally span IDs will print in the terminal where flask-server.py is running.
-You can use `ctrl-c` to stop the requests and server any time.
+A new service takes about 90 seconds to register for the first time, and then all data will be available in real time.  
+Additionally span IDs will print in the terminal where flask-server.py is running.  
+You can use `ctrl-c` to stop the requests and server any time.  
 
-Try out the uAPM, troubleshooting, and trace views as shown below.
+Navigate to `Splunk Overvability -> APM`  
+
+<img src="../assets/07-apm.png" width="360"> 
 
 Service map of this python demo  
 
-<img src="../../../assets/vlcsnap-00001.png" width="360"> 
+<img src="../assets/08-python.png" width="360"> 
 
-Service dashboard shows application metrics and host correlation (keep scrolling down this dashboard to see more)
+Click in the service dashboard requests and show sample traces, and then click the trace to see spans 
 
-<img src="../../../assets/vlcsnap-00002.png" width="360">  
-<img src="../../../assets/vlcsnap-00003.png" width="360">  
+<img src="../assets/09-pythontraces.png" width="360">  
+<img src="../assets/10-pythonspans.png" width="360">  
 
 Click on Troubleshooting to see the map with latency, errors, etc  
 
-<img src="../../../assets/vlcsnap-00005.png" width="360"> 
-
-Click on the Requests and Errors box on right, directly onto the purple Requests graph and you'll be able to see traces- select a trace to see spans
-
-<img src="../../../assets/vlcsnap-00004.png" width="360"> 
-
-In the trace view you can click on spans to see more info and their tags, and sort spans by using Span Performance
-
-<img src="../../../assets/vlcsnap-00006.png" width="360"> 
+Try the Tag Spotlight view of Span Tags  
 
 #### Step #5 Where is the auto-instrumentation?
 
@@ -73,7 +69,17 @@ Splunk Observability Cloud has a `Getting Data In` Wizard to guide through instr
 
 OpenTelemetry repo for python is here: https://github.com/signalfx/splunk-otel-python
 
-#### Step #6 Leave the Flask server running
+#### Step #6 Check OpenTelemetry Collector Statistics to see that spans are being sent
+
+Open a new terminal window to your Linux instance (or use `tmux` and run in separate pane)
+
+`lynx localhost:55679/debug/tracez` will show the metrics and spans being gathered and sent by the Collector.  
+
+Lynx is a text browser that was installed during with the `setup-tools`. Enabling a web browser to access your environment will allow for a full web GUI.  
+
+<img src="../assets/06-zpages.png" width="360">  
+
+#### Step #7 Leave the Flask server running
 
 You'll need need this process for the next client examples in the workshop.  
 
