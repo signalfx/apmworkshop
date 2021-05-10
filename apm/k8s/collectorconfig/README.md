@@ -47,3 +47,13 @@ splunk-otel-collector-chart/splunk-otel-collector
 `Splunk Observability Portal -> APM -> Explore -> java-otel-manual-inst -> Traces`
 
 Example `my.key` and you'll see that the value is `redacted` 
+
+If you want to make changes and update the `spanprocessor.yaml` or any values file, use:  
+`helm upgrade --resuse-values` when re-applying i.e.  
+
+```
+helm upgrade \
+--reuse-values splunk-otel-collector-1620655507 \
+--values spanprocessor.yaml \
+splunk-otel-collector-chart/splunk-otel-collector
+```
