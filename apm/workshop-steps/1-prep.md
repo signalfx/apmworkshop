@@ -14,14 +14,19 @@ How to find token:
 <img src="../assets/02-token.png" width="360" />  
 
 
-### Prep Step 2: Create Lab Environment  
+### Prep Step 2: Choose/ Create Lab Environment  
 
-Splunk infra monitoring and APM are made for **server environments**.    
+Splunk Observability is for **server environments**.    
 
 This workshop uses **Ubuntu Linux** as the server environment.    
 You can use any Ubuntu platform- bare metal, VM, or cloud VM.
 
-#### To create a Linux environment on a Mac or PC and install the necessary software components:
+You can choose an existing Ubuntu machine that you have or create or you can follow our guide below to make an Ubuntu VM on your Mac / Windows PC.  
+If you chose your own Ubuntu machine, you can set it up with the Workshop software with this command: 
+
+`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/ubuntu.sh)`
+
+#### Guide: Create an Ubuntu Linux environment on a Mac or PC and install the necessary software components:
 
 ##### <ins>Mac</ins>
 
