@@ -69,17 +69,8 @@ Splunk Observability Cloud has a `Getting Data In` Wizard to guide through instr
 
 OpenTelemetry repo for python is here: https://github.com/signalfx/splunk-otel-python
 
-#### Step #6 Check OpenTelemetry Collector Statistics to see that spans are being sent
 
-Open a new terminal window to your Linux instance (or use `tmux` and run in separate pane)
-
-`lynx localhost:55679/debug/tracez` will show the metrics and spans being gathered and sent by the Collector.  
-
-Lynx is a text browser that was installed during with the `setup-tools`. Enabling a web browser to access your environment will allow for a full web GUI.  
-
-<img src="../assets/06-zpages.png" width="360">  
-
-#### Step #7 Leave the Flask server running
+#### Step #6 Leave the Flask server running
 
 You'll need need this process for the next client examples in the workshop.  
 
