@@ -65,7 +65,7 @@ The deployment name would be: `splunk-otel-collector-1620504591`
 
 i.e. `helm get values splunk-otel-collector-1620609739`
 
-make note of:
+make note of:  
 `clusterNAME`  
 `splunkAccessToken`  
 `splunkRealm`  
