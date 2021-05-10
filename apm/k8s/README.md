@@ -2,7 +2,9 @@
 
 ### k8s Prep
 
-Identify your token from the Splunk Observability Cloud Portal: `Organization Settings->Access Tokens`
+Identify your token and realm from the Splunk Observability Cloud Portal: `Organization Settings->Access Tokens` and `Your Name->Account Settings`  
+
+If you are running this on your own k8s cluster, make sure you have `helm` and `lynx` installed.  
 
 ### Exercise 1: Use the Data Setup Wizard to set up a Splunk OpenTelemetry Collector pod on the k3s cluster
 
