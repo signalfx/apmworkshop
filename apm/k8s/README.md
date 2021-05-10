@@ -62,28 +62,40 @@ splunk-otel-collector-1620504591        default         1               2021-05-
 ```
 The deployment name would be: `splunk-otel-collector-1620504591`  
 
-Update this deployment with the following:  
+**Prepare values for Collector update**  
+
+`helm list`  
+
+`helm get values NAME`  
+
+i.e. `helm get values splunk-otel-collector-1620609739`
+
+make note of:  
+`clusterNAME`  
+`splunkAccessToken`  
+`splunkRealm`  
+
+**Prepare values.yaml file for updating the Helm chart**  
+
+Edit `k3slogs.yaml` with thes values above.
+
+**Update the Collector** 
+
+Install the Collector configuration chart:  
+
 ```
-helm upgrade --reuse-values \
---set splunkAccessToken=YOURTOKENHERE \
---set fluentd.config.containers.logFormatType="cri" \
---set fluentd.config.containers.criTimeFormat="%Y-%m-%dT%H:%M:%S.%NZ" \
-YOUROTELDEPLOYMENTHERE \ 
+helm upgrade \
+YOURCOLLECTORHERE \
+--values k3slogs.yaml \
 splunk-otel-collector-chart/splunk-otel-collector
-``` 
+```
 
-Replacing:  
-`YOURTOKENHERE` with your token  
-`YOUROTELDEPLOYMENTHERE` with the deployment from step 1  
-
-i.e.:
+i.e.
 
 ```
-helm upgrade --reuse-values \  
---set splunkAccessToken=s9s9d887e7f667w8d9s8a \  
---set fluentd.config.containers.logFormatType="cri" \  
---set fluentd.config.containers.criTimeFormat="%Y-%m-%dT%H:%M:%S.%NZ" \  
-splunk-otel-collector-1620504591 \   
+helm install \
+splunk-otel-collector-1620609739 \
+--values k3slogs.yaml \
 splunk-otel-collector-chart/splunk-otel-collector
 ```
 
