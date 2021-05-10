@@ -48,7 +48,10 @@ export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
 ```
 
-**Step 2: Update k3s for Splunk Log Observer:**  
+**Step 2: Update k3s for Splunk Splunk Log Observer**  
+
+**SKIP IF YOU ARE USING YOUR OWN k8s CLUSTER- THIS STEP IS FOR k3s ONLY**
+
 k3s has a different format that standard k8s for logging and we need to update our deployment for this.  
 You'll need the Collector deployment from the Data Setup Wizard install.  
 
