@@ -72,7 +72,7 @@ make note of:
 
 **Prepare values.yaml file for updating the Helm chart**  
 
-Edit `spanprocessor.yaml` with thes values from Step 1.  
+Edit `k3slogs.yaml` with thes values above.
 
 **Update the Collector** 
 
@@ -81,7 +81,7 @@ Install the Collector configuration chart:
 ```
 helm upgrade \
 YOURCOLLECTORHERE \
---values spanprocessor.yaml \
+--values k3slogs.yaml \
 splunk-otel-collector-chart/splunk-otel-collector
 ```
 
