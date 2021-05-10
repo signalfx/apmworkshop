@@ -1,13 +1,13 @@
 ## Splunk Observability Microservices APM Instrumentation Workshop
 
 #### Audience:
-* Prerequisites: completion of [Splunk Observability Workshop](https://signalfx.github.io/observability-workshop/latest/) which trains on using metrics/APM and charts/dashboards/alerts  
 * Intermediate and advanced developers, devops, and SREs who have already set up their Splunk Observability Cloud account and have tried out integrations and dashboards.
 * Skill level should include setting up and troubleshooting Linux and Kubernetes environments as well as deploying modern applications i.e. Java 8, Python, Node.
 
 #### Requirements:   
+* Prerequisites: completion of [Splunk Observability Workshop](https://signalfx.github.io/observability-workshop/latest/) which trains on using metrics/APM and charts/dashboards/alerts  
 * Splunk Observability Cloud Account
-*  Debian (i.e. Ubuntu) Linux environment with minimum 8G RAM and 10G disk w/ lighweight Kubernetes (Rancher k3s) installed. 
+* Debian (i.e. Ubuntu) Linux environment with minimum 8G RAM and 10G disk w/ lighweight Kubernetes (Rancher k3s) installed. 
 
 This workshop has a [guide](./workshop-steps/1-prep.md) on how to set up an Ubuntu w/ k3s environment on your desktop via Multipass.  
 
