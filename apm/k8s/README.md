@@ -2,7 +2,9 @@
 
 ### k8s Prep
 
-Identify your token from the Splunk Observability Cloud Portal: `Organization Settings->Access Tokens`
+Identify your token and realm from the Splunk Observability Cloud Portal: `Organization Settings->Access Tokens` and `Your Name->Account Settings`  
+
+If you are running this on your own k8s cluster, make sure you have `helm` and `lynx` installed.  
 
 ### Exercise 1: Use the Data Setup Wizard to set up a Splunk OpenTelemetry Collector pod on the k3s cluster
 
@@ -46,9 +48,10 @@ export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
 ```
 
-**Step 2: Update k3s for Splunk Log Observer:**  
+**Step 2: Update k3s for Splunk Splunk Log Observer**  
 
-<ins>Skip this step if you are using your own k8s (non k3s) cluster.</ins>
+**SKIP IF YOU ARE USING YOUR OWN k8s CLUSTER- THIS STEP IS FOR k3s ONLY**
+
 k3s has a different format that standard k8s for logging and we need to update our deployment for this.  
 You'll need the Collector deployment from the Data Setup Wizard install.  
 
@@ -100,17 +103,15 @@ splunk-otel-collector-chart/splunk-otel-collector
 
 ##### Start in `~/apmworkshop/apm/k8s/python` directory
 
-Deploy the Flask server deployment/service and the python-requests pod:  
+Deploy the Flask server deployment/service and the python-requests (makes requests of Flask server) pod:  
 ```
 cd ~/apmworkshop/apm/k8s
 kubectl apply -f py-deployment.yaml
 ```
--creates a Flask microservice http server, and a Python-requests pod making requests on Flask
 
-Deploy the Java OKHTTP requests pod:
+Deploy the Java OKHTTP requests pod (makes requests of Flask server):  
 `kubectl apply -f java-deployment.yaml`
 
--creates a Java OKHTTP requests pod making requests on Flask
 
 ### Exercise 3: Study the results
 
