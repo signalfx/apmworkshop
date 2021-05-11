@@ -13,6 +13,7 @@ How to find realm:
 How to find token:  
 <img src="../assets/02-token.png" width="360" />  
 
+###
 
 ### Prep Step 2: Choose/ Create Lab Environment  
 
@@ -42,6 +43,8 @@ $ brew --version
 Homebrew 2.6.0
 ```
 
+***
+
 **#2 Install Multipass**
 
 We will use [Multipass](https://multipass.run) as a hypervisor for Mac: 
@@ -64,7 +67,7 @@ Create your VM called "primary":
 This will download Ubuntu and may take a few minutes the first time.
 
 Basic multipass commands:  
-Shell into VM: `multipass shell primary`
+Shell into VM: `multipass shell primary`  
 Exit VM: `exit`
 
 To manage multipass VM:  
@@ -86,6 +89,8 @@ Windows:
 `multipass exec primary -- curl https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/multipass.sh -o multipass.sh`  
 
 `multipass exec primary -- sh multipass.sh`
+
+###
 
 ### Prep Step 3: Review KEY SPLUNK APM CONCEPTS
 
