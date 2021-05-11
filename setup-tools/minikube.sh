@@ -9,7 +9,7 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt-get -y update
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 sudo usermod -aG docker $USER && newgrp docker
-sudo snap install sudo kubectl --classic
+sudo snap install kubectl --classic
 
 curl -s https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 helm repo add splunk-otel-collector-chart https://signalfx.github.io/splunk-otel-collector-chart

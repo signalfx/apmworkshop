@@ -5,11 +5,18 @@
 Identify your token and realm from the Splunk Observability Cloud Portal:   
 `Organization Settings->Access Tokens` and `Your Name->Account Settings`  
 
-If using your own cluster, make sure you have `helm` and `lynx` installed.  
+<ins>If using your own k8s cluster on an Ubuntu host</ins> use this setup script:  
+`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/k8s-env-only.sh)`  
+
+or ensure you have `helm` and `lynx` installed...
+
+And then skip to:  
+Exercise 2: Deploy APM for containerized apps: Python and Java
+
 
 ***
 
-### Exercise 1: Use the Data Setup Wizard to set up a Splunk OpenTelemetry Collector pod on the k3s cluster
+### Exercise 1: Use Data Setup Wizard for Splunk OpenTelemetry Collector pod on k3s
 
 If you have the OpenTelemetry Collector running on a host, remove it at this time:  
 `sudo sh /tmp/splunk-otel-collector.sh --uninstall`
@@ -45,13 +52,7 @@ TEST SUITE: None
 
 Note the name of the deployment when the install completes i.e.:   `splunk-otel-collector-1620505665`  
 
-If you see any errors with `helm` from the Data Setup Wizard, then run the following and try again:  
-```
-export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
-sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
-```
-
-**Step 2: Update k3s for Splunk Splunk Log Observer**  
+**Step 2: Update k3s for Splunk Log Observer**  
 
 **SKIP IF YOU ARE USING YOUR OWN k8s CLUSTER- THIS STEP IS FOR k3s ONLY**
 
