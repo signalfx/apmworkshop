@@ -56,6 +56,7 @@ sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 **SKIP IF YOU ARE USING YOUR OWN k8s CLUSTER- THIS STEP IS FOR k3s ONLY**
 
 k3s has a different format that standard k8s for logging and we need to update our deployment for this.  
+
 You'll need the Collector deployment from the Data Setup Wizard install.  
 
 You can also dervice this from using `helm list` i.e.:  
