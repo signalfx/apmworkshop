@@ -1,3 +1,2 @@
-sudo chmod 644 /etc/rancher/k3s/k3s.yaml
-export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
-export PATH="$HOME/.local/bin:$PATH"
+alias k="kubectl"
+alias h="history"
