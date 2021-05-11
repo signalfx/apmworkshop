@@ -1,5 +1,15 @@
 sudo apt-get -y update
 
+#install helm
+curl -s https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+
+#install k3s
+curl -sfL https://get.k3s.io | sh -
+
+#install otel
+helm repo add splunk-otel-collector-chart https://signalfx.github.io/splunk-otel-collector-chart
+helm repo update
+
 #install Node
 sudo apt-get install -y nodejs
 sudo apt install -y npm
@@ -13,18 +23,10 @@ sudo apt install -y python3-pip
 
 #install python dependencies 
 python3 -m pip install -r requirements.txt
-export PATH="$HOME/.local/bin:$PATH"
 splk-py-trace-bootstrap
 
-#install k3s
-curl -sfL https://get.k3s.io | sh -
-sudo chmod 644 /etc/rancher/k3s/k3s.yaml
-export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
-
-#install helm
-sudo snap install helm --classic
-helm repo add splunk-otel-collector-chart https://signalfx.github.io/splunk-otel-collector-chart
-helm repo update
+#enable helm to access cluster
+mkdir /home/ubuntu/.kube && sudo kubectl config view --raw > /home/ubuntu/.kube/config
 
 #install text browsers
 sudo apt install -y lynx
