@@ -31,9 +31,10 @@ If you chose your own Ubuntu machine, you can set it up with the Workshop softwa
 
 #### Guide: Create an Ubuntu Linux environment on a Mac or PC and install the necessary software components:
 
-##### <ins>Mac</ins>
+#### <ins>Mac</ins>
 
-**#1 Install Brew**
+**#1 Install Brew**  
+
 Install [brew package manager](https://brew.sh):  
 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` 
 
@@ -55,7 +56,7 @@ If needed, further instructions are here: https://multipass.run/docs/installing-
 
 Do one final brew upgrade before spinning up VM: `brew upgrade`
 
-##### <ins>Windows</ins>
+#### <ins>Windows</ins>  
 
 Follow Multipass Windows installation instructions: https://multipass.run/docs/installing-on-windows
 
