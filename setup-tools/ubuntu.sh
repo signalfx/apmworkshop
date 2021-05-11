@@ -1,3 +1,5 @@
+sudo apt-get -y update
+
 #install Node
 sudo apt-get install -y nodejs
 sudo apt install -y npm
@@ -10,7 +12,7 @@ sudo apt install -y openjdk-8-jdk
 sudo apt install -y python3-pip
 
 #install python dependencies 
-python3 -m pip install requirements.txt
+python3 -m pip install -r requirements.txt
 export PATH="$HOME/.local/bin:$PATH"
 splk-py-trace-bootstrap
 
