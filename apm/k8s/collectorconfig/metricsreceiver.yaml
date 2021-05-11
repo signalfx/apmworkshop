@@ -1,0 +1,16 @@
+clusterName: YOURCLUSTERHERE
+splunkRealm: YOUREREALMHERE
+splunkAccessToken: YOURTOKENHERE
+
+otelAgent:
+  config:
+    receivers:
+      signalfx:
+    service:
+      pipelines:
+        metrics:
+          receivers:
+          - hostmetrics
+          - kubeletstats
+          - receiver_creator
+          - signalfx
