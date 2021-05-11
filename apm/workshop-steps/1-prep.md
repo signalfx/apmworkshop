@@ -1,5 +1,7 @@
 ## APM Preparation
 
+---
+
 ### Prep Step 1: Log in to your Splunk Observability account to identify token/realm  
 
 Check your [Splunk Observability Account](https://app.us1.signalfx.com/o11y/#/home) (your welcome email has this link) and identify your TOKEN and REALM- these are available in the profile menu in your Splunk Observability account. Note that the realm component i.e. `us1` may be different for your account based on how you signed up.
@@ -13,7 +15,7 @@ How to find realm:
 How to find token:  
 <img src="../assets/02-token.png" width="360" />  
 
-###
+---
 
 ### Prep Step 2: Choose/ Create Lab Environment  
 
@@ -29,9 +31,10 @@ If you chose your own Ubuntu machine, you can set it up with the Workshop softwa
 
 #### Guide: Create an Ubuntu Linux environment on a Mac or PC and install the necessary software components:
 
-##### <ins>Mac</ins>
+#### <ins>Mac</ins>
 
-**#1 Install Brew**
+**#1 Install Brew**  
+
 Install [brew package manager](https://brew.sh):  
 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` 
 
@@ -43,8 +46,6 @@ $ brew --version
 Homebrew 2.6.0
 ```
 
-***
-
 **#2 Install Multipass**
 
 We will use [Multipass](https://multipass.run) as a hypervisor for Mac: 
@@ -55,7 +56,7 @@ If needed, further instructions are here: https://multipass.run/docs/installing-
 
 Do one final brew upgrade before spinning up VM: `brew upgrade`
 
-##### <ins>Windows</ins>
+#### <ins>Windows</ins>  
 
 Follow Multipass Windows installation instructions: https://multipass.run/docs/installing-on-windows
 
@@ -90,7 +91,7 @@ Windows:
 
 `multipass exec primary -- sh multipass.sh`
 
-###
+---
 
 ### Prep Step 3: Review KEY SPLUNK APM CONCEPTS
 
