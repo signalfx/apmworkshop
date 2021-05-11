@@ -13,7 +13,7 @@ How to find realm:
 How to find token:  
 <img src="../assets/02-token.png" width="360" />  
 
-###
+---
 
 ### Prep Step 2: Choose/ Create Lab Environment  
 
@@ -42,8 +42,6 @@ Results should be at least 1.5:
 $ brew --version
 Homebrew 2.6.0
 ```
-
-***
 
 **#2 Install Multipass**
 
@@ -90,7 +88,7 @@ Windows:
 
 `multipass exec primary -- sh multipass.sh`
 
-###
+---
 
 ### Prep Step 3: Review KEY SPLUNK APM CONCEPTS
 
