@@ -23,7 +23,7 @@ Set up the SFX Environment variables in `otel-collector-k8s.yaml`
 |`YOURTOKENHERE`| your token i.e. av9dd9ckdr9|
 
 Create the OpenTelemetry Collector deployment:  
-`kubectl apply -f otel-collector-k8s.yaml`  
+`sudo kubectl apply -f otel-collector-k8s.yaml`  
 
 ### Change Metrics/Span Destination to the OpenTelemetry Collector Pod
 
@@ -52,7 +52,7 @@ Set up the SFX Environment variables in `otel-redact.yaml`
 |`YOURTOKENHERE`| your token i.e. av9dd9ckdr9|
 
 Apply the OpenTelemetry Collector deployment with redaction processing:  
-`kubectl apply -f otel-redact.yaml.yaml`  
+`sudo kubectl apply -f otel-redact.yaml.yaml`  
 
 Since this interrupts span flow, wait about a minute to examine spans again and check the `user.id` and you will see that it now reads `redacted`
 

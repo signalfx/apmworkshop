@@ -1,1 +1,1 @@
-kubectl exec -it test -- bash
+sudo kubectl exec -it test -- bash

@@ -1,3 +1,3 @@
-kubectl delete deployment otel-collector && \
-kubectl delete service otel-collector && \
-kubectl delete configmap otel-collector-conf
+sudo kubectl delete deployment otel-collector && \
+sudo kubectl delete service otel-collector && \
+sudo kubectl delete configmap otel-collector-conf

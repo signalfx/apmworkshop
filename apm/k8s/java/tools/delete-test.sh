@@ -1,2 +1,2 @@
-kubectl delete deployment test
-kubectl delete service test
+sudo kubectl delete deployment test
+sudo kubectl delete service test
