@@ -8,7 +8,7 @@
 | [3](../node) | [Node: traces Node HTTP.get client](../node) |
 | [4](../dashboards/servicedashboard.md) | Check out the automatic [Service Dashboard](../dashboards/servicedashboard.md) for your apps |
 | |
-| | **APM for Containerized Apps on k8s/ Advanced Topics** |
+| | **APM for Containerized Apps on k8s / Advanced Topics** |
 | [5](../k8s) | [Deploy APM on k8s](../k8s): Python and Java examples / Manual Instrumentation / OpenTelemetry Collector |
 
 [Read the full Splunk APM guide on troubleshooting apps, dashboards, etc](https://docs.splunk.com/Observability/apm/apm.html)
