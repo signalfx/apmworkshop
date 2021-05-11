@@ -1,5 +1,7 @@
 ## APM Preparation
 
+---
+
 ### Prep Step 1: Log in to your Splunk Observability account to identify token/realm  
 
 Check your [Splunk Observability Account](https://app.us1.signalfx.com/o11y/#/home) (your welcome email has this link) and identify your TOKEN and REALM- these are available in the profile menu in your Splunk Observability account. Note that the realm component i.e. `us1` may be different for your account based on how you signed up.
