@@ -20,4 +20,6 @@ Follow Data Setup Wizard for instructions on Linux installation:
 <img src="../assets/05-datasetup-linuxinstall.png" width="360" />  
 
 To Uninstall the OpenTelmetry Collector Agent on a host:  
-`sudo sh /tmp/splunk-otel-collector.sh --uninstall`
+`sudo sh /tmp/splunk-otel-collector.sh --uninstall`  
+
+[Return to workshop for next step](../README.md)

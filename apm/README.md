@@ -48,4 +48,4 @@ APM for Kubernetes Lab only: [start here](./k8s)
 Appendix: [Installing Multipass and k3s / Using tmux](./workshop-steps/4-appendix.md)
 
 Non Kubernetes container examples:  
-[AWS ECS EC2/Fargate ](misc)
+[AWS ECS EC2/Fargate](misc)

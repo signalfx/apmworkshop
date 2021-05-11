@@ -8,7 +8,7 @@ helm repo add splunk-otel-collector-chart https://signalfx.github.io/splunk-otel
 helm repo update
 
 #enable helm to access cluster
-mkdir /home/ubuntu/.kube && sudo sudo kubectl config view --raw > /home/ubuntu/.kube/config
+mkdir /home/ubuntu/.kube && sudo kubectl config view --raw > /home/ubuntu/.kube/config
 
 #install text browser
 sudo apt install -y lynx
