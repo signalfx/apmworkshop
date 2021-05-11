@@ -59,3 +59,5 @@ Tmux works by using `ctrl-b` as a command key followed by:
 `"` make a new horizontal pane
 `%` make a new vertical pane
 Arrow keys: move between panes.
+
+[Return to workshop for next step](../README.md)
