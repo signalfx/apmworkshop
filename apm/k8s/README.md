@@ -5,11 +5,18 @@
 Identify your token and realm from the Splunk Observability Cloud Portal:   
 `Organization Settings->Access Tokens` and `Your Name->Account Settings`  
 
-If using your own cluster, make sure you have `helm` and `lynx` installed.  
+<ins>If using your own k8s cluster on an Ubuntu host</ins> use this setup script:  
+`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/k8s-env-only.sh)`  
+
+or ensure you have `helm` and `lynx` installed...
+
+And then skip to:  
+Exercise 2: Deploy APM for containerized apps: Python and Java
+
 
 ***
 
-### Exercise 1: Use the Data Setup Wizard to set up a Splunk OpenTelemetry Collector pod on the k3s cluster
+### Exercise 1: Use Data Setup Wizard for Splunk OpenTelemetry Collector pod on k3s
 
 If you have the OpenTelemetry Collector running on a host, remove it at this time:  
 `sudo sh /tmp/splunk-otel-collector.sh --uninstall`
@@ -45,13 +52,7 @@ TEST SUITE: None
 
 Note the name of the deployment when the install completes i.e.:   `splunk-otel-collector-1620505665`  
 
-If you see any errors with `helm` from the Data Setup Wizard, then run the following and try again:  
-```
-export KUBECONFIG=/etc/rancher/k3s/k3s.yaml && \
-sudo chmod 644 /etc/rancher/k3s/k3s.yaml  
-```
-
-**Step 2: Update k3s for Splunk Splunk Log Observer**  
+**Step 2: Update k3s for Splunk Log Observer**  
 
 **SKIP IF YOU ARE USING YOUR OWN k8s CLUSTER- THIS STEP IS FOR k3s ONLY**
 
@@ -112,11 +113,11 @@ splunk-otel-collector-chart/splunk-otel-collector
 Deploy the Flask server deployment/service and the python-requests (makes requests of Flask server) pod:  
 ```
 cd ~/apmworkshop/apm/k8s
-kubectl apply -f py-deployment.yaml
+sudo kubectl apply -f py-deployment.yaml
 ```
 
 Deploy the Java OKHTTP requests pod (makes requests of Flask server):  
-`kubectl apply -f java-deployment.yaml`
+`sudo kubectl apply -f java-deployment.yaml`
 
 ***
 
@@ -155,15 +156,15 @@ The Collector pod is running with <ins>node wide visibility</ins>, so to tell ea
 
 ### Exercise 5: View Collector POD stats 
 
-`kubectl get pods`
+`sudo kubectl get pods`
 
 Note the pod name of the `OpenTelemetry Collector` pod i.e.:  
 `splunk-otel-collector-1620505665-agent-sw45w`
 
 Send the Zpages stats to the lynx browser:  
-`kubectl exec -it YOURAGENTPODHERE -- curl localhost:55679/debug/tracez | lynx -stdin`  
+`sudo kubectl exec -it YOURAGENTPODHERE -- curl localhost:55679/debug/tracez | lynx -stdin`  
 i.e.
-`kubectl exec -it splunk-otel-collector-1620505665-agent-sw45w -- curl localhost:55679/debug/tracez | lynx -stdin`
+`sudo kubectl exec -it splunk-otel-collector-1620505665-agent-sw45w -- curl localhost:55679/debug/tracez | lynx -stdin`
 
 <img src="../assets/06-zpages.png" width="360"> 
 
@@ -191,7 +192,7 @@ Example is here:
 
 Deploy an app with ONLY manual instrumentation:
 
-`kubectl apply -f java-reqs-manual-inst.yaml`
+`sudo kubectl apply -f java-reqs-manual-inst.yaml`
 
 When this app deploys, it appears as an isolated bubble in the map. It has all metrics and tracing just like an auto-instrumented app does. 
 

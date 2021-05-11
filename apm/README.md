@@ -42,7 +42,8 @@ Step 1: [Pre-work: Choose/Prepare Your Sandbox Environment and Review Key Concep
 
 Step 2: [Install Splunk OpenTelemetry Collector Agent on an Ubuntu host](./workshop-steps/2-otelagent.md)  
 
-Step 3: [Complete APM Workshop Labs - Kubernetes Included Here](./workshop-steps/3-workshop-labs.md)  
+Step 3: [Complete APM Workshop Labs for Hosts / k8s ](./workshop-steps/3-workshop-labs.md)  
+APM for Kubernetes Lab only: [start here](./k8s)  
 
 Appendix: [Installing Multipass and k3s / Using tmux](./workshop-steps/4-appendix.md)
 

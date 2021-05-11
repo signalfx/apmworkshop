@@ -1,1 +1,1 @@
-kubectl delete pod k8s-py-test-otel
+sudo kubectl delete pod k8s-py-test-otel

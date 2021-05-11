@@ -1,1 +1,1 @@
-kubectl apply -f test-pod.yaml
+sudo kubectl apply -f test-pod.yaml

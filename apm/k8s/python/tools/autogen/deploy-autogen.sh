@@ -1,1 +1,1 @@
-kubectl apply -f py-autogen.yaml
+sudo kubectl apply -f py-autogen.yaml

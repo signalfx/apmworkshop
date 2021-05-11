@@ -45,15 +45,15 @@ sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 `cd ~/apmworkshop/apm/k8s/python`  
 
 Deploy the flask-server pod:  
-`kubectl apply -f flask-deployment.yaml`
+`sudo kubectl apply -f flask-deployment.yaml`
 
 Deploy the python requests pod:  
-`kubectl apply -f python-requests-pod-otel.yaml`
+`sudo kubectl apply -f python-requests-pod-otel.yaml`
 
 Deploy the Java OKHTTP requests pod:
 ```
 cd ~/apmworkshop/apm/k8s/java
-kubectl apply -f java-reqs-jmx-deployment.yaml
+sudo kubectl apply -f java-reqs-jmx-deployment.yaml
 ```
 
 ### Exercise 3: Study the results
@@ -83,11 +83,11 @@ The SmartAgent pod is running with <ins>node wide visibility</ins>, so to tell e
 ```
 
 ### Exercise 5: View trace spans flowing in Splunk SmartAgent pod
-`kubectl get pods`
+`sudo kubectl get pods`
 
 Note the pod name of the `Splunk SmartAgent` pod
 
-`kubectl exec -it PODNAMEOFSIGNALFXAGENT -- bash signalfx-agent status`  
+`sudo kubectl exec -it PODNAMEOFSIGNALFXAGENT -- bash signalfx-agent status`  
 
 `signalfx-agent status` will show the metrics and spans being sent by the agent like this:
 
@@ -142,7 +142,7 @@ Example is here:
 
 Deploy an app with ONLY manual instrumentation:
 
-`kubectl apply -f java-reqs-manual-inst.yaml`
+`sudo kubectl apply -f java-reqs-manual-inst.yaml`
 
 When this app deploys, it appears as an isolated bubble in the map. It has all metrics and tracing just like an auto-instrumented app does. 
 
@@ -202,7 +202,7 @@ Set up the SFX Environment variables in `otel-redact.yaml` in this stanza:
 |`YOURTOKENHERE`| your token i.e. av9dd9ckdr9|
 
 Create the OpenTelemetry Collector deployment with redaction processing:  
-`kubectl apply -f otel-redact.yaml`  
+`sudo kubectl apply -f otel-redact.yaml`  
 
 Tell SmartAgent to send the spans and metrics to the OpenTelemetry Collector deployment:  
 

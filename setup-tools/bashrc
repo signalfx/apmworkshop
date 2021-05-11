@@ -1,2 +1,2 @@
-alias k="kubectl"
+alias k="sudo kubectl"
 alias h="history"
