@@ -31,7 +31,8 @@ Edit `spanprocessor.yaml` with thes values from Step 1.
 
 Install the Collector configuration chart:  
 
-```helm install \
+```
+helm install \
 YOURCOLLECTORHERE \
 --values spanprocessor.yaml \
 splunk-otel-collector-chart/splunk-otel-collector
@@ -39,7 +40,8 @@ splunk-otel-collector-chart/splunk-otel-collector
 
 i.e.
 
-```helm install \
+```
+helm install \
 splunk-otel-collector-1620609739 \
 --values spanprocessor.yaml \
 splunk-otel-collector-chart/splunk-otel-collector
