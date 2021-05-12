@@ -117,6 +117,7 @@ In `Dashboards` open any `Sample Data->Sample Charts` `+` and select `Import Das
 
 Import the `dashboard_JVM%Metrics.json` Dashboard.
 
+<img src="../../assets/30-import-dash.png" width="360">  
 
 All JVM Metrics  
 
