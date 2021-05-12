@@ -110,7 +110,7 @@ splunk-otel-collector-chart/splunk-otel-collector
 Load the JVM Metrics Template:  
 
 Download this file to your local machine:  
-`https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/k8s/dashboard_JVM%20Metrics.json`  
+`https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/k8s/dashboard_JVMMetrics.json`  
 
 
 In `Dashboards` open any `Sample Data->Sample Charts` `+` and select `Import Dashboard`  
