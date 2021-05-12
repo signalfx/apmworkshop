@@ -8,9 +8,7 @@ Collector config examples: https://github.com/signalfx/splunk-otel-collector-cha
 
 Full documentation: https://github.com/signalfx/splunk-otel-collector  
 
-This example will show how to process/update a span by replacing a custom value with "redacted".   
-
-**Step 1: Prepare values for Collector update**  
+**Prepare values for Collector update**  
 
 `helm list`  
 
@@ -23,11 +21,15 @@ make note of:
 `splunkAccessToken`
 `splunkRealm`
 
-**Step 2: Prepare values.yaml file for updating the Helm chart**  
+###
+
+## Span Processing
+
+**Step SP1: Prepare values.yaml file for updating the Helm chart**  
 
 Edit `spanprocessor.yaml` with thes values from Step 1.  
 
-**Step 3: Update the Collector** 
+**Step SP2: Update the Collector** 
 
 Install the Collector configuration chart:  
 
@@ -47,7 +49,7 @@ splunk-otel-collector-1620609739 \
 splunk-otel-collector-chart/splunk-otel-collector
 ```
 
-**Step 4: Study the results**  
+**Step SP3: Study the results**  
 
 `Splunk Observability Portal -> APM -> Explore -> java-otel-manual-inst -> Traces`
 
@@ -67,5 +69,45 @@ helm upgrade \
 --values spanprocessor.yaml \
 splunk-otel-collector-chart/splunk-otel-collector
 ```
+
+###
+
+## JVM Metrics
+
+**Step JVM1: Prepare values.yaml file for updating the Helm chart**  
+
+Edit `metricsreceiver.yaml` with thes values from Step 1.  
+
+**Step JVM2: Update the Collector** 
+
+Install the Collector configuration chart:  
+
+```
+helm upgrade \
+YOURCOLLECTORHERE \
+--values metricsreceiver.yaml \
+splunk-otel-collector-chart/splunk-otel-collector
+```
+
+i.e.
+
+```
+helm upgrade \
+splunk-otel-collector-1620609739 \
+--values metricsreceiver.yaml \
+splunk-otel-collector-chart/splunk-otel-collector
+```
+
+**Step JVM: Study the results**  
+
+In `Dashboards->JVM Metrics`  
+
+All JVM Metrics  
+
+<img src="../../assets/27-jvm.png" width="360">    
+
+Filter by Application by adding `service:SERVICENAMEHERE`  
+
+<img src="../../assets/28-jvm-filter.png" width="360">    
 
 [Click here to return to k8s APM lab](../README.md)
