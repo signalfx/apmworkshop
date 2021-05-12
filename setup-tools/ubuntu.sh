@@ -26,7 +26,7 @@ python3 -m pip install -r requirements.txt
 splk-py-trace-bootstrap
 
 #enable helm to access cluster
-mkdir /home/ubuntu/.kube && sudo kubectl config view --raw > /home/ubuntu/.kube/config
+sudo kubectl config view --raw > $HOME/.kube/config
 
 #install text browser
 sudo apt install -y lynx
