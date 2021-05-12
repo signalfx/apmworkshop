@@ -74,7 +74,15 @@ splunk-otel-collector-chart/splunk-otel-collector
 
 ## JVM Metrics
 
+Note that for JVM Metrics to work, the deployment .yaml must have JVM metrics enabled as shown below. Our `java-deployment.yaml` example already has this and is publishing JVM metrics.  
+
+```
+    - name: SPLUNK_METRICS_ENDPOINT
+      value: http://$(SPLUNK_OTEL_AGENT):9943
+```
+
 **Step JVM1: Prepare values.yaml file for updating the Helm chart**  
+
 
 Edit `metricsreceiver.yaml` with thes values from Step 1.  
 
