@@ -127,4 +127,6 @@ Filter by Application by adding `service:SERVICENAMEHERE`
 
 <img src="../../assets/28-jvm-filter.png" width="360">    
 
+Complete JVM metrics available [at this link](https://github.com/signalfx/splunk-otel-java/blob/main/docs/metrics.md#jvm)
+
 [Click here to return to k8s APM lab](../README.md)
