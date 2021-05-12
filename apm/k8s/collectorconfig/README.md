@@ -115,7 +115,7 @@ https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/k8s/dashboard_
 
 In `Dashboards` open any `Sample Data->Sample Charts` `+` and select `Import Dashboard`  
 
-Import the `dashboard_JVM%Metrics.json` Dashboard.
+Import the `dashboard_JVMMetrics.json` Dashboard.
 
 <img src="../../assets/30-import-dash.png" width="360">  
 
