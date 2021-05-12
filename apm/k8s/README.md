@@ -174,8 +174,7 @@ i.e.
 
 ### Exercise 6: Monitor JVM metrics for a Java container (coming soon)
 
-JVM metrics are now included with the Splunk OpenTelemetry instrumentation however examples are not yet ready.  
-Preview data is here: https://github.com/signalfx/splunk-otel-java/blob/main/docs/metrics.md#jvm  
+See [JVM Metrics at end of section](./collectorconfig/README.md)  
 
 Remote JMX metrics are also available via this monitor:  https://docs.splunk.com/Observability/gdi/genericjmx/genericjmx.html  
 
