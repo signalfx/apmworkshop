@@ -83,7 +83,6 @@ Note that for JVM Metrics to work, the deployment .yaml must have JVM metrics en
 
 **Step JVM1: Prepare values.yaml file for updating the Helm chart**  
 
-
 Edit `metricsreceiver.yaml` with thes values from Step 1.  
 
 **Step JVM2: Update the Collector** 
@@ -108,7 +107,16 @@ splunk-otel-collector-chart/splunk-otel-collector
 
 **Step JVM: Study the results**  
 
-In `Dashboards->JVM Metrics`  
+Load the JVM Metrics Template:  
+
+Download this file to your local machine:  
+`https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/k8s/dashboard_JVM%20Metrics.json`  
+
+
+In `Dashboards` open any `Sample Data->Sample Charts` `+` and select `Import Dashboard`  
+
+Import the `dashboard_JVM%Metrics.json` Dashboard.
+
 
 All JVM Metrics  
 
