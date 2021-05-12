@@ -6,6 +6,7 @@ otelAgent:
   config:
     receivers:
       signalfx:
+        endpoint: 0.0.0.0:9943
     service:
       pipelines:
         metrics:

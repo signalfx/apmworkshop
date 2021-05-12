@@ -33,8 +33,3 @@ sudo apt install -y lynx
 
 #clone workshop
 git clone https://github.com/signalfx/apmworkshop
-
-#update .bashrc for workshop
-echo -e "\n\n" >> /home/ubuntu/.bashrc
-cat bashrc >> /home/ubuntu/.bashrc
-source /home/ubuntu/.bashrc
