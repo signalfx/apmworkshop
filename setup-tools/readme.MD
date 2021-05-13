@@ -1,11 +1,15 @@
-Set up an exiting clean Ubuntu system or on your Multipass VM: 
+Set up an existing clean Ubuntu system or on your Multipass VM: 
 
-`curl ubuntu.sh`
+`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/setup-tools/ubuntu.sh)`
 
-Set up an exiting clean Debian Linux system with only the k8s tooling:
+Set up an existing clean Debian Linux system with only the k8s tooling:
 
-`curl k8s-only.sh`
+`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/setup-tools/k8s-only.sh)`
+
+Set up a multipass instance called "primary":
+
+`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/setup-tools/multipass.sh)`
 
 ## If you want to use Minikube instead of k3s (optional)
 
-`curl minikube.sh`
+`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/setup-tools/minikube.sh)`
