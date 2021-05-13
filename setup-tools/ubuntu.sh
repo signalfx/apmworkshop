@@ -26,7 +26,8 @@ python3 -m pip install -r requirements.txt
 splk-py-trace-bootstrap
 
 #enable helm to access cluster
-sudo kubectl config view --raw > $HOME/.kube/config
+export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+sudo chmod 755 /etc/rancher/k3s/k3s.yaml
 
 #install text browser
 sudo apt install -y lynx
