@@ -1,10 +1,14 @@
-Set up an existing clean Ubuntu system or on your Multipass VM: 
+Set up workshop on an existing clean Ubuntu system or on your Multipass VM: 
 
 `bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/setup-tools/ubuntu.sh)`
 
-Set up an existing clean Debian Linux system with only the k8s tooling:
+Set up only k3s workshop components on clean Ubuntu system:
 
-`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/setup-tools/k8s-only.sh)`
+`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/setup-tools/k3s-env-only.sh)`
+
+If you already have k8s installed on Ubuntu:
+
+`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/setup-tools/k8s-env-only.sh)`
 
 Set up a multipass instance called "primary":
 
