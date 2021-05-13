@@ -11,15 +11,11 @@ helm repo add splunk-otel-collector-chart https://signalfx.github.io/splunk-otel
 helm repo update
 
 #enable helm to access cluster
-sudo kubectl config view --raw > $HOME/.kube/config
+export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+sudo chmod 755 /etc/rancher/k3s/k3s.yaml
 
 #install text browser
 sudo apt install -y lynx
 
 #clone workshop
 git clone https://github.com/signalfx/apmworkshop
-
-#update .bashrc for workshop
-echo -e "\n\n" >> /home/ubuntu/.bashrc
-cat bashrc >> /home/ubuntu/.bashrc
-source /home/ubuntu/.bashrc
