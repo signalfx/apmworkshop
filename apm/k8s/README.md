@@ -69,6 +69,14 @@ The deployment name would be: `splunk-otel-collector-1620504591`
 
 **Prepare values for Collector update**  
 
+If you run into any errors from helm, fix with:  
+```
+export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+sudo chmod 755 /etc/rancher/k3s/k3s.yaml
+```
+
+Prep values for collector update:  
+
 `helm list`  
 
 `helm get values NAME`  
