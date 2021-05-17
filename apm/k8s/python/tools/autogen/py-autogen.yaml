@@ -13,16 +13,23 @@ spec:
       value: America/New_York
     - name: REDISHOST
       value: 127.0.0.1
-    - name: OTEL_RESOURCE_ATTRIBUTES
-      value: deployment.environment=otel-demo
-    - name: SPLUNK_SERVICE_NAME
-      value: python-autogen-otel
     - name: SPLUNK_OTEL_AGENT
       valueFrom:
         fieldRef:
           fieldPath: status.hostIP
+    - name: OTEL_RESOURCE_ATTRIBUTES
+      value: deployment.environment=otel-demo
+    - name: OTEL_SERVICE_NAME
+      value: python-autogen-otel
     - name: OTEL_EXPORTER_JAEGER_ENDPOINT
       value: http://$(SPLUNK_OTEL_AGENT):9080/v1/trace
+    - name: OTEL_EXPORTER_JAEGER_ENDPOINT
+    - name: OTEL_TRACES_EXPORTER
+      value: jaeger-thrift-splunk
+    - name: OTEL_PROPAGATORS
+      value: b3multi
+#   - name: OTEL_EXPORTER_OTLP_ENDPOINT
+#     value: http://$(SPLUNK_OTEL_AGENT):4317
     command: ["/bin/sh"]
     args: ["run-autogen.sh"]
 ---
