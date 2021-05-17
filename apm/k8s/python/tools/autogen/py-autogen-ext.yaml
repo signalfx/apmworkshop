@@ -15,7 +15,7 @@ spec:
       value: redis
     - name: OTEL_RESOURCE_ATTRIBUTES
       value: deployment.environment=otel-demo
-    - name: SPLUNK_SERVICE_NAME
+    - name: OTEL_SERVICE_NAME
       value: python-autogen-otel
     - name: SPLUNK_OTEL_AGENT
       valueFrom:

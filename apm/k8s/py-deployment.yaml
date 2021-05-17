@@ -20,7 +20,7 @@ spec:
           - name: http
             containerPort: 5000
         env:
-        - name: SPLUNK_SERVICE_NAME
+        - name: OTEL_SERVICE_NAME
           value: server-flask-otel-k8s
         - name: SPLUNK_OTEL_AGENT
           valueFrom:
@@ -64,7 +64,7 @@ spec:
       value: http://$(SPLUNK_OTEL_AGENT):9080/v1/trace
     - name: OTEL_RESOURCE_ATTRIBUTES
       value: deployment.environment=apm-workshop
-    - name: SPLUNK_SERVICE_NAME
+    - name: OTEL_SERVICE_NAME
       value: client-py-otel-k8s
     command: ["/bin/sh"]
     args: ["run-client.sh"]
