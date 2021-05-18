@@ -22,7 +22,8 @@ sudo apt install -y openjdk-8-jdk
 sudo apt install -y python3-pip
 
 #install python dependencies 
-python3 -m pip install -r requirements.txt
+export PATH="$HOME/.local/bin:$PATH" 
+python3 -m pip install -r https://raw.githubusercontent.com/signalfx/apmworkshop/master/setup-tools/requirements.txt
 splk-py-trace-bootstrap
 
 #enable helm to access cluster
