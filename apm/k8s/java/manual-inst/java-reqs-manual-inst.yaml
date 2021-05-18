@@ -16,7 +16,12 @@ spec:
           fieldPath: status.hostIP
     - name: OTEL_EXPORTER_JAEGER_ENDPOINT
       value: http://$(SPLUNK_OTEL_AGENT):9080/v1/trace
+    - name: SPLUNK_METRICS_ENDPOINT
+      value: http://$(SPLUNK_OTEL_AGENT):9943
     - name: OTEL_RESOURCE_ATTRIBUTES
-      value: service.name=java-otel-manual-inst,deployment.environment=apm-workshop
+      value: service.name=manualinst-java-otel-k8s,deployment.environment=apm-workshop
+    - name: OTEL_TRACES_EXPORTER
+      value: jaeger-thrift-splunk
+    - name: OTEL_PROPAGATORS
     command: ["/bin/sh"]
     args: ["./manual-inst/run-java-manual-inst-k8s.sh"]

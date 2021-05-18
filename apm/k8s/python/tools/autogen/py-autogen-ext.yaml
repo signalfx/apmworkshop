@@ -23,7 +23,6 @@ spec:
       value: python-autogen-otel
     - name: OTEL_EXPORTER_JAEGER_ENDPOINT
       value: http://$(SPLUNK_OTEL_AGENT):9080/v1/trace
-    - name: OTEL_EXPORTER_JAEGER_ENDPOINT
     - name: OTEL_TRACES_EXPORTER
       value: jaeger-thrift-splunk
     - name: OTEL_PROPAGATORS
