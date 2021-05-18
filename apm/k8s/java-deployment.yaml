@@ -11,15 +11,11 @@ spec:
       valueFrom:
         fieldRef:
           fieldPath: status.hostIP
-    - name: OTEL_EXPORTER_JAEGER_ENDPOINT
-      value: http://$(SPLUNK_OTEL_AGENT):9080/v1/trace
-    - name: SPLUNK_METRICS_ENDPOINT
-      value: http://$(SPLUNK_OTEL_AGENT):9943
     - name: OTEL_RESOURCE_ATTRIBUTES
       value: service.name=client-java-otel-k8s,deployment.environment=apm-workshop
-    - name: OTEL_TRACES_EXPORTER
-      value: jaeger-thrift-splunk
-    - name: OTEL_PROPAGATORS
-      value: b3multi
+    - name: SPLUNK_METRICS_ENDPOINT
+      value: http://$(SPLUNK_OTEL_AGENT):9943
+    - name: OTEL_EXPORTER_OTLP_ENDPOINT
+      value: http://$(SPLUNK_OTEL_AGENT):4317
     command: ["/bin/sh"]
     args: ["run-client.sh"]
