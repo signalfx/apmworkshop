@@ -1,15 +1,13 @@
 from flask import Flask, make_response, request
+import json
 
 app = Flask(__name__)
    
 @app.route('/echo', methods=['GET', 'POST'])
 def echo():
-    if request.method == 'POST':
-        headers = request.headers
-        return "You posted: " + str(request.data) + "\nRequest headers:\n" + str(headers)
-    if request.method == 'GET':
-        headers = request.headers
-        return "You getted: " + str(request.data) + "\nRequest headers:\n" + str(headers)
-
+    log_dict = {'requestdata': str(request.data),
+            'requestheaders': str(request.headers)
+            }
+    return(json.dumps(log_dict,indent=2,separators=(',', ':')))
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
