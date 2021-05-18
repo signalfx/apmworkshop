@@ -16,6 +16,10 @@ spec:
     - name: SPLUNK_METRICS_ENDPOINT
       value: http://$(SPLUNK_OTEL_AGENT):9943
     - name: OTEL_RESOURCE_ATTRIBUTES
-      value: 'service.name=client-java-otel-k8s,deployment.environment=apm-workshop'
+      value: service.name=client-java-otel-k8s,deployment.environment=apm-workshop
+    - name: OTEL_TRACES_EXPORTER
+      value: jaeger-thrift-splunk
+    - name: OTEL_PROPAGATORS
+      value: b3multi
     command: ["/bin/sh"]
     args: ["run-client.sh"]
