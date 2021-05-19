@@ -1,6 +1,6 @@
-clusterName: sl-cluster
-splunkRealm: us1
-splunkAccessToken: F9D-tA0fv4_2a4PD7Zn0UQ
+clusterName: YOURCLUSTERHERE
+splunkRealm: YOUREREALMHERE
+splunkAccessToken: YOURTOKENHERE
 
 otelAgent:
   config:
