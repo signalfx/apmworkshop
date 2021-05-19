@@ -34,7 +34,7 @@ Edit `spanprocessor.yaml` with thes values from Step 1.
 Install the Collector configuration chart:  
 
 ```
-helm upgrade \
+helm upgrade --install \
 YOURCOLLECTORHERE \
 --values spanprocessor.yaml \
 splunk-otel-collector-chart/splunk-otel-collector
@@ -43,7 +43,7 @@ splunk-otel-collector-chart/splunk-otel-collector
 i.e.
 
 ```
-helm upgrade \
+helm upgrade  --install \
 splunk-otel-collector-1620609739 \
 --values spanprocessor.yaml \
 splunk-otel-collector-chart/splunk-otel-collector
@@ -61,14 +61,7 @@ Example `my.key` and you'll see that the value is `redacted`
 
 
 If you want to make changes and update the `spanprocessor.yaml` or any values file, use:  
-`helm upgrade --resuse-values` when re-applying i.e.  
-
-```
-helm upgrade \
---reuse-values splunk-otel-collector-1620655507 \
---values spanprocessor.yaml \
-splunk-otel-collector-chart/splunk-otel-collector
-```
+`helm upgrade --resuse-values`
 
 ###
 
@@ -90,7 +83,7 @@ Edit `metricsreceiver.yaml` with thes values from Step 1.
 Install the Collector configuration chart:  
 
 ```
-helm upgrade \
+helm upgrade --install \
 YOURCOLLECTORHERE \
 --values metricsreceiver.yaml \
 splunk-otel-collector-chart/splunk-otel-collector
@@ -99,7 +92,7 @@ splunk-otel-collector-chart/splunk-otel-collector
 i.e.
 
 ```
-helm upgrade \
+helm upgrade --install \
 splunk-otel-collector-1620609739 \
 --values metricsreceiver.yaml \
 splunk-otel-collector-chart/splunk-otel-collector

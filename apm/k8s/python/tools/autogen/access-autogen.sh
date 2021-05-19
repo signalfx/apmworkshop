@@ -1,1 +1,1 @@
-sudo kubectl exec -it py-autogen -- bash
+kubectl exec -it py-autogen -- bash
