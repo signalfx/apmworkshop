@@ -1,6 +1,6 @@
-sudo kubectl delete pod py-autogen &
-sudo kubectl delete service py-autogen &
-sudo kubectl delete deployment py-autogen &
-sudo kubectl delete pod redis &
-sudo kubectl delete service redis &
-sudo kubectl delete deployment redis &
+kubectl delete pod py-autogen &
+kubectl delete service py-autogen &
+kubectl delete deployment py-autogen &
+kubectl delete pod redis &
+kubectl delete service redis &
+kubectl delete deployment redis &
