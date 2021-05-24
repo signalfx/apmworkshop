@@ -180,9 +180,32 @@ i.e.
 
 ## Advanced APM Topics: Manual instrumenation, span processing, JVM monitoring
 
-### Exercise 6: Monitor JVM metrics for a Java container (coming soon)
+### Exercise 6: Monitor JVM metrics for a Java container
 
-See [JVM Metrics at end of section](./collectorconfig/README.md)  
+JVM Metrics are emitted by the Splunk OpenTelemetry Java instrumentation and send to the Collector.  
+
+A dashboard template for JVM metrics works as follows:  
+
+Load the JVM Metrics Template:  
+
+Download this file to your local machine:  
+https://raw.githubusercontent.com/signalfx/apmworkshop/master/apm/k8s/dashboard_JVMMetrics.json  
+
+In `Dashboards` open any `Sample Data->Sample Charts` `+` and select `Import Dashboard`  
+
+Import the `dashboard_JVMMetrics.json` Dashboard.  
+
+<img src="../assets/30-import-dash.png" width="360">    
+
+All JVM Metrics  
+
+<img src="../assets/27-jvm.png" width="360">    
+
+Filter by Application by adding `service:SERVICENAMEHERE`  
+
+<img src="../assets/28-jvm-filter.png" width="360">    
+
+Complete JVM metrics available [at this link](https://github.com/signalfx/splunk-otel-java/blob/main/docs/metrics.md#jvm)
 
 Remote JMX metrics are also available via this monitor:  https://docs.splunk.com/Observability/gdi/genericjmx/genericjmx.html  
 
