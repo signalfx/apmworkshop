@@ -180,9 +180,7 @@ i.e.
 
 ## Advanced APM Topics: Manual instrumenation, span processing, JVM monitoring
 
-### Exercise 6: Monitor JVM metrics for a Java container (coming soon)
-
-## JVM Metrics
+### Exercise 6: Monitor JVM metrics for a Java container
 
 JVM Metrics are emitted by the Splunk OpenTelemetry Java instrumentation and send to the Collector.  
 
