@@ -6,7 +6,7 @@ Identify your token and realm from the Splunk Observability Cloud Portal:
 `Organization Settings->Access Tokens` and `Your Name->Account Settings`  
 
 <ins>If using your own k8s cluster on an Ubuntu host</ins> use this setup script:  
-`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/tools/k8s-env-only.sh)`  
+`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/setup-tools/k8s-env-only.sh)`
 
 or ensure you have `helm` and `lynx` installed...
 
