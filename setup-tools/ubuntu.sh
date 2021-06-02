@@ -33,5 +33,9 @@ sudo chmod 755 /etc/rancher/k3s/k3s.yaml
 #install text browser
 sudo apt install -y lynx
 
+#install k9s
+curl -sS https://webinstall.dev/k9s | bash
+
+
 #clone workshop
 git clone https://github.com/signalfx/apmworkshop
