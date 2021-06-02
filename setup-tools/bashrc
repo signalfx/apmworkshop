@@ -1,2 +1,3 @@
-alias k="sudo kubectl"
+alias k="kubectl"
 alias h="history"
+export PATH="/home/ubuntu/.local/bin:$PATH"
