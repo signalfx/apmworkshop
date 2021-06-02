@@ -1,0 +1,22 @@
+clusterName: YOURCLUSTERHERE
+splunkRealm: YOUREREALMHERE
+splunkAccessToken: YOURTOKENHERE
+
+otelAgent:
+  config:
+    processors:
+      resource/add_environment:
+        attributes:
+          - action: insert
+            key: deployment.environment
+            value: YOURENVIRONMENTHERE
+    service:
+      pipelines:
+        traces:
+          processors:
+          - memory_limiter
+          - k8s_tagger
+          - batch
+          - resource
+          - resourcedetection
+          - resource/add_environment
