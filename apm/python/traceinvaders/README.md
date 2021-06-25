@@ -24,7 +24,7 @@ python3 -m pip install --upgrade pip && \
 python3 -m pip install wheel && \
 python3 -m pip install splunk-opentelemetry[all] && \
 export PATH="$HOME/.local/bin:$PATH" && \
-splunk-py-trace-bootstrap
+splk-py-trace-bootstrap
 ```
 
 ### Step #2
