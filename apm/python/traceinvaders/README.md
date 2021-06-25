@@ -22,9 +22,9 @@ Make sure you don't have conflicting Python OpenTelemetry or APM packages- this 
 ```
 python3 -m pip install --upgrade pip && \
 python3 -m pip install wheel && \
-python3 -m pip install splunk-opentelemetry && \
+python3 -m pip install splunk-opentelemetry[all] && \
 export PATH="$HOME/.local/bin:$PATH" && \
-splk-py-trace-bootstrap
+splunk-py-trace-bootstrap
 ```
 
 ### Step #2

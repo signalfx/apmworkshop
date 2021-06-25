@@ -1,1 +1,1 @@
-splk-py-trace python3 trace_invaders.py
+splunk-py-trace python3 trace_invaders.py
