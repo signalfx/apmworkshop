@@ -7,6 +7,9 @@ https://istio.io/latest/docs/setup/getting-started/#install
 Enable Istio to send spans to the OpenTelemetry Collector:  
 `istioctl install --set values.global.tracer.zipkin.address=otel-collector.default.svc.cluster.local:9411 --set values.pilot.traceSampling=100`
 
+Enable Prometheus Metrics:  
+`kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/addons/prometheus.yaml`
+
 Set ingress ports for Nodeport example:  
 
 ```
