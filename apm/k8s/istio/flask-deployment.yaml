@@ -3,18 +3,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-server
+  name: server-flask-otel-k8s
 spec:
   selector:
     matchLabels:
-      name: flask-server
+      name: server-flask-otel-k8s
   template:
     metadata:
       labels:
-        name: flask-server
+        name: server-flask-otel-k8s
     spec:
       containers:
-      - name: flask-server
+      - name: server-flask-otel-k8s
         image: docker.io/stevelsplunk/splk-python
         ports:
           - name: http
@@ -23,7 +23,7 @@ spec:
         - name: OTEL_RESOURCE_ATTRIBUTES
           value: deployment.environment=apm-workshop
         - name: OTEL_SERVICE_NAME
-          value: flask-server
+          value: server-flask-otel-k8s
         - name: SPLUNK_OTEL_AGENT
           valueFrom:
             fieldRef:
@@ -37,11 +37,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: flask-server
+  name: server-flask-otel-k8s
 spec:
   type: NodePort
   selector:
-    name: flask-server
+    name: server-flask-otel-k8s
   ports:
   - protocol: TCP
     port: 5000

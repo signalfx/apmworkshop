@@ -1,0 +1,23 @@
+---
+### Python Requests Pod
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client-py
+spec:
+  containers:
+  - name: client-py
+    image: docker.io/stevelsplunk/splk-python
+    env:
+    - name: OTEL_RESOURCE_ATTRIBUTES
+      value: deployment.environment=apm-workshop
+    - name: OTEL_SERVICE_NAME
+      value: client-py
+    - name: SPLUNK_OTEL_AGENT
+      valueFrom:
+        fieldRef:
+          fieldPath: status.hostIP
+    - name: OTEL_EXPORTER_OTLP_ENDPOINT
+      value: http://$(SPLUNK_OTEL_AGENT):4317
+    command: ["/bin/sh"]
+    args: ["run-client.sh"]

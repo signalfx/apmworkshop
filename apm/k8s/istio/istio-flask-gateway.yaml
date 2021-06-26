@@ -28,6 +28,6 @@ spec:
         exact: /echo
     route:
     - destination:
-        host: flask-server 
+        host: server-flask-otel-k8s
         port:
           number: 5000
