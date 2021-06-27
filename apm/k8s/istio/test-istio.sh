@@ -1,0 +1,1 @@
+curl -H "Server: 1" "http://$INGRESS_HOST:$INGRESS_PORT/echo"
