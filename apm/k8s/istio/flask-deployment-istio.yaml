@@ -24,6 +24,8 @@ spec:
           value: deployment.environment=apm-workshop
         - name: OTEL_SERVICE_NAME
           value: server-flask-otel-k8s
+        - name: OTEL_PROPAGATORS
+          value: b3multi
         - name: SPLUNK_OTEL_AGENT
           valueFrom:
             fieldRef:

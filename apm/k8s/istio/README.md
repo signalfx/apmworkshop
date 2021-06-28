@@ -1,5 +1,17 @@
+Install Splunk Otel Collector in its own namespace:  
+`kubectl create namespace splunk-otel-collector`
+
+Follow Data Setup but add:  
+`--namespace splunk-otel-collector`  
+
 Set up Istio:
 https://istio.io/latest/docs/setup/getting-started/#install  
+
+` curl -L https://istio.io/downloadIstio | sh -`  
+
+cd to the istio directory created above  
+
+`export PATH=$PWD/bin:$PATH`
 
 `istioctl install --set profile=demo -y`
 `kubectl label namespace default istio-injection=enabled`  
@@ -14,7 +26,7 @@ validate config:
 `env | grep INGRESS`   
 
 Deploy Flask service:  
-`kubectl apply -f flask-deployment.yaml`
+`kubectl apply -f flask-deployment-istio.yaml`
 
 Single test Flask service:  
 `curl -H "Server: 1" localhost:30001/echo`  
