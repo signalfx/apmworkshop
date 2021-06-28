@@ -4,23 +4,11 @@ https://istio.io/latest/docs/setup/getting-started/#install
 `istioctl install --set profile=demo -y`
 `kubectl label namespace default istio-injection=enabled`  
 
-Enable Istio to send spans to the OpenTelemetry Collector:  
-`istioctl install --set values.global.tracer.zipkin.address=otel-collector.default.svc.cluster.local:9411 --set values.pilot.traceSampling=100`
-
 Enable Prometheus Metrics:  
 `kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/addons/prometheus.yaml`
 
-Set ingress ports for Nodeport example:  
-
-```
-export INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}')
-export SECURE_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="https")].nodePort}')
-export TCP_INGRESS_PORT=$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="tcp")].nodePort}')
-```
-
-Configure Ingress Host for local k3s workshop example:   
-
-`export INGRESS_HOST=$(kubectl get po -l istio=ingressgateway -n istio-system -o jsonpath='{.items[0].status.hostIP}')`
+Set ingress ports for Nodeport example and configure ingress host for local k3s workshop example:  
+`source setup-env.sh`
 
 validate config: 
 `env | grep INGRESS`   
