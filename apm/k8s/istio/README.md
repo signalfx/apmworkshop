@@ -2,7 +2,20 @@ Install Splunk Otel Collector in its own namespace:
 `kubectl create namespace splunk-otel-collector`
 
 Follow Data Setup but add:  
-`--namespace splunk-otel-collector`  
+`--namespace splunk-otel-collector` 
+
+i.e.
+
+helm install \
+--set splunkAccessToken='iaDMjuc3PWchPGK6Ol-shw' \
+--set clusterName='sl-istio' \
+--set provider=' ' \
+--set distro=' ' \
+--set splunkRealm='us1' \
+--set otelCollector.enabled='true' \
+--namespace splunk-otel-collector \
+--generate-name \
+splunk-otel-collector-chart/splunk-otel-collector
 
 Set up Istio:
 https://istio.io/latest/docs/setup/getting-started/#install  
@@ -17,25 +30,28 @@ cd to the istio directory created above
 `kubectl label namespace default istio-injection=enabled`  
 
 Enable Prometheus Metrics:  
-`kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/addons/prometheus.yaml`  
+`kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/addons/prometheus.yaml` 
+
+Enable tracing on Istio:  
+`istioctl install -f istio-tracing.yaml`
 
 Set ingress ports for Nodeport example and configure ingress host for local k3s workshop example:  
 `source setup-env.sh`  
 
-validate config: 
+validate config:   
 `env | grep INGRESS`   
 
 Deploy Flask service:  
 `kubectl apply -f flask-deployment-istio.yaml`  
 
 Single test Flask service:  
-`curl -H "Server: 1" localhost:30001/echo`  
+`source test-flask.sh`  
 
 Create Istio Gateway and Virtual Service:  
 `kubectl apply -f istio-flask-gateway.yaml`  
 
 Single test Istio:  
-`curl -s -I -HHost:flask-server.com "http://$INGRESS_HOST:$INGRESS_PORT/echo"`  
+`source test-istio.sh`  
 
 Load gen Istio:  
 `source loadgen.sh`  
