@@ -30,8 +30,12 @@ The default Istio Operator configuration needs to be updated to ensure the best 
 
 The sampling rate needs to be set to 100%  
 Tag lenght restrictions need to be increased 
-The collector needs to be set as the destination for spans  
+The collector needs to be set as the destination for spans
 
+Copy the Splunk demo Istio profile to the Istio manifests directory:  
+`cp splunk-demo-profile.yaml ~/istio-1.10.2/manifests/profiles/splunk-demo.yaml`
+
+Change to the Istio binary directory and then:  
 `istioctl install --manifests=./manifests/ --set profile=splunk-demo -y`
 
 Enable defailt Envoy injection:  
