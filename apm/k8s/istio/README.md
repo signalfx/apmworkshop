@@ -48,13 +48,13 @@ Enable tracing on Istio:
 `istioctl install -f istio-tracing.yaml`
 
 Set ingress ports for Nodeport example and configure ingress host for local k3s workshop example:  
-`source setup-env.sh`  
+`source setup-envs.sh`  
 
 validate config:   
 `env | grep INGRESS`   
 
 Deploy Flask service:  
-`kubectl apply -f flask-deployment-istio.yaml`  
+`env | grep INGRESS`  
 
 Single test Flask service:  
 `source test-flask.sh`  
