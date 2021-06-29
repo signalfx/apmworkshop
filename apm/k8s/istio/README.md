@@ -26,7 +26,15 @@ cd to the istio directory created above
 
 `export PATH=$PWD/bin:$PATH`  
 
-`istioctl install --set profile=demo -y`  
+The default Istio Operator configuration needs to be updated to ensure the best observability with Splunk.  
+
+The sampling rate needs to be set to 100%  
+Tag lenght restrictions need to be increased 
+The collector needs to be set as the destination for spans  
+
+`istioctl install --manifests=./manifests/ --set profile=splunk-demo -y`
+
+Enable defailt Envoy injection:  
 `kubectl label namespace default istio-injection=enabled`  
 
 Enable Prometheus Metrics:  
