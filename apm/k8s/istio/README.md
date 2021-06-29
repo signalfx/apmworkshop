@@ -7,11 +7,11 @@ Follow Data Setup but add:
 i.e.
 
 helm install \
---set splunkAccessToken='iaDMjuc3PWchPGK6Ol-shw' \
---set clusterName='sl-istio' \
+--set splunkAccessToken='YOURTOKENHERE' \
+--set clusterName='YOURCLUSTERNAMEHERE' \
 --set provider=' ' \
 --set distro=' ' \
---set splunkRealm='us1' \
+--set splunkRealm='YOURREALMHERE' \
 --set otelCollector.enabled='true' \
 --namespace splunk-otel-collector \
 --generate-name \
@@ -54,7 +54,7 @@ validate config:
 `env | grep INGRESS`   
 
 Deploy Flask service:  
-`env | grep INGRESS`  
+`kubectl apply -f flask-deployment-istio.yaml`  
 
 Single test Flask service:  
 `source test-flask.sh`  
