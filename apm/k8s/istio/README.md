@@ -72,4 +72,8 @@ Stop loadgen:
 `ctrl-c`  
 
 Cleanup:  
+remove k8s examples:  
 `source delete-all.sh`
+
+Remove Istio:  
+`istioctl x uninstall --purge`
