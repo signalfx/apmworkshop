@@ -22,6 +22,18 @@ https://istio.io/latest/docs/setup/getting-started/#install
 
 `curl -L https://istio.io/downloadIstio | sh -`  
 
+The default Istio Operator configuration needs to be updated to ensure the best observability with Splunk.
+
+- The sampling rate needs to be set to 100%
+- Tag lenght restrictions need to be increased
+- The collector needs to be set as the destination for spans
+
+The `splunk-demo-profile.yaml` profile has all of these settings, copy the `splunk-demo-profile.yaml` file to the Istio directory:
+
+```sh
+cp splunk-demo-profile.yaml istio-1.?.?/manifests/profiles/splunk-demo.yaml
+```
+
 cd to the istio directory created above  
 
 `export PATH=$PWD/bin:$PATH`  
@@ -40,6 +52,18 @@ Change to the Istio binary directory and then:
 
 Enable defailt Envoy injection:  
 `kubectl label namespace default istio-injection=enabled`  
+=======
+Now apply the Splunk demo profile
+
+```sh
+istioctl install --manifests=./manifests/ --set profile=splunk-demo -y
+```
+
+Update the default namespace to auto-inject the Istio proxy
+
+```sh
+kubectl label namespace default istio-injection=enabled
+```
 
 Enable Prometheus Metrics:  
 `kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/addons/prometheus.yaml` 
@@ -58,9 +82,6 @@ Deploy Flask service:
 
 Single test Flask service:  
 `source test-flask.sh`  
-
-Create Istio Gateway and Virtual Service:  
-`kubectl apply -f istio-flask-gateway.yaml`  
 
 Single test Istio:  
 `source test-istio.sh`  
