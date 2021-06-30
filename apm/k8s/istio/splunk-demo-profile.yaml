@@ -1,3 +1,4 @@
+---
 apiVersion: install.istio.io/v1alpha1
 kind: IstioOperator
 spec:
@@ -14,7 +15,7 @@ spec:
           # Optional, but recommended.
           environment.deployment:
             literal:
-              value: dev
+              value: istio-demo
   components:
     egressGateways:
     - name: istio-egressgateway
@@ -25,7 +26,7 @@ spec:
             cpu: 10m
             memory: 40Mi
 
-    ingressGateways:
+  ingressGateways:
     - name: istio-ingressgateway
       enabled: true
       k8s:
@@ -81,4 +82,3 @@ spec:
       istio-egressgateway:
         autoscaleEnabled: false
       istio-ingressgateway:
-        autoscaleEnabled: false

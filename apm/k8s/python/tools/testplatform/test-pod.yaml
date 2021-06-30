@@ -9,6 +9,16 @@ spec:
     env:
     - name: TZ
       value: America/New_York
+    - name: SPLUNK_OTEL_AGENT
+      valueFrom:
+        fieldRef:
+          fieldPath: status.hostIP
+    - name: OTEL_RESOURCE_ATTRIBUTES
+      value: deployment.environment=otel-demo
+    - name: OTEL_SERVICE_NAME
+      value: python-autogen-otel
+    - name: OTEL_EXPORTER_OTLP_ENDPOINT
+      value: http://$(SPLUNK_OTEL_AGENT):4317
     command: [ "/bin/bash", "-c", "--" ]
     args: [ "while true; do sleep 30; done;" ]
     imagePullPolicy: Always

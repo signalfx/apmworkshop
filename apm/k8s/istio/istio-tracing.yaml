@@ -1,0 +1,16 @@
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+spec:
+  meshConfig:
+    enableTracing: true
+    defaultConfig:
+      tracing:
+        max_path_tag_length: 99999
+        sampling: 100
+        zipkin:
+          address: splunk-otel-collector.splunk-otel-collector.svc.cluster.local:9411
+        custom_tags:
+          # Optional, but recommended
+          environment.deployment:
+            literal:
+              value: dev
