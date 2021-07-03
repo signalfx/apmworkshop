@@ -16,10 +16,10 @@ Full documentation: https://github.com/signalfx/splunk-otel-collector
 
 i.e. `helm get values splunk-otel-collector-1620609739`
 
-make note of:
-`clusterNAME`
-`splunkAccessToken`
-`splunkRealm`
+make note of:  
+`clusterNAME`  
+`splunkAccessToken`  
+`splunkRealm`  
 
 ###
 
@@ -34,7 +34,7 @@ Edit `spanprocessor.yaml` with thes values from Step 1.
 Install the Collector configuration chart:  
 
 ```
-helm upgrade --install \
+helm upgrade --install \ 
 YOURCOLLECTORHERE \
 --values spanprocessor.yaml \
 splunk-otel-collector-chart/splunk-otel-collector

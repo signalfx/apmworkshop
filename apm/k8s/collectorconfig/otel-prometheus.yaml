@@ -7,7 +7,6 @@ otelAgent:
     receivers:
       smartagent/prometheus-exporter:
         type: prometheus-exporter
-        metricPath: "/"
         port: 8000
         host: prometheus-endpoint
     service:

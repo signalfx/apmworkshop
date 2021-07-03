@@ -264,6 +264,8 @@ Viwe initial configmap that was installed:
 Substitute your agent install value i.e. `1625344942` with the one from your list:  
 `kubectl get configmap splunk-otel-collector-1625344942-otel-agent -o yaml`
 
+---
+
 ### Clean up deployments and services
 
 To delete all k8s lab work:  
