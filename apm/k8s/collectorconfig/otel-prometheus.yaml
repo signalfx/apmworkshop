@@ -5,10 +5,8 @@ splunkAccessToken: YOURTOKENHERE
 otelAgent:
   config:
     receivers:
-      smartagent/prometheus-exporter:
-        type: prometheus-exporter
-        port: 8000
-        host: prometheus-endpoint
+      prometheus_simple:
+        endpoint: "prometheus:9090"
     service:
       pipelines:
         metrics:
@@ -17,4 +15,4 @@ otelAgent:
             - kubeletstats
             - receiver_creator
             - signalfx
-            - smartagent/prometheus-exporter
+            - prometheus_simple
