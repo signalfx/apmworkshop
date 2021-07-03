@@ -81,15 +81,11 @@ To manage multipass VM:
 A bootstrap script will install everything needed and clone this repo.  
 This will take up to 10 minutes to execute- leave it running until complete.  
 
-**From your command line (not logged into the Multipass "primary" VM):**  
+`multipass shell primary`  
 
-Linux / Mac:  
-`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/setup-tools/multipass.sh)`
+Once in your Multipass Ubuntu VM:
 
-Windows:  
-`multipass exec primary -- curl https://raw.githubusercontent.com/signalfx/apmworkshop/master/setup-tools/multipass.sh -o multipass.sh`  
-
-`multipass exec primary -- sh multipass.sh`
+`bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/setup-tools/ubuntu.sh)`
 
 ---
 
