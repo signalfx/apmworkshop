@@ -1,0 +1,36 @@
+---
+### Prometheus Endpoint Pod
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-endpoint
+spec:
+  selector:
+    matchLabels:
+      name: prometheus-endpoint
+  template:
+    metadata:
+      labels:
+        name: prometheus-endpoint
+    spec:
+      containers:
+      - name: prometheus-endpoint
+        image: docker.io/stevelsplunk/splk-python
+        ports:
+          - name: http
+            containerPort: 8000
+        command: ["/bin/sh"]
+        args: ["run-prometheus.sh"]
+---
+### Flask Server Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus-endpoint
+spec:
+  selector:
+    name: prometheus-endpoint
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000
