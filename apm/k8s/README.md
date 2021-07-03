@@ -13,7 +13,6 @@ or ensure you have `helm` and `lynx` installed...
 And then skip to:  
 Exercise 2: Deploy APM for containerized apps: Python and Java
 
-
 ***
 
 ### Exercise 1: Use Data Setup Wizard for Splunk OpenTelemetry Collector pod on k3s
@@ -78,7 +77,6 @@ sudo chmod 755 /etc/rancher/k3s/k3s.yaml
 Prep values for collector update:  
 
 `helm list`  
-
 `helm get values NAME`  
 
 i.e. `helm get values splunk-otel-collector-1620609739`
@@ -251,6 +249,20 @@ Note that this is the most minimal example of manual instrumentation- there is a
 See [Processing Spans](./collectorconfig/README.md)  
 
 ***
+
+### Exercise 9: Advanced Troubleshooting  
+
+Examine initial configmap of the Otel Collector:  
+
+See list of configmaps:``
+`kubectl get configmap`  
+
+You'll see something like: `splunk-otel-collector-1625344942-otel-agent`
+
+Viwe initial configmap that was installed:  
+
+Substitute your agent install value i.e. `1625344942` with the one from your list:  
+`kubectl get configmap splunk-otel-collector-1625344942-otel-agent -o yaml`
 
 ### Clean up deployments and services
 
