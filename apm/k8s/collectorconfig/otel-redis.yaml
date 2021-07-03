@@ -16,4 +16,5 @@ otelAgent:
             - hostmetrics
             - kubeletstats
             - receiver_creator
+            - signalfx
             - smartagent/redis

@@ -7,9 +7,8 @@ otelAgent:
     receivers:
       smartagent/prometheus-exporter:
         type: prometheus-exporter
-        metricPath: "/"
         port: 8000
-        host: localhost
+        host: prometheus-endpoint
     service:
       pipelines:
         metrics:
@@ -17,5 +16,5 @@ otelAgent:
             - hostmetrics
             - kubeletstats
             - receiver_creator
-            - smartagent/redis
+            - signalfx
             - smartagent/prometheus-exporter
