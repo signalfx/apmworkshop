@@ -9,7 +9,7 @@ RUN apt-get update && \
     python3 -m pip install -r requirements.txt && \
     splk-py-trace-bootstrap && \
     apt -y autoremove && apt-get -y autoclean
-EXPOSE 5000
+EXPOSE 5000 9090
 
 # apt install -y dnsutils && \
 # apt install -y util-linux && \

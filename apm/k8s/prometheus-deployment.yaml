@@ -3,22 +3,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: prometheus-endpoint
+  name: prometheus
 spec:
   selector:
     matchLabels:
-      name: prometheus-endpoint
+      name: prometheus
   template:
     metadata:
       labels:
-        name: prometheus-endpoint
+        name: prometheus
     spec:
       containers:
-      - name: prometheus-endpoint
+      - name: prometheus
         image: docker.io/stevelsplunk/splk-python
         ports:
           - name: http
-            containerPort: 8000
+            containerPort: 9090
         command: ["/bin/sh"]
         args: ["run-prometheus.sh"]
 ---
@@ -26,11 +26,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: prometheus-endpoint
+  name: prometheus
 spec:
   selector:
-    name: prometheus-endpoint
+    name: prometheus
   ports:
   - protocol: TCP
-    port: 8000
-    targetPort: 8000
+    port: 9090
+    targetPort: 9090
