@@ -176,7 +176,7 @@ i.e.
 
 ***
 
-## Advanced APM Topics: Manual instrumenation, span processing, JVM monitoring
+## Advanced APM Topics: Manual Java instrumenation, span processing, JVM monitoring, Prometheus
 
 ### Exercise 6: Monitor JVM metrics for a Java container
 
