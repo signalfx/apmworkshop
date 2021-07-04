@@ -250,25 +250,58 @@ See [Processing Spans](./collectorconfig/README.md)
 
 ***
 
-### Exercise 9: Advanced Troubleshooting  
+### Exercise 9: Scrape Prometheus Metrics
+
+**Add a Prometheus endpoint pod**  
+
+Change to the k8s directory:  
+`cd ~/apmworkshop/apm/k8s`  
+
+Add the Prometheus pod (source code is in the `k8s/python` directory):
+`kubectl apply -f prometheus-deployment.yaml`
+
+**Update Otel Collector to scrape the Prometheus pod**
+
+Change to the examples directory:  
+`cd ~/apmworkshop/apm/k8s/collectorconfig`
+
+Update realm/token/cluster in the `otel-prometheus.yaml`  
+
+Update collector:  
+`helm list`
+
+`relm upgrade --reuse-values splunk-otel-collector-YOURCOLLECTORVALUE --values otel-prometheus.yaml splunk-otel-collector-chart/splunk-otel-collector`  
+
+**Find Prometheus metric and generate chart**
+
+`Splunk Observabilty -> Menu -> Metrics -> Metric Finder`  
+
+Search for: `customgauge`  
+
+Click `CustomGauge`  
+
+Chart appears with value 17  
+
+### Exercise 10: Advanced Troubleshooting  
 
 Examine initial configmap of the Otel Collector:  
 
-* Get list of configmaps:  
+**Get list of configmaps**  
 `kubectl get configmap`  
 You'll see something like: `splunk-otel-collector-1625344942-otel-agent`
 
-* View initial configmap that was installed:  
+**View initial configmap that was installed** 
 Substitute your agent install value i.e. `1625344942` with the one from your list:  
 `kubectl get configmap splunk-otel-collector-1625344942-otel-agent -o yaml`
 
----
+***
 
 ### Clean up deployments and services
 
 To delete all k8s lab work:  
 in `~/apmworkshop/apm/k8s/`  
 `source delete-all-k8s.sh`  
+`source delete-prometheus.sh`  
 
 To delete the Collector from k8s:  
 `helm list`  
