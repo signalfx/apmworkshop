@@ -5,4 +5,3 @@ kubectl delete pod client-java-otel-k8s &
 kubectl delete pod client2-java-otel-k8s &
 kubectl delete pod java-manual-inst-k8s &
 kubectl delete deployment prometheus-endpoint &
-kubectl delete service prometheus-endpoint

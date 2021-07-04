@@ -1,0 +1,17 @@
+clusterName: YOURCLUSTERHERE
+splunkRealm: YOUREREALMHERE
+splunkAccessToken: YOURTOKENHERE
+
+otelAgent:
+  config:
+    exporters:
+      logging:
+        loglevel: debug
+        sampling_initial: 5
+        sampling_thereafter: 200
+    service:
+      pipelines:
+        metrics:
+          exporters:
+            - signalfx
+            - logging
