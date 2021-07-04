@@ -64,4 +64,16 @@ Example `my.key` and you'll see that the value is `redacted`
 If you want to make changes and update the `spanprocessor.yaml` or add more configurations, use:  
 `helm upgrade --resuse-values`
 
+To see the structure of the inital Collector config:  
+
+See list of configmaps:``
+`kubectl get configmap`  
+
+You'll see something like: `splunk-otel-collector-1625344942-otel-agent`
+
+Viwe initial configmap that was installed:  
+
+Substitute your agent install value i.e. `1625344942` with the one from your list:  
+`kubectl get configmap splunk-otel-collector-1625344942-otel-agent -o yaml`
+
 [Click here to return to k8s APM lab](../README.md)
