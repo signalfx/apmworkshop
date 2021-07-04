@@ -59,8 +59,9 @@ Example `my.key` and you'll see that the value is `redacted`
 
 <img src="../../assets/25-span-redacted.png" width="360">  
 
+**Step SP4: Updating any config or adding new configs**  
 
-If you want to make changes and update the `spanprocessor.yaml` or any values file, use:  
+If you want to make changes and update the `spanprocessor.yaml` or add more configurations, use:  
 `helm upgrade --resuse-values`
 
 [Click here to return to k8s APM lab](../README.md)
