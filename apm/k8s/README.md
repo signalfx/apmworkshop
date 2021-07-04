@@ -282,6 +282,8 @@ Click `CustomGauge`
 
 Chart appears with value 17  
 
+***
+
 ### Exercise 10: Advanced Troubleshooting  
 
 Examine initial configmap of the Otel Collector:  
