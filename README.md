@@ -9,7 +9,7 @@
     - Linux Host
         - Set up OpenTelemetry Collector Agent on a Linux Host
         - OpenTelemetry APM Instrumentation on Java, Python, and Node apps
-    - Kubernetes (k8s)
+    - Kubernetes (k8s) [Click to start at k8s Labs](./apm/k8s)
         - Set up OpenTelemetry Collector Agent on a k8s cluster
         - OpenTelemetry APM Instrumentation on k8s on Java, Python k8s pods
         - Manual APM Instrumentation for Java
