@@ -2,10 +2,7 @@
 
 ### Start Here: [APM Instrumentation Workshop](./apm)  
 
-- Audience: existing / trained users of Splunk Observability Cloud  
-- APM is for microservices or modern (Java >=8 ) applications only  
-- All examples have source code supplied
-- Workshop Activitiess  
+- Labs  
     - Linux Host
         - Set up OpenTelemetry Collector Agent on a Linux Host
         - OpenTelemetry APM Instrumentation on Java, Python, and Node apps
@@ -16,6 +13,9 @@
         - Span processing with redaction example
         - Prometheus scraping and custom metrics
         - OpenTelemetry Collector configuration
+- Audience: existing / trained users of Splunk Observability Cloud  
+- APM is for microservices or modern (Java >=8 ) applications only  
+- All examples have source code supplied
 
 #### Disclaimers
 - This is not product documentation.
