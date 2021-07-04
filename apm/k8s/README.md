@@ -256,11 +256,9 @@ Examine initial configmap of the Otel Collector:
 
 * Get list of configmaps:  
 `kubectl get configmap`  
-
 You'll see something like: `splunk-otel-collector-1625344942-otel-agent`
 
 * View initial configmap that was installed:  
-
 Substitute your agent install value i.e. `1625344942` with the one from your list:  
 `kubectl get configmap splunk-otel-collector-1625344942-otel-agent -o yaml`
 
