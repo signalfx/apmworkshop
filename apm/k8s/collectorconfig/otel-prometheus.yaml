@@ -2,11 +2,15 @@ clusterName: YOURCLUSTERHERE
 splunkRealm: YOUREREALMHERE
 splunkAccessToken: YOURTOKENHERE
 
+# commented areas show how to add multiple prometheus endpoints
+
 otelAgent:
   config:
     receivers:
       prometheus_simple:
         endpoint: "prometheus:9090"
+#     prometheus_simple2:
+#       endpoint: "prometheus2:9090"
     service:
       pipelines:
         metrics:
@@ -16,3 +20,4 @@ otelAgent:
             - receiver_creator
             - signalfx
             - prometheus_simple
+ #          - prometheus_simple2
