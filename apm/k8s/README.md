@@ -270,7 +270,7 @@ Update realm/token/cluster in the `otel-prometheus.yaml`
 Update collector:  
 `helm list`
 
-`relm upgrade --reuse-values splunk-otel-collector-YOURCOLLECTORVALUE --values otel-prometheus.yaml splunk-otel-collector-chart/splunk-otel-collector`  
+`helm upgrade --reuse-values splunk-otel-collector-YOURCOLLECTORVALUE --values otel-prometheus.yaml splunk-otel-collector-chart/splunk-otel-collector`  
 
 **Find Prometheus metric and generate chart**
 
