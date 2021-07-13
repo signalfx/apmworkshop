@@ -1,52 +1,63 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-
-using OpenTracing;
-using OpenTracing.Util;
-using OpenTracing.Tag;
-
+using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
+using System.Net.Http;
+using System.Net;
 
-namespace myWebApp
+namespace HTTP_Test
 {
-    public class Program
+    class program
     {
-
-        public static async Task<int> Main(string[] args)
-        {
-	    var tracer = GlobalTracer.Instance;
-             Console.WriteLine(System.ComponentModel.TypeDescriptor.GetClassName(tracer));
-             Console.WriteLine(GlobalTracer.IsRegistered());
-
-
-	    int x=0;
-	    while (x<10000)
+        static void Main()
+        {   for(int i = 0; i < 10; i++)
             {
-		string parentnum = x.ToString();
-		string parent = "parent" + parentnum;
-            	using (IScope scope = tracer.BuildSpan(parent).WithTag(Tags.SpanKind.Key, Tags.SpanKindServer).StartActive(finishSpanOnDispose: true))
-            	{
-                	var span = scope.Span;
-                	span.SetTag("MyImportantTag", "MyImportantValue");
-                	span.Log("My Important Log Statement");
-	        x++;
-	        Thread.Sleep(50);
-		Console.WriteLine(parent);
-		var ba = new Uri("http://localhost:5000/");
-		var c = new HttpClient { BaseAddress = ba };
-		await c.GetAsync("default-handler");
-		}
+                Task t = new Task(HTTP_GET);
+                // t.Start();
+                t.RunSynchronously();
+                t.Wait();
+                // Console.ReadLine();
             }
-	    Thread.Sleep(2000);
-		return 0;
         }
 
+        static async void HTTP_GET()
+        {
+            var TARGETURL = "https://github.com/";
+
+            // HttpClientHandler handler = new HttpClientHandler()
+            // {
+            //     Proxy = new WebProxy("http://127.0.0.1:8888"),
+            //     UseProxy = false,
+            // };
+
+            Console.WriteLine("GET: + " + TARGETURL);
+
+            // ... Use HttpClient.            
+            HttpClient client = new HttpClient();
+
+            // var byteArray = Encoding.ASCII.GetBytes("username:password1234");
+            // client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Basic", Convert.ToBase64String(byteArray));
+
+            HttpResponseMessage response = await client.GetAsync(TARGETURL);
+            HttpContent content = response.Content;
+
+            // ... Check Status Code                                
+            Console.WriteLine("Response StatusCode: " + (int)response.StatusCode);
+
+            // sleep 100 ms
+            Thread.Sleep(100);
+
+            // ... Read the string.
+            // string result = await content.ReadAsStringAsync();
+
+            // ... Display the result.
+            // if (result != null &&
+            // result.Length >= 50)
+            // {
+            //     Console.WriteLine(result.Substring(0, 50) + "...");
+            // }
+        }
     }
 }
