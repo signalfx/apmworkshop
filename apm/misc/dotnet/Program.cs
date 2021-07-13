@@ -12,7 +12,7 @@ namespace HTTP_Test
     class program
     {
         static void Main()
-        {   for(int i = 0; i < 10; i++)
+        {   while(true)
             {
                 Task t = new Task(HTTP_GET);
                 // t.Start();
