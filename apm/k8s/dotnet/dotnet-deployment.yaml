@@ -1,0 +1,23 @@
+---
+### Dotnet Requests Pod
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client-dotnet-k8s
+spec:
+  containers:
+  - name: client-dotnet-k8s
+    image: docker.io/stevelsplunk/splk-dotnet
+    env:
+    - name: SPLUNK_OTEL_AGENT
+      valueFrom:
+        fieldRef:
+          fieldPath: status.hostIP
+    - name: SIGNALFX_SERVICE_NAME
+      value: 'dotnet-httpget'
+    - name: SIGNALFX_ENDPOINT_URL
+      value: "http://${SPLUNK_OTEL_AGENT}:9080/v1/trace"
+    - name: SIGNALFX_ENV
+      value: 'apm-workshop'
+    command: ["/bin/sh"]
+    args: ["run-client.sh"]
