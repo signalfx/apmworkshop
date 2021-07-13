@@ -18,13 +18,15 @@ namespace HTTP_Test
                 // t.Start();
                 t.RunSynchronously();
                 t.Wait();
+                // sleep 
+                Thread.Sleep(500);
                 // Console.ReadLine();
             }
         }
 
         static async void HTTP_GET()
         {
-            var TARGETURL = "https://github.com/";
+            var TARGETURL = "https://api.github.com/";
 
             // HttpClientHandler handler = new HttpClientHandler()
             // {
@@ -45,9 +47,6 @@ namespace HTTP_Test
 
             // ... Check Status Code                                
             Console.WriteLine("Response StatusCode: " + (int)response.StatusCode);
-
-            // sleep 100 ms
-            Thread.Sleep(100);
 
             // ... Read the string.
             // string result = await content.ReadAsStringAsync();
