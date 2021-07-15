@@ -19,6 +19,7 @@ Follow Data Setup wizard but add:
 
 i.e.
 
+```
 helm install \
 --set splunkAccessToken='YOURTOKENHERE' \
 --set clusterName='YOURCLUSTERNAMEHERE' \
@@ -30,6 +31,7 @@ helm install \
 --set autodetect.istio=true \
 --generate-name \
 splunk-otel-collector-chart/splunk-otel-collector
+```
 
 ### Step 2: Set Up Istio 
 
