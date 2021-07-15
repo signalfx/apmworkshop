@@ -8,10 +8,12 @@ The result will show tracing of the request through the mesh to the Flask server
 
 ### Step 1: Install OpenTelemetry Collector  
 
+If you have an existing collector running remove it.
+
 Install Splunk Otel Collector in its own namespace:  
 `kubectl create namespace splunk-otel-collector`
 
-Follow Data Setup but add:  
+Follow Data Setup wizard but add:  
 `--namespace splunk-otel-collector`   
 `--set autodetect.istio=true`
 
@@ -52,10 +54,10 @@ Change to the Istio install directory:
 Set ingress ports for Nodeport example and configure ingress host for local k3s workshop example:  
 `source setup-envs.sh`  
 
-Validate config:   
+Validate config to see correct env variables:   
 `env | grep INGRESS`   
 
-Deploy Flask service:  
+Deploy Flask service configured for Istio:  
 `kubectl apply -f flask-deployment-istio.yaml`  
 
 Single test Flask service:  
@@ -95,8 +97,16 @@ X-B3-Sampled: 1
 
 To generate many requests so that the example appears in the APM service map, use the load generator:  
 
-Load gen Istio:  
+Load gen Istio for two minutes:    
 `source loadgen.sh`  
+
+You will see a service map with the Istio mesh and the Flask server:  
+
+<img src="../../assets/istio1.png" width="360">  
+
+Traces will show the service mesh trace and the service itself:  
+
+<img src="../../assets/istio2.png" width="360">  
 
 Stop loadgen:  
 `ctrl-c`  
@@ -106,4 +116,5 @@ remove k8s examples:
 `source delete-all.sh`
 
 Remove Istio:  
+From the Istio bin directory: 
 `istioctl x uninstall --purge`

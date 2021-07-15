@@ -312,6 +312,13 @@ i.e. `helm delete splunk-otel-collector-1620505665`
 
 k3s: `/usr/local/bin/k3s-uninstall.sh`  
 
+***
+
+### Bonus Exercises
+
+Set up and trace an [Istio Service Mesh](./istio)
+
+
 ---
 
 This is the last lab of the [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)
