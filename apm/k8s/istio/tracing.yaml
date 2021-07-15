@@ -1,0 +1,19 @@
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+spec:
+  meshConfig:
+    # Requires Splunk Log Observer entitlement or can be disabled
+    accessLogFile: /dev/stdout
+    # Requires Splunk APM entitlement or should be disabled
+    enableTracing: true
+    defaultConfig:
+      tracing:
+        max_path_tag_length: 99999
+        sampling: 100
+        zipkin:
+          address: $(HOST_IP):9411
+        custom_tags:
+          # Optional, but recommended
+          #environment.deployment:
+            #literal:
+              #value: dev
