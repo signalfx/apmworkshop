@@ -4,6 +4,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: server-flask-otel-k8s
+  labels:
+    app: server-flask-otel-k8s
 spec:
   selector:
     matchLabels:
