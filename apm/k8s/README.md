@@ -286,15 +286,19 @@ Chart appears with value 17
 
 ### Exercise 10: Advanced Troubleshooting  
 
-Examine initial configmap of the Otel Collector:  
+Examine config of the Otel Collector:  
 
-**Get list of configmaps**  
-`kubectl get configmap`  
-You'll see something like: `splunk-otel-collector-1625344942-otel-agent`
+get your Collector agent pod name via: `kubetctl get pods`
 
-**View initial configmap that was installed** 
-Substitute your agent install value i.e. `1625344942` with the one from your list:  
-`kubectl get configmap splunk-otel-collector-1625344942-otel-agent -o yaml`
+i.e.
+
+`splunk-otel-collector-1626453714-agent-vfr7s` 
+
+For current config:  
+`kubectl exec -it YOURAGENTPODHERE -- curl localhost:55555/debug/configz/effective`
+
+Initial config:  
+`kubectl exec -it YOURAGENTPODHERE -- curl localhost:55555/debug/configz/initial`
 
 ***
 
@@ -313,13 +317,6 @@ i.e. `helm delete splunk-otel-collector-1620505665`
 k3s: `/usr/local/bin/k3s-uninstall.sh`  
 
 ***
-
-### Bonus Exercises
-
-Set up and trace an [Istio Service Mesh](./istio)
-
-
----
 
 This is the last lab of the [APM Instrumentation Workshop](../workshop-steps/3-workshop-labs.md)
 

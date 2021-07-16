@@ -1,5 +1,7 @@
 ## Istio Setup
 
+NOTE: THIS LAB IS DESIGNED FOR THE UBUNTU SANDBOX CREATED AT THE START OF THE APM WORKSHOP AND IS TESTED IN THAT ENVIRONMENT ONLY  
+
 This exercise will install an Istio service mesh on a kubernetes cluster that directs external requests to a Python Slask server.
 
 Both the service mesh and the Flask server will emit spans.
@@ -10,15 +12,16 @@ The result will show tracing of the request through the mesh to the Flask server
 
 If you have an existing collector running remove it.
 
-Install Splunk Otel Collector in its own namespace:  
-`kubectl create namespace splunk-otel-collector`
+<!-- Install Splunk Otel Collector in its own namespace:  
+`kubectl create namespace splunk-otel-collector` -->
 
 Follow Data Setup wizard but add:  
-`--namespace splunk-otel-collector`   
+<!-- `--namespace splunk-otel-collector`    -->
 `--set autodetect.istio=true`
 
 i.e.
 
+```
 helm install \
 --set splunkAccessToken='YOURTOKENHERE' \
 --set clusterName='YOURCLUSTERNAMEHERE' \
@@ -30,6 +33,7 @@ helm install \
 --set autodetect.istio=true \
 --generate-name \
 splunk-otel-collector-chart/splunk-otel-collector
+```
 
 ### Step 2: Set Up Istio 
 
@@ -46,11 +50,16 @@ Change to the Istio install directory:
 
 ### Step 3: Deploy Istio configurations and example Flask microservice   
 
-Set ingress ports for Nodeport example and configure ingress host for local k3s workshop example:  
+Set and validate ingress ports for Nodeport example and configure ingress host for local k3s workshop example:  
 `source setup-envs.sh`  
 
-Validate config to see correct env variables:   
-`env | grep INGRESS`   
+You should see a result that looks like:  
+```
+TCP_INGRESS_PORT=
+INGRESS_PORT=30785
+INGRESS_HOST=172.31.19.248
+SECURE_INGRESS_PORT=32071
+```
 
 Deploy Flask service configured for Istio:  
 `kubectl apply -f flask-deployment-istio.yaml`  
