@@ -22,3 +22,10 @@ curl -sS https://webinstall.dev/k9s | bash
 
 #clone workshop
 git clone https://github.com/signalfx/apmworkshop
+
+#update .bashrc for workshop
+curl https://raw.githubusercontent.com/signalfx/apmworkshop/master/setup-tools/bashrc -o /tmp/bashrc
+echo -e "\n\n" >> /home/ubuntu/.bashrc
+cat /tmp/bashrc >> /home/ubuntu/.bashrc
+rm /tmp/bashrc
+source /home/ubuntu/.bashrc
