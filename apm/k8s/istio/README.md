@@ -2,25 +2,18 @@
 
 NOTES:
 
-THIS LAB IS DESIGNED FOR THE UBUNTU SANDBOX CREATED AT THE START OF THE APM WORKSHOP AND IS TESTED IN THAT ENVIRONMENT ONLY  
-
+THIS LAB IS DESIGNED FOR THE UBUNTU SANDBOX CREATED AT THE START OF THE APM WORKSHOP AND IS TESTED IN THAT ENVIRONMENT ONLY
 THIS LAB IS A WORK IN PROCESS AND YOUR RESULTS MAY VARY  
 
-This exercise will install an Istio service mesh on a kubernetes cluster that directs external requests to a Python Slask server.
-
+This exercise will install an Istio service mesh on a Kubernetes cluster that directs external requests to a Python Flask server.
 Both the service mesh and the Flask server will emit spans.
-
-The result will show tracing of the request through the mesh to the Flask server.
+The result will show tracing of the external request to the node and through the mesh to the Flask server.  
 
 ### Step 1: Install OpenTelemetry Collector  
 
 If you have an existing collector running remove it.
 
-<!-- Install Splunk Otel Collector in its own namespace:  
-`kubectl create namespace splunk-otel-collector` -->
-
 Follow Data Setup wizard but add:  
-<!-- `--namespace splunk-otel-collector`    -->
 `--set autodetect.istio=true`
 
 i.e.
@@ -40,24 +33,25 @@ splunk-otel-collector-chart/splunk-otel-collector
 
 ### Step 2: Set Up Istio 
 
-Set up Istio:
+Download Istio:
 ```
 cd ~
 curl -L https://istio.io/downloadIstio | sh -
 ```
 
-Follow instructions from the installer script that are now in your terminal to add Istio's bin path then:  
+Follow instructions from the installer script that are now in your terminal to add Istio's bin path to your env then:    
 `istioctl install`
 
 
 ### Step 3: Deploy Istio configurations and example Flask microservice   
 
-Enable automatic Istio prox injection. [More info here](https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/#automatic-sidecar-injection)  
+Enable automatic Istio proxy injection. [More info here](https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/#automatic-sidecar-injection)    
 `kubectl label namespace default istio-injection=enabled`
 
+Change to the APM Workshop Istio directory:  
 `cd ~/apmworkshop/apm/k8s/istio`  
 
-Install the Splunk tracing profile for Istio:  
+Install the Splunk tracing profile for Istio:    
 `istioctl install -f tracing.yaml`
 
 Set and validate ingress ports for Nodeport example and configure ingress host for local k3s workshop example:  
@@ -119,7 +113,7 @@ You will see a service map with the Istio mesh and the Flask server:
 
 <img src="../../assets/istio1.png" width="360">  
 
-Traces will show the service mesh trace and the service itself:  
+Traces will show the request hitting the service mesh and the mesh hitting the service itself:  
 
 <img src="../../assets/istio2.png" width="360">  
 
