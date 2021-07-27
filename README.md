@@ -14,6 +14,7 @@
         - Manual APM Instrumentation for Java
         - Span processing with redaction example
         - Prometheus scraping and custom metrics
+        - APM for Istio service mesh
         - OpenTelemetry Collector configuration
 
 **Details**
