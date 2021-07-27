@@ -52,6 +52,9 @@ Follow instructions from the installer script that are now in your terminal to a
 
 ### Step 3: Deploy Istio configurations and example Flask microservice   
 
+Enable automatic Istio prox injection. [More info here](https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/#automatic-sidecar-injection)  
+`kubectl label namespace default istio-injection=enabled`
+
 `cd ~/apmworkshop/apm/k8s/istio`  
 
 Install the Splunk tracing profile for Istio:  
