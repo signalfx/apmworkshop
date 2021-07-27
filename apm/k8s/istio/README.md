@@ -29,12 +29,11 @@ i.e.
 helm install \
 --set splunkAccessToken='YOURTOKENHERE' \
 --set clusterName='YOURCLUSTERNAMEHERE' \
+--set splunkRealm='YOURREALMHERE' \
+--set autodetect.istio=true \
 --set provider=' ' \
 --set distro=' ' \
---set splunkRealm='YOURREALMHERE' \
---set otelCollector.enabled='true' \
---namespace splunk-otel-collector \
---set autodetect.istio=true \
+--set otelCollector.enabled='false' \
 --generate-name \
 splunk-otel-collector-chart/splunk-otel-collector
 ```
