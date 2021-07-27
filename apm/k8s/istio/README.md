@@ -29,12 +29,11 @@ i.e.
 helm install \
 --set splunkAccessToken='YOURTOKENHERE' \
 --set clusterName='YOURCLUSTERNAMEHERE' \
+--set splunkRealm='YOURREALMHERE' \
+--set autodetect.istio=true \
 --set provider=' ' \
 --set distro=' ' \
---set splunkRealm='YOURREALMHERE' \
---set otelCollector.enabled='true' \
---namespace splunk-otel-collector \
---set autodetect.istio=true \
+--set otelCollector.enabled='false' \
 --generate-name \
 splunk-otel-collector-chart/splunk-otel-collector
 ```
@@ -42,17 +41,21 @@ splunk-otel-collector-chart/splunk-otel-collector
 ### Step 2: Set Up Istio 
 
 Set up Istio:
+```
+cd ~
+curl -L https://istio.io/downloadIstio | sh -
+```
 
-`curl -L https://istio.io/downloadIstio | sh -` 
+Follow instructions from the installer script that are now in your terminal to add Istio's bin path then:  
+`istioctl install`
 
-`./istio-VERSIONHERE/bin/istioctl install`
-
-To install the Splunk tracing profile for Istio:  
-
-Change to the Istio install directory:  
-`./istio-VERSIONHERE/bin/istioctl install -f ~/apmworkshop/apm/k8s/istio/tracing.yaml`
 
 ### Step 3: Deploy Istio configurations and example Flask microservice   
+
+`cd ~/apmworkshop/apm/k8s/istio`  
+
+Install the Splunk tracing profile for Istio:  
+`istioctl install -f tracing.yaml`
 
 Set and validate ingress ports for Nodeport example and configure ingress host for local k3s workshop example:  
 `source setup-envs.sh`  
