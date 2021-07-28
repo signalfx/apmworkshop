@@ -23,7 +23,7 @@ make note of:
 
 ###
 
-## Span Processing
+## Span Processing Example: Redacting Data from a Span Attribute
 
 **Step SP1: Prepare values.yaml file for updating the Helm chart**  
 
@@ -55,7 +55,7 @@ splunk-otel-collector-chart/splunk-otel-collector
 
 :play_or_pause_button: [**VIDEO: finding a single trace**](../../assets/26-find-span.mp4)
 
-Example `my.key` and you'll see that the value is `redacted` 
+Example `my.key` and you'll see that the value is `redacted` after applying the `spanprocessor.yaml` example
 
 <img src="../../assets/25-span-redacted.png" width="360">  
 
