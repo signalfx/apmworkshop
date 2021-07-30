@@ -34,4 +34,4 @@ spec:
     - name: SIGNALFX_DOTNET_TRACER_HOME
       value: /opt/signalfx-dotnet-tracing
     command: ["/bin/sh"]
-    args: ["run-client.sh"]
+    args: ["/App/run-client.sh"]
