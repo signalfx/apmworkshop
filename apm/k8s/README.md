@@ -302,6 +302,12 @@ Initial config:
 
 ***
 
+### Bonus Examples
+
+.NET containerized example is [located here](dotnet)  
+
+***
+
 ### Clean up deployments and services
 
 To delete all k8s lab work:  
