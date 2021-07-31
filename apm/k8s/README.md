@@ -304,7 +304,7 @@ Initial config:
 
 ### Bonus Examples
 
-.net containerized example is [located here](dotnet)  
+.NET containerized example is [located here](dotnet)  
 
 ***
 

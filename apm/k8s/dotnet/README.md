@@ -1,8 +1,8 @@
-.net example uses the .net http client to get non-responding URL so makes valid traces with 403 status code
+.NET CORE example uses the .NET http client to get non-responding URL so makes valid traces with 403 status code
 
-It was built with these [instructions from microsoft](https://docs.microsoft.com/en-us/dotnet/core/docker/build-container?tabs=windows)
+It was containerized with these [instructions from Microsoft](https://docs.microsoft.com/en-us/dotnet/core/docker/build-container?tabs=windows)
 
-For .net 5:  
+For .NET Core 5:  
 
 Deploy:  
 `source deploy-client.sh`
@@ -10,4 +10,4 @@ Deploy:
 Remove the container:
 `source delete-all.sh`
 
-.net 2.1 [located here](../../misc/dotnet-2.1)
+.NET Core 2.1 [located here](../../misc/dotnet-2.1)
