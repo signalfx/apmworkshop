@@ -7,7 +7,7 @@ For .NET Core 5:
 Deploy:  
 `source deploy-client.sh`
 
-Remove the container:
+Remove the container:  
 `source delete-all.sh`
 
 .NET Core 2.1 [located here](../../misc/dotnet-2.1)
