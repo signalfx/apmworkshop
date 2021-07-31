@@ -1,0 +1,37 @@
+---
+### Dotnet Requests Pod
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client-dotnet-k8s
+spec:
+  containers:
+  - name: client-dotnet-k8s
+    image: docker.io/stevelsplunk/splk-dotnet
+    env:
+    - name: SPLUNK_OTEL_AGENT
+      valueFrom:
+        fieldRef:
+          fieldPath: status.hostIP
+    - name: SIGNALFX_SERVICE_NAME
+      value: 'dotnet-httpget'
+    - name: SIGNALFX_ENDPOINT_URL
+      value: "http://$(SPLUNK_OTEL_AGENT):9411/api/v2/spans"
+    - name: SIGNALFX_TRACE_GLOBAL_TAGS
+      value: deployment.environment:apm-workshop
+    - name: SIGNALFX_TRACE_DEBUG
+      value: "true"
+    - name: SIGNALFX_TRACE_LOG_PATH
+      value: /opt/tracelogs
+    - name: CORECLR_ENABLE_PROFILING
+      value: "1"
+    - name: CORECLR_PROFILER
+      value: '{B4C89B0F-9908-4F73-9F59-0D77C5A06874}'
+    - name: CORECLR_PROFILER_PATH
+      value: /opt/signalfx-dotnet-tracing/SignalFx.Tracing.ClrProfiler.Native.so
+    - name: SIGNALFX_INTEGRATIONS
+      value: /opt/signalfx-dotnet-tracing/integrations.json
+    - name: SIGNALFX_DOTNET_TRACER_HOME
+      value: /opt/signalfx-dotnet-tracing
+    command: [ "/bin/bash", "-c", "--" ]
+    args: [ "while true; do sleep 30; done;" ]
