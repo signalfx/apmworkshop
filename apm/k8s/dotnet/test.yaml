@@ -19,19 +19,19 @@ spec:
       value: "http://${SPLUNK_OTEL_AGENT}:9080/v1/trace"
     - name: SIGNALFX_ENV
       value: 'apm-workshop'
-    # - name: SIGNALFX_TRACE_DEBUG
-    #   value: "true"
-    # - name: SIGNALFX_TRACE_LOG_PATH
-    #   value: /opt/tracelogs
-    # - name: CORECLR_ENABLE_PROFILING
-    #   value: "1"
-    # - name: CORECLR_PROFILER
-    #   value: '{B4C89B0F-9908-4F73-9F59-0D77C5A06874}'
-    # - name: CORECLR_PROFILER_PATH
-    #   value: /opt/signalfx-dotnet-tracing/SignalFx.Tracing.ClrProfiler.Native.so
-    # - name: SIGNALFX_INTEGRATIONS
-    #   value: /opt/signalfx-dotnet-tracing/integrations.json
-    # - name: SIGNALFX_DOTNET_TRACER_HOME
-    #   value: /opt/signalfx-dotnet-tracing
+    - name: SIGNALFX_TRACE_DEBUG
+      value: "true"
+    - name: SIGNALFX_TRACE_LOG_PATH
+      value: /opt/tracelogs
+    - name: CORECLR_ENABLE_PROFILING
+      value: "1"
+    - name: CORECLR_PROFILER
+      value: '{B4C89B0F-9908-4F73-9F59-0D77C5A06874}'
+    - name: CORECLR_PROFILER_PATH
+      value: /opt/signalfx-dotnet-tracing/SignalFx.Tracing.ClrProfiler.Native.so
+    - name: SIGNALFX_INTEGRATIONS
+      value: /opt/signalfx-dotnet-tracing/integrations.json
+    - name: SIGNALFX_DOTNET_TRACER_HOME
+      value: /opt/signalfx-dotnet-tracing
     command: [ "/bin/bash", "-c", "--" ]
     args: [ "while true; do sleep 30; done;" ]
