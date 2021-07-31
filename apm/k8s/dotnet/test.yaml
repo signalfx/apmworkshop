@@ -16,9 +16,9 @@ spec:
     - name: SIGNALFX_SERVICE_NAME
       value: 'dotnet-httpget'
     - name: SIGNALFX_ENDPOINT_URL
-      value: "http://${SPLUNK_OTEL_AGENT}:9080/v1/trace"
-    - name: SIGNALFX_ENV
-      value: 'apm-workshop'
+      value: "http://$(SPLUNK_OTEL_AGENT):9411/api/v2/spans"
+    - name: SIGNALFX_TRACE_GLOBAL_TAGS
+      value: deployment.environment:apm-workshop
     - name: SIGNALFX_TRACE_DEBUG
       value: "true"
     - name: SIGNALFX_TRACE_LOG_PATH
