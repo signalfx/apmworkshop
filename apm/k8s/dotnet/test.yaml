@@ -33,5 +33,5 @@ spec:
       value: /opt/signalfx-dotnet-tracing/integrations.json
     - name: SIGNALFX_DOTNET_TRACER_HOME
       value: /opt/signalfx-dotnet-tracing
-    command: ["/bin/sh"]
-    args: ["/App/run-client.sh"]
+    command: [ "/bin/bash", "-c", "--" ]
+    args: [ "while true; do sleep 30; done;" ]
