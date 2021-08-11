@@ -288,7 +288,7 @@ Chart appears with value 17
 
 Examine config of the Otel Collector:  
 
-get your Collector agent pod name via: `kubetctl get pods`
+get your Collector agent pod name via: `kubectl get pods`
 
 i.e.
 
