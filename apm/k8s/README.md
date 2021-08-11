@@ -288,17 +288,17 @@ Chart appears with value 17
 
 Examine config of the Otel Collector:  
 
-get your Collector agent pod name via: `kubetctl get pods`
+get your Collector agent pod name via: `kubectl get pods`
 
 i.e.
 
 `splunk-otel-collector-1626453714-agent-vfr7s` 
 
 For current config:  
-`kubectl exec -it YOURAGENTPODHERE -- curl localhost:55555/debug/configz/effective`
+`kubectl exec -it YOURAGENTPODHERE -- curl localhost:55554/debug/configz/effective`
 
 Initial config:  
-`kubectl exec -it YOURAGENTPODHERE -- curl localhost:55555/debug/configz/initial`
+`kubectl exec -it YOURAGENTPODHERE -- curl localhost:55554/debug/configz/initial`
 
 ***
 
