@@ -119,11 +119,11 @@ splunk-otel-collector-chart/splunk-otel-collector
 Deploy the Flask server deployment/service and the python-requests (makes requests of Flask server) pod:  
 ```
 cd ~/apmworkshop/apm/k8s
-sudo kubectl apply -f py-deployment.yaml
+kubectl apply -f py-deployment.yaml
 ```
 
 Deploy the Java OKHTTP requests pod (makes requests of Flask server):  
-`sudo kubectl apply -f java-deployment.yaml`
+`kubectl apply -f java-deployment.yaml`
 
 ***
 
@@ -162,15 +162,15 @@ The Collector pod is running with <ins>node wide visibility</ins>, so to tell ea
 
 ### Exercise 5: View Collector POD stats 
 
-`sudo kubectl get pods`
+`kubectl get pods`
 
 Note the pod name of the `OpenTelemetry Collector` pod i.e.:  
 `splunk-otel-collector-1620505665-agent-sw45w`
 
 Send the Zpages stats to the lynx browser:  
-`sudo kubectl exec -it YOURAGENTPODHERE -- curl localhost:55679/debug/tracez | lynx -stdin`  
+`kubectl exec -it YOURAGENTPODHERE -- curl localhost:55679/debug/tracez | lynx -stdin`  
 i.e.
-`sudo kubectl exec -it splunk-otel-collector-1620505665-agent-sw45w -- curl localhost:55679/debug/tracez | lynx -stdin`
+`kubectl exec -it splunk-otel-collector-1620505665-agent-sw45w -- curl localhost:55679/debug/tracez | lynx -stdin`
 
 <img src="../assets/06-zpages.png" width="360"> 
 
@@ -220,7 +220,7 @@ Example is here:
 
 Deploy an app with ONLY manual instrumentation:
 
-`sudo kubectl apply -f java-reqs-manual-inst.yaml`
+`kubectl apply -f java-reqs-manual-inst.yaml`
 
 When this app deploys, it appears as an isolated bubble in the map. It has all metrics and tracing just like an auto-instrumented app does. 
 

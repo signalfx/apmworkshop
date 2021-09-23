@@ -3,18 +3,18 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: client-dotnet-k8s
+  name: client-dotnet5-k8s
 spec:
   containers:
-  - name: client-dotnet-k8s
-    image: docker.io/stevelsplunk/splk-dotnet
+  - name: client-dotnet5-k8s
+    image: docker.io/stevelsplunk/splk-dotnet5
     env:
     - name: SPLUNK_OTEL_AGENT
       valueFrom:
         fieldRef:
           fieldPath: status.hostIP
     - name: SIGNALFX_SERVICE_NAME
-      value: 'dotnet-httpget'
+      value: 'dotnet-httpget5'
     - name: SIGNALFX_ENDPOINT_URL
       value: "http://$(SPLUNK_OTEL_AGENT):9411/api/v2/spans"
     - name: SIGNALFX_TRACE_GLOBAL_TAGS
