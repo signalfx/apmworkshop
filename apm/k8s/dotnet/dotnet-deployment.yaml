@@ -14,7 +14,7 @@ spec:
         fieldRef:
           fieldPath: status.hostIP
     - name: SIGNALFX_SERVICE_NAME
-      value: 'dotnet-httpget5'
+      value: 'dotnet5-httpget'
     - name: SIGNALFX_ENDPOINT_URL
       value: "http://$(SPLUNK_OTEL_AGENT):9411/api/v2/spans"
     - name: SIGNALFX_TRACE_GLOBAL_TAGS
