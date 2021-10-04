@@ -290,6 +290,8 @@ Upgrade the Collector deployment with the values required for scraping Prometheu
 helm upgrade --reuse-values splunk-otel-collector-YOURCOLLECTORVALUE --values metricstransform.yaml splunk-otel-collector-chart/splunk-otel-collector
 ```
 
+**Find Transformed Prometheus Metric and Generate Chart**
+
 `Splunk Observabilty -> Menu -> Metrics -> Metric Finder`  
 
 Search for: `transformedgauge`  
