@@ -120,8 +120,6 @@ splunk-otel-collector-chart/splunk-otel-collector
 
 ## Exercise 2: Deploy APM For Containerized Apps: Python and Java
 
-Start in `~/apmworkshop/apm/k8s/python` directory
-
 Deploy the Flask server deployment/service and the python-requests (makes requests of Flask server) pod:  
 ```
 cd ~/apmworkshop/apm/k8s
@@ -162,8 +160,6 @@ The Collector pod is running with <ins>node wide visibility</ins>, so to tell ea
 ```
 
 ***
-
-
 ## Exercise 3: Monitor JVM Metrics For a Java Container
 
 JVM Metrics are emitted by the Splunk OpenTelemetry Java instrumentation and send to the Collector.  
@@ -192,11 +188,7 @@ Filter by Application by adding `service:SERVICENAMEHERE`
 Complete JVM metrics available
 * [at this link](https://github.com/signalfx/splunk-otel-java/blob/main/docs/metrics.md#jvm)
 
-Remote JMX metrics are also available via this monitor:  
-* https://docs.splunk.com/Observability/gdi/genericjmx/genericjmx.html  
-
 ***
-
 ## Exercise 4:  Manually instrument a Java App And Add Custom Tags
 
 Let's say you have an app that has your own functions and doesn't only use auto-instrumented frameworks- or doesn't have any of them!  
@@ -208,7 +200,6 @@ Example is here:
 `cd ~/apmworkshop/apm/k8s/java/manual-inst`  
 
 Deploy an app with ONLY manual instrumentation:
-
 ```
 kubectl apply -f java-reqs-manual-inst.yaml
 ```
@@ -234,13 +225,11 @@ There are two methods shown- the decorator @WithSpan method (easiest), and using
 Note that this is the most minimal example of manual instrumentation- there is a vast amount of power available in OpenTelemetry- please see [the documentation](https://github.com/open-telemetry/opentelemetry-java-instrumentation) and [in depth details](https://github.com/open-telemetry/opentelemetry-java/blob/master/QUICKSTART.md#tracing)
 
 ***
-
 ## Exercise 5: Process Spans with the Otel Collector
 
 See [Processing Spans](./collectorconfig/README.md)  
 
 ***
-
 ## Exercise 6: Receive Prometheus Metrics at the Otel Collector
 
 **Add a Prometheus endpoint pod**  
@@ -289,7 +278,11 @@ Examine the collector update `otel-prometheus.yaml` to see how this works.
 
 This example uses the [Metrics Transform Processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/metricstransformprocessor)  
 
-Update realm/token/cluster in the `metricstransform.yaml`
+Change to the k8s Collector Config directory:  
+```
+cd ~/apmworkshop/apm/k8s/collectorconfig
+```
+Update realm/token/cluster in the `metricstransform.yaml` with your token/realm/cluster  
 
 Upgrade the Collector deployment with the values required for scraping Prometheus metrics from the Prometheus pod deployed in the previous step:
 
@@ -297,16 +290,19 @@ Upgrade the Collector deployment with the values required for scraping Prometheu
 helm upgrade --reuse-values splunk-otel-collector-YOURCOLLECTORVALUE --values metricstransform.yaml splunk-otel-collector-chart/splunk-otel-collector
 ```
 
+**Find Transformed Prometheus Metric and Generate Chart**
+
+`Splunk Observabilty -> Menu -> Metrics -> Metric Finder`  
+
 Search for: `transformedgauge`  
 
 Click `TransformedGauge`  
 
-You'll now see the new chart for the metric formerly known as CustomGauge that has been transformed using the metrics transform processor.
+You'll now see the new chart for the metric formerly known as CustomGauge that has been transformed using the metrics transform processor.  
 
 Examine the collector update `metricstransform.yaml` to see how this works.
 
 ***
-
 ## Monitoring and Troubleshooting  
 
 **View Otel Collector POD stats** 
