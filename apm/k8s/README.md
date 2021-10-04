@@ -354,8 +354,8 @@ kubectl exec -it YOURAGENTPODHERE -- curl localhost:55554/debug/configz/initial
 
 ## Bonus Instrumentation Examples
 
-.NET containerized example is [located here](dotnet)  
-
+* .NET containerized example is [located here](dotnet)  
+* Istio service mesh [lab here](./istio/README.md)
 ***
 
 ## Clean up deployments and services
