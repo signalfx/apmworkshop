@@ -1,6 +1,6 @@
-### OpenTelemetry Collector Configuration
+## OpenTelemetry Collector Configuration Exercise: Span Redaction
 
-The OpenTelemetry Collector has many powerful configuration options ranging from splitting telemetry to multiple destinations to sampling to span processing.  
+The Otel Collector has many powerful configuration options ranging from splitting telemetry to multiple destinations to sampling to span processing.  
 
 Processor documentation: https://github.com/open-telemetry/opentelemetry-collector/tree/main/processor  
 
@@ -21,15 +21,15 @@ make note of:
 `splunkAccessToken`  
 `splunkRealm`  
 
-###
+***
 
 ## Span Processing Example: Redacting Data from a Span Attribute
 
-**Step SP1: Prepare values.yaml file for updating the Helm chart**  
+**Step 1: Prepare values.yaml file for updating the Helm chart**  
 
 Edit `spanprocessor.yaml` with thes values from Step 1.  
 
-**Step SP2: Update the Collector** 
+**Step 2: Update the Collector** 
 
 Install the Collector configuration chart:  
 
@@ -49,29 +49,19 @@ splunk-otel-collector-1620609739 \
 splunk-otel-collector-chart/splunk-otel-collector
 ```
 
-**Step SP3: Study the results**  
+**Step 3: Study the results**  
 
 `Splunk Observability Portal -> APM -> Explore -> java-otel-manual-inst -> Traces`
-
-:play_or_pause_button: [**VIDEO: finding a single trace**](../../assets/26-find-span.mp4)
 
 Example `my.key` and you'll see that the value is `redacted` after applying the `spanprocessor.yaml` example
 
 <img src="../../assets/25-span-redacted.png" width="360">  
 
-**Step SP4: Updating any config or adding new configs**  
+**Conclusion**  
 
 If you want to make changes and update the `spanprocessor.yaml` or add more configurations, use:  
 `helm upgrade --resuse-values`
 
-To see the structure of the inital Collector config:  
+To see the structure of the inital Collector config: see the **Examine Otel Collector Config** section of the [k8s labs](../README.md)
 
-**Get list of configmaps**  
-`kubectl get configmap`  
-You'll see something like: `splunk-otel-collector-1625344942-otel-agent`
-
-**View initial configmap that was installed** 
-Substitute your agent install value i.e. `1625344942` with the one from your list:  
-`kubectl get configmap splunk-otel-collector-1625344942-otel-agent -o yaml`
-
-[Click here to return to k8s APM lab](../README.md)
+[Click here to return to k8s APM labs](../README.md)

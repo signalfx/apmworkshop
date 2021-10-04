@@ -15,16 +15,16 @@ Identify your token and realm from the Splunk Observability Cloud Portal:
 
 ***
 
-## Exercise 1: Use Data Setup Wizard for Splunk OpenTelemetry Collector pod on k3s
+## Exercise 1: Use Data Setup Wizard for Splunk Otel Collector Pod on k3s
 
-If you have the OpenTelemetry Collector running on a host, remove it at this time:  
+If you have the Otel Collector running on a host, remove it at this time:  
 `sudo sh /tmp/splunk-otel-collector.sh --uninstall`
 
 ### Step 1: Splunk Observability Cloud Portal
  
 In Splunk Observability Cloud: `Data Setup->Kubernetes->Add Connection`  
 
-<img src="../assets/17-datasetup-k8s.png" width="360">
+<img src="../assets/17-datasetup-k8s.png" width="360">git remote set-url origin "https://
 
 Choose the following:
 
@@ -41,7 +41,7 @@ And then select `Next`
 
 `Install Integration` page:
 * Copy and paste each step to your shell
-* The final step will install the OpenTelemetry Collector pod  
+* The final step will install the Otel Collector pod  
 
 <img src="../assets/18-datasetup-k8sinstall.png" width="360"> 
 
@@ -57,7 +57,7 @@ TEST SUITE: None
 
 Note the name of the deployment when the install completes i.e.:   `splunk-otel-collector-1620505665`  
 
-### Step 2: Update k3s for Splunk Log Observer
+### Step 2: Update k3s For Splunk Log Observer
 
 **SKIP IF YOU ARE USING YOUR OWN k8s CLUSTER- THIS STEP IS FOR k3s ONLY**
 
@@ -118,7 +118,7 @@ splunk-otel-collector-chart/splunk-otel-collector
 
 ***
 
-## Exercise 2: Deploy APM for containerized apps: Python and Java
+## Exercise 2: Deploy APM For Containerized Apps: Python and Java
 
 Start in `~/apmworkshop/apm/k8s/python` directory
 
@@ -164,7 +164,7 @@ The Collector pod is running with <ins>node wide visibility</ins>, so to tell ea
 ***
 
 
-## Exercise 3: Monitor JVM metrics for a Java container
+## Exercise 3: Monitor JVM Metrics For a Java Container
 
 JVM Metrics are emitted by the Splunk OpenTelemetry Java instrumentation and send to the Collector.  
 
@@ -197,7 +197,7 @@ Remote JMX metrics are also available via this monitor:
 
 ***
 
-## Exercise 4:  Manually instrument a Java app and add custom tags
+## Exercise 4:  Manually instrument a Java App And Add Custom Tags
 
 Let's say you have an app that has your own functions and doesn't only use auto-instrumented frameworks- or doesn't have any of them!  
 
@@ -235,13 +235,13 @@ Note that this is the most minimal example of manual instrumentation- there is a
 
 ***
 
-## Exercise 5: Process Spans with the OpenTelemetry Collector
+## Exercise 5: Process Spans with the Otel Collector
 
 See [Processing Spans](./collectorconfig/README.md)  
 
 ***
 
-## Exercise 6: Receive Prometheus Metrics
+## Exercise 6: Receive Prometheus Metrics at the Otel Collector
 
 **Add a Prometheus endpoint pod**  
 
@@ -255,7 +255,7 @@ Add the Prometheus pod (source code is in the `k8s/python` directory):
 kubectl apply -f prometheus-deployment.yaml
 ```
 
-**Update Otel Collector to scrape the Prometheus pod**
+**Update Otel Collector to Scrape the Prometheus Pod**
 
 Update realm/token/cluster in the `otel-prometheus.yaml`  
 
@@ -271,7 +271,7 @@ Upgrade the Collector deployment with the values required for scraping Prometheu
 helm upgrade --reuse-values splunk-otel-collector-YOURCOLLECTORVALUE --values otel-prometheus.yaml splunk-otel-collector-chart/splunk-otel-collector
 ```
 
-**Find Prometheus metric and generate chart**
+**Find Prometheus Metric and Generate Chart**
 
 `Splunk Observabilty -> Menu -> Metrics -> Metric Finder`  
 
@@ -285,7 +285,7 @@ Examine the collector update `otel-prometheus.yaml` to see how this works.
 
 ***
 
-## Exercise 7: Configure Collector to transform a metric name
+## Exercise 7: Configure Otel Collector to Transform a Metric Name
 
 This example uses the [Metrics Transform Processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/metricstransformprocessor)  
 
@@ -309,7 +309,7 @@ Examine the collector update `metricstransform.yaml` to see how this works.
 
 ## Monitoring and Troubleshooting  
 
-**View Collector POD stats** 
+**View Otel Collector POD stats** 
 
 ```
 kubectl get pods
@@ -329,7 +329,7 @@ kubectl exec -it splunk-otel-collector-1620505665-agent-sw45w -- curl localhost:
 
 <img src="../assets/06-zpages.png" width="360"> 
 
-**Examine config of the Otel Collector**
+**Examine Otel Collector Config**
 
 get your Collector agent pod name via:
 ```

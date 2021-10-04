@@ -1,38 +1,37 @@
-## Splunk Observability Microservices APM Instrumentation Workshop
+## Splunk Observability OpenTelemetry Workshop:
+## APM Instrumentation and the OpenTelemetry Collector
 
-#### Audience:
+### Audience
 * Intermediate and advanced developers, devops, and SREs who have already set up their Splunk Observability Cloud account and have tried out integrations and dashboards.
-* Skill level should include setting up and troubleshooting Linux and Kubernetes environments as well as deploying modern applications i.e. Java 8, Python, Node.
+* Skill level should include setting up and troubleshooting Linux and Kubernetes environments as well as deploying applications written in current versions of Java, Python, Node.
 
-#### Requirements:   
+### Requirements   
 * Prerequisites: completion of [Splunk Observability Workshop](https://signalfx.github.io/observability-workshop/latest/) which trains on using metrics/APM and charts/dashboards/alerts  
 * Splunk Observability Cloud Account
-* Debian (i.e. Ubuntu) Linux environment with minimum 8G RAM and 10G disk w/ lighweight Kubernetes (Rancher k3s) installed. 
+* Debian (i.e. Ubuntu) Linux environment with minimum 12G RAM and 20G disk w/ lighweight Kubernetes (Rancher k3s) installed. 
 
 This workshop has a [guide](./workshop-steps/1-prep.md) on how to set up an Ubuntu w/ k3s environment on your desktop via Multipass.  
 
 You can use any Ubuntu or Debian environment and any Kubernetes cluster for the workshop by using the included setup tools.  
 
-#### Document Conventions
+### Document Conventions
 
 Variables from your Splunk Observability account are displayed like this: YOURVARIABLEHERE.   
 I.e. to change your REALM to `us1` change `api.YOURREALMHERE.signalfx.com` to `api.us1.signalfx.com`  
 
-:play_or_pause_button: **VIDEO:** will proceed a link to the associated section's video to download (downloading is recommended)  
+- k8s = Kubernetes
+- k3s = a lightweight Kubernetes from Rancher (https://www.k3s.io)
+- signalfx = Splunk Observability domain name/endpoint/technology name
+- otel = OpenTelemetry
 
-k8s = Kubernetes
-k3s = a lightweight Kubernetes from Rancher (https://www.k3s.io)
-signalfx = Splunk Observability domain name/endpoint/technology name
+### Workshop Summary
 
-#### Workshop Summary
-
-1. Install Splunk OpenTelemetry Collector Agent on a host
-2. Run APM with host based apps (Java, Python, and Node.js examples) using OpenTelemetry / OpenTracing app instrumentation
-4. Exercise apps to send spans to the Splunk APM platform
-5. Use the Splunk APM platform for visualization and troubleshooting
-6. Study the code examples to learn how they use frameworks picked up by the auto-instrumentation. The k8s shows shows how to deploy microservices with OpenTelemetry APM. 
-
-Make sure to watch :play_or_pause_button: **video** demos where indicated.
+1. Install Splunk OpenTelemetry (Otel) Collector Agent on an Ubuntu Linux host
+2. Exercise APM with host based apps (Java, Python, and Node.js examples) using Otel instrumentation
+3. Install Splunk Otel Collector Agent pod on Kubernetes
+4. Deploy microservices to Kubernetes with Otel APM instrumentation
+5. Configure the Otel collector with various capabilities i.e. Prometheus metrics, metrics tranformation, and span key redaction
+6. Troubleshoot the Otel collector
 
 ***
 
