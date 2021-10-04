@@ -5,25 +5,29 @@
 Identify your token and realm from the Splunk Observability Cloud Portal:   
 `Organization Settings->Access Tokens` and `Your Name->Account Settings`  
 
-<ins>If using your own k8s cluster on an Ubuntu host</ins> use this setup script:  
+> <ins>If using your own k8s cluster on an Ubuntu host</ins>
+> * Use this setup script to bootstrap your Debian based k8s environment with everything needed for the k8s workshop:  
 `bash <(curl -s https://raw.githubusercontent.com/signalfx/apmworkshop/master/setup-tools/k8s-env-only.sh)`
-
-or ensure you have `helm` and `lynx` installed...
-
-And then skip to:  
-Exercise 2: Deploy APM for containerized apps: Python and Java
+> * Ensure you have `helm` and `lynx` installed.
+> * Skip to: Exercise 2: Deploy APM for containerized apps: Python and Java
+> * If you are using k8s anywhere else you can still do this workshop but will need to ensure `helm`, `lynx` and the other commands encountered in the workshop are available. It is recommended to run this workshop in a debian environment.
+ 
 
 ***
 
-### Exercise 1: Use Data Setup Wizard for Splunk OpenTelemetry Collector pod on k3s
+## Exercise 1: Use Data Setup Wizard for Splunk OpenTelemetry Collector pod on k3s
 
 If you have the OpenTelemetry Collector running on a host, remove it at this time:  
 `sudo sh /tmp/splunk-otel-collector.sh --uninstall`
 
-<img src="../assets/17-datasetup-k8s.png" width="360">  
+### Step 1: Splunk Observability Cloud Portal
+ 
+In Splunk Observability Cloud: `Data Setup->Kubernetes->Add Connection`  
 
-**Step 1: Splunk Observability Cloud Portal: `Data Setup->Kubernetes->Add Connection`**  
+<img src="../assets/17-datasetup-k8s.png" width="360">
+
 Choose the following:
+
 | Key | Value |
 | ----- | ---- |
 | Access Token | Select from list |
@@ -35,7 +39,9 @@ Choose the following:
 
 And then select `Next`  
 
-`Install Integration` page: copy and paste each step to your shell. The final step will install the OpenTelemetry Collector pod.  
+`Install Integration` page:
+* Copy and paste each step to your shell
+* The final step will install the OpenTelemetry Collector pod  
 
 <img src="../assets/18-datasetup-k8sinstall.png" width="360"> 
 
@@ -51,7 +57,7 @@ TEST SUITE: None
 
 Note the name of the deployment when the install completes i.e.:   `splunk-otel-collector-1620505665`  
 
-**Step 2: Update k3s for Splunk Log Observer**  
+### Step 2: Update k3s for Splunk Log Observer
 
 **SKIP IF YOU ARE USING YOUR OWN k8s CLUSTER- THIS STEP IS FOR k3s ONLY**
 
@@ -112,9 +118,9 @@ splunk-otel-collector-chart/splunk-otel-collector
 
 ***
 
-### Exercise 2: Deploy APM for containerized apps: Python and Java
+## Exercise 2: Deploy APM for containerized apps: Python and Java
 
-##### Start in `~/apmworkshop/apm/k8s/python` directory
+Start in `~/apmworkshop/apm/k8s/python` directory
 
 Deploy the Flask server deployment/service and the python-requests (makes requests of Flask server) pod:  
 ```
@@ -123,25 +129,22 @@ kubectl apply -f py-deployment.yaml
 ```
 
 Deploy the Java OKHTTP requests pod (makes requests of Flask server):  
-`kubectl apply -f java-deployment.yaml`
-
-***
-
-### Exercise 3: Study the results
+```
+kubectl apply -f java-deployment.yaml
+```
+**Study the results**
 
 The APM Dashboard will show the instrumented Python-Requests and Java OKHTTP clients posting to the Flask Server.  
 Make sure you select the `apm-workshop` ENVIRONMENT to monitor.
 
 <img src="../assets/19-k8s-apm.png" width="360">  
 
-***
-
-### Exercise 4: Study the `deployment.yaml` files
+**Study the `deployment.yaml` files**
 
 Example in Github or:  
 ```
-more ~/apmworkshop/apm/k8s/py-deployment.yaml   
-more ~/apmworkshop/apm/k8s/java-deployment.yaml   
+~/apmworkshop/apm/k8s/py-deployment.yaml   
+~/apmworkshop/apm/k8s/java-deployment.yaml   
 ```
 The .yaml files show the environment variables telling the instrumentation to send spans to the OpenTelemetry Collector.
 
@@ -160,25 +163,8 @@ The Collector pod is running with <ins>node wide visibility</ins>, so to tell ea
 
 ***
 
-### Exercise 5: View Collector POD stats 
 
-`kubectl get pods`
-
-Note the pod name of the `OpenTelemetry Collector` pod i.e.:  
-`splunk-otel-collector-1620505665-agent-sw45w`
-
-Send the Zpages stats to the lynx browser:  
-`kubectl exec -it YOURAGENTPODHERE -- curl localhost:55679/debug/tracez | lynx -stdin`  
-i.e.
-`kubectl exec -it splunk-otel-collector-1620505665-agent-sw45w -- curl localhost:55679/debug/tracez | lynx -stdin`
-
-<img src="../assets/06-zpages.png" width="360"> 
-
-***
-
-## Advanced APM Topics: Manual Java instrumenation, span processing, JVM monitoring, Prometheus
-
-### Exercise 6: Monitor JVM metrics for a Java container
+## Exercise 3: Monitor JVM metrics for a Java container
 
 JVM Metrics are emitted by the Splunk OpenTelemetry Java instrumentation and send to the Collector.  
 
@@ -203,15 +189,18 @@ Filter by Application by adding `service:SERVICENAMEHERE`
 
 <img src="../assets/28-jvm-filter.png" width="360">    
 
-Complete JVM metrics available [at this link](https://github.com/signalfx/splunk-otel-java/blob/main/docs/metrics.md#jvm)
+Complete JVM metrics available
+* [at this link](https://github.com/signalfx/splunk-otel-java/blob/main/docs/metrics.md#jvm)
 
-Remote JMX metrics are also available via this monitor:  https://docs.splunk.com/Observability/gdi/genericjmx/genericjmx.html  
+Remote JMX metrics are also available via this monitor:  
+* https://docs.splunk.com/Observability/gdi/genericjmx/genericjmx.html  
 
 ***
 
-### Exercise 7:  Manually instrument a Java app and add custom tags
+## Exercise 4:  Manually instrument a Java app and add custom tags
 
 Let's say you have an app that has your own functions and doesn't only use auto-instrumented frameworks- or doesn't have any of them!  
+
 You can easily manually instrument your functions and have them appear as part of a service, or as an entire service.
 
 Example is here:
@@ -220,7 +209,9 @@ Example is here:
 
 Deploy an app with ONLY manual instrumentation:
 
-`kubectl apply -f java-reqs-manual-inst.yaml`
+```
+kubectl apply -f java-reqs-manual-inst.yaml
+```
 
 When this app deploys, it appears as an isolated bubble in the map. It has all metrics and tracing just like an auto-instrumented app does. 
 
@@ -232,7 +223,7 @@ Take a look at the traces and their spans to see the manually added values of Me
 
 You will see the function called ExampleSpan with custom `Logging` messages and a `message:myevent` span/tag.  
 
-<img src="../assets/22-k8s-m-span1.png" width="360"> 
+<img src="../assets/22-k8s-m-span1.png" width="360">  
 
 <img src="../assets/23-k8s-m-span2.png" width="360"> 
 
@@ -244,33 +235,41 @@ Note that this is the most minimal example of manual instrumentation- there is a
 
 ***
 
-### Exercise 8: Process Spans with the OpenTelemetry Collector
+## Exercise 5: Process Spans with the OpenTelemetry Collector
 
 See [Processing Spans](./collectorconfig/README.md)  
 
 ***
 
-### Exercise 9: Scrape Prometheus Metrics
+## Exercise 6: Receive Prometheus Metrics
 
 **Add a Prometheus endpoint pod**  
 
-Change to the k8s directory:  
-`cd ~/apmworkshop/apm/k8s`  
+Change to the k8s Collector Config directory:  
+```
+cd ~/apmworkshop/apm/k8s/collectorconfig
+```
 
 Add the Prometheus pod (source code is in the `k8s/python` directory):
-`kubectl apply -f prometheus-deployment.yaml`
+```
+kubectl apply -f prometheus-deployment.yaml
+```
 
 **Update Otel Collector to scrape the Prometheus pod**
 
-Change to the examples directory:  
-`cd ~/apmworkshop/apm/k8s/collectorconfig`
-
 Update realm/token/cluster in the `otel-prometheus.yaml`  
 
-Update collector:  
-`helm list`
+Verify your helm deployment of the collector:
 
-`helm upgrade --reuse-values splunk-otel-collector-YOURCOLLECTORVALUE --values otel-prometheus.yaml splunk-otel-collector-chart/splunk-otel-collector`  
+```
+helm list
+```
+
+Upgrade the Collector deployment with the values required for scraping Prometheus metrics from the Prometheus pod deployed in the previous step:
+
+```
+helm upgrade --reuse-values splunk-otel-collector-YOURCOLLECTORVALUE --values otel-prometheus.yaml splunk-otel-collector-chart/splunk-otel-collector
+```
 
 **Find Prometheus metric and generate chart**
 
@@ -280,47 +279,108 @@ Search for: `customgauge`
 
 Click `CustomGauge`  
 
-Chart appears with value 17  
+Chart appears with value `17`
+
+Examine the collector update `otel-prometheus.yaml` to see how this works.
 
 ***
 
-### Exercise 10: Advanced Troubleshooting  
+## Exercise 7: Configure Collector to transform a metric name
 
-Examine config of the Otel Collector:  
+This example uses the [Metrics Transform Processor](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/processor/metricstransformprocessor)  
 
-get your Collector agent pod name via: `kubectl get pods`
+Update realm/token/cluster in the `metricstransform.yaml`
+
+Upgrade the Collector deployment with the values required for scraping Prometheus metrics from the Prometheus pod deployed in the previous step:
+
+```
+helm upgrade --reuse-values splunk-otel-collector-YOURCOLLECTORVALUE --values metricstransform.yaml splunk-otel-collector-chart/splunk-otel-collector
+```
+
+Search for: `transformedgauge`  
+
+Click `TransformedGauge`  
+
+You'll now see the new chart for the metric formerly known as CustomGauge that has been transformed using the metrics transform processor.
+
+Examine the collector update `metricstransform.yaml` to see how this works.
+
+***
+
+## Monitoring and Troubleshooting  
+
+**View Collector POD stats** 
+
+```
+kubectl get pods
+```
+
+Note the pod name of the `OpenTelemetry Collector` pod i.e.:  
+`splunk-otel-collector-1620505665-agent-sw45w`
+
+Send the Zpages stats to the lynx browser:  
+```
+kubectl exec -it YOURAGENTPODHERE -- curl localhost:55679/debug/tracez | lynx -stdin
+```  
+i.e.
+```
+kubectl exec -it splunk-otel-collector-1620505665-agent-sw45w -- curl localhost:55679/debug/tracez | lynx -stdin
+```
+
+<img src="../assets/06-zpages.png" width="360"> 
+
+**Examine config of the Otel Collector**
+
+get your Collector agent pod name via:
+```
+kubectl get pods
+```
 
 i.e.
 
 `splunk-otel-collector-1626453714-agent-vfr7s` 
 
-For current config:  
-`kubectl exec -it YOURAGENTPODHERE -- curl localhost:55554/debug/configz/effective`
+Show current Collector config:  
+```
+kubectl exec -it YOURAGENTPODHERE -- curl localhost:55554/debug/configz/effective
+```
 
-Initial config:  
-`kubectl exec -it YOURAGENTPODHERE -- curl localhost:55554/debug/configz/initial`
+Show initial Collector config:  
+```
+kubectl exec -it YOURAGENTPODHERE -- curl localhost:55554/debug/configz/initial
+```
 
 ***
 
-### Bonus Examples
+## Bonus Instrumentation Examples
 
 .NET containerized example is [located here](dotnet)  
 
 ***
 
-### Clean up deployments and services
+## Clean up deployments and services
 
 To delete all k8s lab work:  
 in `~/apmworkshop/apm/k8s/`  
-`source delete-all-k8s.sh`  
-`source delete-prometheus.sh`  
+```
+source delete-all-k8s.sh
+source delete-prometheus.sh
+```
 
 To delete the Collector from k8s:  
-`helm list`  
+```
+helm list
+```  
 `helm delete YOURCOLLECTORHERE`
-i.e. `helm delete splunk-otel-collector-1620505665`  
+i.e.
+```
+helm delete splunk-otel-collector-1620505665
+```
 
-k3s: `/usr/local/bin/k3s-uninstall.sh`  
+k3s:
+```
+/usr/local/bin/k3s-uninstall.sh
+```  
 
 ***
 

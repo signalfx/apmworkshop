@@ -12,14 +12,17 @@
         - Set up OpenTelemetry Collector Agent on a k8s cluster
         - OpenTelemetry APM Instrumentation on k8s on Java, Python k8s pods
         - Manual APM Instrumentation for Java
+        - JVM Metrics
         - Span processing with redaction example
-        - Prometheus scraping and custom metrics
         - APM for Istio service mesh
-        - OpenTelemetry Collector configuration
+        - OpenTelemetry Collector configuration / troubleshooting
+          - Prometheus scraping and custom metrics
+          - Collectd: receive metrics from any platform
+          - Troubleshooting the Collector
 
 **Details**
 - Audience: existing / trained users of Splunk Observability Cloud  
-- APM is for microservices or modern (Java >=8 ) applications only  
+- APM is for self written apps: (with a focus on microservices) or modern (Java >=8 )
 - All examples have source code supplied
 
 #### Disclaimers
