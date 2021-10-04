@@ -1,1 +1,1 @@
-05/2021: These examples use the deprecated, but still supported, Splunk SmartAgent until the OpenTelemetry Collector Agent supports AWS ECS platforms
+Oct 2021- ECS examples are work in process- do not use until this README changes

@@ -9,7 +9,8 @@ This exercise will install an Istio service mesh on a Kubernetes cluster that di
 Both the service mesh and the Flask server will emit spans.
 The result will show tracing of the external request to the node and through the mesh to the Flask server.  
 
-### Step 1: Install OpenTelemetry Collector  
+***
+## Step 1: Install OpenTelemetry Collector  
 
 If you have an existing collector running remove it.
 
@@ -30,8 +31,8 @@ helm install \
 --generate-name \
 splunk-otel-collector-chart/splunk-otel-collector
 ```
-
-### Step 2: Set Up Istio 
+***
+## Step 2: Set Up Istio 
 
 Download Istio:
 ```
@@ -42,8 +43,8 @@ curl -L https://istio.io/downloadIstio | sh -
 Follow instructions from the installer script that are now in your terminal to add Istio's bin path to your env then:    
 `istioctl install`
 
-
-### Step 3: Deploy Istio configurations and example Flask microservice   
+***
+## Step 3: Deploy Istio configurations and example Flask microservice   
 
 Enable automatic Istio proxy injection. [More info here](https://istio.io/latest/docs/setup/additional-setup/sidecar-injection/#automatic-sidecar-injection)    
 `kubectl label namespace default istio-injection=enabled`
@@ -127,3 +128,5 @@ remove k8s examples:
 Remove Istio:  
 From the Istio bin directory: 
 `istioctl x uninstall --purge`
+
+[Click here to return to k8s APM labs](../README.md)
