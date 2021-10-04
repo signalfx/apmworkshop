@@ -15,9 +15,6 @@
 
 After working through the labs, try a nice relaxing game of [Python Trace Invaders](https://github.com/signalfx/apmworkshop/tree/master/apm/python/traceinvaders) (for Mac only)
 
-To learn about more languges go to https://docs.splunk.com/Observability/apm/apm.html#step-2-instrument-your-applications and check out these misc guides:  
-[dot.NET](../misc/dotnet)    
-[ECS Fargate](../misc/ecs-fargate)    
-[ECS EC2](../misc/ecs-ec2)    
+To learn about more languges go to https://docs.splunk.com/Observability/apm/apm.html#step-2-instrument-your-applications
 
 [Return to workshop](../README.md)
