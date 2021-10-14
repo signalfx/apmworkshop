@@ -1,1 +1,0 @@
-curl -H "Server: 1" localhost:30001/echo

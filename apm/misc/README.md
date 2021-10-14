@@ -1,1 +1,0 @@
-Oct 2021- ECS examples are work in process- do not use until this README changes

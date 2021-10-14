@@ -1,9 +1,0 @@
-clusterName: YOURCLUSTERHERE
-splunkRealm: YOURREALMHERE        
-splunkAccessToken: YOURTOKENHERE
-
-fluentd:
-  config:
-    containers:
-      logFormatType: cri
-      criTimeFormat: "%Y-%m-%dT%H:%M:%S.%NZ"

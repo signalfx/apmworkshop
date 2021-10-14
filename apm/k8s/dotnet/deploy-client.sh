@@ -1,1 +1,0 @@
-kubectl apply -f dotnet-deployment.yaml

@@ -1,4 +1,0 @@
-splunk-opentelemetry[all]
-opentelemetry-api
-opentelemetry-instrumentation-redis
-redis

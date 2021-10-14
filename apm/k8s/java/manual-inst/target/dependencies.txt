@@ -1,5 +1,0 @@
-digraph "com.signalfx.public:java-app:jar:1.0-SNAPSHOT" { 
-	"com.signalfx.public:java-app:jar:1.0-SNAPSHOT" -> "io.opentelemetry:opentelemetry-api:jar:1.0.1:compile" ; 
-	"com.signalfx.public:java-app:jar:1.0-SNAPSHOT" -> "io.opentelemetry:opentelemetry-context:jar:1.0.1:compile" ; 
-	"com.signalfx.public:java-app:jar:1.0-SNAPSHOT" -> "io.opentelemetry:opentelemetry-extension-annotations:jar:1.0.1:compile" ; 
- } 

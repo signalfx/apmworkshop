@@ -1,1 +1,0 @@
-sudo kubectl apply -f py-autogen.yaml

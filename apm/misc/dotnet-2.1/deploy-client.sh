@@ -1,1 +1,0 @@
-kubectl apply -f dotnet-2.1-deployment.yaml

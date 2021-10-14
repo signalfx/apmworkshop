@@ -1,5 +1,0 @@
-/home/ubuntu/apmworkshop/apm/misc/dotnet/bin/Release/net5.0/publish/myApp
-/home/ubuntu/apmworkshop/apm/misc/dotnet/bin/Release/net5.0/publish/myApp.dll
-/home/ubuntu/apmworkshop/apm/misc/dotnet/bin/Release/net5.0/publish/myApp.deps.json
-/home/ubuntu/apmworkshop/apm/misc/dotnet/bin/Release/net5.0/publish/myApp.runtimeconfig.json
-/home/ubuntu/apmworkshop/apm/misc/dotnet/bin/Release/net5.0/publish/myApp.pdb
